@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Scoreboard</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+	</head>
+	<body class="no-margin">
+		<section class="scoreboard-container">
+			<header class="scoreboard-header centered-content">
+				<h1 class="scoreboard-title no-margin">scoreboard</h1>
+			</header>
+			<main class="bbox">
+				<section class="team-section">
+					<header class="team-header centered-content">
+						<h2 class="team-title no-margin">home</h2>
+					</header>
+					<div class="pts-container">
+						<div class="pts-btns">
+							<button class="btn pts-btn" onclick="addPoints(0, 1)">+1</button>
+							<button class="btn pts-btn" onclick="addPoints(0, 2)">+2</button>
+							<button class="btn pts-btn" onclick="addPoints(0, 3)">+3</button>
+						</div>
+						<div class="pts-card bbox centered-content"></div>
+					</div> <!-- score display -->
+					<section class="gameplay-section">
+						<header class="gameplay-header">
+							<h3 class="gameplay-title no-margin">fouls</h3>
+						</header>
+						<div class="gameplay-items">
+							<div class="gameplay-item foul"></div>
+							<div class="gameplay-item foul"></div>
+							<div class="gameplay-item foul"></div>
+							<div class="gameplay-item foul"></div>
+							<div class="gameplay-item foul"></div>
+						</div>
+						<button class="btn gameplay-btn foul-btn" onclick="removeFoul(0)">foul</button>
+					</section> <!-- fouls section-->
+					<section class="gameplay-section">
+						<header class="gameplay-header">
+							<h3 class="gameplay-title no-margin">timeouts</h3>
+						</header>
+						<div class="gameplay-items">
+							<div class="gameplay-item timeout"></div>
+							<div class="gameplay-item timeout"></div>
+							<div class="gameplay-item timeout"></div>
+							<div class="gameplay-item timeout"></div>
+							<div class="gameplay-item timeout"></div>
+							<div class="gameplay-item timeout"></div>
+							<div class="gameplay-item timeout"></div>
+						</div>
+						<button class="btn gameplay-btn timeout-btn" onclick="removeTimeOut(0)">timeout</button>
+					</section> <!-- timeouts section-->
+				</section> <!-- team display -->
+				<section class="team-section">
+					<header class="team-header centered-content">
+						<h2 class="team-title no-margin">away</h2>
+					</header>
+					<div class="pts-container pts-container-right">
+						<div class="pts-btns pts-btns-right">
+							<button class="btn pts-btn" onclick="addPoints(1, 1)">+1</button>
+							<button class="btn pts-btn" onclick="addPoints(1, 2)">+2</button>
+							<button class="btn pts-btn" onclick="addPoints(1, 3)">+3</button>
+						</div>
+						<div class="pts-card bbox centered-content"></div>
+					</div> <!-- score display -->
+					<section class="gameplay-section">
+						<header class="gameplay-header">
+							<h3 class="gameplay-title no-margin">fouls</h3>
+						</header>
+						<div class="gameplay-items">
+							<div class="gameplay-item foul"></div>
+							<div class="gameplay-item foul"></div>
+							<div class="gameplay-item foul"></div>
+							<div class="gameplay-item foul"></div>
+							<div class="gameplay-item foul"></div>
+						</div>
+						<button class="btn gameplay-btn foul-btn"onclick="removeFoul(1)">foul</button>
+					</section> <!-- fouls section-->
+					<section class="gameplay-section">
+						<header class="gameplay-header">
+							<h3 class="gameplay-title no-margin">timeouts</h3>
+						</header>
+						<div class="gameplay-items">
+							<div class="gameplay-item timeout"></div>
+							<div class="gameplay-item timeout"></div>
+							<div class="gameplay-item timeout"></div>
+							<div class="gameplay-item timeout"></div>
+							<div class="gameplay-item timeout"></div>
+							<div class="gameplay-item timeout"></div>
+							<div class="gameplay-item timeout"></div>
+						</div>
+						<button class="btn gameplay-btn timeout-btn"onclick="removeTimeOut(1)">timeout</button>
+					</section> <!-- timeouts section-->
+				</section> <!-- team display -->
+			</main>
+			<div class="centered-content">
+				<button class="btn reset-btn" onclick="resetGame()">new game</button>
+			</div>
+		</section>
+		<script src="js/index.js"></script>
+	</body>
+</html>

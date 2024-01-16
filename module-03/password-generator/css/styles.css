@@ -1,0 +1,282 @@
+:root {
+  --background-black: #1C1C1C;
+  --container-background: #ECFDF5;
+  --green: #10B981;
+  --title-text: #2B283A;
+  --tagline-grey: #6B7280;
+  --password-green: #5DEF92;
+  --hr-border: #D5D4D8;
+  --background-blue: #273549;
+}
+
+/* UTILITY CLASSES */
+.no-margin {
+  margin: 0 !important;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.bbox {
+  box-sizing: border-box;
+}
+
+.centered-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.medium-opacity {
+  opacity: .5;
+}
+
+.no-display {
+  display: none;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* GENERIC CLASSES */
+body {
+  background-color: var(--background-black);
+}
+
+main {
+  /* sizing and spacing */
+  width: 90vw;
+  max-width: 550px;
+  margin: 5vw auto;
+  padding: 115px 52px;
+
+  /* content layout */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 35px;
+
+  position: relative;
+
+  /* styling */
+  background-color: var(--container-background);
+
+  /* text style */
+  font-family: 'Inter', sans-serif;
+}
+
+header {
+  /* content layout */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+h1 {
+  /* text style */
+  font-family: 'Karla', sans-serif;
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 40px;
+  letter-spacing: -.01em;
+  color: var(--title-text);
+
+  /* sizing and spacing */
+  max-width: 354px;
+}
+
+h1 span {
+  color: var(--green);
+}
+
+.option {
+  /* content layout */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  /* styling */
+  color: var(--title-text);
+}
+
+.checkbox {
+  /* sizing and spacing */
+  height: 20px;
+  width: 20px;
+
+  /* styling */
+  cursor: pointer;
+  border: 2px solid var(--green);
+  border-radius: 6px;
+  background-color: var(--green);
+  cursor: pointer;
+
+  /* text style */
+  color: white;
+  font-weight: 800;
+  font-size: 12px;
+  line-height: 12px;
+}
+
+.empty-background {
+  background-color: #FFFFFF !important;
+}
+
+
+input[type="number"] {
+  /* sizing and spacing */
+  width: 40px;
+  height: 20px;
+
+  /* styling */
+  border: 2px solid var(--green);
+  border-radius: 6px;
+
+  /* text style */
+  font-size: 16px;
+  line-height: 16px;
+  text-align: center;
+}
+
+input[type="number"]:focus {
+  outline: none;
+}
+
+button {
+  /* sizing and spacing */
+  height: 52px;
+  width: 191px;
+
+  /* styling */
+  border: none;
+  border-radius: 6px;
+  background-color: var(--green);
+  cursor: pointer;
+
+  /* text style */
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  color: #FFF;
+}
+
+button:focus {
+  outline: none;
+}
+
+hr {
+  /* sizing and spacing */
+  width: 100%;
+  height: 0;
+
+  /* styling */
+  border: none;
+  border-top: 1px solid var(--hr-border);
+}
+
+/* CONTENT SPECIFIC CLASSES */
+.darkmode-switch {
+  /* positioning */
+  position: absolute;
+  top: 52px;
+  left: 52px;
+
+  /* sizing and spacing */
+  width: 20px;
+  height: 20px;
+
+  /* cursor */
+  cursor: pointer;
+
+  /* styling */
+  color:var(--title-text);
+}
+
+.tagline {
+  /* text style */
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--tagline-grey);
+}
+
+.password-options {
+  /* sizing and spacing */
+  margin-top: 15px;
+
+  /* content layout */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.error-alert {
+  /* styling */
+  background-color: orangered;
+  border-radius: 6px;
+  padding: 0 20px;
+
+  /* text style */
+  color: white;
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.red-border {
+  border: 2px solid orangered !important;
+}
+
+.password-containers {
+  /* content layout */
+  display: grid;
+  grid-auto-rows: 39px;
+  grid-template-columns: repeat(auto-fill, minmax(211px, 1fr));
+  gap: 24px;
+}
+
+.password-container {
+  /* content layout */
+  display: flex;
+  align-items: center;
+
+  /* styling */
+  background-color: #273549;
+  border-radius: 6px;
+
+  /* text style */
+  color: var(--password-green);
+}
+
+.password-field {
+  /* sizing and spacing */
+  height: 100%;
+  width: 100%;
+
+  /* text style */
+  font-size: 16px;
+}
+
+.password-action {
+  /* sizing and spacing */
+  margin: 0 10px;
+  width: 20px;
+  height: 20px;
+
+  /* cursor */
+  cursor: pointer;
+}
