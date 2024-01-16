@@ -11,12 +11,30 @@ const firebaseConfig = require('../firebase.config');
 const app = initializeApp(firebaseConfig);
 
 // DOM ELEMENTS
-const inputArea = document.getElementById('text-area')
+const textArea = document.getElementById('text-area')
 const toInput = document.getElementById('to-input');
 const fromInput = document.getElementById('from-input');
 const publishBtn = document.getElementById('publish-btn');
 
 // EVENT HANDLERS
 publishBtn.addEventListener('click', () => {
-  console.log('Publishing endorsement');
+  const endorsementData = gatherEndorsementInputs();
+  emptyTextInputs();
 })
+
+// HELPER FUNCTIONS
+function gatherEndorsementInputs() {
+  return {
+    text: textArea.value,
+    from: fromInput.value,
+    to: toInput.value,
+    date: new Date(),
+    likes: 0
+  }
+}
+
+function emptyTextInputs () {
+  textArea.value = "";
+  fromInput.value = "";
+  toInput.value = "";
+}

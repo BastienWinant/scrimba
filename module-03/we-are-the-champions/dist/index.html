@@ -13,17 +13,22 @@
 </head>
 <body>
   <main class="main">
-    <header class="header">
+    <header class="main-header">
       <img src="../assets/freddie.png" alt="app logo" class="logo" />
       <h1 class="title no-margin">We are the Champions</h1>
     </header>
     <section class="submission-section">
       <textarea id="text-area" placeholder="Write your endorsement here" class="bbox typed-input"></textarea>
       <div class="typed-inputs">
-        <input type="text" id="from-input" name="From" placeholder="From" class="bbox typed-input" />
-        <input type="text" id="to-input" name="To" placeholder="To" class="bbox typed-input" />
+        <input type="text" id="from-input" name="From" placeholder="From" class="typed-input" />
+        <input type="text" id="to-input" name="To" placeholder="To" class="typed-input" />
       </div>
       <button type="button" id="publish-btn" class="centered-content">Publish</button>
+    </section>
+    <section class="endorsements-section">
+      <header>
+        <h2 class="no-margin">- Endorsements -</h2>
+      </header>
     </section>
   </main>
   <script src="bundle.js"></script>
