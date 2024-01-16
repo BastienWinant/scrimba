@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Unit Converter</title>
+
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  </head>
+  <body class="no-margin">
+    <main>
+      <i class="fa-solid fa-lightbulb bbox"></i>
+      <header>
+        <h1 class="no-margin">metric/imperial unit conversion</h1>
+        <input id="amt-input" class="centered-content bbox" type="number" min="0" max="99" value="20"></input>
+        <button id="convert-btn" class="centered-content">convert</button>
+      </header>
+      <div id="cards-container" class="bbox">
+      </div>
+    </main>
+    <script src="js/index.js"></script>
+  </body>
+</html>
