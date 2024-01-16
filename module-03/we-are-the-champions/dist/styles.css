@@ -1,0 +1,52 @@
+.black-border {
+  box-sizing: border-box;
+  border: 1px solid black;
+}
+
+/* VARIABLES */
+:root {
+  --body-background: #1B1924;
+}
+
+/* UTIILTY CLASSES */
+.no-margin {
+  margin: 0 !important;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.bbox {
+  box-sizing: border-box;
+}
+
+.centered-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* GENERIC CLASSES */
+
+/* CONTENT-SPECIFIC CLASSES */
+body {
+  background: var(--body-background);
+}
+
+/* HEADER SECTION */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  /* sizing */
+  width: 150px;
+  height: auto;
+}
+
+.title {
+  font-size
+}
