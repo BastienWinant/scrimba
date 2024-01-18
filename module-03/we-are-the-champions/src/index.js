@@ -49,7 +49,8 @@ function gatherEndorsementInputs() {
     from: fromInput.value,
     to: toInput.value,
     date: new Date(),
-    likes: 0
+    likes: Math.floor(Math.random() * 21), // add a random number of likes just for effect
+    liked: false
   }
 }
 
@@ -123,11 +124,14 @@ function addCardFooter(cardEl, endorsementEntry) {
   divEl.classList.add('likes-container');
 
   const imgEl = document.createElement('img');
-  imgEl.src = "../assets/hearts-suit-hollow.svg";
   imgEl.classList.add("like-logo");
-
-  // const endorsementRef = ref(database, `endorsements/${endorsementEntry[0]}`)
-  imgEl.addEventListener('click', updateLikes.bind(endorsementEntry));
+  if (endorsementEntry[1].liked) {
+    imgEl.src = "../assets/hearts-suit-full.svg";
+    imgEl.addEventListener('click', decreaseLikes.bind(endorsementEntry));
+  } else {
+    imgEl.src = "../assets/hearts-suit-hollow.svg";
+    imgEl.addEventListener('click', increaseLikes.bind(endorsementEntry));
+  }
 
   const pEl = document.createElement('p');
   pEl.classList.add('no-margin');
@@ -152,9 +156,26 @@ function displayEmptyMessage() {
   endorsementsContainer.appendChild(pEl);
 }
 
-function updateLikes() {
-  this[1].likes += 1
-  
+function increaseLikes() {
+  // update the likes in the object bounded to the function
+  this[1].likes += 1;
+  this[1].liked = true;
+
+  // create a reference to the endorsement entry in the database
   const endorsementRef = ref(database, `endorsements/${this[0]}`);
+
+  // set the value in the database to object with the updates likes
+  set(endorsementRef, this[1]);
+}
+
+function decreaseLikes() {
+  // update the likes in the object bounded to the function
+  this[1].likes -= 1;
+  this[1].liked = false;
+
+  // create a reference to the endorsement entry in the database
+  const endorsementRef = ref(database, `endorsements/${this[0]}`);
+
+  // set the value in the database to object with the updates likes
   set(endorsementRef, this[1]);
 }
