@@ -190,6 +190,7 @@ body {
   padding: 13px 16px;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   gap: 10px;
 
   /* styling */

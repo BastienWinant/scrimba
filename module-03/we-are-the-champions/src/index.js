@@ -24,6 +24,20 @@ publishBtn.addEventListener('click', () => {
   emptyTextInputs();
 });
 
+// ON VALUE CALLBACK FUNCTION
+onValue(endorsementsInDB, (snapshot) => {
+  // clear the HTML container
+  clearEndorsementsContainer();
+
+  // get a snapshot of the endorsement DB entries
+  let endorsementsArr = Object.values(snapshot.val());
+  
+  // add each entry to the container
+  endorsementsArr.forEach((endorsement) => {
+    appendEndorsement(endorsement);
+  })
+});
+
 // HELPER FUNCTIONS
 function gatherEndorsementInputs() {
   return {
@@ -53,19 +67,6 @@ function appendEndorsement(endorsement) {
 
   endorsementsContainer.appendChild(cardEl);
 }
-
-onValue(endorsementsInDB, (snapshot) => {
-  // clear the HTML container
-  clearEndorsementsContainer();
-
-  // get a snapshot of the endorsement DB entries
-  let endorsementsArr = Object.values(snapshot.val());
-  
-  // add each entry to the container
-  endorsementsArr.forEach((endorsement) => {
-    appendEndorsement(endorsement);
-  })
-});
 
 /* HELPER FUNCTIONS */
 function createCard() {
