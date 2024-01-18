@@ -154,8 +154,18 @@ textarea {
   font-weight: 700;
 }
 
+.endorsements-container {
+  /* content layout */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+}
+
 /* ENDORSEMENT CARD */
 .card {
+  /* sizing */
+  flex: 1 0 300px;
+
   /* content layout */
   padding: 12px 16px;
   box-sizing: border-box;
