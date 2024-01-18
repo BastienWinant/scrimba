@@ -187,11 +187,11 @@ body {
 /* ENDORSEMENT CARD */
 .card {
   /* content layout */
-  padding: 13px 16px;
+  padding: 13px 16px 50px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   gap: 10px;
+  position: relative;
 
   /* styling */
   background-color: var(--card-background);
@@ -205,10 +205,20 @@ body {
 }
 
 .card-footer {
+  /* sizing and spacing */
+  width: 100%;
+
   /* content layout */
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 12px;
+  
+  /* positioning */
+  position: absolute;
+  bottom: 16px;
+  left: 0;
 }
 
 .likes-container {

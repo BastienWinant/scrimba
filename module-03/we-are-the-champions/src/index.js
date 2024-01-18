@@ -84,7 +84,7 @@ function addCardHeader(cardEl, endorsementObj) {
   // create the card title
   const titleEl = document.createElement('h3');
   titleEl.classList.add('no-margin');
-  titleEl.innerHTML = `To ${endorsementObj.to}`;
+  titleEl.textContent = `To ${endorsementObj.to}`;
   
   // add the title inside the header
   headerEl.appendChild(titleEl);
@@ -99,7 +99,7 @@ function addCardBody(cardEl, endorsementObj) {
   // create the body paragraph element
   const pEl = document.createElement('p');
   pEl.classList.add('no-margin', 'card-body');
-  pEl.innerHTML = endorsementObj.text;
+  pEl.textContent = endorsementObj.text;
 
   // add the paragraph inside the card
   cardEl.appendChild(pEl);
@@ -113,7 +113,7 @@ function addCardFooter(cardEl, endorsementObj) {
 
   const titleEl = document.createElement('h3');
   titleEl.classList.add('no-margin');
-  titleEl.innerHTML = `From ${endorsementObj.from}`;
+  titleEl.textContent = `From ${endorsementObj.from}`;
 
   const divEl = document.createElement('div');
   divEl.classList.add('likes-container');
@@ -124,7 +124,7 @@ function addCardFooter(cardEl, endorsementObj) {
 
   const pEl = document.createElement('p');
   pEl.classList.add('no-margin');
-  pEl.innerHTML = endorsementObj.likes;
+  pEl.textContent = endorsementObj.likes;
 
   divEl.appendChild(imgEl);
   divEl.appendChild(pEl);
