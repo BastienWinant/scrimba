@@ -70,7 +70,7 @@ onValue(endorsementsInDB, (snapshot) => {
 /* HELPER FUNCTIONS */
 function createCard() {
   const cardEl = document.createElement('article');
-  cardEl.classList.add('card');
+  cardEl.classList.add('bbox', 'card');
 
   return cardEl;
 }
@@ -107,16 +107,6 @@ function addCardBody(cardEl, endorsementObj) {
 }
 
 function addCardFooter(cardEl, endorsementObj) {
-  // <footer class="card-footer">
-  //   <h3 class="no-margin">From ${endorsement.to}</h3>
-  //   <div class="likes-container black-border">
-  //     <!-- <img src="../assets/hearts-suit-full.svg" class="like-logo black-border" alt="clickable heart symbol"/> -->
-  //     <img src="../assets/hearts-suit-hollow.svg" class="like-logo black-border" alt="clickable heart symbol"/>
-  //     <p class="no-margin black-border">${endorsement.likes}</p>
-  //   </div>
-  // </footer>
-
-
   const footerEl = document.createElement('footer');
   footerEl.classList.add('card-footer');
 

@@ -3,34 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>We Are The Champions</title>
+  <title>We are the Champions</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
-  
+
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-  <main class="main">
-    <header class="main-header">
-      <img class="logo" src="../assets/freddie.png" alt="app logo" />
+  <main class="main black-border">
+    <header class="main-header black-border">
+      <img class="main-logo" src="../assets/freddie.png" />
       <h1 class="no-margin main-title">We are the Champions</h1>
     </header>
-    <section class="inputs-container">
-      <textarea id="text-area" class="no-margin typed-input" placeholder="Write your endorsement here"></textarea>
-      <div class="text-inputs black-border">
-        <input type="text" name="from" placeholder="From" id="from-input" class="typed-input text-input" />
-        <input type="text" name="to" placeholder="To" id="to-input" class="typed-input text-input" />
-      </div>
-      <button type="button" id="publish-btn" class="btn">Publish</button>
-    </section>
-    <section class="endorsements-section">
-      <header class="endorsements-header">
-        <h2 class="no-margin endorsements-title">- <span>Endorsements</span> -</h2>
+    <section class="section inputs-section black-border">
+      <header class="section-header">
+        <h3 class="section-title no-margin">- <span>Endorse</span> -</h3>
       </header>
-      <div id="endorsements-container" class="endorsements-container">
+      <div class="input-fields">
+        <textarea id="text-area" class="no-margin typed-input text-area" placeholder="Write your endorsement here"></textarea>
+        <div class="text-inputs">
+          <input type="text" id="from-input" class="typed-input text-input" name="from" placeholder="From" />
+          <input type="text" id="to-input" class="typed-input text-input" name="to" placeholder="To" />
+        </div>
+        <button id="publish-btn" class="btn" type="button">publish</button>
       </div>
+    </section>
+    <section class="section feed-section black-border">
+      <header class="section-header">
+        <h3 class="section-title no-margin">- <span>Wall</span> -</h3>
+      </header>
+      <div id="endorsements-container" class="endorsements-container"></div>
     </section>
   </main>
   <script src="bundle.js"></script>
