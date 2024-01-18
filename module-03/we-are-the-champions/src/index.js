@@ -29,13 +29,17 @@ onValue(endorsementsInDB, (snapshot) => {
   // clear the HTML container
   clearEndorsementsContainer();
 
-  // get a snapshot of the endorsement DB entries
-  let endorsementsArr = Object.values(snapshot.val());
-  
-  // add each entry to the container
-  endorsementsArr.forEach((endorsement) => {
-    appendEndorsement(endorsement);
-  })
+  if (snapshot.exists()) {
+    // get a snapshot of the endorsement DB entries
+    let endorsementsArr = Object.values(snapshot.val());
+    
+    // add each entry to the container
+    endorsementsArr.forEach((endorsement) => {
+      appendEndorsement(endorsement);
+    });
+  } else {
+    displayEmptyMessage();
+  }
 });
 
 // HELPER FUNCTIONS
@@ -135,4 +139,12 @@ function addCardFooter(cardEl, endorsementObj) {
   cardEl.appendChild(footerEl);
 
   return cardEl;
+}
+
+function displayEmptyMessage() {
+  let pEl = document.createElement('p');
+  pEl.classList.add('message-box');
+  pEl.textContent = "It's quiet in here...";
+
+  endorsementsContainer.appendChild(pEl);
 }

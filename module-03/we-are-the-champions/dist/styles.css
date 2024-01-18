@@ -201,7 +201,10 @@ body {
   font-size: 14px;
   font-weight: 400;
   color: var(--card-color);
+}
 
+.card:hover {
+  background-color: #EEEEEE;
 }
 
 .card-footer {
@@ -234,6 +237,27 @@ body {
 .like-logo {
   width: 16px;
   cursor: pointer;
+}
+
+.message-box {
+  /* sizing and spacing*/
+  max-width: 300px;
+  margin: 50px auto;
+
+  /* content layout */
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* styling */
+  background-color: #FFFFFF;
+
+  /* text styling */
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--card-color);
 }
 
 @media (min-width: 768px) {
