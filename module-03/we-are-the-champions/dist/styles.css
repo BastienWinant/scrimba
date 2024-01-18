@@ -1,16 +1,9 @@
 .black-border {
-  box-sizing: border-box;
-  border: 1px solid black;
+  /* border: 1px solid black;
+  box-sizing: border-box; */
 }
 
-/* VARIABLES */
-:root {
-  --body-background: #1B1924;
-  --input-background: #444059;
-  --placeholder-color: #8F8F8F;
-}
-
-/* UTIILTY CLASSES */
+/* UTILITY CLASSES */
 .no-margin {
   margin: 0 !important;
 }
@@ -23,17 +16,19 @@
   box-sizing: border-box;
 }
 
-.centered-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+:root {
+  --body-background: #1B1924;
+  --input-background: #444059;
+  --input-color: #8F8F8F;
+  --button-background: #28A9F1;
+  --button-color: #04131C;
+  --card-color: #1B1924;
 }
 
-/* GENERIC CLASSES */
-
-/* CONTENT-SPECIFIC CLASSES */
+/* CONTENT SPECIFIC CLASSES */
 body {
-  background: var(--body-background);
+  background-color: var(--body-background);
+  color: #FFFFFF;
 }
 
 .main {
@@ -45,8 +40,6 @@ body {
 
 /* HEADER SECTION */
 .main-header {
-  /* spacing */
-  margin-bottom: 19px;
   /* content layout */
   display: flex;
   flex-direction: column;
@@ -56,29 +49,31 @@ body {
 
 .logo {
   /* sizing */
-  width: 150px;
+  width: 90px;
   height: auto;
 }
 
-.title {
+.main-title {
   /* text styling */
   font-size: 25px;
-  font-weight: bold;
   font-family: 'Josefin Sans', sans-serif;
-  color: #FFF;
+  font-weight: 700;
 }
 
-.submission-section {
+/* INPUTS SECTION */
+.inputs-container {
+  /* content layout */
   display: flex;
   flex-direction: column;
   gap: 9px;
 }
 
 .typed-input {
-  /* spacing */
-  margin: 0;
+  /* sizing */
+  width: 100%;
+
+  /* content layout   */
   box-sizing: border-box;
-  padding: 12px 20px;
 
   /* styling */
   border: none;
@@ -86,57 +81,122 @@ body {
   background-color: var(--input-background);
 
   /* text styling */
-  font-family: 'Inter', sans-serif;
   font-size: 15px;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
-  color: #FFF;
-}
-
-.typed-input::placeholder {
-  color: var(--placeholder-color);
+  color: white;
 }
 
 .typed-input:focus {
   outline: none;
 }
 
-textarea {
-  /* sizing */
-  width: 100%;
-  height: 118px;
+.typed-input::placeholder {
+  color: var(--input-color);
 }
 
-.typed-inputs {
+textarea {
+  /* sizing */
+  min-height: 118px;
+
+  /* content layout */
+  box-sizing: border;
+  padding: 12px 20px;
+}
+
+.text-inputs {
   /* content layout */
   display: flex;
   flex-wrap: wrap;
   gap: 9px;
 }
 
-input {
+.text-input {
   /* sizing */
+  flex: 1 0 120px;
   height: 40px;
-  width: 100%;
-  flex: 1 0 150px;
-  
-  /* text styling */
   text-align: center;
 }
 
-button {
+.btn {
   /* sizing */
-  width: 100%;
   height: 60px;
-
+  width: 100%;
+  
   /* styling */
+  background-color: var(--button-background);
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  background-color: #28A9F1;
-  color: #04131C;
 
   /* text styling */
+  color: var(--button-color);
   font-size: 22px;
-  font-weight: 700;
   font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* ENDORSEMENTS SECTION */
+.endorsements-header {
+  margin-bottom: 15px;
+}
+
+.endorsements-title {
+  /* text styling */
+  font-size: 20px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+  text-align: center;
+}
+
+.endorsements-title span {
+  font-weight: 700;
+}
+
+/* ENDORSEMENT CARD */
+.card {
+  /* content layout */
+  padding: 12px 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  /* styling */
+  background: white;
+
+  /* text styling */
+  color: var(--card-color);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+}
+
+.card-header {
+  /* sizing and spacing */
+  margin-bottom: 5px;
+}
+
+.card-footer {
+  /* content layout */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.likes-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  /* text styling */
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.like-logo {
+  /* sizing */
+  width: 16px;
+
+  cursor: pointer;
 }

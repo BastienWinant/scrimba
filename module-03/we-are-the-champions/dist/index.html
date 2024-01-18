@@ -3,34 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>We Are The Champions</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" type="text/css" href="styles.css" />
-  <title>Document</title>
+  
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
   <main class="main">
     <header class="main-header">
-      <img src="../assets/freddie.png" alt="app logo" class="logo" />
-      <h1 class="title no-margin">We are the Champions</h1>
+      <img class="logo" src="../assets/freddie.png" alt="app logo" />
+      <h1 class="no-margin main-title">We are the Champions</h1>
     </header>
-    <section class="submission-section">
-      <textarea id="text-area" placeholder="Write your endorsement here" class="bbox typed-input"></textarea>
-      <div class="typed-inputs">
-        <input type="text" id="from-input" name="From" placeholder="From" class="typed-input" />
-        <input type="text" id="to-input" name="To" placeholder="To" class="typed-input" />
+    <section class="inputs-container">
+      <textarea id="text-area" class="no-margin typed-input" placeholder="Write your endorsement here"></textarea>
+      <div class="text-inputs black-border">
+        <input type="text" name="from" placeholder="From" id="from-input" class="typed-input text-input" />
+        <input type="text" name="to" placeholder="To" id="to-input" class="typed-input text-input" />
       </div>
-      <button type="button" id="publish-btn" class="centered-content">Publish</button>
+      <button type="button" id="publish-btn" class="btn">Publish</button>
     </section>
     <section class="endorsements-section">
-      <header>
-        <h2 class="no-margin">- Endorsements -</h2>
+      <header class="endorsements-header">
+        <h2 class="no-margin endorsements-title">- <span>Endorsements</span> -</h2>
       </header>
+      <div class="endorsements-container">
+        <div class="card">
+          <header class="card-header">
+            <h3 class="no-margin">To Michael</h3>
+          </header>
+          <p class="no-margin card-body">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum consectetur quaerat ipsam! Vitae cumque, fuga reprehenderit error officia accusantium perspiciatis, eius voluptates earum beatae corporis eum aspernatur pariatur vero ipsam!</p>
+          <footer class="card-footer">
+            <h3 class="no-margin">From Lorena</h3>
+            <div class="likes-container black-border">
+              <!-- <img src="../assets/hearts-suit-full.svg" class="like-logo black-border" alt="clickable heart symbol"/> -->
+              <img src="../assets/hearts-suit-hollow.svg" class="like-logo black-border" alt="clickable heart symbol"/>
+              <p class="no-margin black-border">7</p>
+            </div>
+          </footer>
+        </div>
+      </div>
     </section>
   </main>
-  <script src="bundle.js"></script>
 </body>
 </html>
