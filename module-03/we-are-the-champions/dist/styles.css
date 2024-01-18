@@ -47,6 +47,8 @@ body {
     "inputs"
     "feed";
   gap: 19px 40px;
+
+  user-select: none;
 }
 
 /* MAIN HEADER */
