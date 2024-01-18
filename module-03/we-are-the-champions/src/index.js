@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
-import { getDatabase, ref, push, onValue } from 'firebase/database'
+import { getDatabase, ref, push, onValue, set } from 'firebase/database'
 
 // Your web app's Firebase configuration
 const firebaseConfig = require('../firebase.config');
@@ -31,7 +31,7 @@ onValue(endorsementsInDB, (snapshot) => {
 
   if (snapshot.exists()) {
     // get a snapshot of the endorsement DB entries
-    let endorsementsArr = Object.values(snapshot.val());
+    let endorsementsArr = Object.entries(snapshot.val());
     
     // add each entry to the container
     endorsementsArr.forEach((endorsement) => {
@@ -65,8 +65,8 @@ function clearEndorsementsContainer() {
 
 function appendEndorsement(endorsement) {
   let cardEl = createCard()
-  cardEl = addCardHeader(cardEl, endorsement);
-  cardEl = addCardBody(cardEl, endorsement);
+  cardEl = addCardHeader(cardEl, endorsement[1]);
+  cardEl = addCardBody(cardEl, endorsement[1]);
   cardEl = addCardFooter(cardEl, endorsement);
 
   endorsementsContainer.appendChild(cardEl);
@@ -111,13 +111,13 @@ function addCardBody(cardEl, endorsementObj) {
   return cardEl;
 }
 
-function addCardFooter(cardEl, endorsementObj) {
+function addCardFooter(cardEl, endorsementEntry) {
   const footerEl = document.createElement('footer');
   footerEl.classList.add('card-footer');
 
   const titleEl = document.createElement('h3');
   titleEl.classList.add('no-margin');
-  titleEl.textContent = `From ${endorsementObj.from}`;
+  titleEl.textContent = `From ${endorsementEntry[1].from}`;
 
   const divEl = document.createElement('div');
   divEl.classList.add('likes-container');
@@ -126,9 +126,12 @@ function addCardFooter(cardEl, endorsementObj) {
   imgEl.src = "../assets/hearts-suit-hollow.svg";
   imgEl.classList.add("like-logo");
 
+  // const endorsementRef = ref(database, `endorsements/${endorsementEntry[0]}`)
+  imgEl.addEventListener('click', updateLikes.bind(endorsementEntry));
+
   const pEl = document.createElement('p');
   pEl.classList.add('no-margin');
-  pEl.textContent = endorsementObj.likes;
+  pEl.textContent = endorsementEntry[1].likes;
 
   divEl.appendChild(imgEl);
   divEl.appendChild(pEl);
@@ -147,4 +150,11 @@ function displayEmptyMessage() {
   pEl.textContent = "It's quiet in here...";
 
   endorsementsContainer.appendChild(pEl);
+}
+
+function updateLikes() {
+  this[1].likes += 1
+  
+  const endorsementRef = ref(database, `endorsements/${this[0]}`);
+  set(endorsementRef, this[1]);
 }
