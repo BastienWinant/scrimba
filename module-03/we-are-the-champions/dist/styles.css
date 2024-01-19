@@ -295,4 +295,9 @@ body {
       "header header"
       "inputs feed";
   }
+
+  .main-logo {
+    /* sizing and spacing */
+    width: 120px;
+  }
 }
