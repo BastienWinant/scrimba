@@ -169,6 +169,10 @@ body {
   text-transform: capitalize;
 }
 
+.btn:focus {
+    outline: none;
+}
+
 /* CONTENT SPECIFIC CLASSES */
 .inputs-section {
   /* positioning */
