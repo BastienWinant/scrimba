@@ -49,8 +49,9 @@ function gatherEndorsementInputs() {
     from: fromInput.value,
     to: toInput.value,
     date: new Date(),
-    likes: Math.floor(Math.random() * 21), // add a random number of likes just for effect
-    liked: false
+    liked: false,
+    // add a random number of likes just for effect
+    likes: Math.floor(Math.random() * 21)
   }
 }
 
@@ -125,6 +126,8 @@ function addCardFooter(cardEl, endorsementEntry) {
 
   const imgEl = document.createElement('img');
   imgEl.classList.add("like-logo");
+
+  // check if the user has already likes the post
   if (endorsementEntry[1].liked) {
     imgEl.src = "../assets/hearts-suit-full.svg";
     imgEl.addEventListener('click', decreaseLikes.bind(endorsementEntry));

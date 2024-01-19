@@ -46,7 +46,7 @@ body {
     "header"
     "inputs"
     "feed";
-  gap: 19px 40px;
+  gap: 40px;
 
   user-select: none;
 }
