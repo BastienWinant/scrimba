@@ -33,14 +33,14 @@ To install We Are The Champions, please follow the steps below:
 # Description
 ## HTML
 
-<p>All the HTML elements are placed inside a &lt;main&gt; container used for sizing and spacing purposes.</p>
+<p>All the HTML elements are placed inside a <code>main</code> container used for sizing and spacing purposes.</p>
 
 <p>The container has 3 direct children elements for the principal components of the page:
-- a &lt;header&gt; element containing the page's title and main logo
-- a &lt;section&gt; element for the user inputs and button
-- a &lt;section&gt; element acting as an empty placeholder for the dynamically generated endorsement posts</p>
+- a <code>header</code> element containing the page's title and main logo
+- a <code>section</code> element for the user inputs and button
+- a <code>section</code> element acting as an empty placeholder for the dynamically generated endorsement posts</p>
 
-<p>Each of the sections is comprised of a &lt;header&gt; for the section title, and a &lt;div&gt; holding the actual section content.</p>
+<p>Each of the sections is comprised of a <code>header</code> for the section title, and a <code>div</code> holding the actual section content.</p>
 
 ## CSS
 
@@ -48,21 +48,18 @@ To install We Are The Champions, please follow the steps below:
 
 <p>When reaching past a width of 768px, the main container switches from a 1-column to a 2-column layout. While the main header always occupies the full width at the top of the container, the sections are placed side-by-side on larger windows.<br>I implemented this dynamic layout with CSS Grid's <code>grid-template-areas</code> property, combined with a media query.</p>
 
-<p>The dynamically generated post &lt;article&gt; elements are also made responsive with CSS Grid. I used the <code>minmax()</code> property to allow each card to resize as necessary, while specifying a minimum width for each.<br>With the <code>flex-wrap: wrap</code> setting, the cards automatically organize into rows to avoid overflowing the container.<br>This ensures a clean layout regardless of the width of the window or the number of card to be rendered.</p>
+<p>The dynamically generated post <code>article</code> elements are also made responsive with CSS Grid. I used the <code>minmax()</code> property to allow each card to resize as necessary, while specifying a minimum width for each.<br>With the <code>flex-wrap: wrap</code> setting, the cards automatically organize into rows to avoid overflowing the container.<br>This ensures a clean layout regardless of the width of the window or the number of card to be rendered.</p>
 
 ## JavaScript
 ### Event Handlers
-1. data gathering
-2. input validation
-3. database insertion
 
 <p>The logic for creating a new endorsement post is embedded in a callback function, which is called whenver the user clicks the <em>Publish</em> button.</p>
 
 <p>More specifically, the callback performs the following operations:
 <ul>
-<li><strong>data gathering:</strong> retrieves the values inside the input fields and stores them in an object</li>
-<li><strong>input validation:</strong> ensures that all the input fields were filled by the user</li>
-<li><strong>database insertion:</strong> uploads the validated data object to the Realtime Database, which triggers a call to Firebase's <code>onValue()</code> function</li>
+  <li><strong>data gathering:</strong> retrieves the values inside the input fields and stores them in an object</li>
+  <li><strong>input validation:</strong> ensures that all the input fields were filled by the user</li>
+  <li><strong>database insertion:</strong> uploads the validated data object to the Realtime Database, which triggers a call to Firebase's <code>onValue()</code> function</li>
 </ul>
 </p>
 
