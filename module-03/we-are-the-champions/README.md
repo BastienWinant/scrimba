@@ -32,21 +32,23 @@ To install We Are The Champions, please follow the steps below:
 # Description
 ## HTML
 
-<p>All the HTML elements are placed inside a `&lt;main&gt;` container used for sizing and spacing purposes.</p>
+<p>All the HTML elements are placed inside a &lt;main&gt; container used for sizing and spacing purposes.</p>
 
 <p>The container has 3 direct children elements for the principal components of the page:
-- a `&lt;header&gt;` element containing the page's title and main logo
-- a `&lt;section&gt;` element for the user inputs and button
-- a `&lt;section&gt;` element acting as an empty placeholder for the dynamically generated endorsement posts</p>
+- a &lt;header&gt; element containing the page's title and main logo
+- a &lt;section&gt; element for the user inputs and button
+- a &lt;section&gt; element acting as an empty placeholder for the dynamically generated endorsement posts</p>
 
-<p>Each of the sections is comprised of a `&lt;header&gt;` for the section title, and a `&lt;div&gt;` holding the actual section content.</p>
+<p>Each of the sections is comprised of a &lt;header&gt; for the section title, and a &lt;div&gt; holding the actual section content.</p>
 
 ## CSS
 ### Responsiveness
 
-<p>The page is responive to changes in the window's width thanks to a combination of Flexbox, CSS Grid, and media queries.</p>
+<p>The page is responive to changes in the window's width thanks to a combination of CSS Grid, and media queries.</p>
 
 <p>When reaching past a width of 768px, the main container switches from a 1-column to a 2-column layout. While the main header always occupies the full width at the top of the container, the sections are placed side-by-side on larger windows.<br>This was achieved using CSS Grid's `grid-template-areas` property, combined with a media query.</p>
+
+<p>The dynamically generated post &lt;article&gt; elements are made responsive with CSS Grid. I used the <code>minmax()</code> property to allow each card to resize as necessary, while specifying a minimum width.<br>With the <code>flex-wrap: wrap</code> setting, the cards automatically organize into rows to avoid overflowing the container.<br>This ensures a clean layout regardless of the width of the window or the number of card to be rendered.</p>
 
 ## JavaScript
 
