@@ -1,7 +1,5 @@
 # We Are The Champions
 
-[PLACE_FOR_YOUR_IMAGE]
-
 [Demo](https://scrimba.com/scrim/cEgBbytw)
 
 We Are The Champions is a mock social media platform where you can post messages of endorsement about other users.
@@ -27,6 +25,7 @@ To install We Are The Champions, please follow the steps below:
   databaseURL: "...",
   ...
 }`
+
 - Run the script to run the bundler: `npm run build`
 
 # What I have learned
