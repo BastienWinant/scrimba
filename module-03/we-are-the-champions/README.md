@@ -3,8 +3,7 @@
 [Demo](https://scrimba.com/scrim/cEgBbytw)
 
 We Are The Champions is a mock social media platform where you can post messages of endorsement about other users.
-- Enter an endorsement message, your name, and the name of the person you want to endorse
-- Read endorsements written by other users
+- Enter an endorsement message, your name, and the name of the person you want to endorse, and click the <em>Publish</em> button to display the post on the endorsements wall
 - As this is a mock application, no user authentication process was implemented
 
 # Technologies in use / Tech Stack / Built with
@@ -20,14 +19,13 @@ To install We Are The Champions, please follow the steps below:
 - Clone the repo to your machine
 - Open the root of the project and install all dependencies with `npm i` / `yarn`
 - In the root folder, create a `firebase.config.js` file that exports your web app's Firebase configuration:
-
-```module.exports = {
+```
+module.exports = {
   apiKey: "...",
   databaseURL: "...",
   ...
 }
 ```
-
 - Run the script to compile the JavaScript code: `npm run build`
 
 # Description
@@ -44,16 +42,16 @@ To install We Are The Champions, please follow the steps below:
 
 ## CSS
 
-<p>The page is responive to changes in the window's width thanks to a combination of CSS Grid, and media queries.</p>
+<p>I implemented responsiveness to changes in the window's width thanks to a combination of CSS Grid and media queries</p>
 
-<p>When reaching past a width of 768px, the main container switches from a 1-column to a 2-column layout. While the main header always occupies the full width at the top of the container, the sections are placed side-by-side on larger windows.<br>I implemented this dynamic layout with CSS Grid's <code>grid-template-areas</code> property, combined with a media query.</p>
+<p>When reaching past a window width of 768px, the main container switches from a 1-column to a 2-column layout. While the main header always occupies the full width at the top of the container, the sections are placed side-by-side on larger windows.<br>I implemented this dynamic layout with CSS Grid's <code>grid-template-areas</code> property, combined with a media query.</p>
 
-<p>The dynamically generated post <code>article</code> elements are also made responsive with CSS Grid. I used the <code>minmax()</code> property to allow each card to resize as necessary, while specifying a minimum width for each.<br>With the <code>flex-wrap: wrap</code> setting, the cards automatically organize into rows to avoid overflowing the container.<br>This ensures a clean layout regardless of the width of the window or the number of card to be rendered.</p>
+<p>The dynamically generated post <code>article</code> elements are also made responsive with CSS Grid. I used the <code>minmax()</code> property to allow each card to resize as necessary, while specifying a minimum width for each.<br>With the <code>flex-wrap: wrap</code> setting, the cards automatically organize into rows to avoid overflowing the container.<br>This ensures a clean layout regardless of the width of the window or the number of posts to be rendered.</p>
 
 ## JavaScript
 ### Event Handlers
 
-<p>The logic for creating a new endorsement post is embedded in a callback function, which is called whenver the user clicks the <em>Publish</em> button.</p>
+<p>The logic for creating a new endorsement post is embedded in a callback function, which is called whenever the user clicks the <em>Publish</em> button.</p>
 
 <p>More specifically, the callback performs the following operations:
 <ul>
@@ -64,15 +62,16 @@ To install We Are The Champions, please follow the steps below:
 </p>
 
 ### onValue Callback
+
 <p>I used Firebase's <code>onValue()</code> function to specify the app's behavior whenever a change was made in the database.</p>
 
 <p>The callback function loops through the endorsement entries in the database, and creates a formatted <code>article</code> for each.<br>
-The CSS classes applied and callback functions attached vary from card to card, depending on the details of the post.<br>
+The CSS classes applied and callback functions attached to each element vary depending on the details of the post found in the database.<br>
 Each card elements is then appended to the dedicated container in the HTML.</p>
 
 ### Helper functions
 
-
+<p>Much of the logic contained in the callback function described above is abstracted away through a series of smaller helper functions that perform very specific subtasks.</p>
 
 # What I have learned
 
