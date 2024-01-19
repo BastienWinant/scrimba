@@ -11,6 +11,7 @@ const database = getDatabase(app);
 const endorsementsInDB = ref(database, 'endorsements');
 
 // DOM ELEMENTS
+const inputsSection = document.getElementById('input-fields');
 const textArea = document.getElementById('text-area');
 const fromInput = document.getElementById('from-input');
 const toInput = document.getElementById('to-input');
@@ -20,7 +21,16 @@ const endorsementsContainer = document.getElementById('endorsements-container');
 // EVENT HANDLERS
 publishBtn.addEventListener('click', () => {
   const endorsementData = gatherEndorsementInputs();
-  push(endorsementsInDB, endorsementData);
+
+  resetInputClasses();
+
+  if (validateEndorsementInputs()){
+    inputsSection.classList.remove('error');
+    push(endorsementsInDB, endorsementData);
+  } else {
+    inputsSection.classList.add('error');
+  }
+
   emptyTextInputs();
 });
 
@@ -53,6 +63,37 @@ function gatherEndorsementInputs() {
     // add a random number of likes just for effect
     likes: Math.floor(Math.random() * 21)
   }
+}
+
+function resetInputClasses() {
+  textArea.classList.remove('red-border');
+  fromInput.classList.remove('red-border');
+  toInput.classList.remove('red-border');
+}
+
+function validateEndorsementInputs() {
+  const text = textArea.value;
+  const fromName = fromInput.value;
+  const toName = toInput.value;
+
+  let validInputs = true;
+
+  if (text === "") {
+    textArea.classList.add('red-border');
+    validInputs = false;
+  }
+
+  if (fromName === "") {
+    fromInput.classList.add('red-border');
+    validInputs = false;
+  }
+
+  if (toName === "") {
+    toInput.classList.add('red-border');
+    validInputs = false;
+  }
+
+  return validInputs;
 }
 
 function emptyTextInputs () {

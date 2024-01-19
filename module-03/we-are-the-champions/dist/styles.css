@@ -99,11 +99,15 @@ body {
   display: flex;
   flex-direction: column;
   gap: 9px;
+
+  /* positioning */
+  position: relative;
 }
 
 .typed-input {
   /* sizing */
   width: 100%;
+  box-sizing: border-box;
   box-sizing: border-box;
 
   /* styling */
@@ -256,6 +260,26 @@ body {
   font-size: 14px;
   font-weight: 400;
   color: var(--card-color);
+}
+
+/* ERROR CLASSES */
+.error::after {
+  /* positioning */
+  position: absolute;
+  bottom: -20px;
+
+  /* text styling */
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: red;
+
+
+  content: "Please fill all the fields above"
+}
+
+.red-border {
+  border: 2px solid red;
 }
 
 @media (min-width: 768px) {
