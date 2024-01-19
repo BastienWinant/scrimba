@@ -272,14 +272,14 @@ body {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 400;
-  color: red;
+  color: palevioletred;
 
 
   content: "Please fill all the fields above"
 }
 
 .red-border {
-  border: 2px solid red;
+  border: 2px solid palevioletred;
 }
 
 @media (min-width: 768px) {

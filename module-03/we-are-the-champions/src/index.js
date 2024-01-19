@@ -27,11 +27,10 @@ publishBtn.addEventListener('click', () => {
   if (validateEndorsementInputs()){
     inputsSection.classList.remove('error');
     push(endorsementsInDB, endorsementData);
+    emptyTextInputs();
   } else {
     inputsSection.classList.add('error');
   }
-
-  emptyTextInputs();
 });
 
 // ON VALUE CALLBACK FUNCTION
