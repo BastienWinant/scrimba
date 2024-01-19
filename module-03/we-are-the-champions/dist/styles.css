@@ -1,8 +1,3 @@
-.black-border {
-  /* border: 1px solid black;
-  box-sizing: border-box; */
-}
-
 /* UTILITY CLASSES */
 .no-margin {
   margin: 0 !important;
@@ -35,7 +30,8 @@ body {
 
 .main {
   /* sizing and spacing */
-  width: 317px;
+  max-width: 317px;
+  width: 90vw;
   margin: 50px auto;
 
   /* content layout */
@@ -266,6 +262,7 @@ body {
   .main {
     /* sizing and spacing */
     min-width: 700px;
+    max-width: none;
     width: 80vw;
 
     /* content layout */
