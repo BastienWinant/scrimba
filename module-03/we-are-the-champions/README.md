@@ -20,13 +20,30 @@ To install We Are The Champions, please follow the steps below:
 - Open the root of the project and install all dependencies with `npm i` / `yarn`
 - In the root folder, create a `firebase.config.js` file that exports your web app's Firebase configuration:
 
-`module.exports = {
+```module.exports = {
   apiKey: "...",
   databaseURL: "...",
   ...
-}`
+}
+```
 
-- Run the script to run the bundler: `npm run build`
+- Run the script to compile the JavaScript code: `npm run build`
+
+# Description
+## HTML
+
+All the HTML elements are contained inside a `<main>` container used for sizing and spacing purposes.
+
+The container has 3 direct children elements for the principal components of the page:
+- a `<header>` element containing the page's title and main logo
+- a `<section>` element for the user inputs and button
+- a `<section>` element acting as an empty placeholder
+
+Each of the sections has their own header containing a title.
+
+## CSS
+
+## JavaScript
 
 # What I have learned
 
