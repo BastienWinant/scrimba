@@ -32,14 +32,14 @@ To install We Are The Champions, please follow the steps below:
 # Description
 ## HTML
 
-<p>All the HTML elements are placed inside a `&lt;main`&gt; container used for sizing and spacing purposes.</p>
+<p>All the HTML elements are placed inside a `&lt;main&gt;` container used for sizing and spacing purposes.</p>
 
 <p>The container has 3 direct children elements for the principal components of the page:
-- a `&lt;header`&gt; element containing the page's title and main logo
-- a `&lt;section`&gt; element for the user inputs and button
-- a `&lt;section`&gt; element acting as an empty placeholder for the dynamically generated endorsement posts</p>
+- a `&lt;header&gt;` element containing the page's title and main logo
+- a `&lt;section&gt;` element for the user inputs and button
+- a `&lt;section&gt;` element acting as an empty placeholder for the dynamically generated endorsement posts</p>
 
-<p>Each of the sections is comprised of a `&lt;header`&gt; for the section title, and a `&lt;div`&gt; holding the actual section content.</p>
+<p>Each of the sections is comprised of a `&lt;header&gt;` for the section title, and a `&lt;div&gt;` holding the actual section content.</p>
 
 ## CSS
 ### Responsiveness
