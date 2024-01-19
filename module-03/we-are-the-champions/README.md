@@ -32,16 +32,21 @@ To install We Are The Champions, please follow the steps below:
 # Description
 ## HTML
 
-All the HTML elements are contained inside a `<main>` container used for sizing and spacing purposes.
+All the HTML elements are placed inside a `<main>` container used for sizing and spacing purposes.
 
 The container has 3 direct children elements for the principal components of the page:
 - a `<header>` element containing the page's title and main logo
 - a `<section>` element for the user inputs and button
-- a `<section>` element acting as an empty placeholder
+- a `<section>` element acting as an empty placeholder for the dynamically generated endorsement posts
 
-Each of the sections has their own header containing a title.
+Each of the sections is comprised of a `<header>` for the section title, and a `<div>` holding the actual section content.
 
 ## CSS
+### Responsiveness
+
+The page is responive to changes in the window's width thanks to a combination of Flexbox, CSS Grid, and media queries.
+
+When reaching past a width of 768px, the main container switches from a 1-column to a 2-column layout. While the main header always occupies the full width at the top of the container, the sections are placed side-by-side on larger windows. This was achieved using CSS Grid's `grid-template-areas` property, combined with a media query.
 
 ## JavaScript
 
