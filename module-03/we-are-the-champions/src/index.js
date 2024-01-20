@@ -44,7 +44,7 @@ onValue(endorsementsInDB, (snapshot) => {
 
   if (snapshot.exists()) {
     // get a snapshot of the endorsement DB entries
-    let endorsementsArr = Object.entries(snapshot.val());
+    let endorsementsArr = Object.entries(snapshot.val()).toReversed();
     
     // add each entry to the container
     endorsementsArr.forEach((endorsement) => {
