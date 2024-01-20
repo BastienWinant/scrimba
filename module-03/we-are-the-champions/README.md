@@ -1,6 +1,6 @@
 # We Are The Champions
 
-[Demo](https://scrimba.com/scrim/cEgBbytw)
+[Demo](https://65abb39c4472158e654433c7--sparkly-froyo-dce86d.netlify.app/)
 
 We Are The Champions is a mock social media platform where you can post messages of endorsement about other users.
 - Enter an endorsement message, your name, and the name of the person you want to endorse, and click the <em>Publish</em> button to display the post on the endorsements wall
