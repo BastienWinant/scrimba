@@ -16,3 +16,18 @@
   align-items: center;
   justify-content: center;
 }
+
+body {
+  margin: 0;
+}
+
+/* CONTENT SPECIFIC CLASSES   */
+.main {
+  /* sizing and spacing */
+  width: 100vw;
+  height: 100vh;
+
+  /* styling */
+  background: url(./images/nature.jpg) no-repeat;
+  background-size: cover;
+}
