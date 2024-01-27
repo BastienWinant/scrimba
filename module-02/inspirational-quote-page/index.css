@@ -22,3 +22,44 @@
 	justify-content: center;
 }
 
+/* CONTENT SPECIFIC CLASSES */
+body {
+	margin: 0;
+}
+
+.main {
+	/* sizing and spacing */
+	width: 100vw;
+	height: 100vh;
+
+	/* styling */
+	background: url(./images/nature.jpg) no-repeat center bottom;
+	background-size: cover;
+}
+
+.quote-container {
+	/* sizing and spacing */
+	width: 90vw;
+	max-width: 700px;
+
+	/* content layout */
+	padding: 40px;
+	display: flex;
+	flex-direction: column;
+
+	/* styling */
+	background-color: rgba(255, 255, 255, .9);
+	border-radius: 6px;
+}
+
+.quote {
+	text-align: left;
+}
+
+.quote-source {
+	text-align: right;
+}
+
+.quote-source::before {
+	content: "- ";
+}
