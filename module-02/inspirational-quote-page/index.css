@@ -1,0 +1,75 @@
+.black-border {
+	border: 1px solid black;
+	box-sizing: border-box;
+}
+
+/* UTILITY CLASSES */
+.no-margin {
+	margin: 0 !important
+}
+
+.no-padding {
+	padding: 0 !important;
+}
+
+.bbox {
+	box-sizing: border-box;
+}
+
+.centered-content {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* CONTENT SPECIFIC CLASSES */
+.main {
+	/* sizing */
+	width: 100vw;
+	height: 100vh;
+
+	/* styling */
+	background-image: url(./images/nature.jpg);
+	background-position: center bottom;
+}
+
+.quote-link {
+	/* text styling */
+	text-decoration: none;
+}
+
+.quote-container {
+	/* sizing */
+	max-width: 436px;
+
+	/* content layout */
+	padding: 28px 33px;
+	display: flex;
+	flex-direction: column;
+	gap: 7px;
+
+	/* styling */
+	background-color: #FFFFFF;
+
+	/* text styling */
+	font-family: 'Inter', sans-serif;
+	color: #000000;
+}
+
+.quote-text {
+	/* text styling */
+	font-size: 20px;
+	text-align: left;
+	font-weight: 400;
+}
+
+.quote-source {
+	/* text styling */
+	font-size: 18px;
+	text-align: right;
+	font-weight: 600;
+}
+
+.quote-source::before {
+	content: "- ";
+}
