@@ -1,11 +1,12 @@
 const quoteContainer = document.getElementById('quote-container');
+const mainContainer = document.getElementById('main');
 
 /**
  * Returns a random element from the input array
  * @param arr array to be sampled from 
  * @returns a single array element
  */
-function getRandomIndex(arr) {
+function getRandomElement(arr) {
   // get a random element from the input array
   const randomIndex = Math.floor(Math.random() * arr.length);
   return arr[randomIndex];
@@ -50,7 +51,7 @@ function createQuoteSource(paragraphSource) {
  */
 function fillQuoteContainer() {
   // get a random object from the quotes array
-  const quoteObject = getRandomIndex(quotes);
+  const quoteObject = getRandomElement(quotes);
 
   // create HTML elements for each object entry
   const quoteParagraph = createQuoteParagraph(quoteObject['quote']);
@@ -59,6 +60,14 @@ function fillQuoteContainer() {
   // add the HTML elements to the container
   quoteContainer.appendChild(quoteParagraph);
   quoteContainer.appendChild(quoteSource);
+}
+
+function updatePageBackground() {
+  // get a random object from the images array
+  const imageURL = getRandomElement(images);
+
+  // update the backround background-image property of the container
+  // mainContainer
 }
 
 
