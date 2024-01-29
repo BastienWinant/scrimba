@@ -6,10 +6,6 @@ function getRandomQuote() {
   return quotes[randomIndex];
 }
 
-function clearQuoteContainer() {
-  quoteContainer.innerHTML = "";
-}
-
 function createQuoteParagraph(paragraphText) {
   // create the HTML element for the quote text
   const pEl = document.createElement('p');
@@ -34,7 +30,7 @@ function createQuoteSource(paragraphSource) {
   return footerEl;
 }
 
-function updateQuoteContainer(quoteObj) {
+function fillQuoteContainer(quoteObj) {
   const quoteParagraph = createQuoteParagraph(quoteObj['quote']);
   const quoteSource = createQuoteSource(quoteObj.author);
 
@@ -42,8 +38,8 @@ function updateQuoteContainer(quoteObj) {
   quoteContainer.appendChild(quoteSource);
 }
 
+
 document.addEventListener("DOMContentLoaded", () => {
-  clearQuoteContainer();
   const quoteObject = getRandomQuote();
-  updateQuoteContainer(quoteObject);
+  fillQuoteContainer(quoteObject);
 })
