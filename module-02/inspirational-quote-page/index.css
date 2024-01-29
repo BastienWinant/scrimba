@@ -5,7 +5,7 @@
 
 /* UTILITY CLASSES */
 .no-margin {
-	margin: 0 !important
+	margin: 0 !important;
 }
 
 .no-padding {
@@ -31,15 +31,18 @@
 	/* styling */
 	background-image: url(./images/nature.jpg);
 	background-position: center bottom;
+
+	/* text styling */
+	font-family: 'Inter', sans-serif;
 }
 
 .quote-link {
-	/* text styling */
 	text-decoration: none;
 }
 
 .quote-container {
 	/* sizing */
+	width: 90vw;
 	max-width: 436px;
 
 	/* content layout */
@@ -49,25 +52,22 @@
 	gap: 7px;
 
 	/* styling */
-	background-color: #FFFFFF;
-
-	/* text styling */
-	font-family: 'Inter', sans-serif;
-	color: #000000;
+	background-color: #FFF;
+	color: #000;
 }
 
 .quote-text {
 	/* text styling */
 	font-size: 20px;
-	text-align: left;
 	font-weight: 400;
+	text-align: left;
 }
 
 .quote-source {
 	/* text styling */
 	font-size: 18px;
-	text-align: right;
 	font-weight: 600;
+	text-align: right;
 }
 
 .quote-source::before {
