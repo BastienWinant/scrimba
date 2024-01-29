@@ -67,10 +67,11 @@ function updatePageBackground() {
   const imageURL = getRandomElement(images);
 
   // update the backround background-image property of the container
-  // mainContainer
+  mainContainer.style.backgroundImage = `url('${imageURL}')`;
 }
 
 
 document.addEventListener("DOMContentLoaded", () => {
+  updatePageBackground();
   fillQuoteContainer();
 })
