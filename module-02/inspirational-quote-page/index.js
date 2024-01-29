@@ -1,9 +1,9 @@
 const quoteContainer = document.getElementById('quote-container');
 
-function getRandomQuote() {
-  // get a random element from the quotes array
-  const randomIndex = Math.floor(Math.random() * quotes.length);
-  return quotes[randomIndex];
+function getRandomIndex(arr) {
+  // get a random element from the input array
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  return arr[randomIndex];
 }
 
 function createQuoteParagraph(paragraphText) {
@@ -40,6 +40,6 @@ function fillQuoteContainer(quoteObj) {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  const quoteObject = getRandomQuote();
+  const quoteObject = getRandomIndex(quotes);
   fillQuoteContainer(quoteObject);
 })
