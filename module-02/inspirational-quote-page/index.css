@@ -29,8 +29,8 @@
 	height: 100vh;
 
 	/* styling */
-	background-image: url(./images/nature.jpg);
-	background-position: center bottom;
+	background-position: center;
+	background-size: cover;
 
 	/* text styling */
 	font-family: 'Inter', sans-serif;
