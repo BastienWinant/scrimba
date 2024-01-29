@@ -1,11 +1,21 @@
 const quoteContainer = document.getElementById('quote-container');
 
+/**
+ * Returns a random element from the input array
+ * @param arr array to be sampled from 
+ * @returns a single array element
+ */
 function getRandomIndex(arr) {
   // get a random element from the input array
   const randomIndex = Math.floor(Math.random() * arr.length);
   return arr[randomIndex];
 }
 
+/**
+ * Creates a new <p> element with the input string as inner content
+ * @param paragraphText string for the paragraph text
+ * @returns the new <p> element with content and classes
+ */
 function createQuoteParagraph(paragraphText) {
   // create the HTML element for the quote text
   const pEl = document.createElement('p');
@@ -18,6 +28,11 @@ function createQuoteParagraph(paragraphText) {
   return pEl;
 }
 
+/**
+ * Creates a new <footer> element with the input string as inner content
+ * @param paragraphSource string for the footer text
+ * @returns the new <footer> element with content and classes
+ */
 function createQuoteSource(paragraphSource) {
   // create the HTML element for the quote source
   const footerEl = document.createElement('footer');
@@ -30,16 +45,23 @@ function createQuoteSource(paragraphSource) {
   return footerEl;
 }
 
-function fillQuoteContainer(quoteObj) {
-  const quoteParagraph = createQuoteParagraph(quoteObj['quote']);
-  const quoteSource = createQuoteSource(quoteObj.author);
+/**
+ * Fill the element with id "quote-container" with inner content
+ */
+function fillQuoteContainer() {
+  // get a random object from the quotes array
+  const quoteObject = getRandomIndex(quotes);
 
+  // create HTML elements for each object entry
+  const quoteParagraph = createQuoteParagraph(quoteObject['quote']);
+  const quoteSource = createQuoteSource(quoteObject.author);
+
+  // add the HTML elements to the container
   quoteContainer.appendChild(quoteParagraph);
   quoteContainer.appendChild(quoteSource);
 }
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  const quoteObject = getRandomIndex(quotes);
-  fillQuoteContainer(quoteObject);
+  fillQuoteContainer();
 })
