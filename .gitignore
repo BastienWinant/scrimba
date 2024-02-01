@@ -1,3 +1,4 @@
 **/node_modules
 **/firebase.config.js
 module-02/inspirational-quote-page/unsplash-key.js
+module-02/inspirational-quote-page/.env
