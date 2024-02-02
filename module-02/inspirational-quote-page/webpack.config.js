@@ -8,8 +8,9 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    // clean: true
+    clean: true,
   },
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
@@ -25,7 +26,7 @@ module.exports = {
   plugins: [
     new Dotenv(),
     new HtmlWebpackPlugin({
-      title: 'Output Management',
+      template: './src/index.html',
     }),
   ],
 };
