@@ -1,4 +1,4 @@
-import getRandomElement from 'JS/helpers';
+import getRandomElement from './helpers';
 import quotes from 'Assets/quotes.json';
 
 const quoteLink = document.getElementById("quote-link");

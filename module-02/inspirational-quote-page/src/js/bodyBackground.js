@@ -1,4 +1,4 @@
-import getRandomElement from 'JS/helpers';
+import getRandomElement from './helpers';
 import images from 'Assets/bgImages.json';
 
 const mainContainer = document.getElementById('main');

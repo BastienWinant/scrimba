@@ -1,6 +1,6 @@
-import './styles.css';
-import fillQuoteContainer from './quoteContainer';
-import updatePageBackground from './bodyBackground';
+import 'CSS/styles.css';
+import fillQuoteContainer from 'JS/quoteContainer';
+import updatePageBackground from 'JS/bodyBackground';
 
 document.addEventListener("DOMContentLoaded", () => {
   updatePageBackground();

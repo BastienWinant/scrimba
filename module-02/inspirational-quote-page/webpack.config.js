@@ -13,15 +13,18 @@ module.exports = {
   devServer: {
     static: './dist',
   },
+  resolve: {
+    alias: {
+      Assets: path.resolve(__dirname, 'assets'),
+      JS: path.resolve(__dirname, 'src/js'),
+      CSS: path.resolve(__dirname, 'src/css')
+    }
+  },
   module: {
     rules: [
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
-      },
-      {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
       },
     ],
   },
