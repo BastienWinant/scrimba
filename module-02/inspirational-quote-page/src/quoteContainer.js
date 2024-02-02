@@ -3,10 +3,13 @@ import quotes from './quotes.json';
 
 const quoteLink = document.getElementById("quote-link");
 
+/**
+ * Creates a new empty <blockquote> element
+ * @returns a DOM blockquote element with defined id and classes
+ */
 function createQuoteContainer() {
   const quoteEl = document.createElement('blockquote');
   quoteEl.classList.add("quote-container", "bbox", "no-margin");
-  quoteEl.setAttribute("id", "quote-container");
 
   return quoteEl;
 }
