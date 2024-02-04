@@ -60,16 +60,26 @@
 	/* text styling */
 	font-size: 20px;
 	font-weight: 400;
-	text-align: left;
+	text-align: center;
 }
 
 .quote-source {
 	/* text styling */
 	font-size: 18px;
 	font-weight: 600;
-	text-align: right;
+	text-align: center;
 }
 
-.quote-source::before {
-	content: "- ";
+@media (min-width: 576px) {
+	.quote-text {
+		text-align: left;
+	}
+
+	.quote-source {
+		text-align: right;
+	}
+
+	.quote-source::before {
+		content: "- ";
+	}
 }
