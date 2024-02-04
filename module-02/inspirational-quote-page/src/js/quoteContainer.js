@@ -1,18 +1,8 @@
 import getRandomElement from './helpers';
 import quotes from 'Assets/quotes.json';
 
-const quoteLink = document.getElementById("quote-link");
-
-/**
- * Creates a new empty <blockquote> element
- * @returns a DOM blockquote element with defined id and classes
- */
-function createQuoteContainer() {
-  const quoteEl = document.createElement('blockquote');
-  quoteEl.classList.add("quote-container", "bbox", "no-margin");
-
-  return quoteEl;
-}
+// const quoteLink = document.getElementById("quote-link");
+const quoteContainer = document.getElementById("quote-container");
 
 /**
  * Creates a new <p> element with the input string as inner content
@@ -52,8 +42,6 @@ function createQuoteSource(paragraphSource) {
  * Fill the element with id "quote-container" with inner content
  */
 export default function fillQuoteContainer() {
-  const quoteContainer = createQuoteContainer();
-
   // get a random object from the quotes array
   const quoteObject = getRandomElement(quotes);
 
