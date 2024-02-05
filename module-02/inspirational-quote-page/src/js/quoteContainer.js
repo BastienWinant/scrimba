@@ -52,7 +52,4 @@ export default function fillQuoteContainer() {
   // add the HTML elements to the container
   quoteContainer.appendChild(quoteParagraph);
   quoteContainer.appendChild(quoteSource);
-
-  // add the container to the main container
-  quoteLink.appendChild(quoteContainer);
 }
