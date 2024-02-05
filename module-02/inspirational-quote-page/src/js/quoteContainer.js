@@ -41,7 +41,10 @@ function createQuoteSource(paragraphSource) {
 /**
  * Fill the element with id "quote-container" with inner content
  */
-export default function fillQuoteContainer() {
+export default function fillQuoteContainer(backgroundColor, textColor) {
+  quoteContainer.style.backgroundColor = backgroundColor;
+  quoteContainer.style.color = textColor;
+
   // get a random object from the quotes array
   const quoteObject = getRandomElement(quotes);
 

@@ -1,12 +1,12 @@
 import getRandomElement from './helpers';
-import images from 'Assets/bgImages.json';
 
 const mainContainer = document.getElementById('main');
 
+/**
+ * Sets the background-image of the .main element
+ * @param {*} imageURL a url to the img to be used as background
+ */
 export default function updatePageBackground(imageURL) {
-  // // get a random object from the images array
-  // const imageURL = getRandomElement(images);
-
   // update the backround background-image property of the container
   mainContainer.style.backgroundImage = `url('${imageURL}')`;
 }
