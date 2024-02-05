@@ -1,7 +1,5 @@
 # Inspirational Quote Page
 
-[PLACE_FOR_YOUR_IMAGE]
-
 [Demo](https://cute-clafoutis-9194d9.netlify.app/)
 
 The Inspirational Quote Page is a single-page web app that displays a random quote on a random background image. Simply reload the page to get a new & inspiring quote!  
