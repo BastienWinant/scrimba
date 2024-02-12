@@ -49,6 +49,9 @@ function sendMessage(number) {
 
 // CALLBACK FUNCTIONS
 Array.from(keyEls).forEach((keyEl) => {
+  /**
+   * update the phone display with the key's inner text
+   */
   keyEl.addEventListener("click", (evt) => {
     clearElement(pagerDisplay);
     const keyVal = evt.target.innerText;
@@ -56,15 +59,23 @@ Array.from(keyEls).forEach((keyEl) => {
   })
 });
 
+/**
+ * Clears both displays of any inner text
+ */
 resetBtn.addEventListener("click", () => {
   // clear the displays
   clearElement(pagerDisplay);
   clearElement(phoneDisplay);
 });
 
+/**
+ * Start paging animation
+ */
 sendBtn.addEventListener("click", () => {
-  // get the phone input value
   const phoneNumber = phoneDisplay.innerText;
+
+  // TODO: create animation if the number if empty
+
   phoneDisplay.classList.add("dialing");
   setTimeout(sendMessage, 2000, phoneNumber);
 });
