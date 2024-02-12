@@ -34,6 +34,8 @@ html, body {
   /* default font */
   font-family: 'Press Start 2P', system-ui;
   font-size: 20px;
+
+  user-select: none;
 }
 
 /* UTILITY CLASSES */
@@ -72,7 +74,7 @@ main {
 
 .main-section {
   /* content layout */
-  padding: 8px;
+  padding: 10px;
   gap: 10px;
 }
 
@@ -95,6 +97,7 @@ main {
   /* styling */
   background-color: var(--phone-key);
   color: var(--phone-key-text-color);
+  cursor: pointer;
 }
 
 .btns {
@@ -112,6 +115,7 @@ main {
 
   /* styling */
   border: 3px solid black;
+  cursor: pointer;
 
   /* text styling */
   font-family: 'Press Start 2P', system-ui;
