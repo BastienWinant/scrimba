@@ -36,3 +36,82 @@
   align-items: center;
   justify-content: center;
 }
+
+/* GENERIC CLASSES */
+.main-section {
+  /* sizing and spacing */
+  max-width: 800px;
+  margin: 0 auto;
+
+  /* content layout */
+  padding: 20px;
+
+  /* styling */
+  font-size: 40px;
+}
+
+.section-title {
+  /* text styling */
+  font-size: 40px;
+  text-transform: capitalize;
+}
+
+.key {
+  /* styling */
+  background-color: var(--phone-key);
+  cursor: pointer;
+}
+
+.btns {
+  /* sizing and spacing */
+  width: 100%;
+}
+
+.btn {
+  /* sizing and spacing */
+  height: 95px;
+  width: 100%;
+
+  /* styling */
+  border: none;
+  border: 3px solid var(--reset-and--send-button-border-color);
+  cursor: pointer;
+
+  /* text styling */
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+/* CONTENT SPECIFIC CLASSES */
+.pager {
+  /* styling */
+  background-color: var(--pager-background);
+}
+
+.phone {
+  /* styling */
+  background-color: var(--phone-background);
+}
+
+.dial {
+  /* sizing and spacing */
+  width: 100%;
+
+  /* content layout */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 95px;
+  gap: 13px 18px;
+}
+
+.reset-btn {
+  /* styling */
+  background-color: var(--reset-button-background);
+  color: var(--reset-button-text-color);
+}
+
+.send-btn {
+  /* styling */
+  background-color: var(--send-button-background);
+  color: var(--send-button-text-color);
+}
