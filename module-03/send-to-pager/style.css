@@ -162,6 +162,10 @@ main {
   background-color: rgba(249, 191, 59, .6);
 }
 
+.error {
+  background-color: rgba(255,51,51, .6);
+}
+
 .dial {
   /* sizing and spacing */
   align-self: stretch;

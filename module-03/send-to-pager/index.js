@@ -6,7 +6,8 @@ const sendBtn = document.getElementById("send-btn");
 const keyEls = document.getElementsByClassName("key");
 
 // LOAD ASSETS
-const audio = new Audio("assets/pager.wav");
+const pageSound = new Audio("assets/pager.wav");
+const errorSound = new Audio("assets/error.mp3");
 
 // HELPER FUNCTIONS
 /**
@@ -33,7 +34,7 @@ function updatePagerDisplay(value) {
   pagerDisplay.innerText = value;
 }
 
-function playPagerSound() {
+function playSound(audio) {
   audio.play();
 }
 
@@ -42,9 +43,23 @@ function playPagerSound() {
  * @param {str} number the number to be displayed 
  */
 function sendMessage(number) {
-  updatePagerDisplay(number);
-  playPagerSound();
-  phoneDisplay.classList.remove("dialing");
+  phoneDisplay.classList.add("dialing");
+  setTimeout(() => {
+    updatePagerDisplay(number);
+    playSound(pageSound);
+    phoneDisplay.classList.remove("dialing");
+  }, 2000);
+}
+
+/**
+ * Provides visual and audio cues that an error has occured
+ */
+function pagerError() {
+  phoneDisplay.classList.add("error");
+  playSound(errorSound);
+  setTimeout(() => {
+    phoneDisplay.classList.remove("error");
+  }, 1000);
 }
 
 // CALLBACK FUNCTIONS
@@ -74,8 +89,9 @@ resetBtn.addEventListener("click", () => {
 sendBtn.addEventListener("click", () => {
   const phoneNumber = phoneDisplay.innerText;
 
-  // TODO: create animation if the number if empty
-
-  phoneDisplay.classList.add("dialing");
-  setTimeout(sendMessage, 2000, phoneNumber);
+  if (phoneNumber === "") {
+    pagerError();
+  } else {
+    sendMessage(phoneNumber);
+  }
 });
