@@ -1,20 +1,39 @@
+.black-border {
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+
+/* COLOR PALETTE */
 :root {
   --pager-background: #283033;
+  --pager-header-text-color: #F8F8F8;
   --pager-display: #9EC4B3;
   --pager-display-text-color: #000000;
 
   --phone-background: #D9D9D9;
-  --phone-display: #9EC4B3;
+  --phone-header-text-color: #000000;
+  --phone-display: #444444;
   --phone-display-text-color: #F8F8F8;
   --phone-key: #F8F8F8;
+  --phone-key-text-color: #000000;
 
-  --reset-and--send-button-border-color: #0B0B0B;
+  --reset-and-send-button-border-color: #0B0B0B;
 
   --reset-button-background: #BE482A;
   --reset-button-text-color: #F8F8F8;
 
   --send-button-background: #3D9C7C;
   --send-button-text-color: #0B0B0B;
+}
+
+html, body {
+  /* sizing and spacing */
+  margin: 0;
+  padding: 0;
+
+  /* default font */
+  font-family: 'Press Start 2P', system-ui;
+  font-size: 20px;
 }
 
 /* UTILITY CLASSES */
@@ -38,54 +57,83 @@
 }
 
 /* GENERIC CLASSES */
-.main-section {
+main {
   /* sizing and spacing */
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 400px;
+  width: 90vw;
+  margin: 40px auto;
 
   /* content layout */
-  padding: 20px;
-
-  /* styling */
-  font-size: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 80px;
 }
 
-.section-title {
+.main-section {
+  /* content layout */
+  padding: 8px;
+  gap: 10px;
+}
+
+.section-header {
+  /* sizing and spacing */
+  align-self: stretch;
+
   /* text styling */
-  font-size: 40px;
+  font-size: 16px;
   text-transform: capitalize;
+}
+
+.display {
+  /* sizing and spacing */
+  height: 50px;
+  align-self: stretch;
 }
 
 .key {
   /* styling */
   background-color: var(--phone-key);
-  cursor: pointer;
+  color: var(--phone-key-text-color);
 }
 
 .btns {
   /* sizing and spacing */
-  width: 100%;
+  align-self: stretch;
+
+  /* content layout */
+  align-items: stretch;
+  gap: 5px;
 }
 
 .btn {
   /* sizing and spacing */
-  height: 95px;
-  width: 100%;
+  height: 50px;
 
   /* styling */
-  border: none;
-  border: 3px solid var(--reset-and--send-button-border-color);
-  cursor: pointer;
+  border: 3px solid black;
 
   /* text styling */
-  font-size: 40px;
+  font-family: 'Press Start 2P', system-ui;
+  font-size: 20px;
   text-transform: uppercase;
 }
 
-/* CONTENT SPECIFIC CLASSES */
+/* CONTENT-SPECIFIC CLASSES */
 .pager {
   /* styling */
   background-color: var(--pager-background);
+}
+
+.pager-header {
+  /* text styling */
+  color: var(--pager-header-text-color);
+}
+
+.pager-display {
+  /* styling */
+  background-color: var(--pager-display);
+  color: var(--pager-display-text-color);
 }
 
 .phone {
@@ -93,15 +141,26 @@
   background-color: var(--phone-background);
 }
 
+.phone-header {
+  /* styling */
+  color: var(--phone-header-text-color);
+}
+
+.phone-display {
+  /* styling */
+  background-color: var(--phone-display);
+  color: var(--phone-display-text-color);
+}
+
 .dial {
   /* sizing and spacing */
-  width: 100%;
+  align-self: stretch;
 
   /* content layout */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 95px;
-  gap: 13px 18px;
+  grid-auto-rows: 50px;
+  gap: 10px;
 }
 
 .reset-btn {
