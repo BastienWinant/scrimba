@@ -5,6 +5,9 @@ const resetBtn = document.getElementById("reset-btn");
 const sendBtn = document.getElementById("send-btn");
 const keyEls = document.getElementsByClassName("key");
 
+// LOAD ASSETS
+const audio = new Audio("assets/pager.wav");
+
 // HELPER FUNCTIONS
 /**
  * Clears the supplied element's inner HTML
@@ -30,6 +33,20 @@ function updatePagerDisplay(value) {
   pagerDisplay.innerText = value;
 }
 
+function playPagerSound() {
+  audio.play();
+}
+
+/**
+ * Updates phone display and plays pager sound
+ * @param {str} number the number to be displayed 
+ */
+function sendMessage(number) {
+  updatePagerDisplay(number);
+  playPagerSound();
+  phoneDisplay.classList.remove("dialing");
+}
+
 // CALLBACK FUNCTIONS
 Array.from(keyEls).forEach((keyEl) => {
   keyEl.addEventListener("click", (evt) => {
@@ -37,16 +54,17 @@ Array.from(keyEls).forEach((keyEl) => {
     const keyVal = evt.target.innerText;
     updatePhoneDisplay(keyVal);
   })
-})
+});
 
 resetBtn.addEventListener("click", () => {
   // clear the displays
+  clearElement(pagerDisplay);
   clearElement(phoneDisplay);
 });
 
 sendBtn.addEventListener("click", () => {
   // get the phone input value
   const phoneNumber = phoneDisplay.innerText;
-  // updatePagerDisplay(phoneNumber);
-  setTimeout(updatePagerDisplay, 2000, phoneNumber);
+  phoneDisplay.classList.add("dialing");
+  setTimeout(sendMessage, 2000, phoneNumber);
 });
