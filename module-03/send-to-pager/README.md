@@ -2,7 +2,8 @@
 
 [Demo](https://65cb2c8f01067175b107dbf6--comforting-zuccutto-6bfaa9.netlify.app/)
 
-Send to Pager simulates 
+Send to Pager simulates the working of a pager like in the old(er) days!  
+Use the clickable keys to compose the number that you want to reach, correct any mistakes using the reset/erase buttons, and hit the send button to send the page.
 
 ## Overview
 ### HTML
@@ -22,4 +23,5 @@ The 4-by-3 grid formed by the dials was made responsive using CSS Grid.
 ### JavaScript
 The core of the user interaction with the page resides in the callbacks attached to the **send** and **reset** buttons at the bottom of the screen.  
 Clicking **reset** button simply clears the `<section>` elements with the class `.display` by removing the text content.  
+
 When clicking the **send** button, the input is first validated before a paging animation is launched. Which animation function is called depends on the result of the input validation. In either case, the user gets visual (display background color change) and audio (brief sound play) cues signaling a succesful page or an error.
