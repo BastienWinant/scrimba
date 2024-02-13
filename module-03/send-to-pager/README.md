@@ -20,3 +20,4 @@ The design remains narrow even on wider screens, which made the responsiveness s
 The 4-by-3 grid formed by the dials was made responsive using CSS Grid.
 
 ### JavaScript
+The core of the user interaction with the page resides in the callbacks attached to the **send** and **reset** buttons at the bottom of the screen.

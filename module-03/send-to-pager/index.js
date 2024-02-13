@@ -83,13 +83,17 @@ resetBtn.addEventListener("click", () => {
   clearElement(phoneDisplay);
 });
 
+function validateInput(inputStr) {
+  return inputStr !== ""
+}
+
 /**
  * Start paging animation
  */
 sendBtn.addEventListener("click", () => {
   const phoneNumber = phoneDisplay.innerText;
 
-  if (phoneNumber === "") {
+  if (!validateInput(phoneNumber)) {
     pagerError();
   } else {
     sendMessage(phoneNumber);
