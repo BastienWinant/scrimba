@@ -17,6 +17,9 @@
   --reset-button-background: #BE482A;
   --reset-button-text-color: #F8F8F8;
 
+  --erase-button-background: #4895EF;
+  --erase-button-text-color: #F8F8F8;
+
   --send-button-background: #3D9C7C;
   --send-button-text-color: #0B0B0B;
 }
@@ -176,6 +179,12 @@ main {
   /* styling */
   background-color: var(--reset-button-background);
   color: var(--reset-button-text-color);
+}
+
+.erase-btn {
+  /* styling */
+  background-color: var(--erase-button-background);
+  color: var(--erase-button-text-color);
 }
 
 .send-btn {
