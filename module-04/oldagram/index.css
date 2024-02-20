@@ -30,15 +30,21 @@ body {
 }
 
 /* CONTENT SPECIFIC CLASSES */
+.main {
+	/* content layout */
+	padding-top: 120px;
+}
+
 .main-header {
 	/* sizing and spacing */
 	width: 100%;
+
 	/* positioning */
 	position: fixed;
 	top: 0;
 
 	/* content layout */
-	padding: 16px;
+	padding: 16px 4vw;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -53,4 +59,27 @@ body {
 	max-height: 74px;
 	min-height: 34px;
 	width: auto;
+}
+
+.avatar-img {
+	border-radius: 50%;
+}
+
+/* FEED CONTAINER */
+.feed-container {
+	/* content layout */
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+}
+
+/* POST */
+.post-container {
+	/* sizing and spacing */
+	max-width: 375px;
+}
+
+.post-header {
+	/* content layout */
+	padding: 10px;
 }
