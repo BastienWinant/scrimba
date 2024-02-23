@@ -1,9 +1,9 @@
-import './style.css'
+import { firebaseConfig } from "../firebase.config";
 
-function component() {
-  const element = document.createElement('div');
-  element.innerHTML = `<h1 class="black-border">Hello World</h1>`;
-  return element;
-}
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-document.body.appendChild(component());
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
