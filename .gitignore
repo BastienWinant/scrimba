@@ -1,3 +1,4 @@
 **/node_modules
 **/.env
 **/dist
+module-04/oldagram/firebase.config.js
