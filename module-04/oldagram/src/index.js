@@ -4,14 +4,12 @@ import './index.css';
 import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
 import { firebaseConfig } from "../firebase.config"
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// SIGNUP FORM
-const signupEmail = document.getElementById("signup-email");
-const signupPassword = document.getElementById("signup-password");
-const signupBtn= document.getElementById("signup-btn");
-
-console.log(signupEmail);
+// SIGNUP PAGE
+const auth = getAuth();
