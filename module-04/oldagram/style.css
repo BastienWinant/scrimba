@@ -44,7 +44,7 @@ body {
 	font-weight: 700;
 }
 
-/* ELEMENT SELECTORS */
+/* ELEMENT DECLARATION BLOCKS */
 h3 {
 	font-size: 13px;
 	font-weight: 700;
@@ -53,6 +53,10 @@ h3 {
 h4 {
 	font-size: 12px;
 	font-weight: 400;
+}
+
+p {
+	font-size: 13px;
 }
 
 /* CONTENT SPECIFIC CLASSES */
