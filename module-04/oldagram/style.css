@@ -1,0 +1,63 @@
+.black-border {
+	border: 1px solid black;
+	box-sizing: border-box;
+}
+
+/* DEFAULT PAGE STYLING */
+body {
+	margin: 0;
+
+	/* default page font */
+	font-family: "Source Sans 3", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+	font-size: 13px;
+	line-height: 1;
+}
+
+/* UTILITY CLASSES */
+.no-margin {
+	margin: 0 !important;
+}
+
+.no-padding {
+	padding: 0 !important;
+}
+
+.border-box {
+	box-sizing: border-box;
+}
+
+.centered-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.normal-text {
+	font-weight: 400;
+}
+
+.bold-text {
+	font-weight: 700;
+}
+
+/* POST FEED */
+.post-feed {
+	/* sizing and spacing */
+	max-width: 470px;
+	margin: 0 auto;
+}
+
+.avatar-img {
+	/* sizing */
+	height: 34px;
+	width: 34px;
+	object-fit: cover;
+
+	/* styling */
+	border-radius: 50%;
+}
+
