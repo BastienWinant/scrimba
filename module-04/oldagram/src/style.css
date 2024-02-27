@@ -2,3 +2,63 @@
   border: 1px solid black;
   box-sizing: border-box;
 }
+
+@font-face {
+  font-family: 'SourceSansPro';
+  src: url('./SourceSans3-VariableFont_wght.ttf');
+  font-style: normal;
+}
+
+html, body {
+  margin: 0;
+
+  /* default page font */
+  font-family: 'SourceSansPro';
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+/* UTILITY CLASSES */
+.no-margin {
+  margin: 0 !important;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.border-box {
+  box-sizing: border-box;
+}
+
+.centered-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* GENERIC SELECTORS */
+.post-feed {
+  /* sizing and spacing */
+  max-width: 470px;
+  margin: 0 auto;
+}
+
+.avatar-img {
+  /* sizing */
+  height: 34px;
+  width: auto;
+
+  /* styling */
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.post-img {
+  /* sizing and spacing */
+  width: 100%;
+  display: block; /* removes the small space below the img */
+  object-fit: cover;
+}
