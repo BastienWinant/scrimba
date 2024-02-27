@@ -40,7 +40,7 @@ html, body {
 /* IMAGE UTILITY CLASSES */
 .img {
   max-width: 100%;
-  display: block;
+  display: block; /* removes the white space below the img element */
 }
 
 .small-img {
@@ -61,10 +61,36 @@ html, body {
   font-weight: 700;
 }
 
+/* CONTENT SPECIFIC CLASSES */
+.page-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+}
+
+.header-container {
+  /* sizing */
+  width: 100%;
+  max-width: 470px;
+
+  /* content layout */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+
+  /* styling */
+  background-color: red;
+  border-bottom: 1px solid #C6C6C6;
+}
+
 .main {
   /* sizing and spacing */
   max-width: 470px;
   margin: 0 auto;
+  padding-top: 66px;
 }
 
 .post-header {
