@@ -61,38 +61,10 @@ html, body {
   font-weight: 700;
 }
 
-.container {
+.main {
   /* sizing and spacing */
-  width: 100%;
   max-width: 470px;
   margin: 0 auto;
-
-  /* the container is positioned so that
-  its children can be positioned relative to it
-  (instead of the body) */
-  position: relative;
-
-  padding-top: 66px;
-}
-
-/* PAGE HEADER */
-.page-header {
-  /* positioning */
-  position: absolute;
-  top: 0;
-
-  /* sizing */
-  width: 100%;
-
-  /* content layout */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px;
-
-  /* styling */
-  background-color: white;
-  border-bottom: 1px solid #C6C6C6;
 }
 
 .post-header {
