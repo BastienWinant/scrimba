@@ -91,6 +91,11 @@ html, body {
   max-width: 470px;
   margin: 0 auto;
   padding-top: 66px;
+
+  /* content layout */
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
 
 .post-header {
@@ -121,6 +126,7 @@ figcaption {
 .btn {
   border: none;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .btn-img {
