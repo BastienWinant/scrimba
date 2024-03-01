@@ -5,9 +5,15 @@ module.exports = {
   mode: 'development',
   // The entry point file described above
   entry: './src/index.js',
+  devtool: 'inline-source-map',
+  devServer: {
+    static: './dist',
+    port: 9000,
+  },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'src/templates/index.html'
+      // title: 'Output Management',
+      template: "./src/index.html"
     }),
   ],
   // The location of the build folder described above
@@ -22,20 +28,20 @@ module.exports = {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.(ttf)$/i,
+        type: 'asset/resource',
+      },
     ],
   },
   resolve: {
     alias: {
-      "js": path.resolve(__dirname, "src/js"),
-      "css": path.resolve(__dirname, "src/css"),
-      "templates": path.resolve(__dirname, "src/templates"),
-      "assets": path.resolve(__dirname, "assets")
-    }
-  },
-  // Optional and for development only. This provides the ability to
-  // map the built code back to the original source format when debugging.
-  devtool: 'inline-source-map',
-  devServer: {
-    static: './dist',
+      // Utilities: path.resolve(__dirname, 'src/utilities/'),
+      // Templates: path.resolve(__dirname, 'src/templates/'),
+      Data: path.resolve(__dirname, 'assets/data'),
+      Fonts: path.resolve(__dirname, 'assets/fonts'),
+      // Images: path.resolve(__dirname, 'assets/images')
+      Images: path.resolve(__dirname, 'assets/images')
+    },
   },
 };

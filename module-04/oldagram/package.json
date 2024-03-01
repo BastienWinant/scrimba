@@ -5,7 +5,6 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack --watch",
     "start": "webpack serve --open",
     "build": "webpack"
   },
@@ -21,8 +20,5 @@
     "webpack": "^5.90.3",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.2"
-  },
-  "dependencies": {
-    "unsplash-js": "^7.0.19"
   }
 }
