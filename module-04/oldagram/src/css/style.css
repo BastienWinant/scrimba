@@ -122,8 +122,6 @@ hgroup {
   display: flex;
   flex-direction: column;
   gap: 12px;
-
-  background: blue;
 }
 
 .post-comment {
@@ -144,7 +142,8 @@ hgroup {
 .btn {
   /* styling */
   border: none;
-  background: red;
+  cursor: pointer;
+  background-color: transparent;
 }
 
 .btn-img {
