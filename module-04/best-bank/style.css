@@ -1,0 +1,41 @@
+.black-border {
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0 !important;
+}
+
+/* UTILITY CLASSES */
+.no-margin {
+  margin: 0 !important;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.border-box {
+  box-sizing: border-box
+}
+
+.centered-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* HEADER */
+.logo {
+  /* sizing */
+  width: 100%;
+  max-width: 373px;
+  height: auto;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
