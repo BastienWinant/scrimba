@@ -1,6 +1,6 @@
 .black-border {
-  /* border: 1px solid black;
-  box-sizing: border-box; */
+  border: 1px solid black;
+  box-sizing: border-box;
 }
 
 /* COLOR PALETTE */
@@ -49,6 +49,7 @@ html, body {
   width: 100%;
   max-width: 730px;
   margin: auto;
+  text-align: center;
 }
 
 /* HEADER */
@@ -131,7 +132,7 @@ main {
   font-weight: 700;
   font-family: "Inter", sans-serif;
 
-  transition: transform 200ms;
+  transition: transform 300ms;
 }
 
 .btn:hover {
@@ -151,7 +152,7 @@ main {
 
   /* content layout */
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  grid-template-columns: 1fr; /* only for screens narrower than 576px (see media query) */
   grid-auto-rows: auto;
   gap: 2vw;
 }
@@ -162,4 +163,43 @@ main {
   font-size: 40px;
   line-height: 48px;
   font-weight: 700;
+}
+
+/* ACCOUNT SUMMARIES */
+.accounts {
+  /* content layout */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.account-total {
+  /* content layout */
+  padding: 42px 30px;
+
+  /* styling */
+  border: 5px solid var(--dark-orange);
+  border-radius: 15px;
+  background-color: var(--white);
+}
+
+.account-total:hover {
+  background-color: var(--orange);
+}
+
+.account-total {
+  /* text styling */
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+.account-amount::before {
+  content: "$ ";
+}
+
+@media (min-width: 576px) {
+  .dashboard {
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); 
+  }
 }
