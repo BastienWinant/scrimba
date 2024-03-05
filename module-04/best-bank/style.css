@@ -182,16 +182,14 @@ main {
   border: 5px solid var(--dark-orange);
   border-radius: 15px;
   background-color: var(--white);
+
+  /* text styling */
+  text-transform: capitalize;
+  font-weight: 700;
 }
 
 .account-total:hover {
   background-color: var(--orange);
-}
-
-.account-total {
-  /* text styling */
-  text-transform: capitalize;
-  font-weight: 700;
 }
 
 .account-amount::before {
