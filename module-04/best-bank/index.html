@@ -3,35 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>BestBank</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="black-border">
-    <img class="logo" src="bestbank_logo.png" alt="BestBank company logo" />
-    <nav class="nav black-border">
-      <a class="nav-link" href="#">home</a>
-      <a class="nav-link" href="#">payments</a>
-      <a class="nav-link" href="#">savings</a>
-      <a class="nav-link" href="#">financing</a>
-      <a class="nav-link" href="#">stocks</a>
+  <header>
+    <div class="container">
+      <img class="logo" src="bestbank_logo.png" alt="BestBank Company logo">
+    </div>
+    <nav class="nav">
+      <div class="container nav-container">
+        <a class="nav-link" href="#">home</a>
+        <a class="nav-link" href="#">payments</a>
+        <a class="nav-link" href="#">savings</a>
+        <a class="nav-link" href="#">financing</a>
+        <a class="nav-link" href="#">stocks</a>
+      </div>
     </nav>
   </header>
   <main>
-    <section class="action-btns black-border">
-      <button class="btn" type="button">pay</button>
-      <button class="btn" type="button">transfer</button>
+    <section class="action-btns container black-border">
+      <button class="btn border-box" type="button">pay</button>
+      <button class="btn border-box" type="button">transfer</button>
     </section>
-    <section>
+    <section class="dashboard black-border">
       <article class="black-border">
-        <header>
-          <h2 class="no-margin">Accounts</h2>
+        <header class="dashboard-header">
+          <h2 class="dashboard-title no-margin">accounts</h2>
         </header>
       </article>
       <article class="black-border">
-        <header>
-          <h2 class="no-margin">Spendings</h2>
+        <header class="dashboard-header">
+          <h2 class="dashboard-title no-margin">spendings</h2>
         </header>
       </article>
     </section>
