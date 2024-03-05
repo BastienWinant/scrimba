@@ -175,8 +175,14 @@ main {
 }
 
 .account-total {
+  /* sizing */
+  max-width: 100%;
+
   /* content layout */
   padding: 42px 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 0;
 
   /* styling */
   border: 5px solid var(--dark-orange);
@@ -190,6 +196,15 @@ main {
 
 .account-total:hover {
   background-color: var(--orange);
+}
+
+.account-name {
+  flex: 0 1 180px;
+}
+
+.account-amount {
+  flex: 1 0 180px;
+  text-align: right;
 }
 
 .account-amount::before {
