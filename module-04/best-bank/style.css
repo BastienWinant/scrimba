@@ -1,6 +1,6 @@
 .black-border {
-  border: 1px solid black;
-  box-sizing: border-box;
+  /* border: 1px solid black;
+  box-sizing: border-box; */
 }
 
 /* COLOR PALETTE */
@@ -46,7 +46,7 @@ html, body {
 
 .container {
   /* sizing and spacing */
-  width: 100%;
+  width: 90%;
   max-width: 730px;
   margin: auto;
   text-align: center;
@@ -77,8 +77,9 @@ html, body {
 .nav-container {
   /* content layout */
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  gap: 20px 0;
 }
 
 .nav-link {
@@ -212,6 +213,13 @@ main {
 }
 
 @media (min-width: 576px) {
+  .nav-container {
+    /* content layout */
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0;
+  }
   .dashboard {
     grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); 
   }
