@@ -1,6 +1,6 @@
 .black-border {
-  /* border: 1px solid black;
-  box-sizing: border-box; */
+  border: 1px solid black;
+  box-sizing: border-box;
 }
 
 /* COLOR PALETTE */
@@ -194,6 +194,7 @@ main {
   border: 5px solid var(--dark-orange);
   border-radius: 15px;
   background-color: var(--white);
+  cursor: pointer;
 
   /* text styling */
   text-transform: capitalize;
