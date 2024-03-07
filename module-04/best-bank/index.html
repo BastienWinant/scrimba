@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BestBank</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"> -->
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -36,19 +36,7 @@
         <header class="dashboard-header">
           <h2 class="dashboard-title">accounts</h2>
         </header>
-        <article class="accounts">
-          <section class="account-total border-box">
-            <p class="no-margin account-name black-border">main account</p>
-            <p class="no-margin account-amount black-border">6,700.56</p>
-          </section>
-          <section class="account-total border-box">
-            <p class="no-margin account-name black-border">expenses</p>
-            <p class="no-margin account-amount black-border">5,134.63</p>
-          </section>
-          <section class="account-total border-box">
-            <p class="no-margin account-name black-border">savings</p>
-            <p class="no-margin account-amount black-border">36,500.12</p>
-          </section>
+        <article class="accounts" id="account-balances">
         </article>
       </article>
       <article>
@@ -58,6 +46,6 @@
       </article>
     </section>
   </main>
-  <script src="index.js"></script>
+  <script type="module" src="index.js"></script>
 </body>
 </html>
