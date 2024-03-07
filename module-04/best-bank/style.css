@@ -154,7 +154,8 @@ main {
   /* content layout */
   display: grid;
   grid-template-columns: 1fr; /* only for screens narrower than 576px (see media query) */
-  grid-auto-rows: 1fr;
+  grid-auto-rows: auto;
+  gap: 40px 2vw;
 }
 
 .frame {
@@ -172,6 +173,11 @@ main {
   font-size: 40px;
   line-height: 48px;
   font-weight: 700;
+}
+
+.frame-pane {
+  height: 100%;
+  background-color: green;
 }
 
 /* ACCOUNT SUMMARIES */
@@ -231,6 +237,13 @@ main {
   content: "$ ";
 }
 
+.svg-content {
+  display: block; /* removes whitespace below the svg */
+  background-color: blue;
+  height: 100%;
+  width: 100%;
+}
+
 @media (min-width: 576px) {
   .nav-container {
     /* content layout */
@@ -245,13 +258,6 @@ main {
   }
 
   .frame {
-    background-color: red;
-    border: 2px solid blue;
     box-sizing: border-box;
-  }
-
-  .frame-pane {
-    height: 100%;
-    background-color: green;
   }
 }
