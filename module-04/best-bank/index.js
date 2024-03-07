@@ -14,11 +14,11 @@ function getAccountObject(index) {
 function barGraph(entries) {
   // Specify the chart’s dimensions, based on a bar’s height.
   const barHeight = 25;
-  const marginTop = 30;
+  const marginTop = 0;
   const marginRight = 0;
-  const marginBottom = 10;
+  const marginBottom = 0;
   const marginLeft = 0;
-  const width = 928;
+  const width = spendingContainer.offsetWidth;
   const height = Math.ceil((entries.length + 0.1) * barHeight) + marginTop + marginBottom;
 
   // Create the scales.
@@ -111,7 +111,7 @@ function accountBalance(accountObject) {
   balanceEl.innerText = parseFloat(accountObject["balance"]).toLocaleString();
   sectionEl.appendChild(balanceEl);
 
-  sectionEl.addEventListener("click", displayAccountSpending);
+  // sectionEl.addEventListener("click", displayAccountSpending);
 
   return sectionEl;
 }

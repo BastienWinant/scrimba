@@ -154,17 +154,24 @@ main {
   /* content layout */
   display: grid;
   grid-template-columns: 1fr; /* only for screens narrower than 576px (see media query) */
-  grid-auto-rows: auto;
-  gap: 2vw;
+  grid-auto-rows: 1fr;
 }
 
-.dashboard-title {
+.frame {
+  flex: 1 1 100%;
+
+  /* content layout */
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.frame-title {
   /* text styling */
   text-transform: capitalize;
   font-size: 40px;
   line-height: 48px;
   font-weight: 700;
-  margin: 0 0 24px;
 }
 
 /* ACCOUNT SUMMARIES */
@@ -204,8 +211,8 @@ main {
 }
 
 .account-total:hover {
-  left: 3px;
-  top: -3px;
+  left: 2px;
+  top: -2px;
 
   /* change background color */
   background-color: var(--orange);
@@ -232,7 +239,19 @@ main {
     justify-content: space-between;
     gap: 0;
   }
+
   .dashboard {
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); 
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  }
+
+  .frame {
+    background-color: red;
+    border: 2px solid blue;
+    box-sizing: border-box;
+  }
+
+  .frame-pane {
+    height: 100%;
+    background-color: green;
   }
 }
