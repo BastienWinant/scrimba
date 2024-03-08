@@ -177,7 +177,6 @@ main {
 
 .frame-pane {
   height: 100%;
-  background-color: green;
 }
 
 /* ACCOUNT SUMMARIES */
@@ -237,11 +236,11 @@ main {
   content: "$ ";
 }
 
-.svg-content {
-  display: block; /* removes whitespace below the svg */
-  background-color: blue;
-  height: 100%;
-  width: 100%;
+.svg-container {
+  /* text style */
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px;
 }
 
 @media (min-width: 576px) {

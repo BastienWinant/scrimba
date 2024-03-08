@@ -5,6 +5,9 @@ import accounts from "./accounts.json" assert { type: 'json' }
 const accountsContainer = document.getElementById("account-balances");
 const spendingContainer = document.getElementById("spending");
 
+// GLOBAL VARIABLES
+let currentAccountIndex = 1;
+
 // HELPERS
 // return the account data for a given index
 function getAccountObject(index) {
@@ -18,61 +21,84 @@ function sortSpendingEntries(s1, s2) {
   const a = parseFloat(s1.spent);
   const b = parseFloat(s2.spent);
 
-  if (a > b) return 1;
-  else if (a < b) return -1;
+  if (a > b) return -1;
+  else if (a < b) return 1;
   else return 0;
 }
 
-function displayBarGraph(entries) {
-  // keep the 5 biggest spending amounts only
-  entries = entries.toSorted(sortSpendingEntries).slice(0,5);
+// SPENDINGS BAR CHART
+function displayBarGraph() {
+  // clear the bar graph container
+  spendingContainer.innerHTML = "";
 
-  const width = 530;
-  const height = 370;
-  const barHeight = 50;
+  // retrieve the account data and keep the 5 biggest spendings
+  const accountObject = getAccountObject(currentAccountIndex);
+  let entries = accountObject.spendings.toSorted(sortSpendingEntries).slice(0,5);
 
-  // create scales for X and Y axes
+  // set the dimensions of the SVG canvas
+  const width = spendingContainer.clientWidth;
+  const barHeight = 65;
+  const height = entries.length * barHeight;
+
+  // create the scales
   const x = d3.scaleLinear()
-            .domain([0, d3.max(entries, d => d.spent)])
-            .range([0, width]);
-
-  console.log(x(300));
-
-  const y = d3.scaleBand()
-              .domain(d3.sort(entries, d => -parseFloat(d.spent)).map(d => d.category))
-              .rangeRound([0, height])
-              .paddingInner(0.16)
-              .paddingOuter(0);
+      .domain([0, d3.max(entries, d => parseFloat(d.spent))])
+      .range([width / 3, width]);
   
-  // height of the bar: y.bandwidth()
-  // innerpadding: 1 - barHeight / y.bandwidth()
+  const y = d3.scaleBand()
+      .domain(d3.sort(entries, d => -parseFloat(d.spent)).map(d => d.category))
+      .rangeRound([0, height])
+      .paddingInner(0.3);
 
-  console.log(y('Rent'));
-  console.log(y('Groceries'));
-  console.log(y('Restaurants'));
-
-  console.log(y.bandwidth());
-
-  // Create the SVG container and append to DOM container.
+  // create the SVG container and append to DOM container.
   const svg = d3.select("#spending")
                 .append("svg")
                 .attr("height", height)
-                .attr("viewBox", `0 0 ${width} ${height}`)
-                // .attr("style", "background-color: blue;")
-                .classed("svg-content", true);
+                .attr("width", width)
+                .classed("svg-container", true);
+  
+  // Append a rect for each letter.
+  svg.append("g")
+      .attr("fill", "var(--orange)")
+    .selectAll()
+    .data(entries)
+    .join("rect")
+      // .attr("x", x(0))
+      .attr("x", 0)
+      .attr("y", (d) => y(d.category))
+      .attr("width", (d) => x(parseFloat(d.spent)))
+      .attr("height", y.bandwidth())
+      .attr("rx", 15);
+
+  // Create a value format.
+  const format = x.tickFormat();
+
+  // Append a label for each letter.
+  svg.append("g")
+      .attr("fill", "white")
+      .attr("text-anchor", "end")
+    .selectAll()
+    .data(entries)
+    .join("text")
+      .attr("x", (d) => x(parseFloat(d.spent)))
+      .attr("y", (d) => y(d.category) + y.bandwidth() / 2)
+      .attr("dy", "0.35em")
+      .attr("dx", -10)
+      .text((d) => "$" + format(d.spent))
+    // .call((text) => text.filter(d => x(parseFloat(d.spent)) - x(0) < 100) // short bars
+    //   .attr("dx", 10)
+    //   .attr("fill", "black")
+    //   .attr("text-anchor", "start"));
+
 }
 
 function displayAccountSpending() {
   // retieve the data for the target account
-  const accountIndex = this.getAttribute("data-index");
-  const accountObject = getAccountObject(accountIndex);
-  const accountSpendings = accountObject.spendings;
-
-  spendingContainer.innerHTML = "";
-  displayBarGraph(accountSpendings);
+  currentAccountIndex = parseInt(this.getAttribute("data-index"));
+  displayBarGraph();
 }
 
-
+// ACCOUNT BALANCES DISPLAY
 function accountBalance(accountObject) {
   // create the container for the account balance display
   const sectionEl = document.createElement("section");
@@ -96,7 +122,16 @@ function accountBalance(accountObject) {
   return sectionEl;
 }
 
+// DOCUMENT EVENTS CALLBACKS
+window.addEventListener("resize", () => {
+  displayBarGraph();
+});
 
-accounts.forEach((account) => {
-  accountsContainer.appendChild(accountBalance(account));
+document.addEventListener("DOMContentLoaded", () => {
+  accounts.forEach((account) => {
+    accountsContainer.appendChild(accountBalance(account));
+  });
+
+  displayBarGraph();
 })
+
