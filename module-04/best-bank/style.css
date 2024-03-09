@@ -124,6 +124,10 @@ main {
   transition: transform 300ms;
 }
 
+.btn:focus {
+  outline: none;
+}
+
 .btn:hover {
   /* sizing */
   transform: scale(1.05);
