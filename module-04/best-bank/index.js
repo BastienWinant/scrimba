@@ -43,7 +43,7 @@ function displayBarGraph() {
   // create the scales
   const x = d3.scaleLinear()
       .domain([0, d3.max(entries, d => parseFloat(d.spent))])
-      .range([width / 3, width]);
+      .range([180, width]);
   
   const y = d3.scaleBand()
       .domain(d3.sort(entries, d => -parseFloat(d.spent)).map(d => d.category))
@@ -63,7 +63,6 @@ function displayBarGraph() {
     .selectAll()
     .data(entries)
     .join("rect")
-      // .attr("x", x(0))
       .attr("x", 0)
       .attr("y", (d) => y(d.category))
       .attr("width", (d) => x(parseFloat(d.spent)))
@@ -75,7 +74,7 @@ function displayBarGraph() {
 
   // Append a label for each letter.
   svg.append("g")
-      .attr("fill", "white")
+      .attr("fill", "black")
       .attr("text-anchor", "end")
     .selectAll()
     .data(entries)
@@ -84,12 +83,21 @@ function displayBarGraph() {
       .attr("y", (d) => y(d.category) + y.bandwidth() / 2)
       .attr("dy", "0.35em")
       .attr("dx", -10)
-      .text((d) => "$" + format(d.spent))
-    // .call((text) => text.filter(d => x(parseFloat(d.spent)) - x(0) < 100) // short bars
-    //   .attr("dx", 10)
-    //   .attr("fill", "black")
-    //   .attr("text-anchor", "start"));
+      .text((d) => "$" + format(d.spent));
 
+  // Append a label for each letter.
+  svg.append("g")
+      .attr("fill", "black")
+      .attr("text-anchor", "start")
+    .selectAll()
+    .data(entries)
+    .join("text")
+      .attr("x", 0)
+      .attr("y", (d) => y(d.category) + y.bandwidth() / 2)
+      .attr("dy", "0.35em")
+      .attr("dx", 10)
+      // .text((d) => "$" + format(d.spent));
+      .text((d) => d.category)
 }
 
 function displayAccountSpending() {
