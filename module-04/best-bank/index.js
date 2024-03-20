@@ -105,7 +105,7 @@ function displayBarGraph(accountObject) {
 
 function displayAccountSpending(accountContainer) {
   // retieve the data for the target account
-  currentAccountIndex = parseInt(accountContainer.getAttribute("data-index"));
+  currentAccountIndex = parseInt(accountContainer.dataset.index);
 
   // display the account spending entries in the dashboard
   const accountObject = getAccountObject(currentAccountIndex);
@@ -143,7 +143,7 @@ function updateAccountBalanceDisplay(accountObject) {
   const accountIndex = accountObject.id;
 
   for (const accountEl of accountBalanceEls) {
-    if (accountEl.getAttribute("data-index") == accountIndex) {
+    if (accountEl.dataset.index == accountIndex) {
       accountEl.classList.remove("not-selected");
       accountEl.classList.add("selected");
     } else {
