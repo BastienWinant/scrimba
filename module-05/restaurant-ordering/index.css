@@ -53,6 +53,12 @@ body {
 	color: white;
 }
 
-h1 {
+.header-title {
 	font-size: 39px;
 }
+
+.header-subtitle {
+	font-size: 22px;
+}
+
+/* #### MODAL #### */
