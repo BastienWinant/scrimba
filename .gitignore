@@ -2,3 +2,4 @@
 **/.env
 **/dist
 module-04/oldagram/firebase.config.js
+*.json
