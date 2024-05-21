@@ -22,11 +22,17 @@ function displayMenu() {
 }
 
 function updateOrder(itemId) {
+  // TODO: retrieve order from localStorage or create new object
+
   const menuItem = menuData.find(item => item.id == itemId)
   menuItem.orderCount = menuItem.orderCount ? menuItem.orderCount + 1 : 1
+
+  // TODO: store order in localstorage
 }
 
 function displayOrder() {
+  // TODO: retrieve order from localStorage
+
   const orderContainer = document.querySelector('.order-items')
   orderContainer.innerHTML = menuData.map(menuItem => {
     const { name, price, id, orderCount } = menuItem

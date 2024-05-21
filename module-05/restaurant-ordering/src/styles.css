@@ -1,6 +1,6 @@
 .black-border {
-  /* border: 1px solid black;
-  box-sizing: border-box; */
+  border: 1px solid black;
+  box-sizing: border-box;
 }
 
 @font-face {
@@ -77,8 +77,8 @@ main {
 /* #### MENU #### */
 .menu-item {
   /* sizing and spacing */
+  min-height: 150px;
   margin-bottom: 45px;
-  padding-bottom: 20px;
 
   /* content layout */
   display: grid;
@@ -90,7 +90,7 @@ main {
 
 .item-graphic {
   font-size: 78px;
-  line-height: 98px;
+  line-height: 1;
 }
 
 .menu-item-info {
@@ -164,4 +164,10 @@ main {
   line-height: 24px;
   color: #BBB;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@media (max-width: 576px) {
+  .order-btns {
+    flex-direction: column;
+  }
 }
