@@ -49,7 +49,7 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 20px;
+  gap: 5px;
   padding: 0 46px;
 
   /* styling */
@@ -60,10 +60,69 @@ html, body {
 
 .header-title {
   /* text styling */
-  font-size: 39px;
+  font-size: 42px;
 }
 
 .header-tagline {
   /* text styling */
   font-size: 22px;
+  font-weight: lighter;
+}
+
+main {
+  background-color: white;
+}
+
+/* #### MENU #### */
+.menu-item {
+  /* content layout */
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+}
+
+.menu-item-info {
+  /* content layout */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.item-name {
+  /* text styling */
+  font-size: 28px;
+  line-height: 17px;
+  text-transform: capitalize;
+}
+
+.item-ingredients {
+  /* text styling */
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: lighter;
+  color: #8B8B8B;
+}
+
+.item-price {
+  /* text styling */
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.add-button {
+  /* sizing and spacing */
+  height: 50px;
+  width: 50px;
+
+  /* styling */
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid #DEDEDE;
+  color: #3C3C3C;
+
+  cursor: pointer;
+}
+
+.item-graphic {
+  font-size: 78px;
+  line-height: 98px;
 }
