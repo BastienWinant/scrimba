@@ -13,14 +13,39 @@ function displayMenu() {
                 <p class="item-ingredients no-margin black-border">${ingredients.join(", ")}</p>
                 <p class="item-price no-margin black-border">$${price}</p>
               </div>
-              <i class="add-button fa-solid fa-plus fa-lg" data-item-id="${id}"></i>
+              <div class="order-btns">
+                <i class="round-btn add-btn fa-solid fa-plus fa-lg" data-item-id="${id}"></i>
+                <i class="round-btn add-btn fa-solid fa-minus fa-lg" data-item-id="${id}"></i>
+              </div>
             </div>`
   }).join('\n')
 }
 
+function updateOrder(itemId) {
+  const menuItem = menuData.find(item => item.id == itemId)
+  menuItem.orderCount = menuItem.orderCount ? menuItem.orderCount + 1 : 1
+}
+
+function displayOrder() {
+  const orderContainer = document.querySelector('.order-items')
+  orderContainer.innerHTML = menuData.map(menuItem => {
+    const { name, price, id, orderCount } = menuItem
+    if (orderCount > 0) {
+      return `<div class="order-entry black-border">
+                <p class="item-name no-margin">${name}</p>
+                <p class="remove-btn no-margin">remove</p>
+                <p class="item-price no-margin">$${price}</p>
+              </div>`
+    }
+  }).join('\n')
+
+}
+
 document.querySelector('.menu').addEventListener('click', (e) => {
-  if (e.target.classList.contains('add-button')) {
-    console.log(e.target.dataset.itemId)
+  if (e.target.classList.contains('add-btn')) {
+    updateOrder(e.target.dataset.itemId)
+    displayMenu()
+    displayOrder()
   }
 })
 

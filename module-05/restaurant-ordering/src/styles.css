@@ -71,14 +71,14 @@ html, body {
 
 main {
   background-color: white;
-  padding: 67px 46px 53px;
+  padding: 0 46px;
 }
 
 /* #### MENU #### */
 .menu-item {
   /* sizing and spacing */
-  height: 150px;
   margin-bottom: 45px;
+  padding-bottom: 20px;
 
   /* content layout */
   display: grid;
@@ -121,7 +121,12 @@ main {
   line-height: 24px;
 }
 
-.add-button {
+.order-btns {
+  display: flex;
+  gap: 8px;
+}
+
+.round-btn {
   /* sizing and spacing */
   height: 50px;
   width: 50px;
@@ -140,7 +145,23 @@ main {
   cursor: pointer;
 }
 
-.add-button:hover {
+.round-btn:hover {
   background-color: #DEDEDE;
   color: white;
+}
+
+/* #### ORDER SUMMARY #### */
+.order-entry {
+  /* content layout */
+  display: flex;
+  align-items: flex-start;
+  /* justify-content: center; */
+}
+
+.remove-btn {
+  /* text styling */
+  font-size: 12px;
+  line-height: 24px;
+  color: #BBB;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
