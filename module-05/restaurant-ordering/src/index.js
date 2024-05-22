@@ -85,6 +85,16 @@ function displayOrder() {
   }
 }
 
+function closeModal() {
+  // clear all input fields
+  document.querySelector('#name').value = ''
+  document.querySelector('#card').value = ''
+  document.querySelector('#cvv').value = ''
+
+  // close the modal
+  document.querySelector('.dialog-modal').close()
+}
+
 // handle click events on the app container
 document.querySelector('.app-container').addEventListener('click', (e) => {
   if (e.target.classList.contains('add-btn')) {
@@ -101,16 +111,14 @@ document.querySelector('.app-container').addEventListener('click', (e) => {
     displayOrder()
   } else if (e.target.classList.contains('order-btn')) {
     // show the checkout modal
-    document.querySelector('.modal').style.display = 'flex'
+    document.querySelector('.dialog-modal').showModal()
   } else if (e.target.classList.contains('modal-close-btn')) {
     // close the checkout modal
-    document.querySelector('.modal').style.display = 'none'
+    closeModal()
   } else if (e.target.classList.contains('modal-form-btn')) {
     e.preventDefault()
-    // close the modal
-    document.querySelector('.modal').style.display = 'none'
-    localStorage.removeItem('order')
-    displayOrder()
+    
+    // TODO: handle form submission
   }
 })
 
