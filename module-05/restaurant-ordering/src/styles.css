@@ -156,7 +156,6 @@ main {
   /* text styling */
   font-size: 28px;
   line-height: 17px;
-  margin-bottom: 10px;
 }
 
 .order {
@@ -167,16 +166,18 @@ main {
 
 .order-items {
   width: 100%;
+  margin: 60px 0 50px;
 
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 
 .order-item {
+  /* sizing and spacing */
+  margin-bottom: 20px;
+
   /* content layout */
   display: flex;
-  /* align-items: center; */
   gap: 10px;
 }
 
@@ -204,6 +205,12 @@ main {
   line-height: 24px;
 
   margin-left: auto;
+}
+
+hr {
+  width: 100%;
+  border: 1px solid #393333;
+  margin: 10px 0 15px 0;
 }
 
 .order-btn {
