@@ -4,7 +4,7 @@ import menuData from '/assets/data/data.json'
 function displayMenu() {
   const menuContainer = document.querySelector('.menu')
   menuContainer.innerHTML = menuData.map(menuItem => {
-    const { name, ingredients, id, price, emoji, orderCount } = menuItem
+    const { name, ingredients, id, price, emoji } = menuItem
 
     return `<div class="menu-item black-border">
               <p class="no-margin item-graphic black-border">${emoji}</p>
@@ -47,7 +47,10 @@ function deleteFromOrder(itemId) {
 
 function displayOrder() {
   const orderObj = JSON.parse(localStorage.getItem('order'))
-  if (orderObj) {
+  
+  if (Object.keys(orderObj).length > 0) {
+    document.querySelector('.order').style.display = 'flex'
+
     document.querySelector('.order-items').innerHTML = '';
 
     let orderSummaryHTML = ''
@@ -75,6 +78,8 @@ function displayOrder() {
                         </div>`
     
     document.querySelector('.order-items').innerHTML = orderSummaryHTML
+  } else {
+    document.querySelector('.order').style.display = 'none'
   }
 }
 
@@ -93,3 +98,4 @@ document.querySelector('.app-container').addEventListener('click', (e) => {
 })
 
 displayMenu()
+displayOrder()
