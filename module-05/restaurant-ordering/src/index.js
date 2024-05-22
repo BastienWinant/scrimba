@@ -106,37 +106,14 @@ document.querySelector('.app-container').addEventListener('click', (e) => {
     // close the checkout modal
     document.querySelector('.modal').style.display = 'none'
   } else if (e.target.classList.contains('modal-form-btn')) {
-    // display the order confirmation message
+    e.preventDefault()
+    // close the modal
+    document.querySelector('.modal').style.display = 'none'
     localStorage.removeItem('order')
     displayOrder()
-
-    document.querySelector('.modal-content').innerHTML =
-      `<i class="fa-solid fa-xmark modal-close-btn"></i>
-      <p class="no-margin">Your order has been placed!</p>`
   }
 })
 
-// display modal when the order button is clicked
-document.querySelector('.order-btn').addEventListener('click', () => {
-  document.querySelector('.modal').style.display = 'flex'
-})
-
-// close modal when the close button is clicked
-document.querySelector('.modal-close-btn').addEventListener('click', () => {
-  document.querySelector('.modal').style.display = 'none'
-})
-
-// display confirmation message when the modal button is clicked
-document.querySelector('.modal-form-btn').addEventListener('click', () => {
-  localStorage.removeItem('order')
-
-  document.querySelector('.modal-content').innerHTML =
-    `<i class="fa-solid fa-xmark modal-close-btn"></i>
-    <p class="no-margin">Your order has been placed!</p>`
-  // displayOrder()
-  // document.querySelector('.modal').style.display = 'none'
-  // document.querySelector('.confirmation').style.display = 'flex'
-})
 
 document.addEventListener('DOMContentLoaded', () => {
   displayMenu()
