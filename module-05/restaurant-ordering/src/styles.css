@@ -1,6 +1,6 @@
 .black-border {
-  border: 1px solid black;
-  box-sizing: border-box;
+  /* border: 1px solid black;
+  box-sizing: border-box; */
 }
 
 @font-face {
@@ -151,19 +151,42 @@ main {
 }
 
 /* #### ORDER SUMMARY #### */
-.order-entry {
-  /* content layout */
-  display: flex;
-  align-items: flex-start;
-  /* justify-content: center; */
+.section-title {
+  /* text styling */
+  font-size: 28px;
+  line-height: 17px;
+  margin-bottom: 10px;
 }
 
-.remove-btn {
-  /* text styling */
+.order {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* .remove-btn {
   font-size: 12px;
   line-height: 24px;
   color: #BBB;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+} */
+
+.order-btn {
+  /* sizing and spacing */
+  width: 100%;
+  height: 60px;
+
+  /* styling */
+  background-color: #16DB99;
+  color: white;
+  border: none;
+
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: bold;
+
+  cursor: pointer;
 }
 
 @media (max-width: 576px) {

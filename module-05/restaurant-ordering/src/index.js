@@ -23,27 +23,33 @@ function displayMenu() {
 
 function updateOrder(itemId) {
   // TODO: retrieve order from localStorage or create new object
+  // const order = localStorage.getItem('order') && {'test': 1}
+  // console.log(order)
 
-  const menuItem = menuData.find(item => item.id == itemId)
-  menuItem.orderCount = menuItem.orderCount ? menuItem.orderCount + 1 : 1
+  const orderObj = localStorage.getItem('order') ? JSON.parse(localStorage.getItem('order')) : {}
 
-  // TODO: store order in localstorage
+  // const menuItem = menuData.find(item => item.id == itemId)
+  // menuItem.orderCount = menuItem.orderCount ? menuItem.orderCount + 1 : 1
+  orderObj[itemId] = orderObj[itemId] ? orderObj[itemId] + 1 : 1
+  console.log(orderObj)
+
+  localStorage.setItem('order', JSON.stringify(orderObj))
 }
 
 function displayOrder() {
   // TODO: retrieve order from localStorage
 
-  const orderContainer = document.querySelector('.order-items')
-  orderContainer.innerHTML = menuData.map(menuItem => {
-    const { name, price, id, orderCount } = menuItem
-    if (orderCount > 0) {
-      return `<div class="order-entry black-border">
-                <p class="item-name no-margin">${name}</p>
-                <p class="remove-btn no-margin">remove</p>
-                <p class="item-price no-margin">$${price}</p>
-              </div>`
-    }
-  }).join('\n')
+  // const orderContainer = document.querySelector('.order-items')
+  // orderContainer.innerHTML = menuData.map(menuItem => {
+  //   const { name, price, id, orderCount } = menuItem
+  //   if (orderCount > 0) {
+  //     return `<div class="order-entry black-border">
+  //               <p class="item-name no-margin">${name}</p>
+  //               <p class="remove-btn no-margin">remove</p>
+  //               <p class="item-price no-margin">$${price}</p>
+  //             </div>`
+  //   }
+  // }).join('\n')
 
 }
 
