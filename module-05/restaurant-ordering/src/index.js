@@ -21,24 +21,27 @@ function displayMenu() {
   }).join('\n')
 }
 
-
+// increase the order count for the given item id
 function addToOrder(itemId) {
   const orderObj = localStorage.getItem('order') ? JSON.parse(localStorage.getItem('order')) : {}
   orderObj[itemId] = orderObj[itemId] ? orderObj[itemId] + 1 : 1
   localStorage.setItem('order', JSON.stringify(orderObj))
 }
 
+// decrease the order count for the given item id
 function removeFromOrder(itemId) {
   const orderObj = localStorage.getItem('order') ? JSON.parse(localStorage.getItem('order')) : {}
   orderObj[itemId] = orderObj[itemId] ? orderObj[itemId] - 1 : 0
 
+  // remove the item from the object if the count hits 0
   if (orderObj[itemId] <= 0) {
     delete orderObj[itemId]
   }
-
+  
   localStorage.setItem('order', JSON.stringify(orderObj))
 }
 
+// remove the item from the order
 function deleteFromOrder(itemId) {
   const orderObj = localStorage.getItem('order') ? JSON.parse(localStorage.getItem('order')) : {}
   delete orderObj[itemId]
@@ -48,14 +51,12 @@ function deleteFromOrder(itemId) {
 function displayOrder() {
   const orderObj = JSON.parse(localStorage.getItem('order'))
   
-  if (Object.keys(orderObj).length > 0) {
+  if (orderObj !== null && Object.keys(orderObj).length > 0) {
+    // display the order summary at the bottom of the page
     document.querySelector('.order').style.display = 'flex'
 
-    document.querySelector('.order-items').innerHTML = '';
-
     let orderSummaryHTML = ''
-
-    let totalOrderPrice = 0;
+    let totalOrderPrice = 0
 
     for (const [itemId, orderCount] of Object.entries(orderObj)) {
       const item = menuData.find(item => item.id == itemId)
@@ -65,7 +66,7 @@ function displayOrder() {
 
       orderSummaryHTML += `<div class="order-item">
                             <p class="no-margin order-item-name">${item.name} <span class="order-item-count">(x${orderCount})</span></p>
-                            <button class="no-padding delete-btn" type="button">remove</button>
+                            <button class="no-padding delete-btn" type="button" data-item-id="${itemId}">remove</button>
                             <p class="no-margin order-item-price">$${itemOrderPrice}</p>
                           </div>\n`
     }
@@ -79,6 +80,7 @@ function displayOrder() {
     
     document.querySelector('.order-items').innerHTML = orderSummaryHTML
   } else {
+    // hide the order summary at the bottom of the page
     document.querySelector('.order').style.display = 'none'
   }
 }
@@ -86,16 +88,57 @@ function displayOrder() {
 // handle click events on the app container
 document.querySelector('.app-container').addEventListener('click', (e) => {
   if (e.target.classList.contains('add-btn')) {
+    // add a unit of the selected item to the order
     addToOrder(e.target.dataset.itemId)
     displayOrder()
   } else if (e.target.classList.contains('remove-btn')) {
+    // remove a unit of the selected item to the order
     removeFromOrder(e.target.dataset.itemId)
     displayOrder()
   } else if (e.target.classList.contains('delete-btn')) {
+    // remove the selected item from the order
     deleteFromOrder(e.target.dataset.itemId)
-    displayOrder();
+    displayOrder()
+  } else if (e.target.classList.contains('order-btn')) {
+    // show the checkout modal
+    document.querySelector('.modal').style.display = 'flex'
+  } else if (e.target.classList.contains('modal-close-btn')) {
+    // close the checkout modal
+    document.querySelector('.modal').style.display = 'none'
+  } else if (e.target.classList.contains('modal-form-btn')) {
+    // display the order confirmation message
+    localStorage.removeItem('order')
+    displayOrder()
+
+    document.querySelector('.modal-content').innerHTML =
+      `<i class="fa-solid fa-xmark modal-close-btn"></i>
+      <p class="no-margin">Your order has been placed!</p>`
   }
 })
 
-displayMenu()
-displayOrder()
+// display modal when the order button is clicked
+document.querySelector('.order-btn').addEventListener('click', () => {
+  document.querySelector('.modal').style.display = 'flex'
+})
+
+// close modal when the close button is clicked
+document.querySelector('.modal-close-btn').addEventListener('click', () => {
+  document.querySelector('.modal').style.display = 'none'
+})
+
+// display confirmation message when the modal button is clicked
+document.querySelector('.modal-form-btn').addEventListener('click', () => {
+  localStorage.removeItem('order')
+
+  document.querySelector('.modal-content').innerHTML =
+    `<i class="fa-solid fa-xmark modal-close-btn"></i>
+    <p class="no-margin">Your order has been placed!</p>`
+  // displayOrder()
+  // document.querySelector('.modal').style.display = 'none'
+  // document.querySelector('.confirmation').style.display = 'flex'
+})
+
+document.addEventListener('DOMContentLoaded', () => {
+  displayMenu()
+  displayOrder()
+})

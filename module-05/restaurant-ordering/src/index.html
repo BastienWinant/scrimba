@@ -20,9 +20,23 @@
         <h2 class="section-title">Your order</h2>
         <div class="order-items black-border">
         </div>       
-        <button type="button" class="order-btn">Complete order</button>
+        <button type="button" class="btn order-btn">Complete order</button>
       </section>
     </main>
+
+    <!-- modal -->
+    <div class="modal">
+      <div class="modal-content border-box">
+        <i class="fa-solid fa-xmark modal-close-btn"></i>
+        <h3>Enter card details</h3>
+        <form class="modal-form">
+          <input type="text" placeholder="Enter your name" id="name" class="modal-form-input" required>
+          <input type="text" placeholder="Enter card number" id="card" class="modal-form-input" required>
+          <input type="text" placeholder="Enter CVV" id="cvv" class="modal-form-input" required>
+          <button type="submit" class="btn modal-form-btn">Pay</button>
+        </form>
+      </div>
+    </div>
   </div>
 </body>
 </html>
