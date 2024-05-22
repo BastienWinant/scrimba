@@ -105,6 +105,7 @@ main {
   font-size: 28px;
   line-height: 17px;
   text-transform: capitalize;
+  font-weight: lighter;
 }
 
 .item-ingredients {
@@ -164,12 +165,46 @@ main {
   align-items: center;
 }
 
-/* .remove-btn {
+.order-items {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.order-item {
+  /* content layout */
+  display: flex;
+  /* align-items: center; */
+  gap: 10px;
+}
+
+.order-item-name {
+  font-size: 28px;
+  line-height: 17px;
+}
+
+.order-item-count {
+  font-size: 16px;
+}
+
+.delete-btn {
+  border: none;
+  background-color: transparent;
   font-size: 12px;
   line-height: 24px;
   color: #BBB;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-} */
+  cursor: pointer;
+}
+
+.order-item-price {
+  font-size: 20px;
+  line-height: 24px;
+
+  margin-left: auto;
+}
 
 .order-btn {
   /* sizing and spacing */

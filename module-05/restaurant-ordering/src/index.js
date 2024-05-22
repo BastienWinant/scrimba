@@ -21,43 +21,49 @@ function displayMenu() {
   }).join('\n')
 }
 
-function updateOrder(itemId) {
-  // TODO: retrieve order from localStorage or create new object
-  // const order = localStorage.getItem('order') && {'test': 1}
-  // console.log(order)
-
+function addToOrder(itemId) {
   const orderObj = localStorage.getItem('order') ? JSON.parse(localStorage.getItem('order')) : {}
-
-  // const menuItem = menuData.find(item => item.id == itemId)
-  // menuItem.orderCount = menuItem.orderCount ? menuItem.orderCount + 1 : 1
   orderObj[itemId] = orderObj[itemId] ? orderObj[itemId] + 1 : 1
-  console.log(orderObj)
+  localStorage.setItem('order', JSON.stringify(orderObj))
+}
 
+function removeFromOrder(itemId) {
+  const orderObj = localStorage.getItem('order') ? JSON.parse(localStorage.getItem('order')) : {}
+  orderObj[itemId] = orderObj[itemId] ? orderObj[itemId] - 1 : 0
   localStorage.setItem('order', JSON.stringify(orderObj))
 }
 
 function displayOrder() {
-  // TODO: retrieve order from localStorage
+  const orderObj = JSON.parse(localStorage.getItem('order'))
+  if (orderObj) {
+    document.querySelector('.order-items').innerHTML = '';
 
-  // const orderContainer = document.querySelector('.order-items')
-  // orderContainer.innerHTML = menuData.map(menuItem => {
-  //   const { name, price, id, orderCount } = menuItem
-  //   if (orderCount > 0) {
-  //     return `<div class="order-entry black-border">
-  //               <p class="item-name no-margin">${name}</p>
-  //               <p class="remove-btn no-margin">remove</p>
-  //               <p class="item-price no-margin">$${price}</p>
-  //             </div>`
-  //   }
-  // }).join('\n')
+    let orderSummaryHTML = ''
+    for (const [itemId, orderCount] of Object.entries(orderObj)) {
+      const item = menuData.find(item => item.id == itemId)
+      const totalPrice = item.price * orderCount
 
+      orderSummaryHTML += `<div class="order-item">
+                            <p class="no-margin order-item-name">${item.name} <span class="order-item-count">(x${orderCount})</span></p>
+                            <button class="no-padding delete-btn" type="button">remove</button>
+                            <p class="no-margin order-item-price">$${totalPrice}</p>
+                          </div>\n`
+
+    }
+    
+    document.querySelector('.order-items').innerHTML = orderSummaryHTML
+  }
 }
 
-document.querySelector('.menu').addEventListener('click', (e) => {
+document.querySelector('.app-container').addEventListener('click', (e) => {
   if (e.target.classList.contains('add-btn')) {
-    updateOrder(e.target.dataset.itemId)
+    addToOrder(e.target.dataset.itemId)
     displayMenu()
     displayOrder()
+  }
+
+  if (e.target.classList.contains('delete-btn')) {
+    displayOrder();
   }
 })
 
