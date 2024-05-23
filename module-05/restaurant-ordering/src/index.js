@@ -6,12 +6,12 @@ function displayMenu() {
   menuContainer.innerHTML = menuData.map(menuItem => {
     const { name, ingredients, id, price, emoji } = menuItem
 
-    return `<div class="menu-item black-border">
-              <p class="no-margin item-graphic black-border">${emoji}</p>
+    return `<div class="menu-item">
+              <p class="no-margin item-graphic">${emoji}</p>
               <div class="menu-item-info">
-                <h3 class="item-name no-margin black-border">${name}</h3>
-                <p class="item-ingredients no-margin black-border">${ingredients.join(", ")}</p>
-                <p class="item-price no-margin black-border">$${price}</p>
+                <h3 class="item-name no-margin">${name}</h3>
+                <p class="item-ingredients no-margin">${ingredients.join(", ")}</p>
+                <p class="item-price no-margin">$${price}</p>
               </div>
               <div class="order-btns">
                 <i class="round-btn add-btn fa-solid fa-plus fa-lg" data-item-id="${id}"></i>
@@ -48,41 +48,55 @@ function deleteFromOrder(itemId) {
   localStorage.setItem('order', JSON.stringify(orderObj))
 }
 
-function displayOrder() {
-  const orderObj = JSON.parse(localStorage.getItem('order'))
-  
-  if (orderObj !== null && Object.keys(orderObj).length > 0) {
-    // display the order summary at the bottom of the page
-    document.querySelector('.order').style.display = 'flex'
+function displayOrderSummary() {
+  const orderStatusDiv = document.querySelector('.order-status')
+  orderStatusDiv.innerHTML = ''
 
-    let orderSummaryHTML = ''
-    let totalOrderPrice = 0
+  const orderObj = localStorage.getItem('order') ? JSON.parse(localStorage.getItem('order')) : {}
 
+  orderStatusDiv.innerHTML += `<h2 class="no-margin order-status-title">Your order</h2>\n`
+
+  let totalOrderPrice = 0
+
+  const emptyOrder = Object.keys(orderObj).length === 0
+  const orderBtnStatus = emptyOrder ? ' disabled' : ''
+
+  if (emptyOrder) {
+    const orderStatusMessage = document.createElement('p')
+    orderStatusMessage.classList.add('no-margin', 'empty-order-message')
+    orderStatusMessage.textContent = 'Your order is empty'
+
+    orderStatusDiv.appendChild(orderStatusMessage)
+  } else {
+    const orderList = document.createElement('ul')
+    orderList.classList.add('order-items-list', 'no-margin', 'no-padding')
     for (const [itemId, orderCount] of Object.entries(orderObj)) {
-      const item = menuData.find(item => item.id == itemId)
-      const itemOrderPrice = item.price * orderCount
+      const itemObj = menuData.find(item => item.id == itemId)
+      const orderItem = document.createElement('li')
+      orderItem.classList.add('order-item')
 
+      const itemOrderPrice = orderCount * itemObj.price
       totalOrderPrice += itemOrderPrice
 
-      orderSummaryHTML += `<div class="order-item">
-                            <p class="no-margin order-item-name">${item.name} <span class="order-item-count">(x${orderCount})</span></p>
-                            <button class="no-padding delete-btn" type="button" data-item-id="${itemId}">remove</button>
-                            <p class="no-margin order-item-price">$${itemOrderPrice}</p>
-                          </div>\n`
+      orderItem.innerHTML = `<h3 class="item-name no-margin">${itemObj.name} <span class="order-item-count">(x${orderCount})</span></h3>\n`
+      orderItem.innerHTML += `<button class="no-padding delete-btn" data-item-id="${itemObj.id}">remove</button>`
+      orderItem.innerHTML += `<p class="no-margin order-item-price no-padding">$${itemOrderPrice}</p>`
+
+      orderList.appendChild(orderItem)
     }
 
-    orderSummaryHTML += '<hr>\n'
-
-    orderSummaryHTML += `<div class="order-item">
-                          <p class="no-margin order-item-name">Total Price:</p>
-                          <p class="no-margin order-item-price">$${totalOrderPrice}</p>
-                        </div>`
-    
-    document.querySelector('.order-items').innerHTML = orderSummaryHTML
-  } else {
-    // hide the order summary at the bottom of the page
-    document.querySelector('.order').style.display = 'none'
+    orderStatusDiv.appendChild(orderList)
   }
+
+  orderStatusDiv.innerHTML += `<hr>\n
+                                <div class="order-item">
+                                  <h3 class="item-name no-margin">Total price:</h3>
+                                  <p class="no-margin order-item-price no-padding">$${totalOrderPrice}</p>
+                                </div>
+                                <button class="full-width-btn order-btn"${orderBtnStatus}>Complete order</button>`
+}
+function displayOrderConfirmation() {
+  const orderStatusDiv = document.querySelector('.order-status')
 }
 
 function closeModal() {
@@ -100,15 +114,15 @@ document.querySelector('.app-container').addEventListener('click', (e) => {
   if (e.target.classList.contains('add-btn')) {
     // add a unit of the selected item to the order
     addToOrder(e.target.dataset.itemId)
-    displayOrder()
+    displayOrderSummary()
   } else if (e.target.classList.contains('remove-btn')) {
     // remove a unit of the selected item to the order
     removeFromOrder(e.target.dataset.itemId)
-    displayOrder()
+    displayOrderSummary()
   } else if (e.target.classList.contains('delete-btn')) {
     // remove the selected item from the order
     deleteFromOrder(e.target.dataset.itemId)
-    displayOrder()
+    displayOrderSummary()
   } else if (e.target.classList.contains('order-btn')) {
     // show the checkout modal
     document.querySelector('.dialog-modal').showModal()
@@ -125,5 +139,5 @@ document.querySelector('.app-container').addEventListener('click', (e) => {
 
 document.addEventListener('DOMContentLoaded', () => {
   displayMenu()
-  displayOrder()
+  displayOrderSummary()
 })

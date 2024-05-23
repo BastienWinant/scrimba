@@ -8,20 +8,13 @@
 </head>
 <body>
   <div class="app-container">
-    <header class="header black-border">
+    <header class="header">
       <h1 class="header-title no-margin">Jimmy's Diner</h1>
       <p class="header-tagline no-margin">The best burgers and pizzas in town.</p>
     </header>
     <main>
-      <section class="menu">
-        <h2 class="section-title">Menu</h2>
-      </section>
-      <section class="order">
-        <h2 class="section-title no-margin">Your order</h2>
-        <div class="order-items black-border">
-        </div>       
-        <button type="button" class="btn order-btn">Complete order</button>
-      </section>
+      <section class="menu"></section>
+      <section class="order-status"></section>
     </main>
 
     <!-- modal -->
@@ -32,7 +25,7 @@
         <input type="text" class="modal-form-input" placeholder="Enter your name" id="name" required>
         <input type="text" placeholder="Enter card number" id="card" class="modal-form-input" required>
         <input type="text" placeholder="Enter CVV" id="cvv" class="modal-form-input" required>
-        <button type="submit" class="btn modal-form-btn">Pay</button>
+        <button type="submit" class="full-width-btn modal-form-btn">Pay</button>
       </form>
     </dialog>
   </div>
