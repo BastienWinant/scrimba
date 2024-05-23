@@ -48,10 +48,13 @@ function deleteFromOrder(itemId) {
   localStorage.setItem('order', JSON.stringify(orderObj))
 }
 
+// display order totals at the bottom of the screen
 function displayOrderSummary() {
+  // clear the container HTML
   const orderStatusDiv = document.querySelector('.order-status')
   orderStatusDiv.innerHTML = ''
 
+  // retrieve the order object from local storage
   const orderObj = localStorage.getItem('order') ? JSON.parse(localStorage.getItem('order')) : {}
 
   orderStatusDiv.innerHTML += `<h2 class="no-margin order-status-title">Your order</h2>\n`
@@ -62,12 +65,14 @@ function displayOrderSummary() {
   const orderBtnStatus = emptyOrder ? ' disabled' : ''
 
   if (emptyOrder) {
+    // display the message if the order is empty
     const orderStatusMessage = document.createElement('p')
     orderStatusMessage.classList.add('no-margin', 'empty-order-message')
-    orderStatusMessage.textContent = 'Your order is empty'
+    orderStatusMessage.textContent = 'Your cart is empty'
 
     orderStatusDiv.appendChild(orderStatusMessage)
   } else {
+    // list all order items with quantity and price
     const orderList = document.createElement('ul')
     orderList.classList.add('order-items-list', 'no-margin', 'no-padding')
     for (const [itemId, orderCount] of Object.entries(orderObj)) {
@@ -88,6 +93,7 @@ function displayOrderSummary() {
     orderStatusDiv.appendChild(orderList)
   }
 
+  // display the total order price and checkout button
   orderStatusDiv.innerHTML += `<hr>\n
                                 <div class="order-item">
                                   <h3 class="item-name no-margin">Total price:</h3>
