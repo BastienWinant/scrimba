@@ -3,29 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <title>Restaurant Ordering</title>
 </head>
 <body>
-  <div class="app-container">
-    <header class="header">
-      <h1 class="header-title no-margin">Jimmy's Diner</h1>
+  <div class="app-container black-border">
+    <header class="main-header border-box">
+      <h1 class="header-title no-margin light-font">Jimmy's Diner</h1>
       <p class="header-tagline no-margin">The best burgers and pizzas in town.</p>
     </header>
     <main>
-      <section class="menu"></section>
-      <section class="order-status"></section>
+      <section class="menu">
+        <header class="section-header">
+          <h2 class="section-title no-margin light-font">Menu</h2>
+        </header>
+      </section>
+      <section class="order">
+        <header class="section-header">
+          <h2 class="section-title no-margin light-font">Your order</h2>
+        </header>
+        <div class="order-items">
+        </div>
+        <hr>
+        <div class="order-total">
+        </div>
+        <button class="order-btn full-width-btn">Complete order</button>
+      </section>
     </main>
-
+    
     <!-- modal -->
-    <dialog class="dialog-modal border-box">
-      <i class="fa-solid fa-xmark modal-close-btn"></i>
-      <h3 class="no-margin modal-title">Enter card details</h3>
-      <form class="modal-form">
-        <input type="text" class="modal-form-input" placeholder="Enter your name" id="name" required>
-        <input type="text" placeholder="Enter card number" id="card" class="modal-form-input" required>
-        <input type="text" placeholder="Enter CVV" id="cvv" class="modal-form-input" required>
-        <button type="submit" class="full-width-btn modal-form-btn">Pay</button>
+    <dialog class="modal-dialog border-box">
+      <i class="fa-solid fa-xmark close-btn"></i>
+      <h2 class="modal-title no-margin">Enter card details</h2>
+      <form class="checkout-form">
+        <label for="name" id="name-label">
+          <input type="text" id="name" class="form-input border-box" name="name" placeholder="Enter your name" />
+        </label>
+        <label for="card" id="card-label">
+          <input type="text" id="card" class="form-input border-box" name="card" placeholder="Enter card number" />
+        </label>
+        <label for="cvv" id="cvv-label">
+          <input type="text" id="cvv" class="form-input border-box" name="cvv" placeholder="Enter CVV" />
+        </label>
+        <button class="full-width-btn pay-btn">Pay</button>
       </form>
     </dialog>
   </div>
