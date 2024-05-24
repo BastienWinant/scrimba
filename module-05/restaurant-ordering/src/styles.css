@@ -229,6 +229,10 @@ hr {
   cursor: not-allowed;
 }
 
+.full-width-btn:hover {
+  background-color: #0ACF8B;
+}
+
 /* MODAL */
 .modal-dialog {
   outline: none;

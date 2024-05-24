@@ -41,20 +41,27 @@ document.querySelector('.app-container').addEventListener('click', (e) => {
     removeFromOrder(e.target.dataset.itemId)
     displayOrderSummary()
   } else if (e.target.classList.contains('order-btn')) {
+    // show the checkout form modal
     document.querySelector('.modal-dialog').showModal()
   } else if (e.target.classList.contains('pay-btn')) {
+
     e.preventDefault()
+
+    // remove previous error messages and check input validity
     removeFormErrors()
     const validInputs = verifyFormInputs()
 
+    // if the inputs are valid, close the modal and print confirmation message
     if (validInputs) {
       clearFormInputs()
       document.querySelector('.modal-dialog').close()
     }
-
   } else if (e.target.classList.contains('close-btn')) {
+    // remove previous error messages and clear input fields
     removeFormErrors()
     clearFormInputs()
+
+    // close the checkout modal
     document.querySelector('.modal-dialog').close()
   }
 })
@@ -126,6 +133,10 @@ function displayOrderSummary() {
       <h3 class="item-name no-margin light-font">Total price:</h3>
       <p class="item-price align-right no-margin black-border">$${totalOrderPrice}</p>
     </div>`
+}
+
+function displayOrderConfirmation() {
+
 }
 
 function clearFormInputs() {
