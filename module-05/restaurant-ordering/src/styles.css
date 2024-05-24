@@ -282,6 +282,19 @@ hr {
   border: 2px solid #16DB99;
 }
 
+.input-error {
+  padding: 0 23px;
+  border: 2px solid #FF0000;
+}
+
+.input-error-message {
+  position: relative;
+  top: 5px;
+  font-size: 14px;
+  line-height: 1;
+  color: #FF0000;
+}
+
 .pay-btn {
   height: 70px;
   margin-top: 23px;

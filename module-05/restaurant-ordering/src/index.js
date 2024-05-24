@@ -1,5 +1,5 @@
 import './styles.css'
-
+import validator from 'validator'
 import menuArray from 'Data/menuData.json'
 
 function displayMenu() {  
@@ -44,9 +44,16 @@ document.querySelector('.app-container').addEventListener('click', (e) => {
     document.querySelector('.modal-dialog').showModal()
   } else if (e.target.classList.contains('pay-btn')) {
     e.preventDefault()
-    clearFormInputs()
-    document.querySelector('.modal-dialog').close()
+    removeFormErrors()
+    const validInputs = verifyFormInputs()
+
+    if (validInputs) {
+      clearFormInputs()
+      document.querySelector('.modal-dialog').close()
+    }
+
   } else if (e.target.classList.contains('close-btn')) {
+    removeFormErrors()
     clearFormInputs()
     document.querySelector('.modal-dialog').close()
   }
@@ -127,8 +134,54 @@ function clearFormInputs() {
   document.querySelector("#cvv").value = ''
 }
 
+function verifyFormInputs() {
+  const name = document.querySelector("#name").value
+  const card = document.querySelector("#card").value
+  const cvv = document.querySelector("#cvv").value
+
+  let validInputs = true
+
+  if (!validator.isAlpha(name) || name.length === 0) {
+    addInputError(document.querySelector("#name"))
+    validInputs = false
+  }
+
+  if (!validator.isCreditCard(card) || card.length === 0) {
+    addInputError(document.querySelector("#card"))
+    validInputs = false
+  }
+
+  if (!validator.isNumeric(cvv) || cvv.length !== 3) {
+    addInputError(document.querySelector("#cvv"))
+    validInputs = false
+  }
+  
+  return validInputs
+}
+
+function addInputError(inputEl) {
+  inputEl.classList.add('input-error')
+
+  const errorMessage = document.createElement('p')
+  errorMessage.classList.add('input-error-message', 'no-margin')
+  errorMessage.innerText = 'Please provide a valid input in the field above.'
+
+  inputEl.insertAdjacentElement('afterend', errorMessage)
+}
+
+function removeFormErrors() {
+  const formInputs = document.querySelectorAll('.form-input')
+  formInputs.forEach(input => {
+    input.classList.remove('input-error')
+  })
+
+  const inputErrorMessages = document.querySelectorAll('.input-error-message')
+  inputErrorMessages.forEach(errorMessage => {
+    errorMessage.remove()
+  })
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   displayMenu()
   displayOrderSummary()
-  document.querySelector('.modal-dialog').showModal()
 })
