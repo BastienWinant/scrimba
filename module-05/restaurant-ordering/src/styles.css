@@ -7,7 +7,7 @@
 }
 
 .black-border {
-/*   border: 1px solid black;
+  /* border: 1px solid black;
   box-sizing: border-box; */
 }
 
@@ -71,7 +71,7 @@ html, body {
 
 main {
   background-color: white;
-  padding: 53px 0;
+  padding: 53px 46px;
 }
 
 .section-header {
@@ -87,9 +87,7 @@ main {
 /* MENU */
 .menu {
   display: flex;
-  flex-direction: column;
-  
-  padding: 0 46px;
+  flex-direction: column;  
 }
 
 .menu-item {
@@ -154,11 +152,15 @@ main {
   cursor: pointer;
 }
 
-/* ORDER SUMMARY */
-.order {
-  padding: 0 46px;
+.add-btn:hover {
+  border: 2px solid #16DB99;
 }
 
+.delete-btn:hover {
+  border: 2px solid orangered;
+}
+
+/* ORDER SUMMARY */
 .order-items {
   display: flex;
   flex-direction: column;
@@ -224,7 +226,8 @@ hr {
   cursor: pointer;
 }
 
-.full-width-btn:disabled {
+.full-width-btn:disabled,
+.full-width-btn:disabled:hover {
   background-color: #BBB;
   cursor: not-allowed;
 }
@@ -294,9 +297,12 @@ hr {
 .input-error-message {
   position: relative;
   top: 5px;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1;
+  font-style: italic;
   color: #FF0000;
+  height: 20px;
+  margin-bottom: -20px;
 }
 
 .pay-btn {
@@ -312,6 +318,25 @@ hr {
   cursor: pointer;
 }
 
+/* ORDER CONFIRMATION */
+.order-confirmation {
+  display: flex;
+  min-height: 120px;
+  background-color: #ECFDF5;
+  border-radius: 4px;
+  display: none;
+}
+
+.order-confirmation-message {
+  margin: auto;
+
+  font-size: 32px;
+  line-height: 17px;
+  font-weight: lighter;
+  color: #065F46;
+}
+
+/* RESPONSIVE BEHAVIOR */
 @media (min-width: 576px) {
   .item-order-btns {
     flex-direction: row;

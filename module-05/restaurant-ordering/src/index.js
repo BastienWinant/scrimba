@@ -21,12 +21,17 @@ function displayMenu() {
   )
 }
 
+// store, retrieve, and clear the current order from local storage
 function getCurrentOrder() {
   return JSON.parse(localStorage.getItem('order')) || {}
 }
 
 function saveCurrentOrder(orderObj) {
   localStorage.setItem('order', JSON.stringify(orderObj))
+}
+
+function clearCurrentOrder() {
+  localStorage.removeItem('order')
 }
 
 // handle & dispatch click events
@@ -44,7 +49,6 @@ document.querySelector('.app-container').addEventListener('click', (e) => {
     // show the checkout form modal
     document.querySelector('.modal-dialog').showModal()
   } else if (e.target.classList.contains('pay-btn')) {
-
     e.preventDefault()
 
     // remove previous error messages and check input validity
@@ -53,7 +57,10 @@ document.querySelector('.app-container').addEventListener('click', (e) => {
 
     // if the inputs are valid, close the modal and print confirmation message
     if (validInputs) {
+      const name = document.querySelector("#name").value
+      displayOrderConfirmation(name)
       clearFormInputs()
+      clearCurrentOrder()
       document.querySelector('.modal-dialog').close()
     }
   } else if (e.target.classList.contains('close-btn')) {
@@ -96,6 +103,9 @@ function removeFromOrder(itemId) {
 }
 
 function displayOrderSummary() {
+  document.querySelector('.order-confirmation').style.display = "none"
+  document.querySelector('.order').style.display = "block"
+
   const orderObj = getCurrentOrder()
   
   // clear the HTML currently in the container
@@ -135,8 +145,11 @@ function displayOrderSummary() {
     </div>`
 }
 
-function displayOrderConfirmation() {
-
+function displayOrderConfirmation(name) {
+  document.querySelector('.order').style.display = "none"
+  
+  document.querySelector('.order-confirmation-message').innerText = `Thanks ${name}! Your order is on its way!`
+  document.querySelector('.order-confirmation').style.display = "flex"
 }
 
 function clearFormInputs() {
