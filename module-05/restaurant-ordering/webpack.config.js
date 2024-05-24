@@ -38,6 +38,7 @@ module.exports = {
     alias: {
       Fonts: path.resolve(__dirname, 'assets/fonts/'),
       Images: path.resolve(__dirname, 'assets/images/'),
+      Data: path.resolve(__dirname, 'assets/data/'),
     }
   }
 }
