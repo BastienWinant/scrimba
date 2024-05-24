@@ -141,7 +141,7 @@ function verifyFormInputs() {
 
   let validInputs = true
 
-  if (!validator.isAlpha(name) || name.length === 0) {
+  if (name.length === 0) {
     addInputError(document.querySelector("#name"))
     validInputs = false
   }
@@ -159,6 +159,7 @@ function verifyFormInputs() {
   return validInputs
 }
 
+// add an error message below input field
 function addInputError(inputEl) {
   inputEl.classList.add('input-error')
 
@@ -169,6 +170,7 @@ function addInputError(inputEl) {
   inputEl.insertAdjacentElement('afterend', errorMessage)
 }
 
+// remove all error messages and input error styling
 function removeFormErrors() {
   const formInputs = document.querySelectorAll('.form-input')
   formInputs.forEach(input => {
