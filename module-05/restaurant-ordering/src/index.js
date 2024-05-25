@@ -125,13 +125,28 @@ function displayOrderSummary() {
       const itemObj = menuArray.find(item => item.id == itemId)
       const itemOrderPrice = itemObj.price * quantity
       totalOrderPrice += itemOrderPrice
-      
-      orderSummary.innerHTML +=
-        `<div class="order-item">
-          <h3 class="item-name no-margin light-font">${itemObj.name} <span class="item-quantity">(x${quantity})</span></h3>
+
+      const orderItem = document.createElement('div')
+      orderItem.classList.add('order-item')
+
+      orderItem.innerHTML =
+          `<h3 class="item-name no-margin light-font">${itemObj.name} <span class="item-quantity">(x${quantity})</span></h3>
           <button class="remove-btn no-padding" data-item-id="${itemId}">remove</button>
-          <p class="item-price align-right no-margin">$${itemOrderPrice}</p>
-        </div>`
+          <p class="item-price align-right no-margin">$${itemOrderPrice}</p>`
+        
+      orderSummary.appendChild(orderItem)
+    }
+
+    if ((orderObj.hasOwnProperty(0) || (orderObj.hasOwnProperty(1))) && (orderObj.hasOwnProperty(2))) {
+      totalOrderPrice = Math.round(totalOrderPrice * 85) / 100
+
+      const discountEntry = document.createElement('div')
+      discountEntry.classList.add('order-discount')
+      discountEntry.innerHTML = 
+        `<p class="discount-name no-margin">Meal + Drink discount</p>
+        <p class="discount-amount align-right no-margin">-15%</p>`
+      
+      orderSummary.appendChild(discountEntry)
     }
     
     document.querySelector('.order-btn').disabled = false

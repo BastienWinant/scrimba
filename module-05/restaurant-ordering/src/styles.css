@@ -163,7 +163,6 @@ main {
 
 .order-item {
   display: flex;
-/*   justify-content: center; */
   align-items: center;
   gap: 10px;
 }
@@ -186,6 +185,19 @@ main {
 
 .align-right {
   margin-left: auto;
+}
+
+.order-discount {
+  display: flex;
+  align-items: center;
+
+  margin: 10px 0 0 15px;
+
+  font-size: 12px;
+  font-style: italic;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+  color: #16DB99;
 }
 
 hr {
