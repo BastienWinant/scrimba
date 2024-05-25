@@ -7,13 +7,13 @@ function displayMenu() {
     "beforeend",
     menuArray.map(menuItem =>
                   `<div class="menu-item border-box">
-                    <p class="item-graphic no-margin black-border">${menuItem.emoji}</p>
-                    <div class="item-details black-border">
+                    <p class="item-graphic no-margin">${menuItem.emoji}</p>
+                    <div class="item-details">
                       <h3 class="item-name no-margin light-font">${menuItem.name}</h3>
                       <p class="item-ingredients no-margin">${menuItem.ingredients.join(', ')}</p>
                       <p class="item-price no-margin">$${menuItem.price}</p>
                     </div>
-                    <div class="item-order-btns black-border">
+                    <div class="item-order-btns">
                       <i class="fa-solid fa-plus round-btn add-btn border-box" data-item-id="${menuItem.id}"></i>
                       <i class="fa-solid fa-minus round-btn delete-btn border-box" data-item-id="${menuItem.id}"></i>
                     </div>
@@ -129,8 +129,8 @@ function displayOrderSummary() {
       orderSummary.innerHTML +=
         `<div class="order-item">
           <h3 class="item-name no-margin light-font">${itemObj.name} <span class="item-quantity">(x${quantity})</span></h3>
-          <button class="remove-btn no-padding black-border" data-item-id="${itemId}">remove</button>
-          <p class="item-price align-right no-margin black-border">$${itemOrderPrice}</p>
+          <button class="remove-btn no-padding" data-item-id="${itemId}">remove</button>
+          <p class="item-price align-right no-margin">$${itemOrderPrice}</p>
         </div>`
     }
     
@@ -141,7 +141,7 @@ function displayOrderSummary() {
   document.querySelector('.order-total').innerHTML =
     `<div class="order-item">
       <h3 class="item-name no-margin light-font">Total price:</h3>
-      <p class="item-price align-right no-margin black-border">$${totalOrderPrice}</p>
+      <p class="item-price align-right no-margin">$${totalOrderPrice}</p>
     </div>`
 }
 

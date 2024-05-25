@@ -1,14 +1,8 @@
 @font-face {
   font-family: 'Smythe';
-  /* src: url('/assets/fonts/Smythe-Regular.ttf'); */
   src: url('Fonts/Smythe-Regular.ttf');
   font-weight: 400;
   font-style: normal;
-}
-
-.black-border {
-  /* border: 1px solid black;
-  box-sizing: border-box; */
 }
 
 /* UTILITY CLASSES */
