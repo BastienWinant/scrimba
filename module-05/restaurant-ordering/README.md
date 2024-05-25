@@ -2,7 +2,7 @@
 
 [Demo](https://66519ea079e1e2f84a9c054e--voluble-marigold-9d67be.netlify.app/)
 
-Jimmy's Diner does everything but deliver! This web application mimicks a restaurant's online ordering site.
+Jimmy's Diner Restaurant Ordering does everything but deliver! This web application mimicks a restaurant's online ordering site.
 - Click to add/remove menu items to your cart
 - View the running total price of your order
 - Enter your name & card information to get a personalized thank you message :)
