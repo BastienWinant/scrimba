@@ -327,10 +327,15 @@ hr {
 /* ORDER CONFIRMATION */
 .order-confirmation {
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
   min-height: 120px;
   background-color: #ECFDF5;
   border-radius: 4px;
   display: none;
+  padding: 50px 20px;
+  color: #065F46;
 }
 
 .order-confirmation-message {
@@ -339,7 +344,19 @@ hr {
   font-size: 32px;
   line-height: 17px;
   font-weight: lighter;
-  color: #065F46;
+}
+
+.rating-stars {
+  display: flex;
+}
+
+.fa-star {
+  padding: 0 5px;
+  cursor: pointer;
+}
+
+.fa-gold {
+  color: gold;
 }
 
 /* RESPONSIVE BEHAVIOR */

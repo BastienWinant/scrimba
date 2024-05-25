@@ -53,7 +53,8 @@ document.querySelector('.app-container').addEventListener('click', (e) => {
 
     // remove previous error messages and check input validity
     removeFormErrors()
-    const validInputs = verifyFormInputs()
+    // const validInputs = verifyFormInputs()
+    const validInputs = true
 
     // if the inputs are valid, close the modal and print confirmation message
     if (validInputs) {
@@ -221,6 +222,62 @@ function removeFormErrors() {
     errorMessage.remove()
   })
 }
+
+
+function fillStars(event) {
+  const selectedRating = parseInt(event.target.dataset.rating)
+
+  document.querySelectorAll('.fa-star').forEach(star => {
+    star.classList.remove('fa-regular')
+    star.classList.remove('fa-solid')
+    star.classList.remove('fa-gold')
+
+    const rating = parseInt(star.dataset.rating)
+
+    if (rating <= selectedRating) {
+      star.classList.add('fa-solid')
+    } else {
+      star.classList.add('fa-regular')
+    }
+  })
+}
+
+function hollowStars() {
+  document.querySelectorAll('.fa-star').forEach(star => {
+    star.classList.remove('fa-solid')
+    star.classList.add('fa-regular')
+  })
+}
+
+function goldStars(event) {
+  const selectedRating = parseInt(event.target.dataset.rating)
+
+  document.querySelectorAll('.fa-star').forEach(star => {
+    star.classList.remove('fa-solid')
+
+    const rating = parseInt(star.dataset.rating)
+
+    if (rating <= selectedRating) {
+      star.classList.add('fa-solid', 'fa-gold')
+    } else {
+      star.classList.add('fa-regular')
+    }
+
+    star.removeEventListener('mouseenter', fillStars)
+    star.removeEventListener('mouseleave', hollowStars)
+    star.removeEventListener('click', hollowStars)
+
+  })
+
+  document.querySelector('.order-confirmation').innerHTML +=
+      '<p>Thank you for your feedback!</p>'
+}
+
+document.querySelectorAll('.fa-star').forEach(star => {
+  star.addEventListener('mouseenter', fillStars)
+  star.addEventListener('mouseleave', hollowStars)
+  star.addEventListener('click', goldStars)
+})
 
 document.addEventListener('DOMContentLoaded', () => {
   displayMenu()
