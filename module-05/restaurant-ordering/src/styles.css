@@ -336,13 +336,14 @@ hr {
   display: none;
   padding: 50px 20px;
   color: #065F46;
+  text-align: center;
 }
 
 .order-confirmation-message {
   margin: auto;
 
   font-size: 32px;
-  line-height: 17px;
+  /* line-height: 17px; */
   font-weight: lighter;
 }
 
