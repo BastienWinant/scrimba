@@ -53,13 +53,13 @@ document.querySelector('.app-container').addEventListener('click', (e) => {
 
     // remove previous error messages and check input validity
     removeFormErrors()
-    // const validInputs = verifyFormInputs()
-    const validInputs = true
+    const validInputs = verifyFormInputs()
 
     // if the inputs are valid, close the modal and print confirmation message
     if (validInputs) {
       const name = document.querySelector("#name").value
       displayOrderConfirmation(name)
+      removeFormErrors()
       clearFormInputs()
       clearCurrentOrder()
       document.querySelector('.modal-dialog').close()
@@ -71,6 +71,11 @@ document.querySelector('.app-container').addEventListener('click', (e) => {
 
     // close the checkout modal
     document.querySelector('.modal-dialog').close()
+  } else if (e.target.classList.contains('new-order-btn')) {
+    document.querySelector('.order-confirmation-message').innerText = ''
+    document.querySelector('.rating-completed-message').remove()
+    hollowStars()
+    displayOrderSummary()
   }
 })
 
@@ -245,6 +250,7 @@ function fillStars(event) {
 function hollowStars() {
   document.querySelectorAll('.fa-star').forEach(star => {
     star.classList.remove('fa-solid')
+    star.classList.remove('fa-gold')
     star.classList.add('fa-regular')
   })
 }
@@ -269,8 +275,13 @@ function goldStars(event) {
 
   })
 
-  document.querySelector('.order-confirmation').innerHTML +=
-      '<p>Thank you for your feedback!</p>'
+  const ratingCompletedMessage = document.createElement('p')
+  ratingCompletedMessage.classList.add('rating-completed-message', 'no-margin')
+  ratingCompletedMessage.innerText = 'Thank you for your feedback!'
+
+  document.querySelector('.rating-stars').after(
+    ratingCompletedMessage
+  )
 }
 
 document.querySelectorAll('.fa-star').forEach(star => {
