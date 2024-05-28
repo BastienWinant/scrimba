@@ -53,7 +53,8 @@ document.querySelector('.app-container').addEventListener('click', (e) => {
 
     // remove previous error messages and check input validity
     removeFormErrors()
-    const validInputs = verifyFormInputs()
+    // const validInputs = verifyFormInputs()
+    const validInputs = true
 
     // if the inputs are valid, close the modal and print confirmation message
     if (validInputs) {

@@ -334,7 +334,7 @@ hr {
   background-color: #ECFDF5;
   border-radius: 4px;
   display: none;
-  padding: 50px 20px;
+  padding: 50px 30px;
   color: #065F46;
   text-align: center;
 }
@@ -343,7 +343,6 @@ hr {
   margin: auto;
 
   font-size: 32px;
-  /* line-height: 17px; */
   font-weight: lighter;
 }
 
@@ -358,6 +357,20 @@ hr {
 
 .fa-gold {
   color: gold;
+}
+
+.new-order-btn {
+  background-color: #065F46;
+  color: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 30px;
+  margin-top: 40px;
+}
+
+.new-order-btn:hover {
+  background-color: #0ACF8B;
 }
 
 /* RESPONSIVE BEHAVIOR */
