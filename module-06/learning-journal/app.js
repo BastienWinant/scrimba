@@ -2,6 +2,7 @@ const express = require('express');
 
 const app = express();
 
+// get request
 app.get('/', (req, res, next) => {
   res.send('Hello World');
 })
@@ -14,6 +15,11 @@ app.get('/:id', (req, res, next) => {
 // set response status
 app.get('/error', (req, res, next) => {
   res.status(404).send('Not found')
+})
+
+// put request
+app.put('/expressions/:id', (req, res, next) => {
+  const queryArguments = req.query;
 })
 
 const PORT = process.env.PORT || 3000;
