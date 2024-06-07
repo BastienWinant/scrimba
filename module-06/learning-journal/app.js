@@ -1,11 +1,22 @@
-// Import the express library here
-const express = require('express')
-// Instantiate the app here
-const app = express()
+const express = require('express');
 
-const PORT = process.env.PORT || 4001;
+const app = express();
 
-// Invoke the app's `.listen()` method below:
+app.get('/', (req, res, next) => {
+  res.send('Hello World');
+})
+
+// dynamic route
+app.get('/:id', (req, res, next) => {
+  res.send(`Hello ${ req.params.id }`);
+})
+
+// set response status
+app.get('/error', (req, res, next) => {
+  res.status(404).send('Not found')
+})
+
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`)
+  console.log(`Server is running on port ${PORT}`);
 })
