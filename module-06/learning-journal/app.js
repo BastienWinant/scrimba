@@ -22,6 +22,9 @@ app.put('/expressions/:id', (req, res, next) => {
   const queryArguments = req.query;
 })
 
+app.post('/expressions', (req, res, next) => {})
+app.delete('/expressions/:id', (req, res, next) => {})
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
