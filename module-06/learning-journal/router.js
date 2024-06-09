@@ -3,8 +3,8 @@ const express = require('express');
 const router = express.Router();
 
 // middleware functions
-router.use((req, res, next) => {
-  console.log(`This is a test middleware function`);
+router.use('/test', (req, res, next) => {
+  console.log(`This is another test middleware function`);
   next();
 })
 
@@ -13,8 +13,12 @@ router.get('/', (req, res, next) => {
   res.send('Hello World');
 })
 
+router.get('/test', (req, res, next) => {
+  res.send('Hello Test');
+})
+
 // dynamic route
-router.get('/:id', (req, res, next) => {
+router.get('/test/:id', (req, res, next) => {
   res.send(`Hello ${ req.params.id }`);
 })
 
