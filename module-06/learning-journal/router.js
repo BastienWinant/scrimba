@@ -2,6 +2,12 @@ const express = require('express');
 
 const router = express.Router();
 
+// middleware functions
+router.use((req, res, next) => {
+  console.log(`This is a test middleware function`);
+  next();
+})
+
 // get request
 router.get('/', (req, res, next) => {
   res.send('Hello World');
@@ -21,8 +27,5 @@ router.get('/error', (req, res, next) => {
 router.put('/expressions/:id', (req, res, next) => {
   const queryArguments = req.query;
 })
-
-// router.post('/expressions', (req, res, next) => {})
-// router.delete('/expressions/:id', (req, res, next) => {})
 
 module.exports = router;
