@@ -3,17 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  // entry: {
-  //   index: {
-  //     import: './src/index.js',
-  //   },
-  //   another: {
-  //     import: './src/print.js',
-  //   },
-  // },
   entry: {
     index: './src/index.js',
-    print: './src/print.js'
   },
   devtool: 'inline-source-map',
   plugins: [
@@ -22,7 +13,7 @@ module.exports = {
     }),
   ],
   output: {
-    filename: '[name].bundle.js',
+    filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
     publicPath: '/',
@@ -43,5 +34,18 @@ module.exports = {
     alias: {
       'Fonts': path.resolve(__dirname, 'assets/fonts/')
     }
+  },
+  optimization: {
+    moduleIds: 'deterministic',
+    runtimeChunk: 'single',
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    },
   },
 }
