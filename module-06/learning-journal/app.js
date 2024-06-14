@@ -1,12 +1,13 @@
 const path = require('path');
 const express = require('express');
 const app = express();
-
-require('./routes/main')(app);
+const router = require('./routes/main')
 
 app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
 app.engine("html", require("ejs").renderFile);
+
+app.use("/", router);
 
 const PORT = process.env.PORT || 3000;
 
