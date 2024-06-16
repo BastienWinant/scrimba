@@ -1,8 +1,18 @@
 const path = require('path');
 const express = require('express');
-const router = require('./routes/main')
+const router = require('./routes/main');
+const sqlite3 = require('sqlite3')
 
 const app = express();
+
+// connect to database
+const db = new sqlite3.Database('data.db', (err) => {
+  if (err) {
+    return console.log(err.message)
+  }
+
+  console.log("Connect to the database")
+})
 
 // set templating engine
 app.set("views", path.resolve(__dirname, "views"));
