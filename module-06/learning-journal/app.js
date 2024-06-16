@@ -14,6 +14,14 @@ const db = new sqlite3.Database('data.db', (err) => {
   console.log("Connect to the database")
 })
 
+// close the db connection
+db.close((err) => {
+  if (err) {
+    return console.error(err.message);
+  }
+  console.log('Close the database connection.');
+});
+
 // set templating engine
 app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
