@@ -1,5 +1,6 @@
 const path = require('path');
 const express = require('express');
+const morgan = require('morgan');
 
 const app = express();
 
@@ -11,19 +12,15 @@ app.engine("html", require("ejs").renderFile);
 // Setup for production environment
 // to run in prod: NODE_ENV=production node app
 if ('production' == app.get('env')) {
-  app.get('/', (req, res, next) => {
-    res.set('Environment', 'Prod');
-    next();
-  })
+  app.use(morgan('tiny'))
 }
 
 // Setup for development environment
 if ('development' == app.get('env')) {
   // app.use(express.errorHandler());
-  app.get('/', (req, res, next) => {
-    res.set('Environment', 'Dev');
-    next();
-  });
+  app.use(morgan('dev', {
+    skip: function (req, res) { return res.statusCode < 400 }
+  }))
 }
 
 // Pass the Express instance to the routes module
