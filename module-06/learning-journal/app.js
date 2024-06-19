@@ -28,22 +28,23 @@ app.set("view engine", "ejs");
 app.engine("html", require("ejs").renderFile);
 
 // Setup for production environment
+// to run in prod: NODE_ENV=production node app
 if ('production' == app.get('env')) {
-  app.get('/', function(req, res) {
-    res.send("Production Environment")
-  });
+  app.get('/', (req, res, next) => {
+    res.send("Prod Environment");
+  })
 }
 
 // Setup for development environment
 if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
-  app.get('/', function(req, res) {
-    res.send("Dev Environment")
+  // app.use(express.errorHandler());
+  app.get('/', (req, res, next) => {
+    res.send("Dev environment");
   });
 }
 
-// mount routers
-app.use("/", router);
+// // mount routers
+// app.use("/", router);
 
 // start server
 const PORT = process.env.PORT || 3000;
