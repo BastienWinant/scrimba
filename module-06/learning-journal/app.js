@@ -1,28 +1,9 @@
 const path = require('path');
 const express = require('express');
-const router = require('./routes/main');
-const sqlite3 = require('sqlite3')
 
 const app = express();
 
-// // connect to database
-// const db = new sqlite3.Database('data.db', (err) => {
-//   if (err) {
-//     return console.log(err.message)
-//   }
-
-//   console.log("Connect to the database")
-// })
-
-// // close the db connection
-// db.close((err) => {
-//   if (err) {
-//     return console.error(err.message);
-//   }
-//   console.log('Close the database connection.');
-// });
-
-// set templating engine
+// Set templating engine
 app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
 app.engine("html", require("ejs").renderFile);
@@ -31,7 +12,8 @@ app.engine("html", require("ejs").renderFile);
 // to run in prod: NODE_ENV=production node app
 if ('production' == app.get('env')) {
   app.get('/', (req, res, next) => {
-    res.send("Prod Environment");
+    res.set('Environment', 'Prod');
+    next();
   })
 }
 
@@ -39,12 +21,13 @@ if ('production' == app.get('env')) {
 if ('development' == app.get('env')) {
   // app.use(express.errorHandler());
   app.get('/', (req, res, next) => {
-    res.send("Dev environment");
+    res.set('Environment', 'Dev');
+    next();
   });
 }
 
-// // mount routers
-// app.use("/", router);
+// Pass the Express instance to the routes module
+require('./routes')(app);
 
 // start server
 const PORT = process.env.PORT || 3000;
