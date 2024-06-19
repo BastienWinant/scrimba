@@ -10,4 +10,9 @@ router.get("/search", (req, res, next) => {
   res.send("This is the search page")
 })
 
+router.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.send('Something broke!');
+})
+
 module.exports = router;
