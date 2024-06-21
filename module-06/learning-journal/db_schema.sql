@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS articles (
 	creation_date TEXT NOT NULL,
 	modification_date TEXT,
 	edited SMALLINT NOT NULL,
+	img_url TEXT,
 	FOREIGN KEY (user_id) REFERENCES users(user_id)
 )
 
