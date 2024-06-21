@@ -1,7 +1,7 @@
 // Load the route handlers
-var mainRouter = require('./handlers/main');
+const usersRoutes = require('./routes/users');
 
 module.exports = function(app) {
-  // Mount the routers
-  app.use('/', mainRouter);
+  // Define the routes
+  app.use('/users', usersRoutes);
 };

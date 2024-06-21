@@ -1,33 +1,47 @@
-const path = require('path');
+/**
+* index.js
+* This is your main app entry point
+*/
+
+// Set up express, bodyparser and EJS
 const express = require('express');
-const morgan = require('morgan');
-
 const app = express();
+const port = process.env.PORT || 3000;
+var bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({ extended: true }));
 
-// Set templating engine
-app.set("views", path.resolve(__dirname, "views"));
-app.set("view engine", "ejs");
-app.engine("html", require("ejs").renderFile);
+// Templating Engine
+app.set('view engine', 'ejs'); // set the app to use ejs for rendering
+app.use(express.static(__dirname + '/public')); // set location of static files
 
-// Setup for production environment
-// to run in prod: NODE_ENV=production node app
-if ('production' == app.get('env')) {
-  app.use(morgan('tiny'))
-}
+// Set up SQLite
+// Items in the global namespace are accessible throught out the node application
+const sqlite3 = require('sqlite3').verbose();
+global.db = new sqlite3.Database('./database.db',function(err){
+	if(err){
+		console.error(err);
+		process.exit(1); // bail out we can't connect to the DB
+	} else {
+		console.log("Database connected");
+		global.db.run("PRAGMA foreign_keys=ON"); // tell SQLite to pay attention to foreign key constraints
+	}
+});
 
-// Setup for development environment
-if ('development' == app.get('env')) {
-  // app.use(express.errorHandler());
-  app.use(morgan('dev', {
-    skip: function (req, res) { return res.statusCode < 400 }
-  }))
-}
+// Mount the routers
+var routes = require('./routes')(app);
 
-// Pass the Express instance to the routes module
-require('./routes')(app);
+// // Handle requests to the home page 
+// app.get('/', (req, res) => {
+//     res.send('Hello World!')
+// });
 
-// start server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`App is listening on port ${PORT}`);
+// // Add all the route handlers in usersRoutes to the app under the path /users
+// const usersRoutes = require('./routes/users');
+// app.use('/users', usersRoutes);
+
+
+// Make the web application listen for HTTP requests
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
 })
+
