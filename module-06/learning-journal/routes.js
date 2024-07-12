@@ -1,7 +1,12 @@
 // Load the route handlers
-const usersRoutes = require('./routes/users');
+const user = require('./handlers/users');
 
 module.exports = function(app) {
-  // Define the routes
-  app.use('/users', usersRoutes);
+  // Handle requests to the home page 
+  app.get('/', (req, res) => {
+      res.send('Hello World!')
+  });
+
+  // Add all the route handlers in usersRoutes to the app under the path /users
+  app.use('/users', user);
 };
