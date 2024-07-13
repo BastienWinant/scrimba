@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"  type="text/css" href="/main.css" />
-    <title>Add User</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet"  type="text/css" href="/main.css" />
+	<title>Add User</title>
 </head>
 <body>
-    <h1>Add User</h1>
-    <form action="add-user" method="post">
-        <p>User: <input id="user" type="text" name="user_name" /></p>
-        <button type="submit">Create a new user record</button>
-    </form>
+	<h1>Add User</h1>
+	<!-- <form action="add-user" method="post">
+			<p>User: <input id="user" type="text" name="user_name" /></p>
+			<button type="submit">Create a new user record</button>
+	</form> -->
+	<form action="add-user" method="post">
+		<label for="name">
+			<input type="text" name="name" id="name" placeholder="name" required />
+		</label>
+		<label for="email">
+			<input type="email" name="email" id="email" placeholder="email" required />
+		</label>
+		<label for="password">
+			<input type="password" name="password" id="password" placeholder="password" required />
+		</label>
+		<input type="submit" value="Sign Up">
+	</form>
 </body>
 </html>
