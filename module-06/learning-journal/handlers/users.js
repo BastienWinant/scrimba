@@ -63,6 +63,15 @@ router.post("/add-user", (req, res, next) => {
 
 	if (password === "test") {
 		req.session.authenticated = true;
+		req.session.user = {
+			name: name,
+			email: email,
+			password: password
+		}
+
+		res.send(req.session);
+	} else {
+		res.send("Could not complete signup!")
 	}
 })
 

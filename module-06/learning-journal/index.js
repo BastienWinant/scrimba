@@ -22,7 +22,7 @@ app.use(session({
     resave: false, // force a session to be saved back to the session data store
     saveUninitialized: false, // store every new session on the server
     cookie: {
-      maxAge: 1000 * 60 *60 * 24,
+      maxAge: 86400000, // expire after 24 hours
 			secure: true,
 			sameSite: true
     },
