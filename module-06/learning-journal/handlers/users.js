@@ -40,40 +40,23 @@ router.get("/add-user", (req, res) => {
 /**
  * @desc Add a new user to the database based on data from the submitted form
  */
-// router.post("/add-user", (req, res, next) => {
-//     // Define the query
-//     query = "INSERT INTO users (user_name) VALUES( ? );"
-//     query_parameters = [req.body.user_name]
-    
-//     // Execute the query and send a confirmation message
-//     global.db.run(query, query_parameters,
-//         function (err) {
-//             if (err) {
-//                 next(err); //send the error on to the error handler
-//             } else {
-//                 res.send(`New data inserted @ id ${this.lastID}!`);
-//                 next();
-//             }
-//         }
-//     );
-// });
 router.post("/add-user", (req, res, next) => {
-	// retrieve form data
-	const {name, email, password} = req.body;
-
-	if (password === "test") {
-		req.session.authenticated = true;
-		req.session.user = {
-			name: name,
-			email: email,
-			password: password
-		}
-
-		res.send(req.session);
-	} else {
-		res.send("Could not complete signup!")
-	}
-})
+    // Define the query
+    query = "INSERT INTO users (user_name) VALUES( ? );"
+    query_parameters = [req.body.user_name]
+    
+    // Execute the query and send a confirmation message
+    global.db.run(query, query_parameters,
+        function (err) {
+            if (err) {
+                next(err); //send the error on to the error handler
+            } else {
+                res.send(`New data inserted @ id ${this.lastID}!`);
+                next();
+            }
+        }
+    );
+});
 
 // Export the router object so index.js can access it
 module.exports = router;

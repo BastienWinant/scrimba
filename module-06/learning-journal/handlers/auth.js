@@ -7,5 +7,14 @@ router.get("/login", (req, res, next) => {
 
 router.post("/login", (req, res, next) => {
   const { email, password } = req.body;
-  res.send(`Email:${email} | Password: ${password}`);
+
+  if (password === "test") {
+    req.session.authenticated = true;
+    req.session.user = {email, password}
+  }
+
+  res.send(req.session.user);
 })
+
+// Export the router object so index.js can access it
+module.exports = router;
