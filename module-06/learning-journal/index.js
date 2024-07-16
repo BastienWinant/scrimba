@@ -16,18 +16,13 @@ app.use(express.static(path.resolve(__dirname, 'public'))); // set location of s
 // Set up session configuration
 const session = require('express-session');
 const store = new session.MemoryStore(); // in-memory sessions store
+const sessionConfig = session({
+    secret: "f4z4gs$Gcg",
+    resave: false,
+    saveUninitialized: false
+})
 app.set("trust proxy", 1);
-app.use(session({
-    secret: "f4z4gs$Gcg", // key used for signing and/or encrypting cookies
-    resave: false, // force a session to be saved back to the session data store
-    saveUninitialized: false, // store every new session on the server
-    cookie: {
-      maxAge: 86400000, // expire after 24 hours
-			secure: true,
-			sameSite: true
-    },
-    store,
-}))
+app.use(sessionConfig)
 
 // Set up SQLite
 // Items in the global namespace are accessible throught out the node application
