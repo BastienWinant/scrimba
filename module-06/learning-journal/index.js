@@ -15,11 +15,17 @@ app.use(express.static(path.resolve(__dirname, 'public'))); // set location of s
 
 // Set up session configuration
 const session = require('express-session');
-const store = new session.MemoryStore(); // in-memory sessions store
+const store = new session.MemoryStore(); // default server-side session storage
 const sessionConfig = session({
     secret: "f4z4gs$Gcg",
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    store,
+    cookie: {
+        maxAge: 86400000,
+        secure: true,
+        sameSite: "none"
+    }
 })
 app.set("trust proxy", 1);
 app.use(sessionConfig)
