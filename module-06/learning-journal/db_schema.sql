@@ -8,15 +8,18 @@ BEGIN TRANSACTION;
 
 CREATE TABLE IF NOT EXISTS users (
 	user_id INTEGER PRIMARY KEY AUTOINCREMENT,
-	user_name TEXT NOT NULL
+	user_name TEXT NOT NULL,
+	email_address TEXT NOT NULL,
+	password_hash TEXT NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS email_accounts (
-	email_account_id INTEGER PRIMARY KEY AUTOINCREMENT,
-	email_address TEXT NOT NULL,
-	user_id  INT, --the user that the email account belongs to
-	email_account_password TEXT NOT NULL, 
-	FOREIGN KEY (user_id) REFERENCES users(user_id)
+CREATE TABLE IF NOT EXISTS articles (
+	article_id INTEGER PRIMARY KEY AUTOINCREMENT,
+	title TEXT NOT NULL,
+	image_url TEXT NOT NULL,
+	author_id INTEGER NOT NULL,
+	likes INTEGER DEFAULT 1,
+	FOREIGN KEY (author_id) REFERENCES users(user_id)
 );
 
 -- Insert default data (if necessary here)
