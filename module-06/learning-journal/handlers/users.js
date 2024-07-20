@@ -8,15 +8,15 @@
 * 
  */
 
-const express = require("express");
+const express = require('express');
 const router = express.Router();
 
 /**
  * @desc Display all the users
  */
-router.get("/list-users", (req, res, next) => {
+router.get('/list-users', (req, res, next) => {
 	// Define the query
-	query = "SELECT * FROM users"
+	query = 'SELECT * FROM users'
 
 	// Execute the query and render the page with the results
 	global.db.all(query, 
@@ -33,16 +33,16 @@ router.get("/list-users", (req, res, next) => {
 /**
  * @desc Displays a page with a form for creating a user record
  */
-router.get("/add-user", (req, res) => {
-	res.render("add-user.ejs");
+router.get('/add-user', (req, res) => {
+	res.render('add-user.ejs');
 });
 
 /**
  * @desc Add a new user to the database based on data from the submitted form
  */
-router.post("/add-user", (req, res, next) => {
+router.post('/add-user', (req, res, next) => {
 	// Define the query
-	query = "INSERT INTO users (user_name) VALUES( ? );"
+	query = 'INSERT INTO users (user_name) VALUES( ? );'
 	query_parameters = [req.body.user_name]
     
 	// Execute the query and send a confirmation message
