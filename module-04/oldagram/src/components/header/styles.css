@@ -1,0 +1,29 @@
+/* HEADER */
+.header {
+  /* sizing and positioning */
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+.header-container {
+  /* content layout */
+  padding: 16px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: white;
+  border-bottom: 1px solid #C6C6C6;
+}
+
+.header-logo {
+  height: 34px;
+  width: auto;
+}
+
+.header-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+}
