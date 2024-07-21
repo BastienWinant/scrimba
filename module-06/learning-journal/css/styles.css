@@ -90,6 +90,13 @@ html, body {
 .nav-link {
   text-decoration: none;
   text-transform: uppercase;
+  color: var(--black);
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  /* font-weight: 700; */
+  border-bottom: 1px solid black;
 }
 
 /* MAIN */
@@ -102,5 +109,32 @@ main {
     width: 20em;
     right: 0;
     box-shadow: 0 0 26px 10px rgba(120, 120, 120, .2);
+  }
+}
+
+@media only screen and (min-width: 576px) {
+  .header {
+    padding: 1em 5vw;
+  }
+
+  .header-nav {
+    /* sizing & positioning */
+    position: static;
+    width: auto;
+    height: auto;
+  }
+
+  .nav-expand-btn,
+  .nav-collapse-btn {
+    display: none;
+  }
+
+  .nav-links {
+    flex-direction: row;
+  }
+
+  .nav-links li {
+    width: 6.5em;
+    text-align: right;
   }
 }
