@@ -21,6 +21,8 @@ const displayArticles = n => {
     .then(response => response.json())
     .then(data => {
       articleGrid.innerHTML = data.slice(0, n).map(articleObj => {
+        const cardText = articleObj.text.length <= 200 ?
+          articleObj.text : articleObj.text.slice(0, 201) + '...';
         return `<a class="article-card" href="#">
           <div class="masked">
             <div class="mask"></div>
@@ -29,7 +31,7 @@ const displayArticles = n => {
           <div class="article-info">
             <h2 class="article-title">${articleObj.title}</h2>
             <p class="article-date">${articleObj.date}</p>
-            <p class="article-blurb">${articleObj.text}</p>
+            <p class="article-blurb">${cardText}</p>
           </div>
         </a>`
       }).join('\n');
