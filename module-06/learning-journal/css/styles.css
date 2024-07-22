@@ -20,6 +20,11 @@ html, body {
 }
 
 /* GENERIC CLASSES */
+.img {
+  max-width: 100%;
+  display: block;
+}
+
 .btn {
   background-color: transparent;
   border: none;
@@ -38,6 +43,10 @@ html, body {
   align-items: center;
   justify-content: space-between;
   padding: 1em;
+
+  /* styling */
+  background-color: white;
+  overflow-x: 0;
 }
 
 .logo-link {
@@ -50,30 +59,34 @@ html, body {
   text-decoration: none;
   color: var(--black);
   font-family: "Roboto", sans-serif;
-  font-weight: 700;
+  font-weight: 500;
   font-style: normal;
 }
 
 .header-img {
-  display: block;
-  height: 1.45em;
+  height: 1.75em;
   width: auto;
 }
 
 /* NAV */
 .header-nav {
   /* sizing and positioning */
-  width: 18em;
-  height: 100vh;
-  position: absolute;
+  position: fixed;
   top: 0;
-  right: -18em;
+  right: -16em;
+  width: 16em;
+  height: 100vh;
 
   padding: 5em 2em;
 
-  /* styling */
   background-color: white;
-  transition: width ease-out .25s, right ease-out .25s;
+  box-shadow: none;
+  transition: right ease-in-out .2s;
+}
+
+.expanded {
+  right: 0;
+  box-shadow: 0 0 16px rgba(120, 120, 120, .2);
 }
 
 .nav-collapse-btn {
@@ -87,38 +100,74 @@ html, body {
 
   display: flex;
   flex-direction: column;
+  gap: 1.5em;
 }
 
 .nav-link {
+  /* text styling */
   text-decoration: none;
   text-transform: uppercase;
   color: var(--black);
-  font-weight: 500;
+
+  display: inline-block;
+
+  position: relative;
 }
 
-.nav-link:hover {
-  /* font-weight: 700; */
+.nav-link::after {
+  content: "";
+
+  position: absolute;
+  top: 1.75em;
+  left: 0;
+  width: 0;
+  
   border-bottom: 1px solid black;
+  transition: width ease-in .15s;
+}
+
+.nav-link:hover::after {
+  width: 100%;
 }
 
 /* MAIN */
-main {
+.main {
   height: 200vh;
+  background: white;
 }
 
-@media only screen and (max-width: 576px) {
-  .expanded {
-    width: 20em;
-    right: 0;
-    box-shadow: 0 0 26px 10px rgba(120, 120, 120, .2);
-  }
+.footer {
+  /* content layout */
+  padding: 3em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .25em;
+
+  /* styling */
+  background-color: var(--black);
+  color: white;
+  font-size: .75rem;
+}
+
+.footer-title {
+  font-weight: 700;
+}
+
+.footer-copyright {
+  display: flex;
+  align-items: center;
+  gap: .5em;
 }
 
 @media only screen and (min-width: 576px) {
+  /* HEADER */
   .header {
     padding: 1em 3vw;
   }
 
+  /* NAV */
   .header-nav {
     /* sizing & positioning */
     position: static;
@@ -134,7 +183,9 @@ main {
   }
 
   .nav-links {
+    /* content layout */
     flex-direction: row;
+    gap: 0;
   }
 
   .nav-links li {
