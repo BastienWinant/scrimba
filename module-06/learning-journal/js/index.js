@@ -4,8 +4,7 @@ document.body.addEventListener('click', (e) => {
   if ((e.target.classList.contains('nav-expand-btn')) || (e.target.classList.contains('nav-collapse-btn'))) {
     document.querySelector('#header-nav').classList.toggle('expanded');
   } else if (e.target.classList.contains('grid-expand-btn')) {
-    articlesToDisplay += 3;
-    displayArticles(articlesToDisplay + 1);
+    expandArticlesGrid();
   } 
 });
 
@@ -24,7 +23,7 @@ const displayHero = (articleObj) => {
 const displayArticles = (data, n) => {
   const articleGrid = document.querySelector('#article-grid');
 
-  articleGrid.innerHTML = data.slice(1, n).map(articleObj => {
+  articleGrid.innerHTML = data.slice(0, n).map(articleObj => {
     
     const cardText = articleObj.text.length <= 200 ?
       articleObj.text : articleObj.text.slice(0, 201) + '...';
@@ -47,13 +46,23 @@ const displayArticles = (data, n) => {
   }
 }
 
-const renderPage = () => {
+const expandArticlesGrid = () => {
+  articlesToDisplay += 3;
+
   fetch('../data/articles.json')
   .then(response => response.json())
   .then(data => {
-    displayHero(data[0]);
-    displayArticles(data, articlesToDisplay + 1);
+    displayArticles(data, articlesToDisplay);
   })
 }
 
-renderPage();
+const renderHomePage = () => {
+  fetch('../data/articles.json')
+  .then(response => response.json())
+  .then(data => {
+    displayHero(data[data.length - 1]);
+    displayArticles(data, articlesToDisplay);
+  })
+}
+
+renderHomePage();
