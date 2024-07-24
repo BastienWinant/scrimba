@@ -146,6 +146,15 @@ html, body {
   width: 100%;
 }
 
+/* MAIN */
+.main {
+  /* content layout */
+  display: flex;
+  flex-direction: column;
+  gap: 3.3125em;
+  padding-bottom: 3.3125em;
+}
+
 /* ARTICLE GRID */
 .articles {
   padding: 0 1em;
@@ -217,7 +226,7 @@ html, body {
 
 .grid-expand-btn-container {
   text-align: center;
-  padding: 2em 0 3.1875em;
+  padding-top: 2em;
 }
 
 .grid-expand-btn {
@@ -242,7 +251,6 @@ html, body {
   position: absolute;
   bottom: 0;
 
-  /* padding: 3.75em 1em; */
   padding: 12vw 1em;
 }
 
@@ -294,7 +302,7 @@ html, body {
 @media only screen and (min-width: 576px) {
   /* HEADER */
   .header {
-    padding: 1em 3vw;
+    padding: 1em 5vw;
   }
 
   /* NAV */
@@ -325,11 +333,11 @@ html, body {
 
   /* ARTICLES */
   .articles {
-    padding: 0 3vw;
+    padding: 0 5vw;
   }
 
   /* HERO */
   .hero-link {
-    padding: 5vw 3vw;
+    padding: 5vw 5vw;
   }
 }
