@@ -1,5 +1,5 @@
 .black-border {
-  /* border: 1px solid black; */
+  border: 1px solid black;
 }
 
 :root {
@@ -43,7 +43,7 @@ html, body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, .6);
+  background-color: rgba(0, 0, 0, .5);
 }
 
 /* HEADER */
@@ -160,6 +160,14 @@ html, body {
   padding: 0 1em;
 }
 
+.articles-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.1;
+  padding-bottom: 1.67em;
+}
+
 .article-grid {
   /* content layout */
   display: grid;
@@ -178,21 +186,21 @@ html, body {
   background-color: rgba(0, 0, 0, .3);
 }
 
-.article-img {
+.article-card-img {
   height: 232px;
   width: 100%;
   object-fit: cover;
   margin-bottom: .875em;
 }
 
-.article-info {
+.article-card-info {
   /* content layout */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-.article-title {
+.article-card-title {
   /* positioning */
   order: 2;
 

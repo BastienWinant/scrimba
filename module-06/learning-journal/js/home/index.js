@@ -27,10 +27,10 @@ const displayArticles = (data, n) => {
     return `<a class="article-link" href="#">
       <div class="masked">
         <div class="mask"></div>
-        <img class="img article-img" src="${articleObj.imgUrl}" alt="Illustrative image" >
+        <img class="img article-card-img" src="${articleObj.imgUrl}" alt="Illustrative image" >
       </div>
-      <hgroup class="article-info black-border">
-        <h2 class="article-title">${articleObj.title}</h2>
+      <hgroup class="article-card-info">
+        <h2 class="article-card-title">${articleObj.title}</h2>
         <p class="article-date">${articleObj.date}</p>
         <p class="article-blurb">${cardText}</p>
       </hgroup>
