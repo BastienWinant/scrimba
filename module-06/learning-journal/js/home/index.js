@@ -8,6 +8,8 @@ document.body.addEventListener('click', (e) => {
     const articleBtn = e.target.closest(".article-card-btn");
     const articleId = articleBtn.dataset.articleId;
     console.log(articleId);
+  } else {
+    console.log(e.target)
   }
 });
 
@@ -19,12 +21,14 @@ const displayHero = (articleObj) => {
   mainEl.insertAdjacentHTML(
     'afterbegin',
     `<section id="hero" class="hero">
-      <div class="mask"></div>
-      <a class="article-card-btn article-card-info hero-link" href="#">
-        <h1 id="hero-title" class="article-card-title hero-title">${articleObj.title}</h1>
-        <p id="hero-date" class="article-card-date hero-date">${articleObj.date}</p>
-        <p id="hero-intro" class="article-card-intro hero-intro">${articleObj.intro}</p>
-      </a>
+      <button class="btn hero-btn article-card-btn masked" data-article-id="${articleObj.id}">
+        <div class="mask"></div>
+        <header class="hero-header article-card-info">
+          <h1 id="hero-title" class="article-card-title hero-title">${articleObj.title}</h1>
+          <p id="hero-date" class="article-card-date hero-date">${articleObj.date}</p>
+          <p id="hero-intro" class="article-card-intro hero-intro">${articleObj.intro}</p>
+        </header>
+      </button>
     </section>`
   )
 
