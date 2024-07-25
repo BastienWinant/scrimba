@@ -60,11 +60,11 @@ const displayArticles = (data, n) => {
       </hgroup>
     </a>`
   }).join('\n');
+}
 
-  // hide the expand button if all articles are displayed
-  if (n >= data.length) {
-    document.querySelector('#grid-expand-btn-container').style.display = "none";
-  }
+// hide the expand button if all articles are already displayed
+const hideExpandButton = () => {
+  document.querySelector('#grid-expand-btn-container').style.display = "none";
 }
 
 const expandArticlesGrid = () => {
@@ -74,6 +74,10 @@ const expandArticlesGrid = () => {
     .then(response => response.json())
     .then(data => {
       displayArticles(data, articlesToDisplay);
+
+      if (articlesToDisplay >= data.length) {
+        hideExpandButton();
+      }
   })
 }
 
