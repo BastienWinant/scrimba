@@ -7,11 +7,11 @@ document.body.addEventListener('click', (e) => {
   } 
 });
 
-// set the background img and add text to the hero section
+// add a hero section at the top of the main container
 const displayHero = (articleObj) => {
   const mainEl = document.querySelector('#main');
 
-  // mainEl.insertAdjacentHTML
+  // create the hero as the first child of main
   mainEl.insertAdjacentHTML(
     'afterbegin',
     `<section id="hero" class="hero">
@@ -24,6 +24,7 @@ const displayHero = (articleObj) => {
     </section>`
   )
 
+  // set the background img for the section
   document.querySelector('#hero').style.backgroundImage = `url(${articleObj.imgUrl})`;
 }
 
