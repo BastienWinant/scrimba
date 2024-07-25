@@ -8,6 +8,8 @@ document.body.addEventListener('click', (e) => {
     const articleBtn = e.target.closest(".article-card-btn");
     const articleId = articleBtn.dataset.articleId;
     console.log(articleId);
+  } else if(e.target.classList.contains('home-btn')) {
+    renderHomePage();
   } else {
     console.log(e.target)
   }
@@ -98,6 +100,14 @@ const expandArticlesGrid = () => {
 }
 
 const renderHomePage = () => {
+  // clear the main content
+  document.querySelector('#main').innerHTML = '';
+
+  // collapse the nav
+  document.querySelector('#header-nav').classList.remove('expanded');
+
+  articlesToDisplay = 6;
+
   fetch('../data/articles.json')
     .then(response => response.json())
     .then(data => {

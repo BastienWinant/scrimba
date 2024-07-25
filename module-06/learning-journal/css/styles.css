@@ -35,6 +35,7 @@ html, body {
   font-family: "Source Sans 3", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+  font-size: 1rem;
 }
 
 .masked {
@@ -115,7 +116,7 @@ html, body {
   right: 1em;
 }
 
-.nav-links {
+.nav-btns {
   list-style-type: none;
 
   display: flex;
@@ -123,18 +124,18 @@ html, body {
   gap: 1.5em;
 }
 
-.nav-link {
+.nav-btn {
   /* text styling */
   text-decoration: none;
   text-transform: uppercase;
   color: var(--black);
 
-  display: inline-block;
+  display: block;
 
   position: relative;
 }
 
-.nav-link::after {
+.nav-btn::after {
   content: "";
 
   position: absolute;
@@ -146,7 +147,7 @@ html, body {
   transition: width ease-in .15s;
 }
 
-.nav-link:hover::after {
+.nav-btn:hover::after {
   width: 100%;
 }
 
@@ -354,13 +355,13 @@ html, body {
     display: none;
   }
 
-  .nav-links {
+  .nav-btns {
     /* content layout */
     flex-direction: row;
     gap: 0;
   }
 
-  .nav-links li {
+  .nav-btns li {
     width: 6.5em;
     text-align: right;
   }
