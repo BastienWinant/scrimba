@@ -32,11 +32,14 @@ const displayHero = (articleObj) => {
 const createArticlesGrid = () => {
   const mainEl = document.querySelector('#main');
   mainEl.innerHTML += 
-    `<section class="recent-articles">
+    // `<section id="recent-articles" class="recent-articles">
+    //   <div id="article-grid" class="article-grid"></div>
+    //   <div id="grid-expand-btn-container" class="grid-expand-btn-container">
+    //     <button class="btn grid-expand-btn">view more</button>
+    //   </div>
+    // </section>`
+    `<section id="recent-articles" class="recent-articles">
       <div id="article-grid" class="article-grid"></div>
-      <div id="grid-expand-btn-container" class="grid-expand-btn-container">
-        <button class="btn grid-expand-btn">view more</button>
-      </div>
     </section>`
 }
 
@@ -62,6 +65,16 @@ const displayArticles = (data, n) => {
   }).join('\n');
 }
 
+// insert a button to expand the grid below the grid container
+const addExpandBtn = () => {
+  const articlesContainer = document.querySelector('#recent-articles');
+
+  articlesContainer.innerHTML +=
+    `<div id="grid-expand-btn-container" class="grid-expand-btn-container">
+        <button class="btn grid-expand-btn">view more</button>
+      </div>`
+}
+
 // hide the expand button if all articles are already displayed
 const hideExpandButton = () => {
   document.querySelector('#grid-expand-btn-container').style.display = "none";
@@ -75,6 +88,7 @@ const expandArticlesGrid = () => {
     .then(data => {
       displayArticles(data, articlesToDisplay);
 
+      // hide the expand button if all articles are displayed
       if (articlesToDisplay >= data.length) {
         hideExpandButton();
       }
@@ -85,9 +99,17 @@ const renderHomePage = () => {
   fetch('../data/articles.json')
     .then(response => response.json())
     .then(data => {
-      displayHero(data[data.length - 1]);
+      // use the last article to create the hero section
+      const lastArticle = data[data.length - 1];
+      displayHero(lastArticle);
+
       createArticlesGrid();
       displayArticles(data, articlesToDisplay);
+
+      // only add the expand button if there are articles not displayed
+      if (articlesToDisplay < data.length) {
+        addExpandBtn();
+      }
     }
   )
 }
