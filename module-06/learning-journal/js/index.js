@@ -65,6 +65,17 @@ const createArticlesGrid = () => {
     </section>`
 }
 
+const addArticlesHeader = () => {
+  const articlesContainer = document.querySelector('#recent-articles');
+
+  articlesContainer.insertAdjacentHTML(
+    'afterbegin',
+    `<header>
+      <h2 class="articles-grid-title">Recent posts</h2>
+    </header>`
+  )
+}
+
 // fetch articles data and fill articles grid
 const displayArticles = (data, n) => {
   const articleGrid = document.querySelector('#article-grid');
@@ -140,11 +151,13 @@ const renderHomePage = () => {
 
 const renderAboutPage = () => {
   clearPage();
+  articlesToDisplay = 3;
 
   fetch('../data/articles.json')
     .then(response => response.json())
     .then(data => {
       createArticlesGrid();
+      addArticlesHeader();
       displayArticles(data, articlesToDisplay);
     })
 }
@@ -157,6 +170,7 @@ const renderArticlePage = (articleIndex) => {
     .then(response => response.json())
     .then(data => {
       createArticlesGrid();
+      addArticlesHeader();
       displayArticles(data, articlesToDisplay);
     })
 }
