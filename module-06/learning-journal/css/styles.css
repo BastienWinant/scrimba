@@ -171,7 +171,7 @@ html, body {
   padding-bottom: 1.67em;
 }
 
-.article-grid {
+.article-card-grid {
   /* content layout */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -290,21 +290,6 @@ html, body {
 }
 
 /* ARTICLE */
-.article {
-  padding: 0 1em;
-}
-
-.article-header {
-  /* content layout */
-  display: flex;
-  flex-direction: column;
-}
-
-.article-title {
-  order: 2;
-  font-size: 2.25rem;
-  margin: .67em 0 .75em;
-}
 
 /* FOOTER */
 .footer {
@@ -375,11 +360,4 @@ html, body {
   }
 
   /* ARTICLE */
-  .article {
-    padding: 0 5vw;
-  }
-
-  .article-header {
-    padding: 0 8vw;
-  }
 }

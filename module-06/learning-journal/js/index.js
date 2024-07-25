@@ -61,7 +61,7 @@ const createArticlesGrid = () => {
   const mainEl = document.querySelector('#main');
   mainEl.innerHTML += 
     `<section id="recent-articles" class="recent-articles">
-      <div id="article-grid" class="article-grid"></div>
+      <div id="article-card-grid" class="article-card-grid"></div>
     </section>`
 }
 
@@ -78,7 +78,7 @@ const addArticlesHeader = () => {
 
 // fetch articles data and fill articles grid
 const displayArticles = (data, n) => {
-  const articleGrid = document.querySelector('#article-grid');
+  const articleGrid = document.querySelector('#article-card-grid');
   articleGrid.innerHTML = data.slice(0, n).map(articleObj => {
     // truncate the intro text if longer than 200 characters
     const cardText = articleObj.intro.length <= 200 ?
