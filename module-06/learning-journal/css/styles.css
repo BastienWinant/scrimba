@@ -1,10 +1,11 @@
 .black-border {
-  /* border: 1px solid black !important; */
+  border: 1px solid black;
 }
 
 :root {
   --black: #090909;
   --grey: #505050;
+  --off-white: #FAFAFA;
 }
 
 /* DEFAULT PAGE BEHAVIOR */
@@ -156,6 +157,8 @@ html, body {
   flex-direction: column;
   gap: 3.3125em;
   padding-bottom: 3.3125em;
+
+  background-color: var(--off-white);
 }
 
 /* ARTICLE CARD GRID */
@@ -264,9 +267,9 @@ html, body {
 }
 
 .hero-header {
-  margin: 0 1em 12vw;
+  margin: 0 1em 3.75em;
   position: relative;
-
+  max-width: 615px;
   text-shadow: 0 0 1px black;
 }
 
@@ -285,8 +288,6 @@ html, body {
 .hero-intro {
   font-size: 1rem;
   color: white;
-  /* width: 80%; */
-  max-width: 615px;
 }
 
 /* ARTICLE */
@@ -318,11 +319,6 @@ html, body {
 }
 
 @media only screen and (min-width: 576px) {
-  /* HEADER */
-  .header {
-    padding: 1em 5vw;
-  }
-
   /* NAV */
   .header-nav {
     /* sizing & positioning */
@@ -348,16 +344,4 @@ html, body {
     width: 6.5em;
     text-align: right;
   }
-
-  /* ARTICLE CARD GRID*/
-  .recent-articles {
-    padding: 0 5vw;
-  }
-
-  /* HERO */
-  .hero-header {
-    margin: 0 5vw 5vw;
-  }
-
-  /* ARTICLE */
 }

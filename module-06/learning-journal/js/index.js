@@ -162,6 +162,10 @@ const renderAboutPage = () => {
     })
 }
 
+const displayArticle = (articleObj) => {
+  console.log(articleObj)
+}
+
 const renderArticlePage = (articleIndex) => {
   clearPage();
   articlesToDisplay = 3;
@@ -169,6 +173,9 @@ const renderArticlePage = (articleIndex) => {
   fetch('../data/articles.json')
     .then(response => response.json())
     .then(data => {
+      const articleObj = data.find(article => article.id == articleIndex);
+      displayArticle(articleObj);
+
       createArticlesGrid();
       addArticlesHeader();
       displayArticles(data, articlesToDisplay);
