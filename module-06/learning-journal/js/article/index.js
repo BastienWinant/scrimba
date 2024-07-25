@@ -6,7 +6,7 @@ const displayArticles = (data) => {
     const cardText = articleObj.intro.length <= 200 ?
       articleObj.intro : articleObj.intro.slice(0, 201) + '...';
     
-    return `<a class="article-card-link" href="#">
+    return `<a class="article-card-btn" href="#">
       <div class="masked">
         <div class="mask"></div>
         <img class="img article-card-img" src="${articleObj.imgUrl}" alt="Illustrative image" >

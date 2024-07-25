@@ -31,6 +31,10 @@ html, body {
   background-color: transparent;
   border: none;
   cursor: pointer;
+
+  font-family: "Source Sans 3", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
 .masked {
@@ -176,13 +180,16 @@ html, body {
   gap: 46px 26px;
 }
 
-.article-card-link {
+.article-card-btn {
   /* link styling */
   text-decoration: none;
   color: var(--black);
+
+  text-align: left;
+  font-famil
 }
 
-.article-card-link:hover .mask {
+.article-card-btn:hover .mask {
   background-color: rgba(0, 0, 0, .3);
 }
 

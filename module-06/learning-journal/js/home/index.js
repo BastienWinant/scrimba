@@ -4,7 +4,11 @@ let articlesToDisplay = 6;
 document.body.addEventListener('click', (e) => {
   if (e.target.classList.contains('grid-expand-btn')) {
     expandArticlesGrid();
-  } 
+  } else if (e.target.closest(".article-card-btn")) {
+    const articleBtn = e.target.closest(".article-card-btn");
+    const articleId = articleBtn.dataset.articleId;
+    console.log(articleId);
+  }
 });
 
 // add a hero section at the top of the main container
@@ -16,7 +20,7 @@ const displayHero = (articleObj) => {
     'afterbegin',
     `<section id="hero" class="hero">
       <div class="mask"></div>
-      <a class="article-card-link article-card-info hero-link" href="#">
+      <a class="article-card-btn article-card-info hero-link" href="#">
         <h1 id="hero-title" class="article-card-title hero-title">${articleObj.title}</h1>
         <p id="hero-date" class="article-card-date hero-date">${articleObj.date}</p>
         <p id="hero-intro" class="article-card-intro hero-intro">${articleObj.intro}</p>
@@ -32,12 +36,6 @@ const displayHero = (articleObj) => {
 const createArticlesGrid = () => {
   const mainEl = document.querySelector('#main');
   mainEl.innerHTML += 
-    // `<section id="recent-articles" class="recent-articles">
-    //   <div id="article-grid" class="article-grid"></div>
-    //   <div id="grid-expand-btn-container" class="grid-expand-btn-container">
-    //     <button class="btn grid-expand-btn">view more</button>
-    //   </div>
-    // </section>`
     `<section id="recent-articles" class="recent-articles">
       <div id="article-grid" class="article-grid"></div>
     </section>`
@@ -51,7 +49,7 @@ const displayArticles = (data, n) => {
     const cardText = articleObj.intro.length <= 200 ?
       articleObj.intro : articleObj.intro.slice(0, 201) + '...';
     
-    return `<a class="article-card-link" href="#">
+    return `<button class="btn article-card-btn" data-article-id="${articleObj.id}" type="button">
       <div class="masked">
         <div class="mask"></div>
         <img class="img article-card-img" src="${articleObj.imgUrl}" alt="Illustrative image" >
@@ -61,7 +59,7 @@ const displayArticles = (data, n) => {
         <p class="article-card-date">${articleObj.date}</p>
         <p class="article-card-intro">${cardText}</p>
       </hgroup>
-    </a>`
+    </button>`
   }).join('\n');
 }
 
