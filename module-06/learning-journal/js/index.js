@@ -7,6 +7,11 @@ document.addEventListener('click', (e) => {
     document.querySelector("#header-nav").classList.toggle("expanded");
   } else if (e.target.id === "grid-expand-btn") {
     expandArticlesGrid();
+  } else if (e.target.id === "home-btn") {
+    renderHomePage();
+  } else {
+    console.log(e.target.classList);
+    console.log(e.target.id);
   }
 });
 
@@ -14,6 +19,11 @@ document.addEventListener('click', (e) => {
 window.addEventListener('resize', () => {
   document.querySelector("#header-nav").classList.remove("expanded");
 });
+
+const clearPage = () => {
+  document.querySelector("#main").innerHTML = "";
+  articlesToDisplay = 3;
+}
 
 const addHeroSection = (articleObj) => {
   const mainEl = document.querySelector("#main");
@@ -102,6 +112,8 @@ const expandArticlesGrid = () => {
 }
 
 const renderHomePage = () => {
+  clearPage();
+
   fetch('../data/articles.json')
     .then(response => response.json())
     .then(articles => {
