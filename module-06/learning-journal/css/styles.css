@@ -243,8 +243,6 @@ html, body {
   align-items: stretch;
   gap: 2em;
   padding: 0 1.5em;
-
-  /* background-color: yellow; */
 }
 
 .article-card-grid-title {
