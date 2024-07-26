@@ -1,5 +1,9 @@
-import './styles.css';
+import './style.css';
 
-import headerComponent from './components/header/index'
+import { Header } from "./components/header/header";
 
-document.body.appendChild(headerComponent());
+// const mainEl = document.querySelector('main');
+document.body.insertAdjacentElement(
+  "afterbegin",
+  Header()
+);

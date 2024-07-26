@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'Source Sans';
+  src: url('./SourceSans3-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* DEFAULT PAGE BEHAVIOR */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: 'Source Sans';
+}
+
+.img {
+  display: block;
+  max-width: 100%;
+  object-fit: cover;
+}

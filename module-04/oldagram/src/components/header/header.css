@@ -4,11 +4,19 @@
   position: sticky;
   top: 0;
   left: 0;
+  background: lightblue;
+
+  /* content layout */
+  display: flex;
+  justify-content: center;
 }
 
 .header-container {
+  width: 100%;
+  max-width: 470px;
+
   /* content layout */
-  padding: 16px 15px;
+  padding: 1em;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -17,13 +25,11 @@
   border-bottom: 1px solid #C6C6C6;
 }
 
-.header-logo {
-  height: 34px;
+.header-img {
+  height: 2.125em;
   width: auto;
 }
 
-.header-avatar {
-  width: 34px;
-  height: 34px;
+.avatar-img {
   border-radius: 50%;
 }
