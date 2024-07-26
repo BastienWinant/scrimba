@@ -171,7 +171,7 @@ html, body {
   /* content layout */
   display: flex;
   flex-direction: column;
-  gap: 3.3125em;
+  gap: 4.375em;
   padding-bottom: 3.3125em;
 
   /* styling */
@@ -333,6 +333,7 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 2.25em;
+  padding-top: 4.375em;
 
   align-self: center;
 }
@@ -483,7 +484,7 @@ html, body {
 
   /* ARTICLE */
   .article {
-    padding: 0 3em;
+    padding: 4.375em 3em;
   }
 
   .article-header,
