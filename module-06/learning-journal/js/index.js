@@ -1,185 +1,102 @@
-let articlesToDisplay = 6;
+// global variables
+const articlesToDisplay = 6;
 
-// expand the articles grid
-document.body.addEventListener('click', (e) => {
-  if ((e.target.classList.contains('nav-expand-btn')) || (e.target.classList.contains('nav-collapse-btn'))) {
-    document.querySelector('#header-nav').classList.toggle('expanded');
-  } else if (e.target.classList.contains('grid-expand-btn')) {
-    expandArticlesGrid();
-  } else if (e.target.closest(".article-card-btn")) {
-    const articleBtn = e.target.closest(".article-card-btn");
-    const articleId = articleBtn.dataset.articleId;
-    renderArticlePage(articleId);
-  } else if (e.target.classList.contains('home-btn') || e.target.classList.contains('logo-btn')) {
-    renderHomePage();
-  } else if (e.target.classList.contains('about-btn')) {
-    renderAboutPage();
+// catch and dispatch click events
+document.addEventListener('click', (e) => {
+  if (e.target.id === "nav-collapse-btn" || e.target.id === "nav-expand-btn") {
+    document.querySelector("#header-nav").classList.toggle("expanded");
   }
 });
 
-// collapse the navbar upon screen resize
+// collapse navbar upon window resize
 window.addEventListener('resize', () => {
-  document.querySelector('#header-nav').classList.remove('expanded');
+  document.querySelector("#header-nav").classList.remove("expanded");
 });
 
-const clearPage = () => {
-  // clear the HTML inside the main container
-  document.querySelector('#main').innerHTML = '';
+const addHeroSection = (articleObj) => {
+  const mainEl = document.querySelector("#main");
 
-  // collapse the nav
-  document.querySelector('#header-nav').classList.remove('expanded');
-
-  // reset the global variables
-  articlesToDisplay = 6;
-}
-
-// add a hero section at the top of the main container
-const displayHero = (articleObj) => {
-  const mainEl = document.querySelector('#main');
-
-  // create the hero as the first child of main
   mainEl.insertAdjacentHTML(
-    'afterbegin',
+    "afterbegin",
     `<section id="hero" class="hero">
-      <button class="btn hero-btn article-card-btn masked" data-article-id="${articleObj.id}">
+      <button id="hero-btn" class="btn hero-btn masked" type="button">
         <div class="mask"></div>
-        <header class="hero-header article-card-info">
-          <h1 id="hero-title" class="article-card-title hero-title">${articleObj.title}</h1>
-          <p id="hero-date" class="article-card-date hero-date">${articleObj.date}</p>
-          <p id="hero-intro" class="article-card-intro hero-intro">${articleObj.intro}</p>
+        <header class="hero-header">
+          <h1 class="hero-title">${articleObj.title}</h1>
+          <p class="hero-date">${articleObj.date}</p>
+          <p class="hero-intro">${articleObj.intro}</p>
         </header>
       </button>
     </section>`
   )
 
-  // set the background img for the section
-  document.querySelector('#hero').style.backgroundImage = `url(${articleObj.imgUrl})`;
+  document.querySelector("#hero-btn").style.backgroundImage = `url(${articleObj.imgUrl})`;
 }
 
-// append an empty grid container to the page's main element
-const createArticlesGrid = () => {
-  const mainEl = document.querySelector('#main');
-  mainEl.innerHTML += 
+const addCardGrid = () => {
+  const mainEl = document.querySelector("#main");
+
+  mainEl.innerHTML +=
     `<section id="recent-articles" class="recent-articles">
       <div id="article-card-grid" class="article-card-grid"></div>
     </section>`
 }
 
-const addArticlesHeader = () => {
-  const articlesContainer = document.querySelector('#recent-articles');
+const fillCardGrid = (articles) => {
+  const gridContainer = document.querySelector("#article-card-grid");
 
-  articlesContainer.insertAdjacentHTML(
-    'afterbegin',
-    `<header>
-      <h2 class="articles-grid-title">Recent posts</h2>
-    </header>`
-  )
-}
+  // select the most recent articles from the back of the array
+  const gridArticles = articles.slice(articles.length - articlesToDisplay, articles.length);
 
-// fetch articles data and fill articles grid
-const displayArticles = (data, n) => {
-  const articleGrid = document.querySelector('#article-card-grid');
-  articleGrid.innerHTML = data.slice(0, n).map(articleObj => {
-    // truncate the intro text if longer than 200 characters
-    const cardText = articleObj.intro.length <= 200 ?
-      articleObj.intro : articleObj.intro.slice(0, 201) + '...';
-    
-    return `<button class="btn article-card-btn" data-article-id="${articleObj.id}" type="button">
-      <div class="masked">
+  gridContainer.innerHTML = gridArticles.map(articleObj => {
+    // truncate the intro text
+    const introText = articleObj.intro.length > 180
+      ? articleObj.intro.slice(0, 178) + '...'
+      : articleObj.intro;
+
+    return `<button class="btn article-card" type="button">
+      <figure class="masked" style="background: blue;">
         <div class="mask"></div>
-        <img class="img article-card-img" src="${articleObj.imgUrl}" alt="Illustrative image" >
-      </div>
-      <hgroup class="article-card-info">
-        <h2 class="article-card-title">${articleObj.title}</h2>
+        <img class="img article-card-img" src="${articleObj.imgUrl}" alt="Illustrative image">
+      </figure>
+      <div class="article-card-info">
+        <h3 class="article-card-title">${articleObj.title}</h3>
         <p class="article-card-date">${articleObj.date}</p>
-        <p class="article-card-intro">${cardText}</p>
-      </hgroup>
+        <p class="article-card-intro">${introText}</p>
+      </div>
     </button>`
   }).join('\n');
 }
 
-// insert a button to expand the grid below the grid container
-const addExpandBtn = () => {
-  const articlesContainer = document.querySelector('#recent-articles');
+const addGridExpandBtn = () => {
+  const gridSection = document.querySelector("#recent-articles");
 
-  articlesContainer.innerHTML +=
-    `<div id="grid-expand-btn-container" class="grid-expand-btn-container">
-        <button class="btn grid-expand-btn">view more</button>
-      </div>`
-}
-
-// hide the expand button if all articles are already displayed
-const hideExpandButton = () => {
-  document.querySelector('#grid-expand-btn-container').style.display = "none";
-}
-
-const expandArticlesGrid = () => {
-  articlesToDisplay += 3;
-
-  fetch('../data/articles.json')
-    .then(response => response.json())
-    .then(data => {
-      displayArticles(data, articlesToDisplay);
-
-      // hide the expand button if all articles are displayed
-      if (articlesToDisplay >= data.length) {
-        hideExpandButton();
-      }
-  })
-}
-
-const renderHomePage = () => {
-  clearPage();
-
-  fetch('../data/articles.json')
-    .then(response => response.json())
-    .then(data => {
-      // use the last article to create the hero section
-      const lastArticle = data[data.length - 1];
-      displayHero(lastArticle);
-
-      createArticlesGrid();
-      displayArticles(data, articlesToDisplay);
-
-      // only add the expand button if there are articles not displayed
-      if (articlesToDisplay < data.length) {
-        addExpandBtn();
-      }
-    }
+  gridSection.insertAdjacentHTML(
+    "beforeend",
+    `<div class="grid-expand-btn-container">
+      <button id="grid-expand-btn" class="btn grid-expand-btn" type="button">view more</button>
+    </div>`
   )
 }
 
-const renderAboutPage = () => {
-  clearPage();
-  articlesToDisplay = 3;
-
+const renderHomePage = () => {
   fetch('../data/articles.json')
     .then(response => response.json())
-    .then(data => {
-      createArticlesGrid();
-      addArticlesHeader();
-      displayArticles(data, articlesToDisplay);
-    })
-}
+    .then(articles => {
+      // use the most recent article for the hero section
+      addHeroSection(articles[articles.length - 1]);
+      
+      // create an empty grid container
+      addCardGrid();
 
-const displayArticle = (articleObj) => {
-  console.log(articleObj)
-}
+      // display the article cards
+      fillCardGrid(articles);
 
-const renderArticlePage = (articleIndex) => {
-  clearPage();
-  articlesToDisplay = 3;
-
-  fetch('../data/articles.json')
-    .then(response => response.json())
-    .then(data => {
-      const articleObj = data.find(article => article.id == articleIndex);
-      displayArticle(articleObj);
-
-      createArticlesGrid();
-      addArticlesHeader();
-      displayArticles(data, articlesToDisplay);
-    })
+      // don't add the expand button if all articles are displayed
+      if (articlesToDisplay < articles.length) {
+        addGridExpandBtn();
+      };
+    });
 }
 
 renderHomePage();
