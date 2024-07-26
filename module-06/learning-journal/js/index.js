@@ -1,10 +1,12 @@
 // global variables
-const articlesToDisplay = 6;
+let articlesToDisplay = 6;
 
 // catch and dispatch click events
 document.addEventListener('click', (e) => {
   if (e.target.id === "nav-collapse-btn" || e.target.id === "nav-expand-btn") {
     document.querySelector("#header-nav").classList.toggle("expanded");
+  } else if (e.target.id === "grid-expand-btn") {
+    expandArticlesGrid();
   }
 });
 
@@ -46,7 +48,7 @@ const fillCardGrid = (articles) => {
   const gridContainer = document.querySelector("#article-card-grid");
 
   // select the most recent articles from the back of the array
-  const gridArticles = articles.slice(articles.length - articlesToDisplay, articles.length);
+  const gridArticles = articles.toReversed().slice(0, articlesToDisplay);
 
   gridContainer.innerHTML = gridArticles.map(articleObj => {
     // truncate the intro text
@@ -73,9 +75,29 @@ const addGridExpandBtn = () => {
 
   gridSection.insertAdjacentHTML(
     "beforeend",
-    `<div class="grid-expand-btn-container">
+    `<div id="grid-expand-btn-container" class="grid-expand-btn-container">
       <button id="grid-expand-btn" class="btn grid-expand-btn" type="button">view more</button>
     </div>`
+  )
+}
+
+const removeGridExpandBtn = () => {
+  document.querySelector("#grid-expand-btn-container").style.display = "none";
+}
+
+const expandArticlesGrid = () => {
+  articlesToDisplay += 3;
+
+  fetch('../data/articles.json')
+    .then(response => response.json())
+    .then(articles => {
+      fillCardGrid(articles);
+
+      // remove the expansion button if all articles are displayed
+      if (articlesToDisplay >= articles.length) {
+        removeGridExpandBtn();
+      }
+    }
   )
 }
 
