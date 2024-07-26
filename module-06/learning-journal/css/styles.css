@@ -385,19 +385,18 @@ html, body {
     justify-content: flex-end;
   }
 
-  /* .nav-btns li {
-    width: 6.5em;
+  /* HEADER */
+  .header {
+    padding: 1.5em 3em;
+  }
 
-    display: flex;
-    justify-content: flex-end;
-    border: 1px solid black;
-  } */
+  /* HERO */
+  .hero-header {
+    padding: 0 3em;
+  }
 
-  /* .nav-btns {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-  
-    list-style-type: none;
-  } */
+  /* ARTICLE CARD GRID */
+  .recent-articles {
+    padding: 0 3em;
+  }
 }

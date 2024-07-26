@@ -4,11 +4,12 @@ let articlesToDisplay = 6;
 // catch and dispatch click events
 document.addEventListener('click', (e) => {
   if (e.target.id === "nav-collapse-btn" || e.target.id === "nav-expand-btn") {
-    document.querySelector("#header-nav").classList.toggle("expanded");
+    toggleNavbar();
   } else if (e.target.id === "grid-expand-btn") {
     expandArticlesGrid();
   } else if (e.target.id === "home-btn") {
     renderHomePage();
+    collapseNavbar();
   } else {
     console.log(e.target.classList);
     console.log(e.target.id);
@@ -17,8 +18,16 @@ document.addEventListener('click', (e) => {
 
 // collapse navbar upon window resize
 window.addEventListener('resize', () => {
-  document.querySelector("#header-nav").classList.remove("expanded");
+  collapseNavbar();
 });
+
+const collapseNavbar = () => {
+  document.querySelector("#header-nav").classList.remove("expanded");
+}
+
+const toggleNavbar = () => {
+  document.querySelector("#header-nav").classList.toggle("expanded");
+}
 
 const clearPage = () => {
   document.querySelector("#main").innerHTML = "";
@@ -62,8 +71,8 @@ const fillCardGrid = (articles) => {
 
   gridContainer.innerHTML = gridArticles.map(articleObj => {
     // truncate the intro text
-    const introText = articleObj.intro.length > 180
-      ? articleObj.intro.slice(0, 178) + '...'
+    const introText = articleObj.intro.length > 200
+      ? articleObj.intro.slice(0, 198) + '...'
       : articleObj.intro;
 
     return `<button class="btn article-card" type="button">
@@ -101,6 +110,7 @@ const expandArticlesGrid = () => {
   fetch('../data/articles.json')
     .then(response => response.json())
     .then(articles => {
+      articles.pop();
       fillCardGrid(articles);
 
       // remove the expansion button if all articles are displayed
@@ -118,7 +128,8 @@ const renderHomePage = () => {
     .then(response => response.json())
     .then(articles => {
       // use the most recent article for the hero section
-      addHeroSection(articles[articles.length - 1]);
+      const lastArticle = articles.pop();
+      addHeroSection(lastArticle);
       
       // create an empty grid container
       addCardGrid();
