@@ -161,10 +161,10 @@ const addAboutSection = () => {
   mainEl.innerHTML +=
     `<section class="about">
       <header class="about-header">
-        <img class="about-img" src="https://images.unsplash.com/photo-1721804978061-2c23db2b5e4c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyM3x8fGVufDB8fHx8fA%3D%3D" alt="Avatar headshot">
+        <img class="img about-img" src="https://images.unsplash.com/photo-1721804978061-2c23db2b5e4c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyM3x8fGVufDB8fHx8fA%3D%3D" alt="Avatar headshot">
         <hgroup>
-          <h1 class="about-header-title">Hi there! My name is Roku and welcome to my learning journal.</h1>
-          <p class="about-header-intro">After several months of learning in the Frontend Developer Career Path, I've made the big jump over to the Bootcamp to get expert code reviews of my Solo Projects projects and meet like-minded peers.</p>
+          <h1 class="about-title">Hi there! My name is Roku and welcome to my learning journal.</h1>
+          <p class="about-intro">After several months of learning in the Frontend Developer Career Path, I've made the big jump over to the Bootcamp to get expert code reviews of my Solo Projects projects and meet like-minded peers.</p>
         </hgroup>
       </header>
       <section class="article-body">
