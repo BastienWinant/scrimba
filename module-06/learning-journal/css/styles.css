@@ -441,6 +441,10 @@ html, body {
 
 @media only screen and (min-width: 576px) {
   /* HEADER */
+  .header {
+    padding: 1.5em 3em;
+  }
+
   .nav-expand-btn,
   .nav-collapse-btn {
     display: none;
@@ -465,11 +469,6 @@ html, body {
 
   .nav-btns li {
     justify-content: flex-end;
-  }
-
-  /* HEADER */
-  .header {
-    padding: 1.5em 3em;
   }
 
   /* HERO */
