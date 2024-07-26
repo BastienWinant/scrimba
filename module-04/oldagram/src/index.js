@@ -1,8 +1,8 @@
 import './style.css';
 
 import { Header } from "./components/header/header";
+import { Post } from "./components/post/post"
 
-// const mainEl = document.querySelector('main');
 document.body.insertAdjacentElement(
   "afterbegin",
   Header()
