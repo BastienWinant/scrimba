@@ -1,7 +1,6 @@
 @font-face {
   font-family: 'Source Sans';
   src: url('./font/SourceSans3-VariableFont_wght.ttf') format('truetype');
-  font-weight: 400;
   font-style: normal;
 }
 
@@ -18,4 +17,33 @@
   display: block;
   max-width: 100%;
   object-fit: cover;
+}
+
+.btn {
+  display: block;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.masked {
+  position: relative;
+}
+
+.mask {
+  /* positioning */
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  /* sizing */
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, .4);
+}
+
+.main {
+  max-width: 470px;
+  margin: 0 auto;
 }
