@@ -139,7 +139,7 @@ const displayArticle = (articleObj) => {
     `<article class="article">
       <header class="article-header">
         <h1 class="article-title">${articleObj.title}</h1>
-        <p class="article-data">${articleObj.date}</p>
+        <p class="article-date">${articleObj.date}</p>
         <p class="article-intro">${articleObj.intro}</p>
       </header>
       <img class="img article-img" src="${articleObj.imgUrl}" alt="Illustrative image">
@@ -147,7 +147,7 @@ const displayArticle = (articleObj) => {
         <h2 class="article-subtitle">How I stay committed to learning</h2>
         <p class="article-text">I like to think of myself as a lifelong learner. I used to spend hours and hours learning, then try to create simple projects using what I learned or work new techniques into existing projects.</p>
         <p class="article-text">While that was fun, I felt like it would be helpful to share what I was learning and most things about my journey with the world.</p>
-        <h2 class="article-subtitle"></h2>
+        <h2 class="article-subtitle">How I got started</h2>
         <p class="article-text">I started simple and gradually grew my learning journal site. I would take notes about what I was learning. After each learning session, I'd use my notes to not only reflect on what I learned but also write short summaries of what I learned using my own words.</p>
         <p class="article-text">That helped me grok what I was learning, and I realized that posting my learning summaries was also helping others learn and stay motivated.</p>
       </section>
