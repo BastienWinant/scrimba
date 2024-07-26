@@ -171,6 +171,8 @@ html, body {
   /* content layout */
   display: flex;
   flex-direction: column;
+  gap: 3.3125em;
+  padding-bottom: 3.3125em;
 
   /* styling */
   background-color: var(--off-white);
