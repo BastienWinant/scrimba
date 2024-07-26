@@ -335,6 +335,8 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 2.25em;
+
+  align-self: center;
 }
 
 .article-header,
@@ -370,6 +372,10 @@ html, body {
 .article-intro {
   /* positioning */
   order: 3;
+
+  /* text styling */
+  font-size: 1.25rem;
+  line-height: 1.5em;
 }
 
 .article-img {
@@ -475,5 +481,15 @@ html, body {
   /* ARTICLE CARD GRID */
   .recent-articles {
     padding: 0 3em;
+  }
+
+  /* ARTICLE */
+  .article {
+    padding: 0 3em;
+  }
+
+  .article-header,
+  .article-body {
+    padding: 0 8vw;
   }
 }
