@@ -10,9 +10,9 @@ document.addEventListener('click', (e) => {
   } else if (e.target.id === "home-btn") {
     renderHomePage();
     collapseNavbar();
-  } else {
-    console.log(e.target.classList);
-    console.log(e.target.id);
+  } else if (e.target.closest(".article-btn")) {
+    const articleId = e.target.closest(".article-btn").dataset.articleId;
+    renderArticlePage(articleId);
   }
 });
 
@@ -40,7 +40,7 @@ const addHeroSection = (articleObj) => {
   mainEl.insertAdjacentHTML(
     "afterbegin",
     `<section id="hero" class="hero">
-      <button id="hero-btn" class="btn hero-btn masked" type="button">
+      <button id="hero-btn" class="btn hero-btn article-btn masked" data-article-id="${articleObj.id}" type="button">
         <div class="mask"></div>
         <header class="hero-header">
           <h1 class="hero-title">${articleObj.title}</h1>
@@ -75,7 +75,7 @@ const fillCardGrid = (articles) => {
       ? articleObj.intro.slice(0, 198) + '...'
       : articleObj.intro;
 
-    return `<button class="btn article-card" type="button">
+    return `<button class="btn article-btn article-card" data-article-id="${articleObj.id}" type="button">
       <figure class="masked" style="background: blue;">
         <div class="mask"></div>
         <img class="img article-card-img" src="${articleObj.imgUrl}" alt="Illustrative image">
@@ -142,6 +142,17 @@ const renderHomePage = () => {
         addGridExpandBtn();
       };
     });
+}
+
+const renderArticlePage = (articleId) => {
+  // clearPage();
+
+  fetch('../data/articles.json')
+    .then(response => response.json())
+    .then(articles => {
+      const articleObj = articles.find(article => article.id == articleId);
+      console.log(articleObj);
+    })
 }
 
 renderHomePage();
