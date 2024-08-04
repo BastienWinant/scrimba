@@ -15,7 +15,6 @@
   padding: 1.25em;
 
   background-color: white;
-  border-bottom: 1px solid #C6C6C6;
 }
 
 .header-img {
@@ -26,4 +25,10 @@
 .header-avatar {
   width: 2.615em;
   border-radius: 50%;
+}
+
+@media only screen and (min-width: 470px) {
+  .header-container {
+    padding: 1.25em 0;
+  }
 }

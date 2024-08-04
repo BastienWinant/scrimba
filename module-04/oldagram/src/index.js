@@ -8,12 +8,8 @@ document.body.insertAdjacentHTML(
   Header()
 )
 
-document.body.querySelector('.main').insertAdjacentHTML(
-  'afterbegin',
-  Post()
-)
+document.querySelector('.main').innerHTML = posts.map(postObj => Post(postObj)).join('\n');
 
-console.log(posts)
 
 // import { createApi } from 'unsplash-js';
 
@@ -23,8 +19,7 @@ console.log(posts)
 // });
 
 // unsplash.photos.getRandom({
-//   query: 'dog',
-//   count: 10,
+//   count: 20,
 // }).then(result => {
 //   if (result.errors) {
 //     // handle error here

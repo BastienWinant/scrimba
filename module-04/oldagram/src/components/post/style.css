@@ -24,11 +24,13 @@
 
 .post-img {
   cursor: pointer;
+  border: 1px solid #dbdbdb;
 }
 
 .post-body {
   display: flex;
   flex-direction: column;
+  gap: 1em;
   padding: 1.55em .75em 1.125em;
 }
 
@@ -56,16 +58,19 @@
   font-weight: 700;
 }
 
-.post-caption {
-  display: flex;
-  align-items: center;
-}
-
 .caption-username {
   font-weight: 700;
 }
 
 @media only screen and (min-width: 470px) {
+  .post {
+    border-top: 1px solid #dbdbdb;
+  }
+
+  .post-header {
+    padding: .75em 0;
+  }
+
   .post-img {
     border-radius: .2em;
   }
