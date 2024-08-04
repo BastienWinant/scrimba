@@ -3,12 +3,17 @@ import { Header } from './components/header/index';
 import { Post } from './components/post/index'
 import posts from './assets/posts.json';
 
-document.body.insertAdjacentHTML(
-  'afterbegin',
-  Header()
+// document.body.insertAdjacentElement(
+//   "afterbegin",
+//   Header()
+// );
+
+document.body.append(
+  Header(),
+  document.createElement('main')
 )
 
-document.querySelector('.main').innerHTML = posts.map(postObj => Post(postObj)).join('\n');
+document.querySelector('main').append(...posts.map((postObj, index) => Post(postObj, index)));
 
 
 // import { createApi } from 'unsplash-js';

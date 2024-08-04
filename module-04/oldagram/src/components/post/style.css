@@ -25,6 +25,8 @@
 .post-img {
   cursor: pointer;
   border: 1px solid #dbdbdb;
+  width: 100%;
+  max-height: 585px;
 }
 
 .post-body {
