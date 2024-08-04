@@ -1,0 +1,42 @@
+.black-border {
+  /* border: 1px solid black; */
+}
+
+@font-face {
+  font-family: 'Source Sans';
+  src: url('./SourceSans.ttf') format('truetype');
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: "Source Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 13px;
+  line-height: 1;
+}
+
+.img {
+  display: block;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.main {
+  height: 200vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
