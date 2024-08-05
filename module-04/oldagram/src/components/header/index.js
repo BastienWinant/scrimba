@@ -13,10 +13,10 @@ function Header() {
 
   return headerHTML
   // const headerEl = document.createElement('header');
-  // headerEl.classList.add('header', 'black-border');
+  // headerEl.classList.add('header');
 
   // const containerEl = document.createElement('div');
-  // containerEl.classList.add('header-container', 'black-border');
+  // containerEl.classList.add('header-container');
   // headerEl.appendChild(containerEl);
 
   // const logoImg = document.createElement('img');
