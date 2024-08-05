@@ -11,27 +11,7 @@ function Header() {
       </div>
     </header>`
 
-  return headerHTML
-  // const headerEl = document.createElement('header');
-  // headerEl.classList.add('header');
-
-  // const containerEl = document.createElement('div');
-  // containerEl.classList.add('header-container');
-  // headerEl.appendChild(containerEl);
-
-  // const logoImg = document.createElement('img');
-  // logoImg.classList.add('img', 'header-img');
-  // logoImg.alt = "Oldagram logo";
-  // logoImg.src = Icon;
-
-  // const avatarImg = document.createElement('img');
-  // avatarImg.classList.add('img', 'header-img', 'avatar-img');
-  // avatarImg.alt = "User avatar portrait";
-  // avatarImg.src = Avatar;
-
-  // containerEl.append(logoImg, avatarImg);
-
-  // return headerEl;
+  return headerHTML;
 }
 
 export { Header };
