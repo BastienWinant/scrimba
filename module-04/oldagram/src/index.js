@@ -1,6 +1,6 @@
 import './styles.css';
 import { Header } from './components/header/index';
-import { Post, updateLikes } from './components/post/index'
+import { Post, updateLikes, updateBookmark } from './components/post/index'
 import posts from './assets/posts.json';
 
 document.querySelector('header').insertAdjacentHTML(
@@ -33,7 +33,10 @@ document.querySelectorAll('.share-btn').forEach(btn => {
 
 document.querySelectorAll('.bookmark-btn').forEach(btn => {
   btn.addEventListener('click', e => {
-    console.log(e.target.closest('.post'))
+    const postEl = e.target.closest('.post');
+    const postObj = posts.find(post => post.id === postEl.dataset.postId);
+
+    updateBookmark(postEl, postObj)
   })
 })
 
