@@ -8,7 +8,7 @@ document.querySelector('header').insertAdjacentHTML(
   Header()
 );
 
-document.querySelector('main').innerHTML = posts.map(postObj => Post(postObj)).join('\n');
+document.querySelector('.main').innerHTML = posts.map(postObj => Post(postObj)).join('\n');
 
 document.querySelectorAll('.like-btn').forEach(btn => {
   btn.addEventListener('click', e => {
@@ -16,18 +16,6 @@ document.querySelectorAll('.like-btn').forEach(btn => {
     const postObj = posts.find(post => post.id === postEl.dataset.postId);
 
     updateLikes(postEl, postObj)
-  })
-})
-
-document.querySelectorAll('.comment-btn').forEach(btn => {
-  btn.addEventListener('click', e => {
-    console.log(e.target.closest('.post'))
-  })
-})
-
-document.querySelectorAll('.share-btn').forEach(btn => {
-  btn.addEventListener('click', e => {
-    console.log(e.target.closest('.post'))
   })
 })
 
