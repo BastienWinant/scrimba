@@ -1,20 +1,41 @@
 import './styles.css';
 import { Header } from './components/header/index';
-import { Post } from './components/post/index'
+import { Post, updateLikes } from './components/post/index'
 import posts from './assets/posts.json';
 
-// document.body.insertAdjacentElement(
-//   "afterbegin",
-//   Header()
-// );
+document.querySelector('header').insertAdjacentHTML(
+  "afterbegin",
+  Header()
+);
 
-document.body.append(
-  Header(),
-  document.createElement('main')
-)
+document.querySelector('main').innerHTML = posts.map(postObj => Post(postObj)).join('\n');
 
-document.querySelector('main').append(...posts.map((postObj, index) => Post(postObj, index)));
+document.querySelectorAll('.like-btn').forEach(btn => {
+  btn.addEventListener('click', e => {
+    const postEl = e.target.closest('.post');
+    const postObj = posts.find(post => post.id === postEl.dataset.postId);
 
+    updateLikes(postEl, postObj)
+  })
+})
+
+document.querySelectorAll('.comment-btn').forEach(btn => {
+  btn.addEventListener('click', e => {
+    console.log(e.target.closest('.post'))
+  })
+})
+
+document.querySelectorAll('.share-btn').forEach(btn => {
+  btn.addEventListener('click', e => {
+    console.log(e.target.closest('.post'))
+  })
+})
+
+document.querySelectorAll('.bookmark-btn').forEach(btn => {
+  btn.addEventListener('click', e => {
+    console.log(e.target.closest('.post'))
+  })
+})
 
 // import { createApi } from 'unsplash-js';
 

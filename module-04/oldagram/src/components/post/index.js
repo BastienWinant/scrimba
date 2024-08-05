@@ -1,170 +1,76 @@
 import './style.css';
-import likeLogo from './favorite.svg';
+import likeLogoHollow from './favorite.svg';
+import likeLogoFull from './favorite-1.svg';
 import commentLogo from './comment.svg';
 import shareLogo from './send-message.svg';
 import bookmarkLogo from './bookmark.svg'
 
-function postHeader(postObj) {
-  const user = postObj.user.name;
-  const imgUrl = postObj.user.profile_image.medium;
-  const location = postObj.location.name;
+function updateLikes(postEl, postObj) {
+  postObj.likes = postObj.liked_by_user ? postObj.likes - 1 : postObj.likes + 1;
+  postObj.liked_by_user = !postObj.liked_by_user;
 
-  const headerEl = document.createElement('header');
-  headerEl.classList.add('post-header');
+  postEl.querySelector('.post-likes').innerText = `${postObj.likes} likes`;
 
-  const imgEl = document.createElement('img');
-  imgEl.classList.add('img', 'header-img', 'header-avatar');
-  imgEl.src = imgUrl;
-  imgEl.alt = "User avatar image";
-  headerEl.appendChild(imgEl);
-
-  const hgroupEl = document.createElement('hgroup');
-  headerEl.appendChild(hgroupEl);
-
-  const userName = document.createElement('h2');
-  userName.classList.add('post-username', 'black-border');
-  userName.innerText = user;
-
-  const locationName = document.createElement('p');
-  locationName.classList.add('post-location', 'black-border');
-  locationName.innerText = location;
-
-  hgroupEl.append(userName, locationName);
-
-  return headerEl;
+  postEl.querySelector('.like-btn .reaction-btn-img').src = 
+    postObj.liked_by_user ? likeLogoFull : likeLogoHollow
 }
 
-function postImage(postObj) {
+function postHeader(imgUrl, username, location) {
+  const htmlString = 
+    `<header class="post-header">
+        <img class="header-img avatar-img" src="${imgUrl}" alt="User avatar image" />
+        <hgroup>
+          <h2 class="post-username">${username}</h2>
+          ${location ? '<p class="post-location">' + location + '</p>' : ''}
+        </hgroup>
+      </header>`
+  
+  return htmlString
+}
+
+function postReactionBtns(postLiked) {
+  const htmlString = 
+    `<section class="reaction-btns">
+        <button class="btn reaction-btn like-btn${postLiked ? '' : ' hollow-btn'}" type="button"><img src="${postLiked ? likeLogoFull : likeLogoHollow}" class="img reaction-btn-img" /></button>
+        <button class="btn reaction-btn comment-btn" type="button"><img src="${commentLogo}" class="img reaction-btn-img" /></button>
+        <button class="btn reaction-btn share-btn" type="button"><img src="${shareLogo}" class="img reaction-btn-img" /></button>
+        <button class="btn reaction-btn bookmark-btn" type="button"><img src="${bookmarkLogo}" class="img reaction-btn-img" /></button>
+      </section>`
+  
+  return htmlString
+}
+
+function Post(postObj) {
+  const postIndex = postObj.id;
+
+  const avatarUrl = postObj.user.profile_image.medium;
+  const name = postObj.user.name;
+  const location = postObj.location.name;
+
   const imgUrl = postObj.urls.raw;
   const imgAlt = postObj.alt_description;
 
-  const imgEl = document.createElement('img');
-  imgEl.classList.add('img', 'post-img');
-  imgEl.src = imgUrl;
-  imgEl.alt = imgAlt;
+  postObj.liked_by_user = postObj.liked_by_user || Math.random() < .3;
+  const postLiked = postObj.liked_by_user
+  const postLikes = postObj.likes;
+  
+  const username = postObj.user.username;
+  const postDescription = postObj.description || postObj.alt_description;
 
-  return imgEl;
+  const postHTML =
+    `<article class="post" data-post-id="${postIndex}">
+      ${postHeader(avatarUrl, name, location)}
+      <figure class="post-content">
+        <img class="img post-img" src="${imgUrl}" alt="${imgAlt}" />
+        <figcaption class="post-body">
+          ${postReactionBtns(postLiked)}
+          <p class="post-likes">${postLikes} likes</p>
+          <p class="post-caption"><span class="caption-username">${username}</span> ${postDescription}</p>
+        </figcaption>
+      </figure>
+    </article>`
+
+  return postHTML
 }
 
-function postLikes(postObj) {
-  const container = document.createElement('p');
-  container.classList.add('post-likes');
-  container.innerText = `${postObj.likes} likes`;
-
-  return container;
-}
-
-function postCaption(postObj) {
-  const userName = postObj.user.username;
-  const captionText = postObj.description || postObj.alt_description;
-
-  const postCaption = document.createElement('p');
-  postCaption.classList.add('caption-text');
-
-  const postUser = document.createElement('span');
-  postUser.classList.add('caption-username');
-  postUser.innerText = userName;
-
-  postCaption.append(postUser);
-
-  if (captionText) {
-
-  }
-  postCaption.innerHTML += captionText ? ' ' + captionText : '';
-
-  return postCaption;
-}
-
-function postBody(postObj) {
-  const container = document.createElement('figcaption');
-  container.classList.add('post-body');
-
-  const likes = postLikes(postObj);
-  container.append(likes);
-
-  // const postLikes = document.createElement('p');
-  // postLikes.classList.add('post-likes');
-  // postLikes.innerText = `${postObj.likes} likes`;
-  // container.append(postLikes);
-
-  // const userName = postObj.user.username;
-  // const captionText = postObj.description;
-  // const postCaption = document.createElement('p');
-  // postCaption.classList.add('caption-text');
-  const caption = postCaption(postObj);
-  container.append(caption);
-
-  return container;
-}
-
-function postContent(postObj) {
-  const container = document.createElement('figure');
-  container.classList.add('post-content', 'black-border');
-
-  const imgEl = postImage(postObj);
-  container.append(imgEl);
-
-  const captionEl = postBody(postObj);
-  container.append(captionEl);
-
-  return container;
-}
-
-function Post(postObj, postIndex) {
-  const container = document.createElement('article');
-  container.classList.add('post', 'black-border');
-  container.setAttribute('data-post-id', postIndex);
-
-  const headerEl = postHeader(postObj);
-  container.append(headerEl);
-
-  const figureEl = postContent(postObj);
-  container.append(figureEl);
-
-  // container.innerHTML +=
-  //   `<figure class="post-content black-border">
-  //     <img class="img post-img" src="${postObj.urls.raw}" alt="Sahara Desert in Morocco" />
-  //     <figcaption class="post-body">
-  //       <section class="reaction-btns">
-  //         <button class="btn reaction-btn black-border" type="button"><img src="${likeLogo}" class="img reaction-btn-img" /></button>
-  //         <button class="btn reaction-btn black-border" type="button"><img src="${commentLogo}" class="img reaction-btn-img" /></button>
-  //         <button class="btn reaction-btn black-border" type="button"><img src="${shareLogo}" class="img reaction-btn-img" /></button>
-  //         <button class="btn reaction-btn black-border" type="button"><img src="${bookmarkLogo}" class="img reaction-btn-img" /></button>
-  //       </section>
-  //       <p class="post-likes">${postObj.likes} likes</p>
-  //       <section class="post-caption">
-  //         <p class="caption-text"><span class="caption-username">${postObj.user.username}</span> ${postObj.alt_description}</p>
-  //       </section>
-  //     </figcaption>
-  //   </figure>`
-
-  return container;
-
-
-  return `<article class="post black-border" data-post-id="1">
-    <header class="post-header">
-      <img src="${postObj.user.profile_image.medium}" class="img header-img header-avatar" alt="" />
-      <hgroup>
-        <h2 class="post-username black-border">${postObj.user.name}</h2>
-        <p class="post-location black-border">${postObj.location.name}</p>
-      </hgroup>
-    </header>
-    <figure class="post-content black-border">
-      <img class="img post-img" src="${postObj.urls.raw}" alt="Sahara Desert in Morocco" />
-      <figcaption class="post-body">
-        <section class="reaction-btns">
-          <button class="btn reaction-btn black-border" type="button"><img src="${likeLogo}" class="img reaction-btn-img" /></button>
-          <button class="btn reaction-btn black-border" type="button"><img src="${commentLogo}" class="img reaction-btn-img" /></button>
-          <button class="btn reaction-btn black-border" type="button"><img src="${shareLogo}" class="img reaction-btn-img" /></button>
-          <button class="btn reaction-btn black-border" type="button"><img src="${bookmarkLogo}" class="img reaction-btn-img" /></button>
-        </section>
-        <p class="post-likes">${postObj.likes} likes</p>
-        <section class="post-caption">
-          <p class="caption-text"><span class="caption-username">${postObj.user.username}</span> ${postObj.alt_description}</p>
-        </section>
-      </figcaption>
-    </figure>
-  </article>`
-}
-
-export { Post }
+export { Post, updateLikes }
