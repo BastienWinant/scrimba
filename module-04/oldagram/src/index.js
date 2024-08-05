@@ -1,7 +1,6 @@
 import './styles.css';
 import { Header } from './components/header/index';
 import { Post, updateLikes, updateBookmark } from './components/post/index'
-import posts from './assets/posts.json';
 import { createApi } from 'unsplash-js';
 
 document.querySelector('header').insertAdjacentHTML(
@@ -9,27 +8,6 @@ document.querySelector('header').insertAdjacentHTML(
   Header()
 );
 
-// document.querySelector('.main').innerHTML = posts.map(postObj => Post(postObj)).join('\n');
-
-// document.querySelectorAll('.like-btn').forEach(btn => {
-//   btn.addEventListener('click', e => {
-//     const postEl = e.target.closest('.post');
-//     const postObj = posts.find(post => post.id === postEl.dataset.postId);
-
-//     updateLikes(postEl, postObj)
-//   })
-// })
-
-// document.querySelectorAll('.bookmark-btn').forEach(btn => {
-//   btn.addEventListener('click', e => {
-//     const postEl = e.target.closest('.post');
-//     const postObj = posts.find(post => post.id === postEl.dataset.postId);
-
-//     updateBookmark(postEl, postObj)
-//   })
-// })
-
-// on your node server
 const unsplash = createApi({
   accessKey: process.env.ACCESS_KEY
 });
@@ -49,7 +27,7 @@ unsplash.photos.getRandom({
         const postEl = e.target.closest('.post');
         const postObj = posts.find(post => post.id === postEl.dataset.postId);
     
-        updateLikes(postEl, postObj)
+        updateLikes(postEl, postObj);
       })
     })
     
@@ -58,7 +36,7 @@ unsplash.photos.getRandom({
         const postEl = e.target.closest('.post');
         const postObj = posts.find(post => post.id === postEl.dataset.postId);
     
-        updateBookmark(postEl, postObj)
+        updateBookmark(postEl, postObj);
       })
     })
   }
