@@ -75,7 +75,12 @@ function Post(postObj) {
     `<article class="post" data-post-id="${postIndex}">
       ${postHeader(avatarUrl, name, location)}
       <figure class="post-content">
-        <img class="img post-img" src="${imgUrl}" alt="${imgAlt}" />
+        <div class="post-img-container">
+          <div class="post-img-overlay">
+            <img class="img overlay-img" src="${likeLogoFull}" alt="" />
+          </div>
+          <img class="img post-img" src="${imgUrl}" alt="${imgAlt}" />
+        </div>
         <figcaption class="post-body">
           ${postReactionBtns(postLiked, postBookmarked)}
           <p class="post-likes">${postLikes} likes</p>
