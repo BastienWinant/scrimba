@@ -22,11 +22,41 @@
   font-weight: 700;
 }
 
+.post-img-container {
+  position: relative;
+}
+
+.post-img-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  background-color: transparent;
+}
+
+.overlay-img {
+  height: 100px;
+  width: auto;
+  display: none;
+}
+
+.showing {
+  background-color: rgba(0, 0, 0, .3);
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: visible;
+}
+
 .post-img {
-  cursor: pointer;
   border: 1px solid #dbdbdb;
   width: 100%;
   max-height: 585px;
+}
+
+.showing .overlay-img {
+  display: block;
 }
 
 .post-body {
