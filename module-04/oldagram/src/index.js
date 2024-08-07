@@ -39,5 +39,14 @@ unsplash.photos.getRandom({
         updateBookmark(postEl, postObj);
       })
     })
+
+    document.querySelectorAll('.post-img').forEach(img => {
+      img.addEventListener('dblclick', e => {
+        const postEl = e.target.closest('.post');
+        const postObj = posts.find(post => post.id === postEl.dataset.postId);
+    
+        updateLikes(postEl, postObj);
+      })
+    })
   }
 });
