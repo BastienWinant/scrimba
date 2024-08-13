@@ -25,11 +25,15 @@ button, select, input {
   cursor: pointer;
 }
 
+:focus {
+	outline: none;
+}
+
 /* HEADER */
 .header {
   display: flex;
   flex-direction: column;
-  gap: 1.25em;
+  gap: 2.125em;
   padding: 1em;
   border-bottom: 1px solid lightgray;
   text-align: center;
@@ -63,30 +67,40 @@ button, select, input {
   flex-direction: column;
 	gap: .75em;
 	padding: 1em;
+	box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
 }
 
-.color-input, select, .submit-btn {
+.color-input, select, .count-input, .submit-btn {
   height: 2.625rem;
+	border-radius: .375rem;
 }
 
 .color-input {
   width: 100%;
-  padding: .125em;
+  padding: .125em .25em;
   border: none;
 }
 
-select, .submit-btn {
+select, .count-input, .submit-btn {
 	background-color: white;
 	border: 1px solid #D1D5DB;
-	border-radius: .375rem;
 }
 
-select {
+select, .count-input {
 	font-size: 1rem;
 	padding: 0 .875em;
 }
 
-.submit-btn {
+/* COLORS */
+.colors-list {
+	list-style-type: none;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.colors-list li {
+	flex: 1 0 150px;
 }
 
 @media only screen and (min-width: 576px) {
@@ -101,6 +115,15 @@ select {
     padding: 0 .75em;
     width: 7em;
   }
+
+	.colors-list {
+		flex-direction: row;
+	}
+
+	.colors-list li {
+		flex: 1 0 20%;
+		height: 300px;
+	}
 }
 
 @media only screen and (min-width: 768px) {
@@ -115,6 +138,10 @@ select {
 
 	.mode-input {
 		flex: 3 0 6em;
+	}
+
+	.count-input {
+		flex: 0 0 3em;
 	}
 
 	.format-input {

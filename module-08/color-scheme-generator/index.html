@@ -13,25 +13,27 @@
 	<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-	<div class="container black-border">
-		<header class="header black-border">
+	<div class="container">
+		<header class="header">
 			<h1 class="title">ColorPicker</h1>
 			<div class="auth-btns">
 				<button type="button" id="login-btn" class="auth-btn login-btn">Log In</button>
 				<button type="button" id="signup-btn" class="auth-btn signup-btn">Sign Up</button>
 			</div>
 		</header>
-		<form id="form" class="form black-border">
+		<form id="form" class="form">
 			<input type="color" name="color" id="color" class="color-input" />
 			<select name="mode" id="mode" class="mode-input">
-				<option value="mono">Monochrome</option>
-				<option value="mono-dark">Monochrome-dark</option>
-				<option value="mono-light">Monochrome-light</option>
-				<option value="alaogic">Analogic</option>
+				<option value="monochrome">Monochrome</option>
+				<option value="monochrome-dark">Monochrome-dark</option>
+				<option value="monochrome-light">Monochrome-light</option>
+				<option value="analogic">Analogic</option>
 				<option value="complement">Complement</option>
 				<option value="analogic-complement">Analogic-complement</option>
 				<option value="triad">Triad</option>
+				<option value="quad">Quad</option>
 			</select>
+			<input type="number" name="count" id="count" class="count-input" min="1" max="5" value="5" />
 			<select name="format" id="format" class="format-input">
 				<option value="rgb">RGB</option>
 				<option value="hsl">HSL</option>
@@ -39,6 +41,15 @@
 			</select>
 			<button type="submit" id="submit" class="submit-btn">Get color scheme</button>
 		</form>
+		<section>
+			<ul class="colors-list black-border">
+				<li class="color black-border">color 1</li>
+				<li class="color black-border">color 2</li>
+				<li class="color black-border">color 3</li>
+				<li class="color black-border">color 4</li>
+				<li class="color black-border">color 5</li>
+			</ul>
+		</section>
 	</div>
 	<script type="module" src="js/index.js"></script>
 </body>
