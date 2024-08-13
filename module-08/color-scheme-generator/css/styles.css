@@ -1,3 +1,127 @@
 .black-border {
   border: 1px solid black;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.container {
+  max-width: 992px;
+  margin: auto;
+}
+
+button, select, input {
+  display: block;
+  cursor: pointer;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25em;
+  padding: 1em;
+  border-bottom: 1px solid lightgray;
+  text-align: center;
+}
+
+.auth-btns {
+  display: flex;
+  align-items: stretch;
+  gap: .625em;
+}
+
+.auth-btn {
+	font-size: 1rem;
+  padding: .5em .75em;
+  border-radius: .375em;
+  font-weight: 600;
+  
+	width: 100%;
+	background-color: white;
+  border: 1px solid black;
+}
+
+.signup-btn {
+  background-color: black;
+  color: white;
+}
+
+/* FORM */
+.form {
+  display: flex;
+  flex-direction: column;
+	gap: .75em;
+	padding: 1em;
+}
+
+.color-input, select, .submit-btn {
+  height: 2.625rem;
+}
+
+.color-input {
+  width: 100%;
+  padding: .125em;
+  border: none;
+}
+
+select, .submit-btn {
+	background-color: white;
+	border: 1px solid #D1D5DB;
+	border-radius: .375rem;
+}
+
+select {
+	font-size: 1rem;
+	padding: 0 .875em;
+}
+
+.submit-btn {
+}
+
+@media only screen and (min-width: 576px) {
+  .header {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .auth-btn {
+    padding: 0 .75em;
+    width: 7em;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .form {
+		flex-direction: row;
+		gap: .75em;
+	}
+
+	.color-input {
+		flex: 1 0 3.75em;
+	}
+
+	.mode-input {
+		flex: 3 0 6em;
+	}
+
+	.format-input {
+		flex: 2 0 4em;
+	}
+
+	.submit-btn {
+		flex: 0 0 10em;
+	}
+}

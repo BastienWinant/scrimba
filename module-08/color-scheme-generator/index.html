@@ -1,13 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Color Scheme Generator</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Color Scheme Generator</title>
 
-  <link rel="stylesheet" href="css/styles.css">
+	<!-- google font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <script type="module" src="js/index.js"></script>
+	<div class="container black-border">
+		<header class="header black-border">
+			<h1 class="title">ColorPicker</h1>
+			<div class="auth-btns">
+				<button type="button" id="login-btn" class="auth-btn login-btn">Log In</button>
+				<button type="button" id="signup-btn" class="auth-btn signup-btn">Sign Up</button>
+			</div>
+		</header>
+		<form id="form" class="form black-border">
+			<input type="color" name="color" id="color" class="color-input" />
+			<select name="mode" id="mode" class="mode-input">
+				<option value="mono">Monochrome</option>
+				<option value="mono-dark">Monochrome-dark</option>
+				<option value="mono-light">Monochrome-light</option>
+				<option value="alaogic">Analogic</option>
+				<option value="complement">Complement</option>
+				<option value="analogic-complement">Analogic-complement</option>
+				<option value="triad">Triad</option>
+			</select>
+			<select name="format" id="format" class="format-input">
+				<option value="rgb">RGB</option>
+				<option value="hsl">HSL</option>
+				<option value="hex">hexadecimal</option>
+			</select>
+			<button type="submit" id="submit" class="submit-btn">Get color scheme</button>
+		</form>
+	</div>
+	<script type="module" src="js/index.js"></script>
 </body>
 </html>
