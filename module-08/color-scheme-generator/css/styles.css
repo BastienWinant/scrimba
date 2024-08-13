@@ -1,5 +1,5 @@
 .black-border {
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 * {
@@ -18,6 +18,10 @@ html, body {
 .container {
   max-width: 992px;
   margin: auto;
+
+	display: flex;
+	flex-direction: column;
+	padding: 1em;
 }
 
 button, select, input {
@@ -34,7 +38,7 @@ button, select, input {
   display: flex;
   flex-direction: column;
   gap: 2.125em;
-  padding: 1em;
+  padding: 1em 0;
   border-bottom: 1px solid lightgray;
   text-align: center;
 }
@@ -64,10 +68,9 @@ button, select, input {
 /* FORM */
 .form {
   display: flex;
-  flex-direction: column;
-	gap: .75em;
-	padding: 1em;
-	box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+	flex-wrap: wrap;
+	gap: 0;
+	padding: 1em 0;
 }
 
 .color-input, select, .count-input, .submit-btn {
@@ -76,34 +79,90 @@ button, select, input {
 }
 
 .color-input {
-  width: 100%;
   padding: .125em .25em;
   border: none;
 }
 
-select, .count-input, .submit-btn {
+select, .count-input {
 	background-color: white;
 	border: 1px solid #D1D5DB;
-}
 
-select, .count-input {
 	font-size: 1rem;
-	padding: 0 .875em;
+	padding: 0 .625em;
 }
 
-/* COLORS */
+.form {
+	flex-direction: row;
+	gap: .75em;
+}
+
+.color-input {
+	flex: 1 0 3.75em;
+}
+
+.mode-input {
+	flex: 5 0 6em;
+}
+
+.count-input {
+	flex: 1 0 3em;
+}
+
+.format-input {
+	flex: 2 0 4em;
+}
+
+.submit-btn {
+	flex: 1 0 100%;
+	border: none;
+	background-color: mediumseagreen;
+	color: white;
+}
+
+/* COLOR PALETTE */
+.palette {
+	flex-grow: 1;
+}
+
 .colors-list {
 	list-style-type: none;
-
+	height: 100%;
 	display: flex;
 	flex-direction: column;
 }
 
-.colors-list li {
-	flex: 1 0 150px;
+.color-btn {
+	border: none;
+	width: 100%;
+	height: 100%;
+}
+
+.color-btn-inner {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 2em 0;
+	gap: .5em;
+	opacity: 0;
+	transition: opacity ease-in .5s;
+}
+
+.color-btn:hover .color-btn-inner {
+	opacity: 1;
+	transition: opacity ease-in .2s;
+}
+
+.color-name {
+	font-size: 1rem;
 }
 
 @media only screen and (min-width: 576px) {
+	.container {
+		padding: 0 1em;
+		height: 100vh;
+	}
+	
   .header {
     flex-direction: row;
     align-items: stretch;
@@ -116,39 +175,25 @@ select, .count-input {
     width: 7em;
   }
 
-	.colors-list {
+	.form {
+		gap: .75em;
+	}
+
+	select, .count-input {
+		padding: 0 .875em;
+	}
+
+	.submit-btn {
+		flex: 0 0 10em;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+  .colors-list {
 		flex-direction: row;
 	}
 
 	.colors-list li {
 		flex: 1 0 20%;
-		height: 300px;
-	}
-}
-
-@media only screen and (min-width: 768px) {
-  .form {
-		flex-direction: row;
-		gap: .75em;
-	}
-
-	.color-input {
-		flex: 1 0 3.75em;
-	}
-
-	.mode-input {
-		flex: 3 0 6em;
-	}
-
-	.count-input {
-		flex: 0 0 3em;
-	}
-
-	.format-input {
-		flex: 2 0 4em;
-	}
-
-	.submit-btn {
-		flex: 0 0 10em;
 	}
 }
