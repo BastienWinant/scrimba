@@ -1,0 +1,59 @@
+.black-border {
+  border: 1px solid black;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter/Inter-VariableFont_opsz\,wght.ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Matemasie';
+  src: url('../fonts/Matemasie/Matemasie-Regular.ttf') format('truetype');
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: 'Inter', sans-serif;
+}
+
+/* GENERIC CLASSES */
+.btn {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.app-container {
+  height: 100vh;
+  max-width: 992px;
+  margin: auto;
+
+  display: flex;
+  flex-direction: column;
+  padding: 0 .625em;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .625em 0;
+}
+
+h1 {
+  font-family: 'Matemasie', serif;
+  line-height: 1;
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}

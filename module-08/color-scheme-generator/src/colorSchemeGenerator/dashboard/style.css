@@ -1,0 +1,40 @@
+/* DASHBOARD */
+.generator-dashboard {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.color-format-options {
+  display: flex;
+  align-items: center;
+}
+
+.color-format-option {
+  display: flex;
+}
+
+input[name="format"] {
+  width: 0;
+}
+
+input[name="format"] + p {
+  width: 4em;
+  color: #D1D5DB;
+  border-radius: .375em;
+  padding: .625em 0;
+  text-align: center;
+}
+
+input[name="format"]:checked + p {
+  background-color: lightblue;
+  color: white;
+}
+
+.save-scheme-btn {
+  font-size: 1rem;
+  padding: .625em 1.25em;
+  background-color: lightcoral;
+  color: white;
+  border-radius: .375em;
+}
