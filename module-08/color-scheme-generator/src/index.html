@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Scheme Generator</title>
+
+  <script defer src="https://kit.fontawesome.com/8b3af6f949.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="app-container">
+    <header class="header"></header>
+    <main>
+      <form class="color-generator-form">
+        <input type="color" name="color" id="color">
+        <select name="mode" id="mode">
+          <option value="monochrome">Monochrome</option>
+          <option value="monochrome-dark">Monochrome-dark</option>
+          <option value="monochrome-light">Monochrome-light</option>
+          <option value="analogic">Analogic</option>
+          <option value="complement">Complement</option>
+          <option value="analogic-complement">Analogic-complement</option>
+          <option value="triad">Triad</option>
+          <option value="quad">Quad</option>
+        </select>
+        <button type="submit" id="submit" class="btn submit">get color scheme</button>
+      </form>
+      <ul class="color-generator-display"></ul>
+      <section class="color-generator-dashboard"></section>
+    </main>
+  </div>
+</body>
+</html>
