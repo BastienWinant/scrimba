@@ -16,7 +16,7 @@
       </button>
     </header>
     <main class="black-border">
-      <form class="generator-form black-border">
+      <form method="post" class="generator-form black-border">
         <input type="color" name="color" id="color" class="color">
         <select name="mode" id="mode" class="mode">
           <option value="monochrome">Monochrome</option>
@@ -30,14 +30,8 @@
         </select>
         <button type="submit" id="submit" class="btn submit">Get color scheme</button>
       </form>
-      <ul id="generator-colors-list" class="generator-colors-list">
-        <!-- <li class="generator-color black-border">color 1</li>
-        <li class="generator-color black-border">color 2</li>
-        <li class="generator-color black-border">color 3</li>
-        <li class="generator-color black-border">color 4</li>
-        <li class="generator-color black-border">color 5</li> -->
-      </ul>
-      <section class="generator-dashboard black-border">
+      <ul id="generator-colors-list" class="generator-colors-list"></ul>
+      <section id="generator-dashboard" class="generator-dashboard black-border">
         <div class="color-format-options">
           <label for="hex" class="color-format-option">
             <input type="radio" name="format" id="hex" value="hex" checked>
@@ -52,7 +46,7 @@
             <p class="btn">hsl</p>
           </label>
         </div>
-        <button type="button" id="save-scheme-btn" class="btn save-scheme-btn">
+        <button type="button" id="save-scheme-btn" class="btn save-scheme-btn" data-bookmarked="0">
           <i class="fa-regular fa-bookmark fa-lg"></i>
         </button>
       </section>

@@ -31,7 +31,7 @@
         <button type="submit" id="submit" class="btn submit">Get color scheme</button>
       </form>
       <ul id="generator-colors-list" class="generator-colors-list"></ul>
-      <section class="generator-dashboard black-border">
+      <section id="generator-dashboard" class="generator-dashboard black-border">
         <div class="color-format-options">
           <label for="hex" class="color-format-option">
             <input type="radio" name="format" id="hex" value="hex" checked>
@@ -46,7 +46,7 @@
             <p class="btn">hsl</p>
           </label>
         </div>
-        <button type="button" id="save-scheme-btn" class="btn save-scheme-btn">
+        <button type="button" id="save-scheme-btn" class="btn save-scheme-btn" data-bookmarked="0">
           <i class="fa-regular fa-bookmark fa-lg"></i>
         </button>
       </section>

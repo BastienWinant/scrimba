@@ -27,6 +27,7 @@
   cursor: pointer;
   border: none;
   background-color: transparent;
+  font-size: 1rem;
 }
 
 .app-container {
@@ -44,7 +45,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: .625em 0;
 }
 
 h1 {
