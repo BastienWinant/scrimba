@@ -6,11 +6,21 @@
   <title>Color Scheme Generator</title>
 <script defer src="bundle.js"></script></head>
 <body>
+  <div class="app-container">
+    <header class="header">
+      <nav>
+        <button type="button" id="header-login-btn" class="btn header-auth-btn">log in</button>
+        <button type="button" id="header-signup-btn" class="btn header-auth-btn">sign up</button>
+        <button type="button" id="header-logout-btn" class="btn header-auth-btn">log out</button>
+      </nav>
+    </header>
+  </div>
   <dialog id="login-modal" class="auth-modal">
     <form method="post" class="auth-form">
       <input type="email" name="email" id="login-email">
       <input type="password" name="password" id="login-password">
       <button type="submit" id="login-btn" class="btn auth-btn">log in</button>
+      <button type="button" id="cancel-login-btn" class="btn">cancel</button>
     </form>
   </dialog>
   <dialog id="signup-modal" class="auth-modal">
@@ -18,6 +28,7 @@
       <input type="email" name="email" id="signup-email">
       <input type="password" name="password" id="signup-password">
       <button type="submit" id="signup-btn" class="btn auth-btn">sign up</button>
+      <button type="button" id="cancel-signup-btn" class="btn">cancel</button>
     </form>
   </dialog>
 </body>
