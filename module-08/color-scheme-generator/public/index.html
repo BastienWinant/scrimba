@@ -4,53 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Color Scheme Generator</title>
-
-  <script defer src="https://kit.fontawesome.com/8b3af6f949.js" crossorigin="anonymous"></script>
 <script defer src="bundle.js"></script></head>
 <body>
-  <div class="app-container black-border">
-    <header class="header black-border">
-      <h1>CSG</h1>
-      <button type="button" id="nav-toggler" class="btn nav-toggler">
-        <i class="fa-solid fa-bars fa-xl"></i>
-      </button>
-    </header>
-    <main class="black-border">
-      <form method="post" class="generator-form black-border">
-        <input type="color" name="color" id="color" class="color">
-        <select name="mode" id="mode" class="mode">
-          <option value="monochrome">Monochrome</option>
-          <option value="monochrome-dark">Monochrome-dark</option>
-          <option value="monochrome-light">Monochrome-light</option>
-          <option value="analogic">Analogic</option>
-          <option value="complement">Complement</option>
-          <option value="analogic-complement">Analogic-complement</option>
-          <option value="triad">Triad</option>
-          <option value="quad">Quad</option>
-        </select>
-        <button type="submit" id="submit" class="btn submit">Get color scheme</button>
-      </form>
-      <ul id="generator-colors-list" class="generator-colors-list"></ul>
-      <section id="generator-dashboard" class="generator-dashboard black-border">
-        <div class="color-format-options">
-          <label for="hex" class="color-format-option">
-            <input type="radio" name="format" id="hex" value="hex" checked>
-            <p class="btn">hex</p>
-          </label>
-          <label for="rgb" class="color-format-option">
-            <input type="radio" name="format" id="rgb" value="rgb">
-            <p class="btn">rgb</p>
-          </label>
-          <label for="hsl" class="color-format-option">
-            <input type="radio" name="format" id="hsl" value="hsl">
-            <p class="btn">hsl</p>
-          </label>
-        </div>
-        <button type="button" id="save-scheme-btn" class="btn save-scheme-btn" data-bookmarked="0">
-          <i class="fa-regular fa-bookmark fa-lg"></i>
-        </button>
-      </section>
-    </main>
-  </div>
+  <dialog id="login-modal" class="auth-modal">
+    <form method="post" class="auth-form">
+      <input type="email" name="email" id="login-email">
+      <input type="password" name="password" id="login-password">
+      <button type="submit" id="login-btn" class="btn auth-btn">log in</button>
+    </form>
+  </dialog>
+  <dialog id="signup-modal" class="auth-modal">
+    <form method="post" class="auth-form">
+      <input type="email" name="email" id="signup-email">
+      <input type="password" name="password" id="signup-password">
+      <button type="submit" id="signup-btn" class="btn auth-btn">sign up</button>
+    </form>
+  </dialog>
 </body>
 </html>

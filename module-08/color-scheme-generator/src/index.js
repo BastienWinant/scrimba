@@ -1,6 +1,7 @@
 import './style.css'
 
-import { app } from './firebase-app'
-import { initalizeDisplay } from './colorSchemeGenerator/display'
+import { firebaseAuth } from './firebase-app'
 
-initalizeDisplay()
+const loginModal = document.querySelector('#login-modal')
+
+loginModal.showModal()
