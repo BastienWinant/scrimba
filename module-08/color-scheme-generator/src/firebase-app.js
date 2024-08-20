@@ -8,6 +8,11 @@ import {
 } from "firebase/auth"
 
 import {
+  getDatabase,
+  connectDatabaseEmulator
+} from "firebase/database";
+
+import {
   loginModal,
   loginEmailInput,
   loginPasswordInput,
@@ -44,9 +49,11 @@ const firebaseConfig = {
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig)
 export const firebaseAuth = getAuth(firebaseApp)
+export const firebaseDB = getDatabase(firebaseApp)
 
 if (process.env.NODE_ENV == 'development') {
   connectAuthEmulator(firebaseAuth, "http://localhost:9099")
+  connectDatabaseEmulator(firebaseDB, "http://localhost:9000")
 }
 
 async function signupEmailPassword() {
