@@ -16,17 +16,31 @@
     </header>
   </div>
   <dialog id="login-modal" class="auth-modal">
+    <h2>log in</h2>
     <form method="post" class="auth-form">
-      <input type="email" name="email" id="login-email">
-      <input type="password" name="password" id="login-password">
+      <label for="login-email">
+        <h3>email</h3>
+        <input type="email" name="email" id="login-email">
+      </label>
+      <label for="login-password">
+        <h3>password</h3>
+        <input type="password" name="password" id="login-password">
+      </label>
       <button type="submit" id="login-btn" class="btn auth-btn">log in</button>
       <button type="button" id="cancel-login-btn" class="btn">cancel</button>
     </form>
   </dialog>
   <dialog id="signup-modal" class="auth-modal">
+    <h2>sign up</h2>
     <form method="post" class="auth-form">
-      <input type="email" name="email" id="signup-email">
-      <input type="password" name="password" id="signup-password">
+      <label for="signup-email">
+        <h3>email</h3>
+        <input type="email" name="email" id="signup-email">
+      </label>
+      <label for="signup-password">
+        <h3>password</h3>
+        <input type="password" name="password" id="signup-password">
+      </label>
       <button type="submit" id="signup-btn" class="btn auth-btn">sign up</button>
       <button type="button" id="cancel-signup-btn" class="btn">cancel</button>
     </form>

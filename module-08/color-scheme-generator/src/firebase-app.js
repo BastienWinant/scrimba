@@ -7,22 +7,28 @@ import {
   signOut
 } from "firebase/auth"
 
-const loginModal = document.querySelector('#login-modal')
-const loginEmailInput = document.querySelector('#login-email')
-const loginPasswordInput = document.querySelector('#login-password')
-const loginBtn = document.querySelector('#login-btn')
-const cancelLoginBtn = document.querySelector('#cancel-login-btn')
+import {
+  loginModal,
+  loginEmailInput,
+  loginPasswordInput,
+  loginBtn,
+  cancelLoginBtn
+} from './userAuth/login'
 
-const signupModal = document.querySelector('#signup-modal')
-const signupEmailInput = document.querySelector('#signup-email')
-const signupPasswordInput = document.querySelector('#signup-password')
-const signupBtn = document.querySelector('#signup-btn')
-const cancelSignupBtn = document.querySelector('#cancel-signup-btn')
+import {
+  signupModal,
+  signupEmailInput,
+  signupPasswordInput,
+  signupBtn,
+  cancelSignupBtn
+} from './userAuth/signup'
 
 
-const headerLoginBtn = document.querySelector('#header-login-btn')
-const headerSignupBtn = document.querySelector('#header-signup-btn')
-const headerLogoutBtn = document.querySelector('#header-logout-btn')
+import {
+  headerLoginBtn,
+  headerSignupBtn,
+  headerLogoutBtn
+} from './header/header'
 
 // Firebase configuration
 const firebaseConfig = {
