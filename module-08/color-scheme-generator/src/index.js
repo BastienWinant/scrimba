@@ -1,7 +1,9 @@
 import './style.css'
 
 import { onAuthStateChanged } from 'firebase/auth'
+
 import { firebaseAuth } from './firebase-app'
+import { initializeGeneratorDisplay } from './colorSchemeGenerator/display/index'
 
 async function monitorAuthChanges() {
   onAuthStateChanged(firebaseAuth, user => {
@@ -15,3 +17,11 @@ async function monitorAuthChanges() {
 }
 
 monitorAuthChanges()
+
+initializeGeneratorDisplay()
+
+// const submitBtn = document.querySelector('#generator-form-btn')
+
+// submitBtn.addEventListener('click', e => {
+//   e.preventDefault()
+// })

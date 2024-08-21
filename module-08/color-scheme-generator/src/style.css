@@ -24,3 +24,16 @@
   cursor: pointer;
   border: none;
 }
+
+.app-container {
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  background-color: lightcyan;
+}
+
+main {
+  flex-grow: 1;
+  background-color: lightcoral;
+}
