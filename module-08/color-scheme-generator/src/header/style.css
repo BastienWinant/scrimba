@@ -1,0 +1,56 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  text-transform: uppercase;
+  font-family: 'Matemasie';
+  line-height: 1.1;
+}
+
+.nav {
+  /* positioning */
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 1.25em;
+
+  /* sizing */
+  height: 100vh;
+
+  /* content layout */
+  display: flex;
+  flex-direction: column;
+
+  /* styling */
+  visibility: hidden;
+  background-color: white;
+}
+
+.expanded {
+  visibility: initial;
+}
+
+@media only screen and (min-width: 576px) {
+  .nav-expand-btn {
+    display: none;
+  }
+
+  .nav {
+    /* positioning */
+    position: initial;
+    padding: 0;
+
+    /* sizing */
+    height: initial;
+
+    /* content layout */
+    flex-direction: row;
+    align-items: center;
+
+    /* styling */
+    visibility: initial;
+  }
+}

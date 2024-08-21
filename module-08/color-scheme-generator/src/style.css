@@ -1,3 +1,7 @@
+.black-border {
+  border: 1px solid black;
+}
+
 @font-face {
   font-family: 'Inter';
   src: url('../fonts/Inter/Inter-VariableFont_opsz\,wght.ttf') format('truetype');
@@ -26,14 +30,50 @@
 }
 
 .app-container {
-  height: 100vh;
+  height: 90vh;
+  max-width: 992px;
+  margin: auto;
 
   display: flex;
   flex-direction: column;
-  background-color: lightcyan;
 }
 
 main {
   flex-grow: 1;
-  background-color: lightcoral;
+}
+
+/* HEADER */
+
+/* FORM */
+.generator-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .3125em;
+}
+
+.color, .mode, .submit {
+  border-radius: .375em;
+}
+
+.color, .mode {
+  height: 2.625em;
+}
+
+.mode {
+  padding: 0 .625em;
+}
+
+.color {
+  padding: .03125em .0625em;
+  border: none;
+  cursor: pointer;
+}
+
+.submit {
+  font-size: .75rem;
+  height: 3.5em;
+  flex: 0 0 100%;
+  background-color: lightseagreen;
+  color: white;
 }

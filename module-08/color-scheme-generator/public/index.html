@@ -4,11 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Color Scheme Generator</title>
+
+  <script defer src="https://kit.fontawesome.com/8b3af6f949.js" crossorigin="anonymous"></script>
 <script defer src="bundle.js"></script></head>
 <body>
   <div class="app-container">
     <header class="header">
-      <nav>
+      <h1 class="title">csg</h1>
+      <button type="button" id="nav-expand-btn" class="btn nav-expand-btn">
+        <i class="fa-solid fa-bars fa-xl"></i>
+      </button>
+      <nav id="nav" class="nav">
         <button type="button" id="header-login-btn" class="btn header-auth-btn">log in</button>
         <button type="button" id="header-signup-btn" class="btn header-auth-btn">sign up</button>
         <button type="button" id="header-logout-btn" class="btn header-auth-btn">log out</button>
@@ -27,8 +33,12 @@
           <option value="triad">Triad</option>
           <option value="quad">Quad</option>
         </select>
-        <button type="submit" id="generator-form-btn" class="btn generator-form-btn">Get color scheme</button>
+        <button type="submit" id="generator-form-btn" class="btn submit">Get color scheme</button>
       </form>
+      <ul id="generator-colors" class="generator-colors"></ul>
+      <section id="generator-dashboard" class="generator-dashboard black-border">
+        dashboard
+      </section>
     </main>
   </div>
   <dialog id="login-modal" class="auth-modal">
