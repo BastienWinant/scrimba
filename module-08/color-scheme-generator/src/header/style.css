@@ -14,23 +14,25 @@
   /* positioning */
   position: fixed;
   top: 0;
-  right: 0;
+  right: -14em;
   padding: 1.25em;
 
   /* sizing */
   height: 100vh;
+  width: 14em;
 
   /* content layout */
   display: flex;
   flex-direction: column;
 
   /* styling */
-  visibility: hidden;
+  display: none;
   background-color: white;
 }
 
 .expanded {
-  visibility: initial;
+  right: 0;
+  display: flex;
 }
 
 @media only screen and (min-width: 576px) {
@@ -51,6 +53,5 @@
     align-items: center;
 
     /* styling */
-    visibility: initial;
   }
 }

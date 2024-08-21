@@ -33,7 +33,7 @@ import {
   headerLoginBtn,
   headerSignupBtn,
   headerLogoutBtn
-} from './header/header'
+} from './header'
 
 // Firebase configuration
 const firebaseConfig = {
