@@ -1,8 +1,6 @@
 import './style.css'
 
-const colorInput = document.querySelector('#color')
-const modeInput = document.querySelector('#mode')
-const submitBtn = document.querySelector('#generator-form-btn')
+import { colorInput, modeInput, submitBtn } from '../form'
 
 function generateColorLis(colorsArr) {
   return colorsArr.map(colorObj => {

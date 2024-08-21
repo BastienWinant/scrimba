@@ -43,37 +43,3 @@ main {
 }
 
 /* HEADER */
-
-/* FORM */
-.generator-form {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: .3125em;
-}
-
-.color, .mode, .submit {
-  border-radius: .375em;
-}
-
-.color, .mode {
-  height: 2.625em;
-}
-
-.mode {
-  padding: 0 .625em;
-}
-
-.color {
-  padding: .03125em .0625em;
-  border: none;
-  cursor: pointer;
-}
-
-.submit {
-  font-size: .75rem;
-  height: 3.5em;
-  flex: 0 0 100%;
-  background-color: lightseagreen;
-  color: white;
-}
