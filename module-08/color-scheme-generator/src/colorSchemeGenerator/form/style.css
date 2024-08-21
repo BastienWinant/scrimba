@@ -4,6 +4,8 @@
   flex-wrap: wrap;
   align-items: center;
   gap: .75em;
+  z-index: 1;
+  box-shadow: 0 8px 4px -4px rgba(0, 0, 0, 0.2);
 }
 
 :focus {
@@ -11,29 +13,24 @@
 }
 
 .color, .mode, .submit {
+  font-size: .75rem;
+  height: 3.5em;
   border-radius: .375em;
 }
 
-.color, .mode {
-  font-size: 1em;
-  height: 2.625em;
-}
-
 .color {
-  flex: 0 0 3.75em;
+  flex: 1 0 3.75em;
   padding: .03125em .0625em;
   border: none;
   cursor: pointer;
 }
 
 .mode {
-  flex: 1 0 auto;
+  flex: 5 0 auto;
   padding: 0 .625em;
 }
 
 .submit {
-  font-size: .75rem;
-  height: 3.5em;
   flex: 0 0 10em;
   background-color: lightseagreen;
   color: white;

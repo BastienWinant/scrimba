@@ -16,6 +16,8 @@ function collapseNav() {
   nav.classList.remove('expanded')
 }
 
+addEventListener("resize", collapseNav);
+
 headerBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     collapseNav()

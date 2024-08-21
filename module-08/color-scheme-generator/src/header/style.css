@@ -15,6 +15,7 @@
   position: fixed;
   top: 0;
   right: -14em;
+  z-index: 2;
   padding: 1.25em;
 
   /* sizing */
@@ -35,6 +36,22 @@
   display: flex;
 }
 
+.header-btn {
+  text-transform: capitalize;
+  padding: .75em 1.75em;
+  font-weight: 600;
+}
+
+.header-auth-btn {
+  border-radius: .25em;
+  border: 1px solid black;
+}
+
+.header-signup-btn {
+  background-color: black;
+  color: white;
+}
+
 @media only screen and (min-width: 576px) {
   .nav-expand-btn {
     display: none;
@@ -47,11 +64,13 @@
 
     /* sizing */
     height: initial;
+    width: auto;
 
     /* content layout */
     flex-direction: row;
     align-items: center;
 
     /* styling */
+    display: block;
   }
 }
