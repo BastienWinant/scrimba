@@ -21,9 +21,3 @@ async function monitorAuthChanges() {
 monitorAuthChanges()
 
 initializeGeneratorDisplay()
-
-// const submitBtn = document.querySelector('#generator-form-btn')
-
-// submitBtn.addEventListener('click', e => {
-//   e.preventDefault()
-// })

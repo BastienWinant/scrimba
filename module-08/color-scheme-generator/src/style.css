@@ -30,8 +30,16 @@
   border: none;
 }
 
+.light-text {
+  color: mintcream; 
+}
+
+.dark-text {
+  color: #0C0C0C;
+}
+
 .app-container {
-  height: 90vh;
+  height: 95vh;
   max-width: 992px;
   margin: auto;
 

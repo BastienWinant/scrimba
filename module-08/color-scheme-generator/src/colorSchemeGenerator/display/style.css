@@ -15,11 +15,31 @@
 }
 
 .generator-color {
-  flex: 1 0 3.75em;
+  font-size: .75rem;
+  flex: 1 0 5em;
+  padding: 0 5vw;
+  display: flex;
+  align-items: center;
+  gap: .825em;
+}
+
+.generator-color-code {
+  font-weight: 600;
+}
+
+.generator-color-name {
+  opacity: .75;
 }
 
 @media only screen and (min-width: 768px) {
   .generator-colors {
     flex-direction: row;
+  }
+
+  .generator-color {
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    gap: .975em;
   }
 }

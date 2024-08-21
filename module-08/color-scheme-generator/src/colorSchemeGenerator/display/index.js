@@ -2,17 +2,24 @@ import './style.css'
 
 import { colorInput, modeInput, submitBtn } from '../form'
 
+const colorsList = document.querySelector('#generator-colors')
+
 function generateColorLis(colorsArr) {
   return colorsArr.map(colorObj => {
     const liEl = document.createElement('li')
     liEl.classList.add('generator-color')
     liEl.style.backgroundColor = colorObj.hex.value
+    
+    const colorClass = colorObj.contrast.value === "#000000" ? ' dark-text': ' light-text'
+
+    liEl.innerHTML = `
+      <p class="generator-color-code${colorClass}">${colorObj.hex.value}</p>
+      <p class="generator-color-name${colorClass}">${colorObj.name.value}</div>`
     return liEl
   })
 }
 
 function renderGeneratorScheme(colorsArr) {
-  const colorsList = document.querySelector('#generator-colors')
   colorsList.innerHTML = ''
   const colorLiEls = generateColorLis(colorsArr)
   colorsList.append(...colorLiEls)  
