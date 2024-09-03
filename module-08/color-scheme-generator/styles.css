@@ -23,7 +23,6 @@
   box-sizing: border-box;
 
   font-family: 'Inter', sans-serif;
-  color: var(--font-color);
 }
 
 /* CSS SELECTORS */
@@ -47,6 +46,14 @@ img {
   padding: 1.25em;
 }
 
+.dark-text {
+  color: #1B1C1E;
+}
+
+.light-text {
+  color: #FAF9F6;
+}
+
 /* PAGE */
 .app-container {
   width: 100vw;
@@ -56,6 +63,7 @@ img {
   flex-direction: column;
 
   background-color: var(--main);
+  color: var(--font-color);
 }
 
 /* HEADER */
@@ -115,6 +123,7 @@ img {
 
 .hero p {
   margin: auto;
+  width: 80vw;
   max-width: 600px;
   font-size: .85rem;
   line-height: 1.5;
@@ -192,6 +201,8 @@ img {
   justify-content: space-between;
   gap: .875em;
   padding: 0 1em;
+
+  color: var(--font-color);
 }
 
 .mode-options {
@@ -273,9 +284,47 @@ input[name="mode"]:checked + span {
 
 .generator-color {
   flex: 1 0 4em;
+}
+
+.generator-color-inner {
+  height: 100%;
+  width: 100%;
 
   display: flex;
   align-items: center;
+  gap: .625em;
+  padding: 0 5vw;
+
+  font-size: .85rem;
+  text-align: center;
+
+  opacity: 0;
+  transition: opacity .2s ease-in;
+}
+
+.generator-color-inner:hover {
+  opacity: 1;
+}
+
+.generator-color-hex {
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.generator-color-name {
+  font-size: .9em;
+}
+
+.generator-color-btns {
+  margin-left: auto;
+
+  display: flex;
+  align-items: center;
+  gap: 1.25em;
+}
+
+.remove-color-btn:disabled {
+  opacity: .5
 }
 
 @media only screen and (min-width: 576px) {
@@ -306,5 +355,23 @@ input[name="mode"]:checked + span {
 
   .generator-display {
     flex-direction: row;
+  }
+
+  .generator-color-inner {
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+
+    font-size: 1rem;
+  }
+
+  .generator-color-name,
+  .generator-color-hex {
+    order: 2;
+  }
+
+  .generator-color-btns {
+    margin: 0 auto 2.25em;
+    flex-direction: column;
   }
 }

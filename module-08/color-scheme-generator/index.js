@@ -81,6 +81,25 @@ function generateDisplayColors(colorsArr) {
     colorLi.dataset.hex = colorObj.hex.value
     colorLi.style.backgroundColor = colorObj.hex.value
 
+    const colorClass = colorObj.contrast.value === '#000000'
+                                                    ? 'dark-text'
+                                                    : 'light-text'
+
+    colorLi.innerHTML = `
+      <div class="generator-color-inner">
+        <h2 class="generator-color-hex ${colorClass}">${colorObj.hex.value}</h2>
+        <p class="generator-color-name ${colorClass}">${colorObj.name.value}</p>
+        <div class="generator-color-btns">
+          <button type="button" class="generator-color-btn copy-color-btn ${colorClass}">
+            <i class="fa-solid fa-copy fa-lg"></i>
+          </button>
+          <button type="button" class="generator-color-btn remove-color-btn ${colorClass}">
+            <i class="fa-regular fa-trash-can fa-lg"></i>
+          </button>
+        </div>
+      </div>
+    `
+
     return colorLi
   })
 }
@@ -130,5 +149,22 @@ function initializeDisplay() {
   selectMode()
   updateDisplay(randomHex, randomMode.value, 5)
 }
+
+displayUl.addEventListener('click', e => {
+  const colorLi = e.target.closest('.generator-color')
+
+  if (e.target.closest('.copy-color-btn')) {
+    console.log('copying color')
+    navigator.clipboard.writeText(colorLi.dataset.hex)
+  } else if (e.target.closest('.remove-color-btn')) {
+    colorLi.remove()
+
+    const removeBtns = document.querySelectorAll('.remove-color-btn')
+    
+    if (removeBtns.length === 1) {
+      removeBtns[0].disabled = true
+    }
+  }
+})
 
 initializeDisplay()
