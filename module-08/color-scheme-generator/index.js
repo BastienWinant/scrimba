@@ -159,8 +159,8 @@ displayUl.addEventListener('click', e => {
   } else if (e.target.closest('.remove-color-btn')) {
     colorLi.remove()
 
+    // deactivate the color removal button if there is only one color left in the display
     const removeBtns = document.querySelectorAll('.remove-color-btn')
-    
     if (removeBtns.length === 1) {
       removeBtns[0].disabled = true
     }
