@@ -18,7 +18,7 @@ function togglePageColors(colorMode) {
     r.style.setProperty('--accent-dark', '#D1D5DB')
     r.style.setProperty('--accent-light', '#E5E5E5')
   } else {
-    r.style.setProperty('--font-color', '#D5D4D8')
+    r.style.setProperty('--font-color', '#FAF9F6')
     r.style.setProperty('--main', '#1F2937')
     r.style.setProperty('--accent-dark', '#D1D5DB')
     r.style.setProperty('--accent-light', '#3D4B60')

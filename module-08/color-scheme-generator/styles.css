@@ -267,8 +267,8 @@ input[name="mode"]:checked + span {
 }
 
 .submit-btn {
-  background-color: lightseagreen;
-  color: white;
+  background-color: var(--accent-light);
+  color: var(--font-color);
   border: none;
   font-size: .75rem;
 }
