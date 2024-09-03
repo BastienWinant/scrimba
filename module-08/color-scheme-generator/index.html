@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Scheme Generator</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://kit.fontawesome.com/8b3af6f949.js" crossorigin="anonymous"></script>
+  <script src="./index.js" defer></script>
+</head>
+<body>
+  <div class="app-container">
+    <header class="container header">
+      <img src="./img/pantone.svg" class="header-logo" alt="Color Scheme Generator logo" />
+      <button type="button" id="mode-toggle-btn" class="mode-toggle-btn" data-mode="light">
+        <div></div>
+      </button>
+    </header>
+    <hgroup class="container hero">
+      <h1 class="title">Color Scheme Generator</h1>
+      <p>Transform your ideas into vibrant realities at the click of a button. Choose a base hue and a harmony mode to discover endless palettes that bring color to your projects.</p>
+    </hgroup>
+    <section class="generator">
+      <div class="container generator-form-wrapper">
+        <form method="post" id="generator-form" class="generator-form">
+          <label for="color" class="form-label color-label">
+            <h2 class="form-label-text">base</h2>
+            <input type="color" name="color" id="color" class="form-input color-input" />
+          </label>
+          <div class="form-label mode-label">
+            <h2 class="form-label-text">mode</h2>
+            <div class="form-input mode-input">
+              <button type="button" id="mode" class="mode-select-btn">
+                <p id="dropdown-btn-text">Analogic-complement</p>
+                <img src="./img/down-arrow.svg" alt="checkmark icon" class="arrow-img">
+              </button>
+              <div id="mode-options" class="mode-options">
+                <label for="monochrome" class="mode-option">
+                  <input type="radio" name="mode" id="monochrome" value="Monochrome">
+                  <span>
+                    <p class="mode-name">Monochrome</p>
+                  </span>
+                </label>
+                <label for="monochrome-dark" class="mode-option">
+                  <input type="radio" name="mode" id="monochrome-dark" value="Monochrome-dark" />
+                  <span>
+                    <p class="mode-name">Monochrome-dark</p></span>
+                  </span>
+                </label>
+                <label for="monochrome-light" class="mode-option">
+                  <input type="radio" name="mode" id="monochrome-light" value="Monochrome-light" />
+                  <span>
+                    <p class="mode-name">Monochrome-light</p></span>
+                  </span>
+                </label>
+                <label for="analogic" class="mode-option">
+                  <input type="radio" name="mode" id="analogic" value="Analogic" />
+                  <span>
+                    <p class="mode-name">Analogic</p></span>
+                  </span>
+                </label>
+                <label for="complement" class="mode-option">
+                  <input type="radio" name="mode" id="complement" value="Complement" />
+                  <span>
+                    <p class="mode-name">Complement</p></span>
+                  </span>
+                </label>
+                <label for="analogic-complement" class="mode-option">
+                  <input type="radio" name="mode" id="analogic-complement" value="Analogic-complement" />
+                  <span>
+                    <p class="mode-name">Analogic-complement</p></span>
+                  </span>
+                </label>
+                <label for="triad" class="mode-option">
+                  <input type="radio" name="mode" id="triad" value="Triad" />
+                  <span>
+                    <p class="mode-name">Triad</p></span>
+                  </span>
+                </label>
+                <label for="quad" class="mode-option">
+                  <input type="radio" name="mode" id="quad" value="Quad" />
+                  <span>
+                    <p class="mode-name">Quad</p></span>
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <button type="submit" id="submit" class="form-input submit-btn">Get colour scheme</button>
+        </form>
+      </div>
+      <ul id="generator-display" class="generator-display"></ul>
+    </section>
+  </div>
+</body>
+</html>

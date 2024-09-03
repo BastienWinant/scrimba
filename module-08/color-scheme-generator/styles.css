@@ -1,0 +1,300 @@
+@font-face {
+  font-family: 'Inter';
+  src: url('./font/Inter-VariableFont_opsz\,wght.ttf') format('truetype');
+  font-style: normal;
+}
+
+:root {
+  --font-color: #111827;
+  --main: #FAF9F6;
+  --accent-dark: #D1D5DB;
+  --accent-light: #E5E5E5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: 'Inter', sans-serif;
+  color: var(--font-color);
+}
+
+/* CSS SELECTORS */
+button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  display: block;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+/* GENERIC CLASSES */
+.container {
+  margin: 0 auto;
+  width: 100vw;
+  padding: 1.25em;
+}
+
+/* PAGE */
+.app-container {
+  width: 100vw;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--main);
+}
+
+/* HEADER */
+.header {
+  /* content layout */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid var(--accent-light);
+}
+
+.header-logo {
+  height: 2.25em;
+}
+
+.mode-toggle-btn {
+  height: 2em;
+  width: 3em;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  border: 2px solid var(--accent-dark);
+  background-color: var(--accent-light);
+  border-radius: 2em;
+}
+
+.dark-mode {
+  justify-content: flex-end;
+}
+
+.mode-toggle-btn div {
+  height: 1.5em;
+  width: 1.5em;
+
+  margin: 0 .1em;
+
+  background-color: var(--accent-dark);
+  border-radius: 1.25em;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+}
+
+.title {
+  margin-bottom: .625em;
+  font-size: 1.5rem;
+}
+
+.hero p {
+  margin: auto;
+  max-width: 600px;
+  font-size: .85rem;
+  line-height: 1.5;
+}
+
+/* GENERATOR */
+.generator {
+  flex: 1 0 auto;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.generator-form-wrapper {
+  z-index: 1;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .25);
+}
+
+.generator-form {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: .625em;
+}
+
+.form-label {
+  display: flex;
+  flex-direction: column;
+  gap: .3125em;
+}
+
+.form-label-text {
+  margin-left: .125em;
+  font-size: .875rem;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.form-input {
+  font-size: .875rem;
+
+  width: 100%;
+  height: 3.5em;
+
+  border: 1px solid var(--accent-dark);
+  border-radius: .375em;
+}
+
+/* FORM COLOR INPUT */
+.color-label {
+  flex: 0 0 4.25em;
+}
+
+.color-input {
+  background-color: var(--accent-dark);
+  padding: .125em .25em;
+}
+
+/* FORM MODE INPUT */
+.mode-label {
+  flex: 1 0 auto;
+}
+
+.mode-input {
+  position: relative;
+}
+
+.mode-select-btn {
+  font-size: 1em;
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .875em;
+  padding: 0 1em;
+}
+
+.mode-options {
+  position: absolute;
+  top: 3.75em;
+  left: 0;
+
+  width: 100%;
+
+  display: none;
+  flex-direction: column;
+
+  background-color: var(--main);
+  border-radius: .375em;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, .1),
+              0 4px 6px -2px rgba(0, 0, 0, .05),
+              0 0 0 1px rgba(0, 0, 0, .05);
+}
+
+.dropdown-expanded {
+  display: flex;
+}
+
+.mode-option {
+  background-color: transparent;
+}
+
+input[name="mode"] {
+  display: none;
+}
+
+input[name="mode"] + span {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .85em 1em;
+
+  cursor: pointer;
+  background-color: var(--main);
+  border-radius: .375em;
+}
+
+input[name="mode"] + span:hover {
+  background-color: var(--accent-light);
+}
+
+input[name="mode"]:checked + span {
+  font-weight: 600;
+}
+
+.arrow-img,
+.checkmark-img {
+  height: .75em;
+  width: auto;
+}
+
+/* FORM COUNT INPUT */
+.count-label {
+  flex: 0 0 4em;
+}
+
+.submit-btn {
+  background-color: lightseagreen;
+  color: white;
+  border: none;
+  font-size: .75rem;
+}
+
+/* GENERATOR DISPLAY */
+.generator-display {
+  flex: 1 0 auto;
+  list-style-type: none;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.generator-color {
+  flex: 1 0 3em;
+
+  display: flex;
+  align-items: center;
+}
+
+@media only screen and (min-width: 576px) {
+  .title {
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .submit-btn {
+    flex: 0 0 10em;
+    padding: 0;
+  }
+
+  .form-label-text,
+  .form-input {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .app-container {
+    max-height: none;
+    height: 100vh;
+  }
+
+  .generator-display {
+    flex-direction: row;
+  }
+}
