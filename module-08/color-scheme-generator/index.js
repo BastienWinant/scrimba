@@ -149,23 +149,27 @@ function initializeDisplay() {
   updateDisplay(randomHex, randomMode.value, 5)
 }
 
+function displayCopyMessage(colorEl) {
+  navigator.clipboard.writeText(colorEl.dataset.hex)
+
+  colorEl.insertAdjacentHTML(
+    'beforeend',
+    `<div class="generator-color-overlay">
+      <p class="generator-color-msg">Copied <i class="fa-solid fa-check"></i></p>
+    </div>`
+  )
+
+  setTimeout(() => {
+    const overlayEl = colorEl.querySelector('.generator-color-overlay')
+    overlayEl.remove()
+  }, 1500)
+}
+
 displayUl.addEventListener('click', e => {
   const colorLi = e.target.closest('.generator-color')
 
   if (e.target.closest('.copy-color-btn')) {
-    navigator.clipboard.writeText(colorLi.dataset.hex)
-
-    colorLi.insertAdjacentHTML(
-      'beforeend',
-      `<div class="generator-color-overlay">
-        <p class="generator-color-msg">Copied <i class="fa-solid fa-check"></i></p>
-      </div>`
-    )
-
-    setTimeout(() => {
-      const overlayEl = colorLi.querySelector('.generator-color-overlay')
-      overlayEl.remove()
-    }, 2000)
+    displayCopyMessage(colorLi)
   } else if (e.target.closest('.remove-color-btn')) {
     colorLi.remove()
 

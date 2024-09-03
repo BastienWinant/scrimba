@@ -373,17 +373,12 @@ input[name="mode"]:checked + span {
 }
 
 @media only screen and (min-width: 768px) {
-  .app-container {
-    max-height: none;
-    height: 100vh;
-  }
-
   .generator-display {
     flex-direction: row;
   }
 
   .generator-color {
-    flex: 1 0 1em;
+    min-height: 30em;
   }
 
   .generator-color-inner {
@@ -410,6 +405,6 @@ input[name="mode"]:checked + span {
   }
 
   .generator-color-msg {
-    margin-top: 1em;
+    margin-top: 2em;
   }
 }
