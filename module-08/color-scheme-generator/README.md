@@ -1,6 +1,6 @@
 # Color Scheme Generator
 
-![Screenshot](/img/screenshot.png)
+![Screenshot](./img/screenshot.png)
 
 [Demo link](https://66d76dd4ef8b87b2ca78bcb0--boisterous-dragon-72fd63.netlify.app/)
 
