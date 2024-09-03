@@ -107,6 +107,7 @@ submitBtn.addEventListener('click', e => {
   const mode = modeInput.value
 
   updateDisplay(color, mode, 5)
+  displayUl.scrollIntoView()
 })
 
 // close the dropdown when the user clicks anywhere else on the page
