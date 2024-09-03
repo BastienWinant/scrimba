@@ -1,4 +1,5 @@
-const r = document.querySelector(':root');
+const r = document.querySelector(':root')
+const generatorForm = document.querySelector('#generator-form')
 const colorModeBtn = document.querySelector('#mode-toggle-btn')
 const colorInput = document.querySelector('#color')
 const modeInput = document.querySelector('#mode')
@@ -35,15 +36,18 @@ colorModeBtn.addEventListener('click', () => {
 })
 
 // FORM
+// hide dropdown options
 function collapseModeDropdown() {
   modeDropdown.classList.remove('dropdown-expanded')
 }
 
+// show/hide dropdown options
 function toggleModeDropdown() {
   modeDropdown.classList.toggle('dropdown-expanded')
 }
 mode.addEventListener('click', toggleModeDropdown)
 
+// make user selection visible in the dropdown
 function selectMode() {
   // remove all checkmarks
   modeOptionValues.forEach(spanEl => {
@@ -74,6 +78,7 @@ function clearDisplay() {
   displayUl.innerHTML = ''
 }
 
+// create one li element per array entry
 function generateDisplayColors(colorsArr) {
   return colorsArr.map(colorObj => {
     const colorLi = document.createElement('li')
@@ -103,11 +108,12 @@ function generateDisplayColors(colorsArr) {
   })
 }
 
-function updateDisplay(hex, mode, n) {
+// render the API data inside a stylized list
+function updateDisplay(hex, mode) {
   const baseUrl = 'https://www.thecolorapi.com'
   const endpoint = 'scheme'
 
-  const requestUrl = `${baseUrl}/${endpoint}?hex=${hex.toLowerCase()}&mode=${mode.toLowerCase()}&count=${n}`
+  const requestUrl = `${baseUrl}/${endpoint}?hex=${hex.toLowerCase()}&mode=${mode.toLowerCase()}`
 
   fetch(requestUrl)
     .then(response => response.json())
@@ -118,14 +124,15 @@ function updateDisplay(hex, mode, n) {
     })
 }
 
+// update the display when the user submits the form
 submitBtn.addEventListener('click', e => {
   e.preventDefault()
 
   const color = colorInput.value.slice(1,)
   const mode = modeInput.value
 
-  updateDisplay(color, mode, 5)
-  displayUl.scrollIntoView()
+  updateDisplay(color, mode)
+  generatorForm.scrollIntoView()
 })
 
 // close the dropdown when the user clicks anywhere else on the page
@@ -135,6 +142,7 @@ document.addEventListener('click', e => {
   }
 })
 
+// Generate a random color scheme
 function initializeDisplay() {
   // set a random hex color in the form input
   const randomHex = Math.floor(Math.random() * 16777216).toString(16).padEnd(6, '0')
@@ -148,7 +156,7 @@ function initializeDisplay() {
   selectMode()
   updateDisplay(randomHex, randomMode.value, 5)
 }
-
+// give a visual clue that the color value has been copied to the clipboard
 function displayCopyMessage(colorEl) {
   navigator.clipboard.writeText(colorEl.dataset.hex)
 
@@ -165,6 +173,7 @@ function displayCopyMessage(colorEl) {
   }, 1500)
 }
 
+// listen for and dispatch click events on the display
 displayUl.addEventListener('click', e => {
   const colorLi = e.target.closest('.generator-color')
 

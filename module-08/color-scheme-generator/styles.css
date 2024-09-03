@@ -23,6 +23,7 @@
   box-sizing: border-box;
 
   font-family: 'Inter', sans-serif;
+  user-select: none;
 }
 
 /* CSS SELECTORS */
@@ -147,6 +148,7 @@ img {
   align-items: flex-end;
   flex-wrap: wrap;
   gap: .625em;
+  padding-top: 1em;
 }
 
 .form-label {
@@ -170,6 +172,10 @@ img {
 
   border: 1px solid var(--accent-dark);
   border-radius: .375em;
+}
+
+.form-input:focus {
+  outline: none;
 }
 
 /* FORM COLOR INPUT */
