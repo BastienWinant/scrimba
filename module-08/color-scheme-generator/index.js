@@ -90,10 +90,10 @@ function generateDisplayColors(colorsArr) {
         <h2 class="generator-color-hex ${colorClass}">${colorObj.hex.value}</h2>
         <p class="generator-color-name ${colorClass}">${colorObj.name.value}</p>
         <div class="generator-color-btns">
-          <button type="button" class="generator-color-btn copy-color-btn ${colorClass}">
+          <button type="button" class="generator-color-btn copy-color-btn ${colorClass}" aria-label="copy">
             <i class="fa-solid fa-copy fa-lg"></i>
           </button>
-          <button type="button" class="generator-color-btn remove-color-btn ${colorClass}">
+          <button type="button" class="generator-color-btn remove-color-btn ${colorClass}" aria-label="delete">
             <i class="fa-regular fa-trash-can fa-lg"></i>
           </button>
         </div>
