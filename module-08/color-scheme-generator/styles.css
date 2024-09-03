@@ -283,7 +283,10 @@ input[name="mode"]:checked + span {
 }
 
 .generator-color {
-  flex: 1 0 4em;
+  flex: 1 0 5em;
+
+  display: flex;
+  position: relative;
 }
 
 .generator-color-inner {
@@ -327,6 +330,28 @@ input[name="mode"]:checked + span {
   opacity: .5
 }
 
+.generator-color-overlay {
+  position: absolute;
+  display: flex;
+
+  height: 100%;
+  width: 100%;
+
+  margin: auto;
+
+  background-color: rgba(0, 0, 0, .4);
+}
+
+.generator-color-msg {
+  font-size: .85rem;
+  margin: auto;
+  color: #1B1C1E;
+  background-color: #FAF9F6;
+  padding: .625em 1em;
+  border-radius: 1.5em;
+  box-shadow: 0 0 4px rgba(0, 0, 0, .25);
+}
+
 @media only screen and (min-width: 576px) {
   .title {
     font-size: 2rem;
@@ -357,6 +382,10 @@ input[name="mode"]:checked + span {
     flex-direction: row;
   }
 
+  .generator-color {
+    flex: 1 0 1em;
+  }
+
   .generator-color-inner {
     flex-direction: column;
     justify-content: center;
@@ -373,5 +402,14 @@ input[name="mode"]:checked + span {
   .generator-color-btns {
     margin: 0 auto 2.25em;
     flex-direction: column;
+  }
+
+  .generator-color-overlay {
+    height: auto;
+    background-color: transparent;
+  }
+
+  .generator-color-msg {
+    margin-top: 1em;
   }
 }

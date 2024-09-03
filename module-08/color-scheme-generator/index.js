@@ -97,8 +97,7 @@ function generateDisplayColors(colorsArr) {
             <i class="fa-regular fa-trash-can fa-lg"></i>
           </button>
         </div>
-      </div>
-    `
+      </div>`
 
     return colorLi
   })
@@ -154,8 +153,19 @@ displayUl.addEventListener('click', e => {
   const colorLi = e.target.closest('.generator-color')
 
   if (e.target.closest('.copy-color-btn')) {
-    console.log('copying color')
     navigator.clipboard.writeText(colorLi.dataset.hex)
+
+    colorLi.insertAdjacentHTML(
+      'beforeend',
+      `<div class="generator-color-overlay">
+        <p class="generator-color-msg">Copied <i class="fa-solid fa-check"></i></p>
+      </div>`
+    )
+
+    setTimeout(() => {
+      const overlayEl = colorLi.querySelector('.generator-color-overlay')
+      overlayEl.remove()
+    }, 2000)
   } else if (e.target.closest('.remove-color-btn')) {
     colorLi.remove()
 
