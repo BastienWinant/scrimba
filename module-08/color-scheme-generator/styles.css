@@ -1,6 +1,12 @@
 @font-face {
   font-family: 'Inter';
-  src: url('./font/Inter-VariableFont_opsz\,wght.ttf') format('truetype');
+  src: url('./fonts/Inter/Inter-VariableFont_opsz\,wght.ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Patua';
+  src: url('./fonts/Patua_One/PatuaOne-Regular.ttf') format('truetype');
   font-style: normal;
 }
 
@@ -101,6 +107,10 @@ img {
 .title {
   margin-bottom: .625em;
   font-size: 1.5rem;
+
+  font-family: "Patua", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .hero p {
@@ -262,7 +272,7 @@ input[name="mode"]:checked + span {
 }
 
 .generator-color {
-  flex: 1 0 3em;
+  flex: 1 0 4em;
 
   display: flex;
   align-items: center;
