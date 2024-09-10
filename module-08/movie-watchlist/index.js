@@ -6,11 +6,13 @@ async function omdbApiRequest(term, type) {
   const baseUrl = 'http://www.omdbapi.com'
   const apiKey = 'dc03cb5c'
 
-  const requestUrl = `${baseUrl}/?apikey=${apiKey}&s=${term}&type=${type}`
+  const requestUrl = `${baseUrl}/?apikey=${apiKey}&s=${term}`
+  requestUrl += type ? `&type=${type}` : ''
 
   const response = await fetch(requestUrl)
   const data = await response.json()
-  console.log(data)
+  
+  return data
 }
 async function displaySearchResults(e) {
   e.preventDefault()
@@ -18,6 +20,14 @@ async function displaySearchResults(e) {
   const searchTerm = searchTermInput.value
   const resultType = resultTypeInput.value
 
-  omdbApiRequest(searchTerm, resultType)
+  let searchData
+
+  if (!searchTerm) {
+    // TODO: show error
+  } else {
+    searchData = await omdbApiRequest(searchTerm, resultType)
+  }
+
+  console.log(searchData)
 }
 searchSubmitBtn.addEventListener('click', displaySearchResults)
