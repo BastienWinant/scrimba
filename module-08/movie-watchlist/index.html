@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+  <!-- font awesome -->
+  <script src="https://kit.fontawesome.com/8b3af6f949.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="header">
+      <div class="header-container">
+        <h1 class="title">Find your film</h1>
+        <p class="tagline">my watchlist</p>
+      </div>
+    </header>
+    <main class="main">
+      <div class="search-form-container">
+        <form method="post" id="search-form" class="search-form black-border">
+          <label for="result-type" class="input-label">
+            <h2 class="label-text">type</h2>
+            <div class="input-group form-start">
+              <span class="input-group-text" id="film-icon"><i class="fa-solid fa-film fa-lg"></i></span>
+              <input class="form-control" placeholder="movie, series, episode" aria-label="Result type" aria-describedby="film-icon" id="result-type" name="result-type" list="result-types" />
+              <datalist id="result-types">
+                <option value="movie"></option>
+                <option value="series"></option>
+                <option value="episode"></option>
+              </datalist>
+            </div>
+          </label>
+          <label for="search-term" class="input-label">
+            <h2 class="label-text">search term</h2>
+            <div class="input-group">
+              <span class="input-group-text" id="search-icon"><i class="fa-solid fa-magnifying-glass fa-lg"></i></span>
+              <input type="text" class="form-control" placeholder="search for a movie" aria-label="Search term" aria-describedby="search-icon" id="search-term" name="search-term" />
+            </div>
+          </label>
+          <button type="submit" id="search-submit-btn" class="input-group form-end search-submit-btn">Search</button>
+        </form>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
