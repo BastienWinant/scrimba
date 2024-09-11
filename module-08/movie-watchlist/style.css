@@ -74,13 +74,12 @@ img {
   flex-grow: 1;
   position: relative;
 
-  background-color: #F2F2F2;
+  background-color: lightcoral;
 }
 
 /* SEARCH FORM */
 .search-form-container {
   width: 100vw;
-  position: absolute;
   padding: 1.25em;
   background-color: white;
 }
@@ -152,12 +151,44 @@ img {
   background-color: #F9FAFB;
 }
 
+/* MAIN */
+.main-container {
+  min-height: 30em;
+  width: 100vw;
+  display: flex;
+}
+
+.no-data-state {
+  margin: auto;
+  max-width: 340px;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5em;
+
+  color: #DFDDDD;
+}
+
+.fa-film {
+  width: 70px;
+  height: auto;
+}
+
+.no-data-state p {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  font-weight: 600;
+  text-align: center;
+}
+
 @media only screen and (min-width: 576px) {
   .tagline {
     font-size: 1rem;
   }
 
   .search-form-container {
+    position: absolute;
     top: -4.25em;
 
     background-color: transparent;

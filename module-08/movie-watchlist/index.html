@@ -30,7 +30,7 @@
           <label for="result-type" class="input-label">
             <h2 class="label-text">type</h2>
             <div class="input-group form-start">
-              <span class="input-group-text" id="film-icon"><i class="fa-solid fa-film fa-lg"></i></span>
+              <span class="input-group-text" id="film-icon"><i class="fa-solid fa-clapperboard fa-lg"></i></span>
               <input class="form-control" placeholder="movie, series, episode" aria-label="Result type" aria-describedby="film-icon" id="result-type" name="result-type" list="result-types" />
               <datalist id="result-types">
                 <option value="movie"></option>
@@ -48,6 +48,13 @@
           </label>
           <button type="submit" id="search-submit-btn" class="input-group form-end search-submit-btn">Search</button>
         </form>
+      </div>
+      <div id="main-container" class="main-container">
+        <section class="no-data-state">
+          <i class="fa-solid fa-film"></i>
+          <p>Start exploring</p>
+          <!-- <p>Unable to find what you’re looking for. Please try another search.</p> -->
+        </section>
       </div>
     </main>
   </div>

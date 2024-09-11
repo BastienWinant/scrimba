@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Watchlist</title>
+
+  <!-- font kit -->
+  <script src="https://kit.fontawesome.com/8b3af6f949.js" crossorigin="anonymous"></script>
+
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="./index.js"></script>
+</head>
+<body>
+  <header class="page-header">
+    <div class="container page-header-container">
+      <h1 class="title">My Watchlist</h1>
+      <p class="tagline">Search for movies</p>
+    </div>
+  </header>
+  <main>
+    <div class="container search-form-container">
+      <form method="post" class="search-form">
+        <label for="search-term" class="search-form-label">
+          <h2 class="search-form-label-text">search term</h2>
+          <div class="input-group">
+            <span class="input-group-icon">
+              <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+            </span>
+            <input type="text" name="search-term" placeholder="search for a title" id="search-term" class="form-control" />
+          </div>
+        </label>
+        <label for="search-type" class="search-form-label">
+          <h2 class="search-form-label-text">type</h2>
+          <div class="input-group">
+            <span class="input-group-icon">
+              <i class="fa-solid fa-clapperboard fa-lg"></i>
+            </span>
+            <input name="search-type" placeholder="movie, series, episode" id="search-type" class="form-control" list="result-types" />
+            <datalist id="result-types">
+              <option value="movie"></option>
+              <option value="series"></option>
+              <option value="episode"></option>
+            </datalist>
+          </div>
+        </label>
+        <label for="search-year" class="search-form-label">
+          <h2 class="search-form-label-text">year</h2>
+          <div class="input-group">
+            <span class="input-group-icon">
+              <i class="fa-solid fa-timeline fa-lg"></i>
+            </span>
+            <input type="number" name="search-year" placeholder="year" id="search-year" class="form-control" />
+          </div>
+        </label>
+        <button type="submit" class="input-group form-control submit-btn">Search</button>
+      </form>
+    </div>
+  </main>
+</body>
+</html>
