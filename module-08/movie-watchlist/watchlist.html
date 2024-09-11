@@ -25,7 +25,7 @@
   </header>
   <main>
     <div class="container search-form-container">
-      <form method="post" class="search-form">
+      <form method="post" id="search-form" class="search-form">
         <label for="search-term" class="search-form-label">
           <h2 class="search-form-label-text">search term</h2>
           <div class="input-group first-input">
@@ -58,12 +58,14 @@
             <input type="number" name="search-year" placeholder="year" min="1920" max="2024" aria-label="year" aria-describedby="year-addon" id="search-year" class="form-control" />
           </div>
         </label>
-        <button type="submit" class="input-group form-control last-input submit-btn">Search</button>
+        <button type="submit" id="submit-btn" class="input-group form-control last-input submit-btn">Search</button>
       </form>
     </div>
-    <div class="no-data-state">
-      <i class="fa-solid fa-film"></i>
-      <p>Start exploring</p>
+    <div id="data-container" class="container data-container">
+      <div class="no-data-state">
+        <i class="fa-solid fa-film"></i>
+        <p>Start exploring</p>
+      </div>
     </div>
   </main>
 </body>
