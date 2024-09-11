@@ -32,6 +32,7 @@ main {
   min-height: 30em;
   position: relative;
   display: flex;
+  flex-direction: column;
 }
 
 /* PAGE HEADER */
@@ -159,6 +160,10 @@ main {
   .search-form-label {
     flex: 1 0 13em;
     color: white;
+  }
+
+  .type-search-label {
+    flex-grow: 0;
   }
 
   .search-year-label {
