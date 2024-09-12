@@ -113,9 +113,11 @@ async function displaySearchResults(e) {
   let searchResults
   let searchResultHTML
   if (searchTerm) {
+    searchForm.reset()
     // searchResults = await fetchSearchResults(searchTerm, searchType, searchYear)
     searchResults = testData
     searchResultHTML = generateResultHTML(searchResults)
+    dataContainer.scrollIntoView()
   } else {
     searchResultHTML =
       `<div class="container no-data-state">
@@ -126,6 +128,16 @@ async function displaySearchResults(e) {
   dataContainer.innerHTML = searchResultHTML
 }
 searchSubmitBtn.addEventListener('click', displaySearchResults)
+
+function addMovieToWatchlist(btn) {
+  console.log(btn)
+}
+
+dataContainer.addEventListener('click', e => {
+  if (e.target.classList.contains('add-movie-btn')) {
+    addMovieToWatchlist(e.target)
+  }
+})
 
 const testData = [
   {

@@ -204,7 +204,7 @@ main {
 
 .no-data-state {
   margin: auto;
-  max-width: 360px;
+  /* max-width: 60vw; */
   color: #DFDDDD;
   font-size: 1.125rem;
   line-height: 1.5;
@@ -215,6 +215,18 @@ main {
 .fa-film {
   width: 70px;
   height: auto;
+}
+
+.cta-link {
+  font-size: .875rem;
+  font-weight: 800;
+  margin-top: 1em;
+  color: #363636;
+}
+
+.cta-link span {
+  text-decoration: underline;
+  margin-left: .5em;
 }
 
 /* MOVIE CARD */
