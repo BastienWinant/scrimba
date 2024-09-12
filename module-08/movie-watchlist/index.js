@@ -1,9 +1,17 @@
+const toggleBtn = document.querySelector('#mode-toggle-btn')
+const toggleSwitch = document.querySelector('#toggle-switch')
 const searchForm = document.querySelector('#search-form')
 const searchTermInput = document.querySelector('#search-term')
 const searchTypeInput = document.querySelector('#search-type')
 const searchYearInput = document.querySelector('#search-year')
 const searchSubmitBtn = document.querySelector('#submit-btn')
 const dataContainer = document.querySelector('#data-container')
+
+// dark mode toggle
+function toggleMode() {
+  toggleSwitch.classList.toggle('switched')
+}
+toggleBtn.addEventListener('click', toggleMode)
 
 function filterResults(title, type, year) {}
 

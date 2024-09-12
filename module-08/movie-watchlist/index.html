@@ -18,6 +18,14 @@
 </head>
 <body>
   <header class="page-header">
+    <nav class="nav">
+      <div class="container nav-container">
+        <a href="#" class="nav-link">my list</a>
+        <button type="button" id="mode-toggle-btn" class="mode-toggle-btn">
+          <div id="toggle-switch" class="toggle-switch"></div>
+        </button>
+      </div>
+    </nav>
     <div class="container page-header-container">
       <h1 class="title">My Watchlist</h1>
       <p class="tagline">Search for movies</p>
@@ -25,7 +33,7 @@
   </header>
   <main>
     <div class="search-form-container">
-      <form method="post" id="search-form" class="search-form">
+      <form method="post" id="search-form" class="container search-form">
         <label for="search-term" class="search-form-label">
           <h2 class="search-form-label-text">title</h2>
           <div class="input-group first-input">
@@ -61,7 +69,7 @@
         <button type="submit" id="submit-btn" class="input-group form-control last-input submit-btn">Search</button>
       </form>
     </div>
-    <div id="data-container" class="data-container">
+    <div id="data-container" class="container data-container">
       <div class="container no-data-state">
         <i class="fa-solid fa-film"></i>
         <p>Start exploring</p>
