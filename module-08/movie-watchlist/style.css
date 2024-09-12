@@ -51,8 +51,10 @@ main {
   height: 100%;
 
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1vw;
   padding-top: 3em;
 
   background-color: rgba(0, 0, 0, .8);
@@ -84,8 +86,6 @@ main {
   align-items: center;
   justify-content: space-between;
   gap: 1.25em;
-
-  /* border: 1px solid white; */
 }
 
 .nav-link {
@@ -291,8 +291,19 @@ main {
 }
 
 @media only screen and (min-width: 576px) {
+  .page-header-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0;
+  }
+
   .tagline {
     font-size: 1rem;
+  }
+
+  .nav {
+    height: 4em;
   }
 
   .card {
@@ -307,6 +318,10 @@ main {
 
   .tagline {
     font-size: 1.25rem;
+  }
+
+  .nav {
+    height: 5em;
   }
 
   .search-form-container {
