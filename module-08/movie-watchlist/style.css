@@ -11,6 +11,7 @@
   --main-text-high: #363636;
 
   --form-bg: #DFDDDD;
+  --form-label-text: #363636;
   --input-text: #6B7280;
   --input-bg: #FFFFFF;
   --input-border: #D1D5DB;
@@ -172,6 +173,7 @@ main {
   font-size: 1rem;
   font-weight: 600;
   text-transform: capitalize;
+  color: var(--form-label-text);
 }
 
 .input-group {
@@ -312,7 +314,8 @@ main {
   color: var(--card-text-high);
 }
 
-.add-movie-btn {
+.add-movie-btn,
+.remove-movie-btn {
   font-size: 1em;
   font-weight: 500;
   color: var(--card-text-high);
@@ -380,7 +383,10 @@ main {
 
   .search-form-label {
     flex: 1 0 13em;
-    color: #FFFFFF;
+  }
+
+  .search-form-label-text {
+    color: white;
   }
 
   .type-search-label {

@@ -24,6 +24,7 @@ function setPageColors() {
     r.style.setProperty('--main-text-high', '#363636')
 
     r.style.setProperty('--form-bg', '#DFDDDD')
+    r.style.setProperty('--form-label-text', '#363636')
     r.style.setProperty('--input-text', '#6B7280')
     r.style.setProperty('--input-bg', '#FFFFFF')
     r.style.setProperty('--input-border', '#D1D5DB')
@@ -41,6 +42,7 @@ function setPageColors() {
     r.style.setProperty('--main-text-high', '#FFFFFF')
 
     r.style.setProperty('--form-bg', '#121212')
+    r.style.setProperty('--form-label-text', '#FFFFFF')
     r.style.setProperty('--input-text', '#6B7280')
     r.style.setProperty('--input-bg', '#2E2E2F')
     r.style.setProperty('--input-border', '#2E2E2F')
@@ -127,8 +129,25 @@ function generateResultHTML(movieArr) {
     const moviePoster = movieObj.Poster === 'N/A'
           ? 'https://plus.unsplash.com/premium_photo-1684923604860-64e661f2ff72'
           : movieObj.Poster
+
+    const movieRating = movieObj.imdbRating === 'N/A'
+          ? ''
+          : `<div class="movie-rating">
+              <i class="fa-solid fa-star"></i>
+              ${movieObj.imdbRating}
+            </div>`
     
-    let moviePlot = movieObj.Plot === 'N/A' ? '' : movieObj.Plot
+    const movieRunTime = movieObj.Runtime === 'N/A'
+          ? ''
+          : `<p>${movieObj.Runtime}</p>`
+    
+    const movieGenre = movieObj.Genre === 'N/A'
+          ? ''
+          : `<p>${movieObj.Genre}</p>`
+    
+    const moviePlot = movieObj.Plot === 'N/A'
+          ? ''
+          : `<p class="movie-plot">${movieObj.Plot}</p>`
 
     return `<article class="card">
       <img src="${moviePoster}" alt="movie poster" class="card-img">
@@ -159,9 +178,7 @@ function generateResultHTML(movieArr) {
   return html
 }
 
-async function displaySearchResults(e) {
-  e.preventDefault()
-
+async function displaySearchResults() {
   const searchTerm = searchTermInput.value
   const searchType = searchTypeInput.value
   const searchYear = searchYearInput.value
@@ -173,7 +190,6 @@ async function displaySearchResults(e) {
     // searchResults = await fetchSearchResults(searchTerm, searchType, searchYear)
     searchResults = testData
     searchResultHTML = generateResultHTML(searchResults)
-    dataContainer.scrollIntoView()
   } else {
     searchResultHTML =
       `<div class="container no-data-state">
@@ -183,7 +199,11 @@ async function displaySearchResults(e) {
 
   dataContainer.innerHTML = searchResultHTML
 }
-searchSubmitBtn.addEventListener('click', displaySearchResults)
+searchSubmitBtn.addEventListener('click', e => {
+  e.preventDefault()
+  displaySearchResults()
+  dataContainer.scrollIntoView()
+})
 
 // store movie data into localstorage
 function addMovieToWatchlist(btn) {
@@ -198,11 +218,9 @@ function addMovieToWatchlist(btn) {
     watchList.push(movieObj)
     localStorage.setItem('watchlist', JSON.stringify(watchList))
   }
-  console.log(JSON.parse(localStorage.getItem('watchlist')))
 }
 
 dataContainer.addEventListener('click', e => {
-  console.log(e.target)
   if (e.target.closest('.add-movie-btn')) {
     addMovieToWatchlist(e.target)
   }
