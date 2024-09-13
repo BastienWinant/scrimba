@@ -192,15 +192,18 @@ function addMovieToWatchlist(btn) {
 
   let watchList = JSON.parse(localStorage.getItem('watchlist')) || []
 
-  // avoid saving duplicated in the watchlist
-  if (!watchList.find(movieEntry => movieEntry.imdbID === movieObj.imdbID)) {
+  // avoid saving duplicates in the watchlist
+  const duplicate = watchList.find(movieEntry => movieEntry.imdbID === movieObj.imdbID)
+  if (!duplicate) {
     watchList.push(movieObj)
     localStorage.setItem('watchlist', JSON.stringify(watchList))
   }
+  console.log(JSON.parse(localStorage.getItem('watchlist')))
 }
 
 dataContainer.addEventListener('click', e => {
-  if (e.target.classList.contains('add-movie-btn')) {
+  console.log(e.target)
+  if (e.target.closest('.add-movie-btn')) {
     addMovieToWatchlist(e.target)
   }
 })
