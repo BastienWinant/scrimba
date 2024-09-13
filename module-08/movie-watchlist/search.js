@@ -71,7 +71,7 @@ toggleBtn.addEventListener('click', toggleMode)
 // returns API data based on supplied parameters
 async function omdbApiRequest(params) {
   const apiKey = 'dc03cb5c'
-  const baseUrl = 'http://www.omdbapi.com'
+  const baseUrl = 'https://www.omdbapi.com'
 
   let requestUrl = `${baseUrl}/?apikey=${apiKey}`
 
@@ -123,7 +123,7 @@ async function fetchSearchResults(searchTerm, searchType, searchYear) {
 
 // generate HTML for a list of movie data objects
 function checkWatchList(movieId) {
-  const watchList = JSON.parse(localStorage.getItem('watchlist'))
+  const watchList = JSON.parse(localStorage.getItem('watchlist')) || []
   return watchList.find(movieObj => movieObj.imdbID === movieId)
 }
 
