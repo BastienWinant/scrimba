@@ -259,13 +259,13 @@ main {
 /* MOVIE CARD */
 .card {
   font-size: .75rem;
-  height: 16em;
+  height: 10.5em;
   display: flex;
 }
 
 .card-img {
   height: 100%;
-  width: 10em;
+  width: 7.15em;
 }
 
 .card-body {
