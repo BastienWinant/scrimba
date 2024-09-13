@@ -155,7 +155,7 @@ function displaySearchResults() {
     searchResultHTML =
       `<div class="container no-data-state">
         <p>Unable to find what you’re looking for. The movie you want might not be in your watchlist yet...</p>
-        <a href="./search.html" class="cta-link">
+        <a href="./index.html" class="cta-link">
           <i class="fa-solid fa-circle-plus fa-lg"></i>
           <span>Let's add some movies!</span>
         </a>
