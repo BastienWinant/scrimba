@@ -126,7 +126,7 @@ function generateResultHTML(movieArr) {
           </div>
           <button class="remove-movie-btn" data-movie-id="${movieObj.imdbID}">
             <i class="fa-solid fa-circle-minus"></i>
-            Watchlist
+            Remove
           </button>
         </section>
         ${moviePlot}
@@ -177,6 +177,7 @@ function removeMovieFromWatchlist(btn) {
 
   watchList = watchList.filter(movieObj => movieObj.imdbID !== movieId)
   localStorage.setItem('watchlist', JSON.stringify(watchList))
+  displaySearchResults()
 }
 
 dataContainer.addEventListener('click', e => {
