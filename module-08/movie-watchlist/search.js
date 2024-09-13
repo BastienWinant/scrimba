@@ -67,8 +67,6 @@ function toggleMode() {
 }
 toggleBtn.addEventListener('click', toggleMode)
 
-function filterResults(title, type, year) {}
-
 // API DATA FETCHING
 // returns API data based on supplied parameters
 async function omdbApiRequest(params) {

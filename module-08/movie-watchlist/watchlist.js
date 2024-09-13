@@ -65,8 +65,6 @@ function toggleMode() {
 }
 toggleBtn.addEventListener('click', toggleMode)
 
-function filterResults(title, type, year) {}
-
 // WATCHLIST FILTERING
 function fetchSearchResults(term, type, year) {
   let watchList = JSON.parse(localStorage.getItem('watchlist'))
