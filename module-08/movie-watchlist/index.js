@@ -7,17 +7,15 @@ const searchYearInput = document.querySelector('#search-year')
 const searchSubmitBtn = document.querySelector('#submit-btn')
 const dataContainer = document.querySelector('#data-container')
 
+let searchResults
+
 // dark mode toggle
-function toggleMode() {
-  toggleSwitch.classList.toggle('switched')
-
+function setPageColors() {
   const r = document.querySelector(':root')
+  const colorMode = localStorage.getItem('color-mode')
 
-  toggleBtn.dataset.mode = toggleBtn.dataset.mode === 'light'
-                                                  ? 'dark'
-                                                  : 'light'
-
-  if (toggleBtn.dataset.mode === 'light') {
+  if (colorMode === 'light') {
+    toggleSwitch.classList.remove('switched')
     r.style.setProperty('--header-text', '#FFFFFF')
     r.style.setProperty('--header-bg', '#000000DD')
     
@@ -35,12 +33,14 @@ function toggleMode() {
 
     r.style.setProperty('--card-text-high', '#111827')
     r.style.setProperty('--card-text-low', '#6B7280')
-  } else {    
+  } else {
+    toggleSwitch.classList.add('switched')
+
     r.style.setProperty('--main-bg', '#121212')
     r.style.setProperty('--main-text-low', '#787878')
     r.style.setProperty('--main-text-high', '#FFFFFF')
 
-    r.style.setProperty('--form-bg', '#DFDDDD')
+    r.style.setProperty('--form-bg', '#121212')
     r.style.setProperty('--input-text', '#6B7280')
     r.style.setProperty('--input-bg', '#2E2E2F')
     r.style.setProperty('--input-border', '#2E2E2F')
@@ -52,11 +52,23 @@ function toggleMode() {
     r.style.setProperty('--card-text-low', '#A5A5A5')
   }
 }
+setPageColors()
+
+function toggleMode() {
+  const colorMode = toggleBtn.dataset.mode === 'light'
+                                              ? 'dark'
+                                              : 'light'
+
+  toggleBtn.dataset.mode = colorMode
+  localStorage.setItem('color-mode', colorMode)
+  setPageColors()
+}
 toggleBtn.addEventListener('click', toggleMode)
 
 function filterResults(title, type, year) {}
 
-
+// API DATA FETCHING
+// returns API data based on supplied parameters
 async function omdbApiRequest(params) {
   const apiKey = 'dc03cb5c'
   const baseUrl = 'http://www.omdbapi.com'
@@ -79,6 +91,7 @@ async function omdbApiRequest(params) {
   }
 }
 
+// get data for a single movie
 async function fetchMovieDetails(movieId) {
   const requestParams = {'i': movieId }
   const data = await omdbApiRequest(requestParams)
@@ -86,6 +99,7 @@ async function fetchMovieDetails(movieId) {
   return data
 }
 
+// get a list of movie IDs for search parameters 
 async function fetchMovieIDs(term, type, year, page) {
   const requestParams = {
     's': term,
@@ -107,8 +121,9 @@ async function fetchSearchResults(searchTerm, searchType, searchYear) {
   return movieDetails
 }
 
-function generateResultHTML(resultsArr) {
-  const html = resultsArr.map(movieObj => {
+// generate HTML for a list of movie data objects
+function generateResultHTML(movieArr) {
+  const html = movieArr.map(movieObj => {
     const moviePoster = movieObj.Poster === 'N/A'
           ? 'https://plus.unsplash.com/premium_photo-1684923604860-64e661f2ff72'
           : movieObj.Poster
@@ -151,7 +166,7 @@ async function displaySearchResults(e) {
   const searchType = searchTypeInput.value
   const searchYear = searchYearInput.value
 
-  let searchResults
+  // let searchResults
   let searchResultHTML
   if (searchTerm) {
     searchForm.reset()
@@ -170,8 +185,18 @@ async function displaySearchResults(e) {
 }
 searchSubmitBtn.addEventListener('click', displaySearchResults)
 
+// store movie data into localstorage
 function addMovieToWatchlist(btn) {
-  console.log(btn)
+  const movieId = btn.dataset.movieId
+  const movieObj = searchResults.find(movieEntry => movieEntry.imdbID === movieId)
+
+  let watchList = JSON.parse(localStorage.getItem('watchlist')) || []
+
+  // avoid saving duplicated in the watchlist
+  if (!watchList.find(movieEntry => movieEntry.imdbID === movieObj.imdbID)) {
+    watchList.push(movieObj)
+    localStorage.setItem('watchlist', JSON.stringify(watchList))
+  }
 }
 
 dataContainer.addEventListener('click', e => {
