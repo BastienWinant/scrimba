@@ -108,9 +108,10 @@ function generateResultHTML(movieArr) {
           ? ''
           : `<p>${ movieObj.Genre }</p>`
     
-    const moviePlot = movieObj.Plot === 'N/A'
-          ? ''
-          : `<p class="movie-plot">${ movieObj.Plot }</p>`
+    let moviePlot = movieObj.Plot === 'N/A' ? '' : movieObj.Plot
+    moviePlot = moviePlot.length > 132
+          ? moviePlot.slice(0,132) + `... <button class="expand-plot-btn" data-movie-id="${ movieObj.imdbID }">Read more</button>`
+          : moviePlot
 
     return `<article class="card">
       <img src="${ moviePoster }" alt="movie poster" class="card-img">
@@ -129,7 +130,7 @@ function generateResultHTML(movieArr) {
             Remove
           </button>
         </section>
-        ${ moviePlot }
+        <p class="movie-plot">${ moviePlot }</p>
       </div>
     </article>
     <hr class="card-separator">`
@@ -180,8 +181,20 @@ function removeMovieFromWatchlist(btn) {
   displaySearchResults()
 }
 
+// show the full plot of the movie
+function expandPlotText(btnEl) {
+  const movieId = btnEl.dataset.movieId
+  const watchList = JSON.parse(localStorage.getItem('watchlist'))
+  const moviePlot = watchList.find(movieObj => movieObj.imdbID === movieId).Plot
+  
+  const plotContainer = btnEl.parentElement
+  plotContainer.innerText = moviePlot
+}
+
 dataContainer.addEventListener('click', e => {
   if (e.target.closest('.remove-movie-btn')) {
     removeMovieFromWatchlist(e.target)
+  } else if (e.target.classList.contains('expand-plot-btn')) {
+    expandPlotText(e.target)
   }
 })
