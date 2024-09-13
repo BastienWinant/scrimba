@@ -124,6 +124,11 @@ async function fetchSearchResults(searchTerm, searchType, searchYear) {
 }
 
 // generate HTML for a list of movie data objects
+function checkWatchList(movieId) {
+  const watchList = JSON.parse(localStorage.getItem('watchlist'))
+  return watchList.find(movieObj => movieObj.imdbID === movieId)
+}
+
 function generateResultHTML(movieArr) {
   const html = movieArr.map(movieObj => {
     const moviePoster = movieObj.Poster === 'N/A'
@@ -134,42 +139,47 @@ function generateResultHTML(movieArr) {
           ? ''
           : `<div class="movie-rating">
               <i class="fa-solid fa-star"></i>
-              ${movieObj.imdbRating}
+              ${ movieObj.imdbRating }
             </div>`
     
     const movieRunTime = movieObj.Runtime === 'N/A'
           ? ''
-          : `<p>${movieObj.Runtime}</p>`
+          : `<p>${ movieObj.Runtime }</p>`
     
     const movieGenre = movieObj.Genre === 'N/A'
           ? ''
-          : `<p>${movieObj.Genre}</p>`
+          : `<p>${ movieObj.Genre }</p>`
     
+    const cardBtn = checkWatchList(movieObj.imdbID)
+          ? `<button class="add-movie-btn" data-movie-id="${ movieObj.imdbID }" disabled>
+              <i class="fa-solid fa-square-check fa-xl"></i>
+              In watchlist
+            </button>`
+          : `<button class="add-movie-btn" data-movie-id="${ movieObj.imdbID }">
+            <i class="fa-solid fa-circle-plus fa-xl"></i>
+            Watchlist
+          </button>`
+        
+
     const moviePlot = movieObj.Plot === 'N/A'
           ? ''
           : `<p class="movie-plot">${movieObj.Plot}</p>`
 
     return `<article class="card">
-      <img src="${moviePoster}" alt="movie poster" class="card-img">
+      <img src="${ moviePoster }" alt="movie poster" class="card-img">
       <div class="card-body">
         <header class="card-header">
           <h3 class="movie-title">${movieObj.Title}</h3>
-          <div class="movie-rating">
-            <i class="fa-solid fa-star"></i>
-            ${movieObj.imdbRating}
-          </div>
+          ${ movieRating }
         </header>
         <section class="movie-info">
           <div class="movie-metadata">
-            <p>${movieObj.Runtime}</p>
-            <p>${movieObj.Genre}</p>
+            ${ movieRunTime }
+            ${ movieGenre }
           </div>
-          <button class="add-movie-btn" data-movie-id="${movieObj.imdbID}">
-            <i class="fa-solid fa-circle-plus fa-xl"></i>
-            Watchlist
-          </button>
+          ${ cardBtn }
         </section>
-        <p class="movie-plot">${moviePlot}</p>
+        ${ moviePlot }
       </div>
     </article>
     <hr class="card-separator">`
@@ -222,7 +232,11 @@ function addMovieToWatchlist(btn) {
 
 dataContainer.addEventListener('click', e => {
   if (e.target.closest('.add-movie-btn')) {
-    addMovieToWatchlist(e.target)
+    const btn = e.target.closest('.add-movie-btn')
+    addMovieToWatchlist(btn)
+
+    btn.disabled = true
+    btn.innerHTML = `<i class="fa-solid fa-square-check fa-xl"></i> In watchlist`
   }
 })
 

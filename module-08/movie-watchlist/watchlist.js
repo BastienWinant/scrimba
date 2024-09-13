@@ -97,39 +97,39 @@ function generateResultHTML(movieArr) {
           ? ''
           : `<div class="movie-rating">
               <i class="fa-solid fa-star"></i>
-              ${movieObj.imdbRating}
+              ${ movieObj.imdbRating }
             </div>`
     
     const movieRunTime = movieObj.Runtime === 'N/A'
           ? ''
-          : `<p>${movieObj.Runtime}</p>`
+          : `<p>${ movieObj.Runtime }</p>`
     
     const movieGenre = movieObj.Genre === 'N/A'
           ? ''
-          : `<p>${movieObj.Genre}</p>`
+          : `<p>${ movieObj.Genre }</p>`
     
     const moviePlot = movieObj.Plot === 'N/A'
           ? ''
-          : `<p class="movie-plot">${movieObj.Plot}</p>`
+          : `<p class="movie-plot">${ movieObj.Plot }</p>`
 
     return `<article class="card">
-      <img src="${moviePoster}" alt="movie poster" class="card-img">
+      <img src="${ moviePoster }" alt="movie poster" class="card-img">
       <div class="card-body">
         <header class="card-header">
-          <h3 class="movie-title">${movieObj.Title}</h3>
-          ${movieRating}
+          <h3 class="movie-title">${ movieObj.Title }</h3>
+          ${ movieRating }
         </header>
         <section class="movie-info">
           <div class="movie-metadata">
-            ${movieRunTime}
-            ${movieGenre}
+            ${ movieRunTime }
+            ${ movieGenre }
           </div>
-          <button class="remove-movie-btn" data-movie-id="${movieObj.imdbID}">
-            <i class="fa-solid fa-circle-minus"></i>
+          <button class="remove-movie-btn" data-movie-id="${ movieObj.imdbID }">
+            <i class="fa-solid fa-circle-minus fa-xl"></i>
             Remove
           </button>
         </section>
-        ${moviePlot}
+        ${ moviePlot }
       </div>
     </article>
     <hr class="card-separator">`

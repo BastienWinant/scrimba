@@ -321,6 +321,11 @@ main {
   color: var(--card-text-high);
 }
 
+.add-movie-btn:disabled {
+  color: var(--card-text-low);
+  cursor: not-allowed;
+}
+
 .movie-plot {
   color: var(--card-text-low);
   line-height: 1.5;
