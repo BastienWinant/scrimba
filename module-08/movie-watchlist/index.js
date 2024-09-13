@@ -10,6 +10,47 @@ const dataContainer = document.querySelector('#data-container')
 // dark mode toggle
 function toggleMode() {
   toggleSwitch.classList.toggle('switched')
+
+  const r = document.querySelector(':root')
+
+  toggleBtn.dataset.mode = toggleBtn.dataset.mode === 'light'
+                                                  ? 'dark'
+                                                  : 'light'
+
+  if (toggleBtn.dataset.mode === 'light') {
+    r.style.setProperty('--header-text', '#FFFFFF')
+    r.style.setProperty('--header-bg', '#000000DD')
+    
+    r.style.setProperty('--main-bg', '#FFFFFF')
+    r.style.setProperty('--main-text-low', '#DFDDDD')
+    r.style.setProperty('--main-text-high', '#363636')
+
+    r.style.setProperty('--form-bg', '#DFDDDD')
+    r.style.setProperty('--input-text', '#6B7280')
+    r.style.setProperty('--input-bg', '#FFFFFF')
+    r.style.setProperty('--input-border', '#D1D5DB')
+    r.style.setProperty('--btn-text', '#374151')
+    r.style.setProperty('--btn-bg', '#F9FAFB')
+    r.style.setProperty('--btn-border', '#D1D5DB')
+
+    r.style.setProperty('--card-text-high', '#111827')
+    r.style.setProperty('--card-text-low', '#6B7280')
+  } else {    
+    r.style.setProperty('--main-bg', '#121212')
+    r.style.setProperty('--main-text-low', '#787878')
+    r.style.setProperty('--main-text-high', '#FFFFFF')
+
+    r.style.setProperty('--form-bg', '#DFDDDD')
+    r.style.setProperty('--input-text', '#6B7280')
+    r.style.setProperty('--input-bg', '#2E2E2F')
+    r.style.setProperty('--input-border', '#2E2E2F')
+    r.style.setProperty('--btn-text', '#FFFFFF')
+    r.style.setProperty('--btn-bg', '#4B4B4B')
+    r.style.setProperty('--btn-border', '#4B4B4B')
+
+    r.style.setProperty('--card-text-high', '#FFFFFF')
+    r.style.setProperty('--card-text-low', '#A5A5A5')
+  }
 }
 toggleBtn.addEventListener('click', toggleMode)
 

@@ -2,6 +2,26 @@
   border: 1px solid black;
 }
 
+:root {
+  --header-text: #FFFFFF;
+  --header-bg: #000000DD;
+  
+  --main-bg: #FFFFFF;
+  --main-text-low: #DFDDDD;
+  --main-text-high: #363636;
+
+  --form-bg: #DFDDDD;
+  --input-text: #6B7280;
+  --input-bg: #FFFFFF;
+  --input-border: #D1D5DB;
+  --btn-text: #374151;
+  --btn-bg: #F9FAFB;
+  --btn-border: #D1D5DB;
+
+  --card-text-high: #111827;
+  --card-text-low: #6B7280;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -10,6 +30,8 @@
   font-family: "Inter", system-ui;
   font-optical-sizing: auto;
   font-style: normal;
+
+  transition: all .2s ease-in-out;
 }
 
 button, a {
@@ -28,6 +50,7 @@ img {
 
 main {
   position: relative;
+  background-color: var(--main-bg);
 }
 
 /* GENERIC CLASSES */
@@ -57,8 +80,8 @@ main {
   gap: 1vw;
   padding-top: 3em;
 
-  background-color: rgba(0, 0, 0, .8);
-  color: #FFFFFF;
+  background-color: var(--header-bg);
+  color: var(--header-text);
 }
 
 .title {
@@ -115,8 +138,6 @@ main {
 
   position: relative;
   left: .1em;
-
-  transition: left ease .1s;
 }
 
 .switched {
@@ -126,7 +147,7 @@ main {
 /* SEARCH FORM */
 .search-form-container {
   z-index: 1;
-  background-color: #DFDDDD;
+  background-color: var(--form-bg);
 }
 
 .search-form {
@@ -157,11 +178,11 @@ main {
 
   font-size: .875rem;
   height: 2.7em;
-  background-color: #FFFFFF;
-  border: 1px solid #D1D5DB;
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
   border-radius: .4em;
 
-  color: #9CA3AF;
+  color: var(--input-text);
 }
 
 .input-group-icon {
@@ -173,11 +194,12 @@ main {
 
   background-color: transparent;
   border: none;
-  color: #6B7280;
+  color: var(--input-text);
 }
 
 .form-control::placeholder {
-  color: #6B7280;
+  color: var(--input-text);
+  font-weight: 500;
 }
 
 .form-control:focus {
@@ -185,8 +207,9 @@ main {
 }
 
 .submit-btn {
-  background-color: #F9FAFB;
-  border: 1px solid #D1D5DB;
+  background-color: var(--btn-bg);
+  border: 1px solid var(--btn-border);
+  color: var(--btn-text);
 }
 
 /* MOVIE LIST */
@@ -204,8 +227,7 @@ main {
 
 .no-data-state {
   margin: auto;
-  /* max-width: 60vw; */
-  color: #DFDDDD;
+  color: var(--main-text-low);
   font-size: 1.125rem;
   line-height: 1.5;
   text-align: center;
@@ -221,12 +243,12 @@ main {
   font-size: .875rem;
   font-weight: 800;
   margin-top: 1em;
-  color: #363636;
+  color: var(--main-text-high);
 }
 
 .cta-link span {
   text-decoration: underline;
-  margin-left: .5em;
+  margin-left: .25em;
 }
 
 /* MOVIE CARD */
@@ -255,6 +277,7 @@ main {
   flex-wrap: wrap;
   align-items: center;
   gap: .5em;
+  color: var(--card-text-high);
 }
 
 .movie-title {
@@ -283,16 +306,17 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: .5em 1em;
-  color: #111827;
+  color: var(--card-text-high);
 }
 
 .add-movie-btn {
   font-size: 1em;
   font-weight: 500;
+  color: var(--card-text-high);
 }
 
 .movie-plot {
-  color: #6B7280;
+  color: var(--card-text-low);
   line-height: 1.5;
   overflow: hidden;
 }
