@@ -124,7 +124,7 @@ function generateResultHTML(movieArr) {
             ${ movieRunTime }
             ${ movieGenre }
           </div>
-          <button class="remove-movie-btn" data-movie-id="${ movieObj.imdbID }">
+          <button type="button" class="remove-movie-btn" data-movie-id="${ movieObj.imdbID }">
             <i class="fa-solid fa-circle-minus fa-xl"></i>
             Remove
           </button>

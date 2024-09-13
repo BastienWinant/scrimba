@@ -151,19 +151,20 @@ function generateResultHTML(movieArr) {
           : `<p>${ movieObj.Genre }</p>`
     
     const cardBtn = checkWatchList(movieObj.imdbID)
-          ? `<button class="add-movie-btn" data-movie-id="${ movieObj.imdbID }" disabled>
+          ? `<button type="button" class="add-movie-btn" data-movie-id="${ movieObj.imdbID }" disabled>
               <i class="fa-solid fa-square-check fa-xl"></i>
               In watchlist
             </button>`
-          : `<button class="add-movie-btn" data-movie-id="${ movieObj.imdbID }">
+          : `<button type="button" class="add-movie-btn" data-movie-id="${ movieObj.imdbID }">
             <i class="fa-solid fa-circle-plus fa-xl"></i>
             Watchlist
           </button>`
         
 
-    const moviePlot = movieObj.Plot === 'N/A'
-          ? ''
-          : `<p class="movie-plot">${movieObj.Plot}</p>`
+    let moviePlot = movieObj.Plot === 'N/A' ? '' : movieObj.Plot
+    moviePlot = moviePlot.length > 132
+          ? moviePlot.slice(0,132) + `... <button class="expand-plot-btn" data-movie-id="${ movieObj.imdbID }">Read more</button>`
+          : moviePlot
 
     return `<article class="card">
       <img src="${ moviePoster }" alt="movie poster" class="card-img">
@@ -179,7 +180,7 @@ function generateResultHTML(movieArr) {
           </div>
           ${ cardBtn }
         </section>
-        ${ moviePlot }
+        <p class="movie-plot">${ moviePlot }</p>
       </div>
     </article>
     <hr class="card-separator">`
@@ -230,6 +231,15 @@ function addMovieToWatchlist(btn) {
   }
 }
 
+// show the full plot of the movie
+function expandPlotText(btnEl) {
+  const movieId = btnEl.dataset.movieId
+  const moviePlot = searchResults.find(movieObj => movieObj.imdbID === movieId).Plot
+  
+  const plotContainer = btnEl.parentElement
+  plotContainer.innerText = moviePlot
+}
+
 dataContainer.addEventListener('click', e => {
   if (e.target.closest('.add-movie-btn')) {
     const btn = e.target.closest('.add-movie-btn')
@@ -237,6 +247,8 @@ dataContainer.addEventListener('click', e => {
 
     btn.disabled = true
     btn.innerHTML = `<i class="fa-solid fa-square-check fa-xl"></i> In watchlist`
+  } else if (e.target.classList.contains('expand-plot-btn')) {
+    expandPlotText(e.target)
   }
 })
 
