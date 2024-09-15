@@ -1,80 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Movie Watchlist</title>
-
-  <!-- font kit -->
-  <script src="https://kit.fontawesome.com/8b3af6f949.js" crossorigin="anonymous"></script>
-
-  <!-- google fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css">
-  <script defer src="./search.js"></script>
+<head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="style.css">
+    <script defer src="index.js"></script>
 </head>
 <body>
-  <header class="page-header">
-    <nav class="nav">
-      <div class="container nav-container">
-        <a href="./watchlist.html" class="nav-link">my list</a>
-        <button type="button" id="mode-toggle-btn" class="mode-toggle-btn" data-mode="light">
-          <div id="toggle-switch" class="toggle-switch"></div>
-        </button>
-      </div>
-    </nav>
-    <div class="container page-header-container">
-      <h1 class="title">My Watchlist</h1>
-      <p class="tagline">Search for movies</p>
-    </div>
-  </header>
-  <main>
-    <div class="search-form-container">
-      <form method="post" id="search-form" class="container search-form">
-        <label for="search-term" class="search-form-label">
-          <h2 class="search-form-label-text">title</h2>
-          <div class="input-group first-input">
-            <span class="input-group-icon" id="title-addon">
-              <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-            </span>
-            <input type="text" name="search-term" placeholder="search for a title" aria-label="term" aria-describedby="title-addon" id="search-term" class="form-control" />
-          </div>
-        </label>
-        <label for="search-type" class="search-form-label type-search-label">
-          <h2 class="search-form-label-text">type</h2>
-          <div class="input-group">
-            <span class="input-group-icon" id="type-addon">
-              <i class="fa-solid fa-clapperboard fa-lg"></i>
-            </span>
-            <input name="search-type" placeholder="movie, series, episode" aria-label="type" aria-describedby="type-addon" id="search-type" class="form-control" list="result-types" />
-            <datalist id="result-types">
-              <option value="movie"></option>
-              <option value="series"></option>
-              <option value="episode"></option>
-            </datalist>
-          </div>
-        </label>
-        <label for="search-year" class="search-form-label search-year-label">
-          <h2 class="search-form-label-text">year</h2>
-          <div class="input-group">
-            <span class="input-group-icon" id="year-addon">
-              <i class="fa-solid fa-timeline fa-lg"></i>
-            </span>
-            <input type="number" name="search-year" placeholder="year" min="1920" max="2024" aria-label="year" aria-describedby="year-addon" id="search-year" class="form-control" />
-          </div>
-        </label>
-        <button type="submit" id="submit-btn" class="input-group form-control last-input submit-btn">Search</button>
-      </form>
-    </div>
-    <div id="data-container" class="container data-container">
-      <div class="container no-data-state">
-        <i class="fa-solid fa-film"></i>
-        <p>Start exploring</p>
-      </div>
-    </div>
-  </main>
+    <header class="header">
+        <nav class="nav container">
+            <a href="./watchlist.html" class="nav-link">my list</a>
+            <button type="button" id="color-mode-btn" class="color-mode-btn" data-color-mode="light">
+                <div id="color-mode-switch" class="color-mode-switch"></div>
+            </button>
+        </nav>
+        <hgroup class="container header-container">
+            <h1 class="title">Find your film</h1>
+            <p class="tagline">My Watchlist</p>
+        </hgroup>
+    </header>
+    <main class="main">
+        <section class="search-form-container">
+            <form class="search-form container">
+                <label class="search-form-label">
+                    <h2>title</h2>
+                    <div class="input-group form-start">
+                        <span class="input-group-icon" id="title-addon">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </span>
+                        <input type="text" id="search-title" class="form-control" placeholder="Search for a movie" aria-label="Title" aria-describedby="title-addon" />
+                    </div>
+                </label>
+                <label for="search-type" class="search-form-label search-type-label">
+                    <h2>type</h2>
+                    <div class="input-group">
+                        <span class="input-group-icon" id="type-addon">
+                            <i class="fa-solid fa-clapperboard"></i>
+                        </span>
+                        <input list="search-types" id="search-type" class="form-control" placeholder="Movie, series, epsiode" aria-label="Type" aria-describedby="type-addon" />
+                        <datalist id="search-types">
+                            <option value="movie"></option>
+                            <option value="series"></option>
+                            <option value="episode"></option>
+                        </datalist>
+                    </div>
+                </label>
+                <label for="search-year" class="search-form-label search-year-label">
+                    <h2>year</h2>
+                    <div class="input-group">
+                        <span class="input-group-icon" id="year-addon">
+                            <i class="fa-solid fa-timeline"></i>
+                        </span>
+                        <input type="number" id="search-year" class="form-control" placeholder="Year" aria-label="Title" aria-describedby="year-addon" min="1950" max="2024" />
+                    </div>
+                </label>
+                <button type="submit" id="search-btn" class="input-group search-btn form-end">Search</button>
+            </form>
+        </section>
+        <section id="data-container" class="data-container container">
+            <div class="no-data-state">
+                <img src="./img/movie-2.svg" alt="film icon" />
+                Start exploring
+            </div>
+        </section>
+    </main>
 </body>
 </html>

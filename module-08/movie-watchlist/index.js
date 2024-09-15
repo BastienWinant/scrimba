@@ -9,6 +9,8 @@ const searchBtn = document.querySelector('#search-btn')
 
 const dataContainer = document.querySelector('#data-container')
 
+let searchResults
+
 function setPageColors() {
     const colorMode = localStorage.getItem('color-mode') || colorModeBtn.dataset.colorMode
     colorModeBtn.dataset.colorMode = colorMode
@@ -67,6 +69,52 @@ function toggleColorMode() {
 }
 colorModeBtn.addEventListener('click', toggleColorMode)
 
+async function omdbApiRequest(params) {
+    const apiKey = 'dc03cb5c'
+    let requestUrl = `https://www.omdbapi.com/?apikey=${apiKey}`
+    
+    for (const key in params) {
+        if (params[key]) requestUrl += `&${key}=${params[key]}`
+    }
+
+    const res = await fetch(requestUrl)
+    const data = await res.json()
+    
+    try {
+        if (data.Response === 'True') return data
+    } catch {
+        return
+    }
+}
+
+async function getMovieDetails(movieIds) {
+    const movieObjects = await Promise.all(movieIds.map(id => omdbApiRequest({i: id})))
+    return movieObjects
+}
+
+async function searchMovies() {    
+    const searchParams = {
+        's': titleInput.value,
+        'type': typeInput.value,
+        'y': yearInput.value
+    }
+        
+    const searchMatches = await omdbApiRequest(searchParams)
+    
+    if (searchMatches) {
+        const searchMatchIds = searchMatches.Search.map(movieObj => movieObj.imdbID)
+        return searchMatchIds   
+    }
+    
+    return []
+}
+
+function checkWatchlist(movieId) {
+    const watchList = JSON.parse(localStorage.getItem('watchlist')) || []
+    
+    return watchList.find(movieObj => movieObj.imdbID === movieId)
+}
+
 function generateResultsHtml(movieArr) {
     return movieArr.map(movieObj => {
         const moviePoster = movieObj.Poster === 'N/A'
@@ -88,10 +136,15 @@ function generateResultsHtml(movieArr) {
             ? ''
             : `<span class="movie-runtime">${movieObj.Genre}</span>`
         
-        const cardBtn = `<button type="button" class="card-btn remove-movie-btn">
-                            <i class="fa-solid fa-circle-minus"></i>
-                            Remove
-                        </button>`
+        const cardBtn = checkWatchlist(movieObj.imdbID)
+            ? `<button type="button" class="card-btn add-movie-btn" disabled>
+                    <i class="fa-solid fa-circle-check"></i>
+                    In watchlist
+                </button>`
+            : `<button type="button" class="card-btn add-movie-btn">
+                    <i class="fa-solid fa-circle-plus"></i>
+                    Watchlist
+                </button>`
                 
         let moviePlot = movieObj.Plot === 'N/A' ? '' : movieObj.Plot
         if (moviePlot.length > 132) {
@@ -120,37 +173,16 @@ function generateResultsHtml(movieArr) {
     }).join('\n')
 }
 
-function filterWatchlist() {
-    const title = titleInput.value
-    const type = typeInput.value
-    const year = yearInput.value
-    
-    let watchList = JSON.parse(localStorage.getItem('watchlist'))
-    
-    if (title) {
-        watchList = watchList.filter(movieObj => movieObj.Title.toLowerCase().includes(title.toLowerCase()))
-    }
-    
-    if (type) {
-        watchList = watchList.filter(movieObj => movieObj.Type === type)
-    }
-    
-    if (year) {
-        watchList = watchList.filter(movieObj => movieObj.Year == year)
-    }
-    
-    return watchList
-}
-
-function displaySearchResults() {
-    const searchResults = filterWatchlist()
+async function displaySearchResults() {
+    const movieIds = await searchMovies()
+    searchResults = await getMovieDetails(movieIds)
     
     let resultsHTML
     if (searchResults.length > 0) {
         resultsHTML = generateResultsHtml(searchResults) 
     } else {
         resultsHTML = `<div class="no-data-state">
-                            Unable to find what you’re looking for. Please try another search.
+                            <p>Unable to find what you’re looking for. Please try another search.</p>
                         </div>`
     }
     
@@ -160,7 +192,6 @@ searchBtn.addEventListener('click', e => {
     e.preventDefault()
     displaySearchResults()
 })
-displaySearchResults()
 
 function expandMoviePlot(e) {
     // retrieve the movie object from the global variable
@@ -174,21 +205,30 @@ function expandMoviePlot(e) {
     plotContainer.innerText = moviePlot
 }
 
-function removeFromWatchlist(e) {
+function addToWatchlist(e) {
     // retrieve the movie object from the global variable
     const movieId = e.target.closest('.card').dataset.movieId
+    const movieObj = searchResults.find(entry => entry.imdbID === movieId)
     
-    let watchList = JSON.parse(localStorage.getItem('watchlist')) || []
-    watchList = watchList.filter(movieObj => movieObj.imdbID !== movieId)
+    // retrieve/instantiate the watchlist
+    const watchList = JSON.parse(localStorage.getItem('watchlist')) || []
     
-    localStorage.setItem('watchlist', JSON.stringify(watchList))
-    displaySearchResults()
+    // only add the movie it is not in the watchlist yet    
+    if (!watchList.find(entry => entry.imdbID == movieId)) {
+        watchList.push(movieObj)
+        localStorage.setItem('watchlist', JSON.stringify(watchList))   
+    }
+    
+    const addMovieBtn = e.target.closest('.add-movie-btn')
+    addMovieBtn.disabled = true
+    addMovieBtn.innerHTML = `<i class="fa-solid fa-circle-check"></i>
+                            In watchlist`
 }
 
 dataContainer.addEventListener('click', e => {
     if (e.target.classList.contains('expand-plot-btn')) {
         expandMoviePlot(e)
-    } else if (e.target.closest('.remove-movie-btn')) {
-        removeFromWatchlist(e)
+    } else if (e.target.closest('.add-movie-btn')) {
+        addToWatchlist(e)
     }
 })
