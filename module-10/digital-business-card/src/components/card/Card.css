@@ -40,6 +40,42 @@
   color: inherit;
 }
 
+.contact-btns {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1em;
+  margin-top: 1em;
+}
+
+.contact-btn {
+  font-size: .875rem;
+
+  /* flex-basis: calc(115em / 14); */
+  flex: 1 0 calc(115em / 14);
+  height: calc(34em / 14);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5em;
+
+  border-radius: calc(6em / 14);
+
+  text-decoration: none;
+}
+
+.email-btn {
+  background-color: white;
+  color: black;
+  border: 1px solid #D1D5DB;
+}
+
+.linkedin-btn {
+  background-color: #5093E2;
+  color: white;
+}
+
 .card-body {
   display: flex;
   flex-direction: column;

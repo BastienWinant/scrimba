@@ -4,6 +4,7 @@
   font-style: normal;
 }
 
+/* DEFAULT PAGE STYLING */
 * {
   margin: 0;
   padding: 0;
@@ -15,6 +16,7 @@
   user-select: none;
 }
 
+/* CSS SELECTORS */
 img {
   display: block;
   max-width: 100%;
