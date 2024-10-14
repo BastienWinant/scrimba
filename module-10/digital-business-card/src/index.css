@@ -11,7 +11,15 @@
 
   font-family: 'Inter', sans-serif;
   font-size: inherit;
+
   user-select: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  object-fit: cover;
+  object-position: top;
 }
 
 @media (prefers-color-scheme: light) {}

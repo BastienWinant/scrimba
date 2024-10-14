@@ -1,0 +1,79 @@
+.card {
+  margin: 2em auto;
+  width: 90vw;
+  max-width: 20em;
+
+  border-radius: .625em;
+  box-shadow: 0 .25em .25em rgba(0, 0, 0, .25);
+}
+
+.card-img {
+  min-height: 20em;
+  width: 20em;
+  border-radius: .625em .625em 0 0;
+}
+
+.card-header,
+.card-body {
+  padding: 1.5em 2em;
+  background-color: #1A1B21;
+  color: white;
+}
+
+.card-header {
+  text-align: center;
+}
+
+.name {
+  font-size: 1.5rem;
+}
+
+.title {
+  font-size: .875rem;
+  color: #F3BF99;
+  margin: calc(6em / 14) 0 calc(8em / 14); 
+}
+
+.portfolio-link {
+  font-size: .75rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+
+.card-body-title {
+  margin-bottom: .33em;
+}
+
+.card-body-text {
+  font-size: .875rem;
+  line-height: 1.5;
+}
+
+.card-footer {
+  font-size: 1.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+
+  padding: calc(20em / 24) 0;
+
+  background-color: #161619;
+  border-radius: 0 0 calc(10em / 24) calc(10em / 24);
+}
+
+.footer-link {
+  color: #918E9B;
+  transition: color .15s ease-in-out;
+}
+
+.footer-link:hover {
+  color: white;
+}
