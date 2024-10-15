@@ -1,8 +1,8 @@
 import './App.css'
 
-import Card from './components/card/Card.jsx'
+import Card from './components/Card/Card'
 
-const App = () => {
+function App() {
   return (
     <>
       <Card />

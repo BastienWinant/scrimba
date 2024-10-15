@@ -1,7 +1,9 @@
-.root-container {
-  min-height: 100vh;
+.root {
   width: 100vw;
+  min-height: 100vh;
 
   display: flex;
+  padding: 2em 1em;
+
   background-color: #23252C;
 }

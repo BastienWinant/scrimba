@@ -1,0 +1,20 @@
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5em;
+  padding: 1.25em 0;
+  background-color: #161619;
+  border-radius: 0 0 .625em .625em;
+}
+
+.footer-link {
+  font-size: 1.5rem;
+  color: #918E9B;
+  text-decoration: none;
+  transition: color .1s ease-in;
+}
+
+.footer-link:hover {
+  color: #F3BF99;
+}
