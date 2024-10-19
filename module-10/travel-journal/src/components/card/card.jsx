@@ -1,7 +1,9 @@
 import './card.css'
 
-export default function Card() {
+export default function Card(props) {
   return (
-    <article className="card">card</article>
+    <article className="card">
+      <img src="" alt="" />
+    </article>
   )
 }

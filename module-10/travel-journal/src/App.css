@@ -2,3 +2,8 @@
   margin: auto;
   max-width: 992px;
 }
+
+.card-feed {
+  display: flex;
+  flex-direction: column;
+}

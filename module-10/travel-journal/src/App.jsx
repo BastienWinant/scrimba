@@ -6,6 +6,9 @@ function App() {
   return (
     <>
       <Header />
+      <main>
+        <div className="card-feed"></div>
+      </main>
     </>
   )
 }
