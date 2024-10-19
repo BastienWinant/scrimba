@@ -1,4 +1,57 @@
 .card-header {
   text-align: center;
-  border: 1px solid black;
+  padding: 0 2em;
+  margin: 1.25em 0 2em;
+}
+
+.name {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.role {
+  font-size: .875rem;
+  color: #F3BF99;
+  margin: .5em 0;
+}
+
+.portfolio-link {
+  font-size: .75rem;
+  text-decoration: none;
+  color: #F5F5F5;
+}
+
+.contact-links {
+  margin-top: 1em;
+
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.contact-link {
+  font-size: .875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5em;
+
+  flex: 1 0 8.25em;
+  height: 2.45em;
+
+  border-radius: .5em;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.email-link {
+  background-color: white;
+  border: 1px solid #D1D5DB;
+  color: #374151;
+}
+
+.linkedin-link {
+  background-color: #5093E2;
+  color: white;
 }

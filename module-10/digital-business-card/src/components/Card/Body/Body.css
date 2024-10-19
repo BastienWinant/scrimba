@@ -1,0 +1,17 @@
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  padding: 0 2em 1.5em;
+}
+
+.card-body-title {
+  margin-bottom: .25em;
+  color: #F5F5F5;
+}
+
+.card-body-text {
+  font-size: .75rem;
+  line-height: 1.5;
+  color: #DCDCDC;
+}

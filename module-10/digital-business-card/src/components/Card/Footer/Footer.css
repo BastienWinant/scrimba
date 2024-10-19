@@ -1,0 +1,21 @@
+.card-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5em;
+  padding: 1.25em;
+
+  background-color: #161619;
+  border-radius: 0 0 .625em .625em;
+}
+
+.footer-link {
+  font-size: 1.5rem;
+  color: #918E9B;
+  transition: color .15s ease-in;
+}
+
+.footer-link:hover {
+  color: white;
+}

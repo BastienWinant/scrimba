@@ -2,4 +2,5 @@
   width: 100%;
   height: auto;
   max-height: 20em;
+  border-radius: .625em .625em 0 0;
 }
