@@ -1,3 +1,10 @@
+:root {
+  --primary: #F55A5A;
+  --text-primary: #2B283A;
+  --link-primary: #918E9B;
+
+}
+
 @font-face {
   font-family: 'Inter';
   src: url('./assets/fonts/Inter-VariableFont_opsz\,wght.ttf');
@@ -16,8 +23,17 @@
 }
 
 /* CSS SELECTORS */
+body {
+  margin: 0;
+  padding: 0;
+}
+
 img {
   display: block;
   max-width: 100%;
   object-fit: cover;
+}
+
+button {
+  cursor: pointer;
 }
