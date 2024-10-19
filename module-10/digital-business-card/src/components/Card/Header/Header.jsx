@@ -7,11 +7,11 @@ export default function Header() {
       <p className="role">Software Engineer</p>
       <a href="#" className="portfolio-link">bastienwinant.com</a>
       <div className="contact-links">
-        <a href="#" className="contact-link email-link">
+        <a href="mailto:bastien.winant@gmail.com" className="contact-link email-link">
           <i class="fa-solid fa-envelope"></i>
           Email
         </a>
-        <a href="#" className="contact-link linkedin-link">
+        <a href="https://www.linkedin.com/in/winant/" className="contact-link linkedin-link" target='_blank'>
           <i class="fa-brands fa-linkedin"></i>
           LinkedIn
         </a>
