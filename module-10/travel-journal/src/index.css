@@ -1,8 +1,10 @@
 :root {
-  --primary: #F55A5A;
-  --text-primary: #2B283A;
-  --link-primary: #918E9B;
-
+  --primary-100: #191919;
+  --primary-200: #272727;
+  --primary-300: #333;
+  --secondary: #F42565;
+  --text-primary: #fff;
+  --text-secondary: #aaa;
 }
 
 @font-face {
@@ -24,8 +26,7 @@
 
 /* CSS SELECTORS */
 body {
-  margin: 0;
-  padding: 0;
+  background-color: var(--primary-100);
 }
 
 img {

@@ -1,12 +1,90 @@
 .card {
   display: flex;
   flex-direction: column;
+  /* gap: .5em; */
+  /* padding: .75em; */
 
-  padding: 1em 0;
-  border-bottom: 1px solid #F5F5F5;
+  border-radius: .75em;
+  background-color: var(--primary-200);
+  border: 1px solid var(--primary-300);
+
+  /* margin-bottom: 1.5em; */
+  /* margin: .75em; */
 }
 
 .card-img {
-  height: 168px;
-  width: 125px;
+  width: 100%;
+  height: 10em;
+  /* border-radius: .25em; */
+  border-radius: .75em .75em 0 0 ;
+}
+
+.card-body {
+  color: var(--text-primary);
+
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+
+  /* padding: 0 .25em; */
+  padding: 1em;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.card-location {
+  font-size: .75rem;
+  display: flex;
+  align-items: center;
+  gap: .33em;
+}
+
+.pin-icon {
+  height: 1em;
+  width: 1em;
+}
+
+.location-name {
+  color: var(--text-secondary);
+}
+
+.card-dates {
+  font-size: .75rem;
+  display: flex;
+  align-items: center;
+  gap: .25em;
+  font-weight: 700;
+}
+
+.card-description {
+  font-size: .75rem;
+  line-height: 1.5;
+}
+
+.google-maps-link {
+  align-self: flex-start;
+  margin-top: 1.5em;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 2.33em;
+  width: 14em;
+
+  background-color: var(--secondary);
+  font-size: .75rem;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 800;
+  border-radius: 2em;
 }
