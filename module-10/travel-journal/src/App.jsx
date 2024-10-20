@@ -1,4 +1,5 @@
 import './App.css'
+import TravelLogs from './assets/data/data.json'
 
 import Header from './components/header/header'
 
