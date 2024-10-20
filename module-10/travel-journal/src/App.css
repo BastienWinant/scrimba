@@ -1,9 +1,10 @@
 .root {
   margin: auto;
-  max-width: 992px;
 }
 
-.card-feed {
-  display: flex;
-  flex-direction: column;
+@media only screen and (min-width: 576px) {
+  .root {
+    width: 80vw;
+    max-width: 768px;
+  }
 }
