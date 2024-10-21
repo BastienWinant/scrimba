@@ -1,21 +1,33 @@
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
 import './App.css'
-import travelLogs from './assets/data/data.json'
-
-import Header from './components/header/header'
-import Card from './components/card/card'
 
 function App() {
-  const cardElements = travelLogs.map((tripObj, i) => {
-    return <Card key={i} item={tripObj} />
-  })
+  const [count, setCount] = useState(0)
 
-  console.log(cardElements)
   return (
     <>
-      <Header />
-      <main>
-        {cardElements}
-      </main>
+      <div>
+        <a href="https://vitejs.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
     </>
   )
 }
