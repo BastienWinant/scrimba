@@ -5,7 +5,7 @@ export default function Card(props) {
   return (
     <article className="card">
       <figure className="card-figure">
-        {/* <img src={props.item.imageUrl} alt="" className="card-img" /> */}
+        <img src={props.item.imageUrl} alt="" className="card-img" />
       </figure>
       <div className="card-body">
         <header className="card-header">
