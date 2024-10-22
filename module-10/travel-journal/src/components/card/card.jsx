@@ -4,9 +4,7 @@ import PinIcon from './pin-3.svg'
 export default function Card(props) {
   return (
     <article className="card">
-      <figure className="card-figure">
-        <img src={props.item.imageUrl} alt="" className="card-img" />
-      </figure>
+      <img src={props.item.imageUrl} alt="" className="card-img" />
       <div className="card-body">
         <header className="card-header">
           <h2 className="card-title">{props.item.title}</h2>
