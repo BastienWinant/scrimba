@@ -1,27 +1,27 @@
-:root {
-  --primary-100: #191919;
-  --primary-200: #272727;
-  --primary-300: #333;
-
-  --text-primary: #fff;
-  --text-secondary: #aaa;
-
-  --accent: #F42565;
+@font-face {
+  font-family: 'Lexend';
+  src: url('./assets/fonts/Lexend-VariableFont_wght.ttf') format('truetype');
+  font-style: normal;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  font-family: 'Lexend', sans-serif;
+  font-size: inherit;
+
+  user-select: none;
 }
 
-/* CSS SELECTORS */
-body {
-  background-color: var(--primary-100);
-}
-
+/* CSS SELECTIONS */
 img {
-  display: block;
   max-width: 100%;
+  display: block;
   object-fit: cover;
+}
+
+dialog {
+  margin: auto;
 }
