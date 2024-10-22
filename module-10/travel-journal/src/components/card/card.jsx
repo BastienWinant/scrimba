@@ -19,7 +19,7 @@ export default function Card(props) {
           <p className="card-date">{props.item.endDate}</p>
         </section>
         <section className="card-description">{props.item.description}</section>
-        <a href={props.item.googleMapsUrl} className="card-link">View on Google Maps</a>
+        <a href={props.item.googleMapsUrl} className="card-link" target='_blank'>View on Google Maps</a>
       </div>
     </article>
   )
