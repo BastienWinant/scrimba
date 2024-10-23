@@ -1,27 +1,13 @@
-@font-face {
-  font-family: 'Lexend';
-  src: url('./assets/fonts/Lexend-VariableFont_wght.ttf') format('truetype');
-  font-style: normal;
-}
-
-* {
+body {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-
-  font-family: 'Lexend', sans-serif;
-  font-size: inherit;
-
-  user-select: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* CSS SELECTIONS */
-img {
-  max-width: 100%;
-  display: block;
-  object-fit: cover;
-}
-
-dialog {
-  margin: auto;
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
