@@ -1,0 +1,21 @@
+.header {
+  height: 3.5em;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5em;
+
+  background-color: var(--accent);
+}
+
+.header-img {
+  height: 1.5em;
+  width: 1.5em;
+}
+
+.header-title {
+  font-size: .875rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
