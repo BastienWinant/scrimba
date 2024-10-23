@@ -9,14 +9,14 @@ function App() {
     return <Card key={idx} item={tripObj} />
   })
   return (
-    <>
+    <div className='app-container'>
       <Header />
       <main>
         <div className="feed">
           {cardElements}
         </div>
       </main>
-    </>
+    </div>
   )
 }
 

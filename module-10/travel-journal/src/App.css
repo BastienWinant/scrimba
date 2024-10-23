@@ -13,9 +13,22 @@ body {
   background-color: var(--primary-100);
 }
 
+.app-container {
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+
+main {
+  flex-grow: 1;
+  overflow-y: scroll;
+}
+
 .feed {
   display: flex;
   flex-direction: column;
   gap: 1.5em;
-  padding: 1.5em;
+  padding: 0 1.5em 1.5em;
 }
