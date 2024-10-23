@@ -23,6 +23,7 @@
 .app-container {
   display: flex;
   flex-direction: column;
+  gap: 1em;
   height: 100vh;
 
   background-color: var(--primary-100);
@@ -34,7 +35,7 @@ main {
 }
 
 .feed {
-  padding: 1em;
+  padding: 0 1em;
 
   display: flex;
   flex-direction: column;
