@@ -1,0 +1,80 @@
+.card {
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--primary-200);
+  border: 1px solid var(--primary-300);
+  border-radius: .75em;
+}
+
+.card-img {
+  height: 10em;
+  border-radius: .75em .75em 0 0;
+}
+
+.card-body {
+  padding: .75em;
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .25em 1em;
+}
+
+.card-title {
+  font-size: .875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.card-location {
+  display: flex;
+  align-items: center;
+  gap: .25em;
+}
+
+.pin-icon {
+  height: .75em;
+  width: auto;
+}
+
+.card-location-name {
+  font-size: .75rem;
+  color: var(--text-secondary);
+}
+
+.card-description {
+  font-size: .75rem;
+  line-height: 1.5em;
+  color: var(--text-primary);
+}
+
+.card-dates {
+  display: flex;
+  align-items: center;
+  gap: .25em;
+  color: var(--text-primary);
+  font-size: .75em;
+  font-weight: 500;
+}
+
+.card-link {
+  align-self: flex-start;
+  padding: .5em 1.5em;
+  margin-top: 1.5em;
+
+  background-color: var(--accent);
+  border-radius: 2em;
+  border: none;
+  
+  color: var(--text-primary);
+  font-size: .75rem;
+  font-weight: 600;
+  text-decoration: none;
+}

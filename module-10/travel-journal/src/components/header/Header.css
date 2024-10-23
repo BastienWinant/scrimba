@@ -1,5 +1,5 @@
 .header {
-  height: 3.5em;
+  flex: 0 0 3.5em;
 
   display: flex;
   align-items: center;

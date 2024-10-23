@@ -32,3 +32,11 @@ main {
   flex-grow: 1;
   overflow-y: scroll;
 }
+
+.feed {
+  padding: 1em;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
