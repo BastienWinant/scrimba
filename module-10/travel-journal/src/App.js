@@ -13,11 +13,11 @@ function App() {
       <div className='app-container'>
         <Header />
         <main>
-          {/* <section className='feed'>
+          <section className='feed'>
             {cardElements}
           </section>
-          <Button /> */}
-          <Form />
+          <Button />
+          {/* <Form /> */}
         </main>
       </div>
     </>
