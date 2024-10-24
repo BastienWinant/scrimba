@@ -2,6 +2,7 @@ import './App.css';
 import Header from './components/header/Header'
 import Card from './components/card/Card';
 import Button from './components/button/button';
+import Form from './components/form/Form';
 
 import tripsData from './assets/data/trips.json'
 
@@ -12,10 +13,11 @@ function App() {
       <div className='app-container'>
         <Header />
         <main>
-          <section className='feed'>
+          {/* <section className='feed'>
             {cardElements}
           </section>
-          <Button />
+          <Button /> */}
+          <Form />
         </main>
       </div>
     </>
