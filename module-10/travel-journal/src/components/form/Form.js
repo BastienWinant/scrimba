@@ -8,22 +8,22 @@ export default function Form() {
         <h3 className='input-label'>image</h3>
         <input type='file' className='input-field' />
       </label>
-      <label className='input-group'>
+      <label className='input-group required'>
         <h3 className='input-label'>title</h3>
-        <input type='text' className='input-field' placeholder='Eiffel Tour, Great Wall,...' autoFocus />
+        <input type='text' className='input-field' placeholder='Eiffel Tour, Great Wall,...' autoFocus required />
       </label>
-      <label className='input-group'>
+      <label className='input-group required'>
         <h3 className='input-label'>location</h3>
-        <input type='text' className='input-field' />
+        <input type='text' className='input-field' required />
       </label>
       <div className='date-inputs'>
-        <label className='input-group'>
+        <label className='input-group required'>
           <h3 className='input-label'>start date</h3>
-          <input type='date' className='input-field' />
+          <input type='date' className='input-field' required />
         </label>
-        <label className='input-group'>
+        <label className='input-group required'>
           <h3 className='input-label'>end date</h3>
-          <input type='date' className='input-field' />
+          <input type='date' className='input-field' required />
         </label>
       </div>
       <label className='input-group'>

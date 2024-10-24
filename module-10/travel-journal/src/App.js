@@ -17,14 +17,14 @@ function App() {
   }
 
   const btnText = showForm ? 'Cancel' : 'Add trip'
+  
   return (
     <>
       <div className='app-container'>
         <Header />
         <main>
-          <Feed tripsData={tripsData} />
+          {showForm ? <Form /> : <Feed tripsData={tripsData} />}
           <Button btnText={btnText} onClick={handleClick} />
-          {/* <Form /> */}
         </main>
       </div>
     </>
