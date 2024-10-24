@@ -5,6 +5,10 @@ export default function Form() {
     <form className='trip-form'>
       <h2 className='trip-form-title'>New trip</h2>
       <label className='input-group'>
+        <h3 className='input-label'>image</h3>
+        <input type='file' className='input-field' />
+      </label>
+      <label className='input-group'>
         <h3 className='input-label'>title</h3>
         <input type='text' className='input-field' placeholder='Eiffel Tour, Great Wall,...' autoFocus />
       </label>

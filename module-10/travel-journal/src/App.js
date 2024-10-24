@@ -1,22 +1,29 @@
 import './App.css';
+
+import { useState } from 'react';
+
 import Header from './components/header/Header'
-import Card from './components/card/Card';
-import Button from './components/button/button';
+import Feed from './components/feed/Feed';
+import Button from './components/button/Button';
 import Form from './components/form/Form';
 
 import tripsData from './assets/data/trips.json'
 
 function App() {
-  const cardElements = tripsData.map((tripObj, idx) => <Card key={idx} item={tripObj} />)
+  const [showForm, setSchowForm] = useState(false)
+
+  function handleClick() {
+    setSchowForm(!showForm)
+  }
+
+  const btnText = showForm ? 'Cancel' : 'Add trip'
   return (
     <>
       <div className='app-container'>
         <Header />
         <main>
-          <section className='feed'>
-            {cardElements}
-          </section>
-          <Button />
+          <Feed tripsData={tripsData} />
+          <Button btnText={btnText} onClick={handleClick} />
           {/* <Form /> */}
         </main>
       </div>
