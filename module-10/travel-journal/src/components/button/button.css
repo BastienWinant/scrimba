@@ -1,0 +1,28 @@
+.new-trip-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5em;
+  padding: .75em 1em;
+
+  position: absolute;
+  bottom: 1.5em;
+  right: 1.5em;
+
+  background-color: var(--accent);
+  border: none;
+  border-radius: 2em;
+
+  cursor: pointer;
+}
+
+.plus-icon {
+  height: .75em;
+  width: .75em;
+}
+
+.new-trip-btn p {
+  font-size: .75rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
