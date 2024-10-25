@@ -1,8 +1,14 @@
 import './Form.css'
+import { useState } from 'react'
 
 export default function Form() {
+  function handleSubmit(e) {
+    e.preventDefault()
+    console.log('adding trip')
+  }
+
   return (
-    <form className='trip-form'>
+    <form className='trip-form' onSubmit={handleSubmit}>
       <h2 className='trip-form-title'>New trip</h2>
       <label className='input-group'>
         <h3 className='input-label'>Image</h3>
