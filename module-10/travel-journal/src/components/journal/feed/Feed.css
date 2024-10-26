@@ -1,0 +1,21 @@
+.feed {
+  height: 100%;
+  width: 100%;
+
+  overflow-y: scroll;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+
+  padding: 1em;
+}
+
+@media only screen and (min-width: 992px) {
+  .feed {
+    flex: 0 0 24em;
+    padding: 1.5em 0;
+    align-items: center;
+    background-color: var(--primary-200);
+  }
+}

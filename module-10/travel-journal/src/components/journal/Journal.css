@@ -1,0 +1,6 @@
+.journal {
+  height: 100%;
+  display: flex;
+  background-color: var(--primary-100);
+  color: var(--text-primary);
+}

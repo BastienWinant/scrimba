@@ -1,0 +1,176 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  background-color: var(--primary-200);
+  color: 1px solid var(--primary-100);
+
+  border-radius: .75em;
+}
+
+.card-img {
+  width: 100%;
+  height: 10.5em;
+  border-radius: .75em .75em 0 0;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+  padding: .75em;
+}
+
+.card-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+.card-title {
+  font-size: .875rem;
+}
+
+.card-location {
+  display: flex;
+  align-items: center;
+  gap: .25em;
+}
+
+.pin-icon {
+  height: .625em;
+  width: auto;
+}
+
+.card-location-name {
+  font-size: .75rem;
+  color: var(--text-secondary);
+}
+
+.card-dates {
+  display: flex;
+  align-items: center;
+  gap: .25em;
+
+  font-size: .75rem;
+  font-weight: 500;
+}
+
+.card-description {
+  font-size: .75rem;
+  line-height: 1.5;
+}
+
+.card-link {
+  align-self: flex-start;
+  margin-top: 1.5em;
+
+  font-size: .75rem;
+  font-weight: 600;
+  text-decoration: none;
+
+  padding: .5em 1.5em;
+  border-radius: 2em;
+
+  background-color: var(--accent);
+  color: var(--text-primary);
+}
+
+.card-btn {
+  display: none;
+}
+
+@media only screen and (min-width: 576px) {
+  .card {
+    flex-direction: row;
+    padding: 0;
+  }
+
+  .card-img {
+    flex: 0 0 25%;
+    width: 25%;
+    height: 12em;
+
+    border-radius: .375em;
+  }
+
+  .card-body {
+    padding: .75em 1.25em;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .card-link {
+    margin-top: auto;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .card {
+    width: 20em;
+    height: 16em;
+    border-radius: 1.5em;
+  }
+
+  .card-img {
+    flex: 1 0 100%;
+    height: 100%;
+    border-radius: 1.5em;
+  }
+
+  .card-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 1.5em;
+    background-color: rgba(0, 0, 0, .25);
+  }
+
+  .card-body {
+    display: none;
+  }
+
+  .card-btn {
+    position: absolute;
+
+    height: 100%;
+    width: 100%;
+    border-radius: 1.5em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+
+    background-color: rgba(0, 0, 0, .35);
+    color: var(--text-primary);
+  }
+
+  .card-btn:hover {
+    background-color: rgba(0, 0, 0, .25);
+  }
+
+  .card-btn p {
+    font-size: 1.5em;
+    font-weight: 600;
+  }
+
+  .card-btn span {
+    font-size: .875rem;
+    font-weight: 500;
+
+    background-color: var(--accent);
+    padding: .75em 2em;
+    border-radius: .75em;
+  }
+}
