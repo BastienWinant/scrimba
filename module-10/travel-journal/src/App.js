@@ -1,6 +1,6 @@
 import './App.css'
 
-import tripsData from './assets/data/trips.json'
+import TripsProvider from './providers/entriesProvider'
 
 import Header from './components/header/Header'
 import Journal from './components/journal/Journal'
@@ -10,7 +10,9 @@ function App() {
     <div className='app-container'>
       <Header />
       <main>
-        <Journal entries={tripsData} />
+        <TripsProvider>
+          <Journal />
+        </TripsProvider>
       </main>
     </div>
   )

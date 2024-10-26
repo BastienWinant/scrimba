@@ -5,7 +5,7 @@ import { useState } from 'react'
 import Feed from './feed/Feed'
 import Display from './display/Display'
 
-export default function Journal(props) {
+export default function Journal() {
   const [cardIndex, setCardIndex] = useState(0)
 
   const updateCardIndex = (idx) => {
@@ -14,7 +14,7 @@ export default function Journal(props) {
 
   return (
     <div className="journal">
-      <Feed entries={props.entries} />
+      <Feed displayCardIdx={cardIndex} />
       <Display />
     </div>
   )
