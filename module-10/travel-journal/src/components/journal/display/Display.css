@@ -1,0 +1,47 @@
+.display {
+  display: none;
+}
+
+@media only screen and (min-width: 992px) {
+  .display {
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+  }
+
+  .display-title {
+    font-size: 3em;
+    font-weight: 500;
+    margin-bottom: .5em;
+  }
+
+  .display-location {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
+
+  .display-pin-icon {
+    height: 1.25rem;
+    width: auto;
+  }
+
+  .display-location-name {
+    font-size: 1.5em;
+    color: var(--text-secondary);
+  }
+
+  .display-img {
+    height: 20em;
+    align-self: stretch;
+    border-radius: 3em;
+    margin: 2em 0;
+  }
+
+  .display-description {
+    font-size: 1.125rem;
+    line-height: 1.5;
+  }
+}
