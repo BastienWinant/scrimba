@@ -2,20 +2,22 @@ import './Journal.css'
 
 import { useState } from 'react'
 
+import tripsData from '../../assets/data/trips.json'
+
 import Feed from './feed/Feed'
 import Display from './display/Display'
 
 export default function Journal() {
-  const [cardIndex, setCardIndex] = useState(0)
+  const [tripObj, setTripObj] = useState(tripsData[0])
 
-  const updateCardIndex = (idx) => {
-    setCardIndex(idx)
+  const updateTripObj = (idx) => {
+    setTripObj(tripsData[idx])
   }
 
   return (
     <div className="journal">
-      <Feed displayCardIdx={cardIndex} />
-      <Display />
+      <Feed entries={tripsData} handleClick={updateTripObj} />
+      <Display tripObj={tripObj} />
     </div>
   )
 }

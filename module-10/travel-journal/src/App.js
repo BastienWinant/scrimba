@@ -1,7 +1,5 @@
 import './App.css'
 
-import TripsProvider from './providers/tripsProvider'
-
 import Header from './components/header/Header'
 import Journal from './components/journal/Journal'
 
@@ -10,9 +8,7 @@ function App() {
     <div className='app-container'>
       <Header />
       <main>
-        <TripsProvider>
-          <Journal />
-        </TripsProvider>
+        <Journal />
       </main>
     </div>
   )

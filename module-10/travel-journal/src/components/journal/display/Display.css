@@ -20,7 +20,7 @@
   .display-location {
     display: flex;
     align-items: center;
-    gap: 1em;
+    gap: .75em;
   }
 
   .display-pin-icon {
