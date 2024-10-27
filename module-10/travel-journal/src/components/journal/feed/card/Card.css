@@ -119,7 +119,7 @@
 
   .card-img {
     flex: 1 0 100%;
-    height: 100%;
+    height: 16em;
     border-radius: 1.5em;
   }
 
