@@ -1,6 +1,6 @@
 import './Feed.css'
 
-import { useTripsListContext } from '../../../providers/entriesProvider'
+import { useTripsListContext } from '../../../providers/tripsProvider'
 
 import Card from './card/Card'
 
