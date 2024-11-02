@@ -14,13 +14,7 @@ export default function App() {
 		notes.find(note => note.id === currentNoteId) 
 		|| notes[0]
 	
-	const sortedNotes = notes.sort((a, b) => {
-		if (a.updatedAt > b.updatedAt) {
-			return -1
-		} else {
-			return 1
-		}
-	})
+	const sortedNotes = notes.sort((a, b) => b.updatedAt - a.updatedAt)
 
 	React.useEffect(() => {
 		const unsubscribe = onSnapshot(notesCollection, (snapshot) => {
