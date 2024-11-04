@@ -44,7 +44,7 @@ main {
 
   color: #F5F7FB;
   font-weight: 500;
-  font-family: 'Inter';
+  font-family: 'Inter', sans-serif;
 
   cursor: pointer;
 }

@@ -1,4 +1,5 @@
 import './Quiz.css'
+import MultipleChoiceQuestion from './multipleChoiceQuestion/MultipleChoiceQuestion'
 
 export default function Quiz(props) {
   return (
