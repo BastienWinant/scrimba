@@ -8,14 +8,10 @@ function App() {
   const [tenzies, setTenzies] = React.useState(false)
 
   React.useEffect(() => {
-    for (const die of dice) {
-      if (!die.isHeld || die.value != dice[0].value) {
-        console.log('Not tenzies')
-        return
-      }
+    if (dice.every(die => die.isHeld && die.value === dice[0].value)) {
+      setTenzies(true)
+      console.log('You won!')
     }
-
-    setTenzies(true)
   }, [dice])
 
   function allNewDice() {
