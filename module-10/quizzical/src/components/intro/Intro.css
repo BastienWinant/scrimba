@@ -1,0 +1,29 @@
+.intro {
+  margin: auto;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: 'Karla', sans-serif;
+  margin-bottom: .25em;
+}
+
+.description {
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 1.75em;
+}
+
+.new-quiz-btn {
+  width: 12em;
+  height: 3.25em;
+  border: none;
+  border-radius: 1em;
+  background-color: #4D5B9E;
+  color: #F5F7FB;
+  font-family: 'Inter';
+  font-weight: 500;
+  margin: auto;
+  cursor: pointer;
+}
