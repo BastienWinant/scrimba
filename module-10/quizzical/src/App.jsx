@@ -5,9 +5,11 @@ import Quiz from './components/quiz/Quiz'
 
 function App() {
   const [quizStarted, setQuizStarted] = React.useState(false)
+  const [questions, setQuestions] = React.useState([])
 
   const startQuiz = () => {
     setQuizStarted(true)
+    setQuestions([]) // TODO: fetch api data
   }
 
   return (
