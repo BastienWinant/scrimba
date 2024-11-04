@@ -6,7 +6,7 @@ export default function Intro(props) {
       <h1>Quizzical</h1>
       <p className="description">Some description if needed</p>
       <button
-        className="new-quiz-btn"
+        className="btn new-quiz-btn"
         onClick={props.startQuiz}
       >
         Start quiz
