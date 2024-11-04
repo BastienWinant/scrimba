@@ -20,11 +20,26 @@ function App() {
   }
 
   function rollDice() {
-    setDice(allNewDice())
+    setDice(prevDice => prevDice.map(die => {
+      return die.isHeld ? die : {
+        value: Math.ceil(Math.random() * 6),
+        isHeld: false,
+        id: nanoid()
+      }
+    }))
   }
 
   function holdDice(id) {
-    console.log(id)
+    setDice(prevDice => prevDice.map(die => {
+      if (die.id === id) {
+        return {
+          ...die,
+          isHeld: !die.isHeld
+        }
+      } else {
+        return die
+      }
+    }))
   }
 
   const dieElements = dice.map(die => <Die
