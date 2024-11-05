@@ -85,8 +85,6 @@ function App() {
     setQuizStarted(true)
   }
 
-  console.log(questions)
-
   return (
     <main>
       {
