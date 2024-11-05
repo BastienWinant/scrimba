@@ -1,12 +1,12 @@
 @font-face {
-  font-family: 'Karla';
-  src: url('./assets/fonts/Karla/Karla-VariableFont_wght.ttf') format('truetype');
+  font-family: 'Inter';
+  src: url('./assets/fonts/Inter/Inter-VariableFont_opsz\,wght.ttf') format('truetype');
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Inter';
-  src: url('./assets/fonts/Inter/Inter-VariableFont_opsz\,wght.ttf') format('truetype');
+  font-family: 'Karla';
+  src: url('./assets/fonts/Karla/Karla-VariableFont_wght.ttf') format('truetype');
   font-style: normal;
 }
 
@@ -15,36 +15,37 @@
   padding: 0;
   box-sizing: border-box;
 
-  font-family: inherit;
   font-size: inherit;
+  font-family: inherit;
 }
 
 body {
   background-color: #F5F7FB;
+  color: #293264;
 }
 
 main {
-  min-height: 100vh;
   width: 90vw;
   max-width: 550px;
-  margin: 0 auto;
+  min-height: 100vh;
+  margin: auto;
 
   display: flex;
-  color: #293264;
+
   border: 1px solid black;
 }
 
 .btn {
-  width: 12em;
   height: 3.25em;
+  width: 12em;
 
+  border-radius: 1em;
   background-color: #4D5B9E;
   border: none;
-  border-radius: 1em;
-
   color: #F5F7FB;
   font-weight: 500;
   font-family: 'Inter', sans-serif;
 
   cursor: pointer;
+  margin: 0 auto;
 }

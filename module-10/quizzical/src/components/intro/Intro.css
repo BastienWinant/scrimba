@@ -1,16 +1,16 @@
 .intro {
   margin: auto;
   text-align: center;
+  border: 1px solid black;
 }
 
 h1 {
   font-size: 2rem;
-  font-weight: 600;
-  font-family: 'Karla', sans-serif;
   margin-bottom: .25em;
+  font-family: 'Karla', sans-serif;
 }
 
 .description {
-  font-family: 'Inter', sans-serif;
   margin-bottom: 1.75em;
+  font-family: 'Inter', sans-serif;
 }

@@ -1,19 +1,29 @@
+import React from 'react'
 import './Quiz.css'
-import MultipleChoiceQuestion from './multipleChoiceQuestion/MultipleChoiceQuestion'
+import QuestionSet from './questionSet/QuestionSet'
 
 export default function Quiz(props) {
-  const mcqs = props.questions.map(question => {
-    const answers = [question.correct_answer].concat(question.incorrect_answers)
-    console.log(answers)
+  const [formData, setFormData] = React.useState({})
 
-    return <MultipleChoiceQuestion
-              question={question.question}
-              answers={answers}
-          />
-  })
+  React.useEffect(() => {
+    // select an answer at random for each question
+    const defaultFormData = {}
+    props.questions.forEach(question => {
+      const randomIndex = Math.floor(Math.random() * question.options.length)
+      defaultFormData[question.id] = question.options[randomIndex]
+    })
+    setFormData(defaultFormData)
+  }, [])
+
+  console.log(formData)
+
+  function handleClick() {
+    console.log('Submitting the form...')
+  }
+
   return (
-    <form method="post" className="quiz-form">
-      <button type="submit" className="btn submit-quiz-btn">Check answers</button>
+    <form method="post" className="quiz-form" onClick={handleClick}>
+      <button className="btn submit-btn">Check answers</button>
     </form>
   )
 }
