@@ -9,7 +9,7 @@ export default function QuestionSet(props) {
     const correctAnswer = props.question.correct_answer === option
 
     let style = {}
-    if (props.disabled) {// if the quiz has been submitted
+    if (props.disabled) { // if the quiz has been submitted
       if (correctAnswer) {
         style = {
           backgroundColor: '#94D7A2',
