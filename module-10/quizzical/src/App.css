@@ -29,10 +29,11 @@ main {
   max-width: 550px;
   min-height: 100vh;
   margin: auto;
+  padding: 2em 0;
 
   display: flex;
 
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .btn {
@@ -42,10 +43,10 @@ main {
   border-radius: 1em;
   background-color: #4D5B9E;
   border: none;
+
   color: #F5F7FB;
   font-weight: 500;
   font-family: 'Inter', sans-serif;
 
   cursor: pointer;
-  margin: 0 auto;
 }

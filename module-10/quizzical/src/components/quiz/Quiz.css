@@ -1,3 +1,21 @@
+.quiz-form {
+  margin: auto;
+}
+
+.quiz-submit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1em 3em;
+}
+
+.score {
+  font-size: .875rem;
+  font-weight: 800;
+  font-family: 'Inter', sans-serif;
+}
+
 .submit-btn {
   font-size: .625rem;
 }

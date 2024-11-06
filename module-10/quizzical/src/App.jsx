@@ -91,8 +91,6 @@ function App() {
     }
   }
 
-  console.log(questions)
-
   return (
     <main>
       {
