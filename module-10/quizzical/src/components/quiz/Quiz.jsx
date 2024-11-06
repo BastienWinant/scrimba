@@ -19,11 +19,21 @@ export default function Quiz(props) {
     console.log('Submitting the form...')
   }
 
+  function handleChange(event) {
+    const {name, value} = event.target
+
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      [name]: value
+    }))
+  }
+
   const questionSets = props.questions.map(question => {
     return <QuestionSet
               key={question.id}
               question={question}
               formData={formData}
+              handleChange={handleChange}
             />
   })
 
