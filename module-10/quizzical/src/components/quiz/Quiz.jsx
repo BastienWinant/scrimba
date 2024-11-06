@@ -15,14 +15,21 @@ export default function Quiz(props) {
     setFormData(defaultFormData)
   }, [])
 
-  console.log(formData)
-
   function handleClick() {
     console.log('Submitting the form...')
   }
 
+  const questionSets = props.questions.map(question => {
+    return <QuestionSet
+              key={question.id}
+              question={question}
+              formData={formData}
+            />
+  })
+
   return (
     <form method="post" className="quiz-form" onClick={handleClick}>
+      {questionSets}
       <button className="btn submit-btn">Check answers</button>
     </form>
   )
