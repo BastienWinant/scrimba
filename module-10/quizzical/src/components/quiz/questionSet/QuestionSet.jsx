@@ -10,7 +10,6 @@ export default function QuestionSet(props) {
 
     let style = {}
     if (props.disabled) {// if the quiz has been submitted
-      console.log(correctAnswer)
       if (correctAnswer) {
         style = {
           backgroundColor: '#94D7A2',

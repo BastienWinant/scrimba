@@ -1,6 +1,7 @@
 .intro {
   margin: auto;
   text-align: center;
+  position: relative;
 }
 
 h1 {
@@ -12,5 +13,16 @@ h1 {
 .description {
   margin-bottom: 1.75em;
   font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+}
+
+.error-msg {
+  position: absolute;
+  bottom: -4.5em;
+
+  color: red;
+  font-size: .75rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
   line-height: 1.5;
 }

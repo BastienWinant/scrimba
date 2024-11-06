@@ -9,6 +9,7 @@ import data from './assets/data/questions.json'
 function App() {
   const [quizStarted, setQuizStarted] = React.useState(false)
   const [questions, setQuestions] = React.useState([])
+  const [apiError, setApiError] = React.useState(false)
 
   // only start the quiz if the questions array is filled
   React.useEffect(() => {
@@ -33,7 +34,7 @@ function App() {
           .sort(() => Math.random() - 0.5) // shuffle the answers
         return {id: nanoid(), ...question}}))
     } else {
-      console.log('Error')
+      setApiError(true)
     }
   }
 
@@ -46,7 +47,7 @@ function App() {
           setQuizStarted={setQuizStarted}
         />
         :
-        <Intro handleClick={createQuiz} />
+        <Intro handleClick={createQuiz} apiError={apiError} />
       }
     </main>
   )
