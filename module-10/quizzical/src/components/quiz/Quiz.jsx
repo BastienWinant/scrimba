@@ -56,6 +56,7 @@ export default function Quiz(props) {
               question={question}
               formData={formData}
               handleChange={handleChange}
+              disabled={quizSubmitted}
             />
   })
 

@@ -14,6 +14,7 @@ export default function QuestionSet(props) {
               value={option}
               checked={option === props.formData[props.question.id]}
               onChange={props.handleChange}
+              disabled={props.disabled}
             />
             <span>{option}</span>
           </label>
