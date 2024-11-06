@@ -3,6 +3,7 @@ import './App.css'
 import Intro from './components/intro/Intro'
 import Quiz from './components/quiz/Quiz'
 import { nanoid } from 'nanoid'
+import data from './assets/data/questions.json'
 
 function App() {
   const [quizStarted, setQuizStarted] = React.useState(false)
@@ -17,67 +18,6 @@ function App() {
     // fetch('https://opentdb.com/api.php?amount=5')
     //   .then(res => res.json())
     //   .then(data => console.log(data))
-    const data = {
-      "response_code": 0,
-      "results": [
-        {
-          "type": "multiple",
-          "difficulty": "easy",
-          "category": "Entertainment: Board Games",
-          "question": "How many dice are used in the game of Yahtzee?",
-          "correct_answer": "Five",
-          "incorrect_answers": [
-            "Four",
-            "Six",
-            "Eight"
-          ]
-        },
-        {
-          "type": "multiple",
-          "difficulty": "medium",
-          "category": "Entertainment: Video Games",
-          "question": "In the Portal series of games, who was the founder of Aperture Science?",
-          "correct_answer": "Cave Johnson",
-          "incorrect_answers": [
-            "GLaDOs",
-            "Wallace Breen",
-            "Gordon Freeman"
-          ]
-        },
-        {
-          "type": "boolean",
-          "difficulty": "easy",
-          "category": "Entertainment: Video Games",
-          "question": "In RuneScape, one must complete the &quot;Dragon Slayer&quot; quest before equipping Rune Platelegs.",
-          "correct_answer": "False",
-          "incorrect_answers": [
-            "True"
-          ]
-        },
-        {
-          "type": "boolean",
-          "difficulty": "hard",
-          "category": "History",
-          "question": "Japan was part of the Allied Powers during World War I.",
-          "correct_answer": "True",
-          "incorrect_answers": [
-            "False"
-          ]
-        },
-        {
-          "type": "multiple",
-          "difficulty": "medium",
-          "category": "Geography",
-          "question": "Which Canadian province has Charlottetown as its capital?",
-          "correct_answer": "Prince Edward Island",
-          "incorrect_answers": [
-            "Saskachewan",
-            "Northwest Terrirories",
-            "Ontario"
-          ]
-        }
-      ]
-    }
 
     // verify that question data has been returned
     if (data.response_code === 0) {
@@ -95,7 +35,10 @@ function App() {
     <main>
       {
         quizStarted ?
-        <Quiz questions={questions} />
+        <Quiz
+          questions={questions}
+          setQuizStarted={setQuizStarted}
+        />
         :
         <Intro handleClick={createQuiz} />
       }

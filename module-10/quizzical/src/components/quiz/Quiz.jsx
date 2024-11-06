@@ -31,14 +31,14 @@ export default function Quiz(props) {
       }
     }
 
-    setQuizSubmitted(prevQuizSubmitted => !prevQuizSubmitted)
+    setQuizSubmitted(true)
     setScore(correctAnswerCount)
   }
 
   function resetQuiz(event) {
     event.preventDefault()
 
-    setQuizSubmitted(prevQuizSubmitted => !prevQuizSubmitted)
+    setQuizSubmitted(false)
   }
 
   function handleChange(event) {
