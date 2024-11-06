@@ -3,6 +3,7 @@ import './App.css'
 import Intro from './components/intro/Intro'
 import Quiz from './components/quiz/Quiz'
 import { nanoid } from 'nanoid'
+import { decode } from 'html-entities'
 import data from './assets/data/questions.json'
 
 function App() {
@@ -22,6 +23,11 @@ function App() {
     // verify that question data has been returned
     if (data.response_code === 0) {
       setQuestions(data.results.map(question => {
+        // decode html entities in the raw data
+        question.question = decode(question.question)
+        question.correct_answer = decode(question.correct_answer)
+        question.incorrect_answers = question.incorrect_answers.map(answer => decode(answer))
+        
         question.options = [question.correct_answer]
           .concat(question.incorrect_answers) // combine all answers into one array
           .sort(() => Math.random() - 0.5) // shuffle the answers
