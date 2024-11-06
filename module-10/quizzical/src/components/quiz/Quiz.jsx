@@ -38,7 +38,7 @@ export default function Quiz(props) {
   function resetQuiz(event) {
     event.preventDefault()
 
-    setQuizSubmitted(false)
+    props.setQuizStarted(false)
   }
 
   function handleChange(event) {
