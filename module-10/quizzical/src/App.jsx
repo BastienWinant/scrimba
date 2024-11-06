@@ -37,7 +37,6 @@ function App() {
           setApiError(true)
         }
       })
-      .catch(setApiError(true))
   }
 
   return (
