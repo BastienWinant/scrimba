@@ -1,6 +1,6 @@
 import {type JSX} from "react"
 
-type DieProps = {
+export type DieProps = {
 	isHeld: boolean
 	hold: (id: number) => void
 	value: number
