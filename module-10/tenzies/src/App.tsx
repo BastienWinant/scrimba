@@ -17,7 +17,7 @@ export default function App():JSX.Element {
     dice.every(die => die.value === dice[0].value)
 
   useEffect(() => {
-    if (gameWon) {
+    if (gameWon && buttonRef.current) {
       buttonRef.current.focus()
     }
   }, [gameWon])
@@ -52,7 +52,7 @@ export default function App():JSX.Element {
     ))
   }
 
-  const diceElements:JSX.Element[] = dice.map((dieObj:DieType) => (
+  const diceElements:JSX.Element[] = dice.map((dieObj:DieType):JSX.Element => (
     <Die
       key={dieObj.id}
       value={dieObj.value}
